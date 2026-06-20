@@ -9,99 +9,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     
     <style>
-        /* Asosiy sozlamalar */
+        * { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
         
-        header { background-color: #0b1d30; color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
+        header { background-color: #0b1d30; color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
+        header.scrolled { padding: 12px 50px; background-color: rgba(11, 29, 48, 0.95); backdrop-filter: blur(10px); box-shadow: 0 5px 25px rgba(0,0,0,0.4); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; transition: font-size 0.4s ease; }
+        header.scrolled h1 { font-size: 21px; }
         header h1 span { color: #f1c40f; }
-        nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; cursor: pointer; border-bottom: 2px solid transparent; }
+        nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; cursor: pointer; border-bottom: 2px solid transparent; position: relative; }
         nav a:hover { color: #f1c40f; border-bottom: 2px solid #f1c40f; }
 
-        /* YAngi ZAMONAVIY ASOSIY BANNER (Split Design) */
         .hero { 
-            background: linear-gradient(135deg, #0b1d30 0%, #1a3a5c 100%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 150px 8% 100px 8%;
-            margin-top: 60px; /* Header yopib qo'ymasligi uchun */
-            min-height: 60vh;
-            gap: 40px;
+            background: linear-gradient(135deg, #0b1d30 0%, #1a3a5c 50%, #0b1d30 100%);
+            background-size: 200% 200%;
+            animation: gradientFlow 12s ease infinite;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 150px 8% 100px 8%; margin-top: 60px; min-height: 60vh; gap: 40px;
+            position: relative; overflow: hidden;
         }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.15) 0%, rgba(241,196,15,0) 70%); z-index: 0; pointer-events: none; }
+        .hero::before { width: 400px; height: 400px; top: -100px; left: -100px; animation: floatBlob 14s ease-in-out infinite; }
+        .hero::after { width: 300px; height: 300px; bottom: -80px; right: 10%; animation: floatBlob 18s ease-in-out infinite reverse; }
+        @keyframes floatBlob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
         
-        .hero-text {
-            flex: 1;
-            text-align: left;
-            color: white;
-        }
+        .hero-text { flex: 1; text-align: left; color: white; position: relative; z-index: 2; }
         .hero-text h2 { font-size: 45px; margin-bottom: 20px; line-height: 1.2; }
         .hero-text p { font-size: 18px; max-width: 600px; margin-bottom: 35px; line-height: 1.6; color: #e0e0e0; }
         
-        .hero-image-box {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .hero-image-box img {
-            max-width: 100%;
-            max-height: 480px; /* Rasmingiz kesilmaydi, to'liq sig'adi */
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 4px solid #f1c40f; /* Chiroyli sariq ramka */
-            object-fit: contain;
-            position: relative;
-            z-index: 2;
-        }
-        /* Rasm orqasidagi chiroyli effekt (soya/fon) */
-        .hero-image-box::before {
-            content: '';
-            position: absolute;
-            width: 80%;
-            height: 90%;
-            background: rgba(241, 196, 15, 0.15);
-            border-radius: 15px;
-            transform: rotate(6deg) translate(15px, 15px);
-            z-index: 1;
-        }
+        .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; }
+        .hero-image-box img { max-width: 100%; max-height: 480px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 4px solid #f1c40f; object-fit: contain; position: relative; z-index: 2; animation: floatImage 5s ease-in-out infinite; }
+        @keyframes floatImage { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+        .hero-image-box::before { content: ''; position: absolute; width: 80%; height: 90%; background: rgba(241, 196, 15, 0.15); border-radius: 15px; transform: rotate(6deg) translate(15px, 15px); z-index: 1; animation: pulseGlow 5s ease-in-out infinite; }
+        @keyframes pulseGlow { 0%, 100% { transform: rotate(6deg) translate(15px, 15px); opacity: 0.6; } 50% { transform: rotate(8deg) translate(20px, 20px); opacity: 1; } }
         
-        .btn { background-color: #f1c40f; color: #0b1d30; padding: 14px 40px; text-decoration: none; font-size: 18px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); }
+        .btn { background-color: #f1c40f; color: #0b1d30; padding: 14px 40px; text-decoration: none; font-size: 18px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); position: relative; overflow: hidden; }
         .btn:hover { background-color: #ffffff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3); }
+        .btn .ripple { position: absolute; border-radius: 50%; background: rgba(11, 29, 48, 0.3); transform: scale(0); animation: rippleEffect 0.6s linear; pointer-events: none; }
+        @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
+        .btn.pulse-cta { animation: btnPulse 2.5s infinite; }
+        @keyframes btnPulse { 0% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } 50% { box-shadow: 0 4px 25px rgba(241, 196, 15, 0.8); } 100% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } }
 
-        /* Xizmatlar qismi */
         .services { padding: 80px 50px; text-align: center; }
         .services h2 { font-size: 36px; margin-bottom: 50px; color: #0b1d30; position: relative; }
         .services h2::after { content: ''; width: 80px; height: 4px; background: #f1c40f; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
         
         .service-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: stretch; }
-        .card { background-color: white; padding: 35px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; text-align: left; border: 1px solid #eee; position: relative; overflow: hidden; }
+        .card { background-color: white; padding: 35px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease; text-align: left; border: 1px solid #eee; position: relative; overflow: hidden; }
         .card:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: #f1c40f; }
-        .card i { font-size: 45px; color: #f1c40f; margin-bottom: 20px; display: block; text-align: center; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f1c40f, #f39c12); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+        .card:hover::before { transform: scaleX(1); }
+        .card i { font-size: 45px; color: #f1c40f; margin-bottom: 20px; display: block; text-align: center; transition: transform 0.4s ease; }
+        .card:hover i { transform: scale(1.2) rotate(-6deg); }
         .card h3 { color: #0b1d30; margin-bottom: 15px; text-align: center; font-size: 22px; }
         .card p { color: #555; line-height: 1.7; font-size: 15px; margin-bottom: 12px; }
         .card .highlight { font-weight: bold; color: #0b1d30; background: rgba(241, 196, 15, 0.1); padding: 2px 5px; border-radius: 4px; }
-        .card .see-more { color: #f1c40f; font-weight: bold; text-align: center; display: block; cursor: pointer; margin-top: 15px; }
+        .card .see-more { color: #f1c40f; font-weight: bold; text-align: center; display: block; cursor: pointer; margin-top: 15px; transition: letter-spacing 0.3s ease; }
+        .card:hover .see-more { letter-spacing: 1px; }
 
-        /* Aloqa qismi */
         .contact { background-color: #ecf0f1; padding: 70px 50px; text-align: center; }
         .contact h2 { margin-bottom: 20px; color: #2c3e50; }
         .contact p { font-size: 18px; margin-bottom: 10px; }
+        .contact p i { color: #f1c40f; margin-right: 8px; }
 
         footer { background-color: #0b1d30; color: white; text-align: center; padding: 20px 0; margin-top: auto; }
 
-        /* Modallar */
+        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
+
         .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .info-content { background-color: white; padding: 50px 40px; border-radius: 25px; width: 80%; max-width: 500px; text-align: center; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 2px solid #f1c40f; }
-        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 32px; color: #333; cursor: pointer; background: none; border: none; }
+        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 32px; color: #333; cursor: pointer; background: none; border: none; transition: transform 0.3s ease, color 0.3s ease; }
+        .close-btn:hover { transform: rotate(90deg); color: #e74c3c; }
         .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid #f1c40f; margin-bottom: 20px; }
-        
         .info-content h2 { color: #0b1d30; margin-bottom: 10px; }
         .info-content p { color: #555; line-height: 1.6; margin-bottom: 30px; }
-        
         .social-links { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 30px; }
         .social-links li a { font-size: 20px; color: #333; transition: 0.3s; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: bold; }
+        .social-links li a:hover { transform: translateY(-4px); }
         .social-links li a.instagram:hover { color: #e1306c; }
         .social-links li a.telegram:hover { color: #0088cc; }
 
@@ -112,7 +103,8 @@
         .price-list li { text-align: center; }
         .year { font-weight: bold; color: #555; display: block; margin-bottom: 5px; }
         .price { font-size: 22px; font-weight: bold; color: #e74c3c; }
-        .price-arrow { font-size: 30px; color: #ccc; }
+        .price-arrow { font-size: 30px; color: #ccc; animation: arrowBounce 1.5s ease-in-out infinite; }
+        @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
         .profit-highlight { font-size: 18px; text-align: center; margin-top: 20px; margin-bottom: 0; }
         .profit-percent { font-size: 24px; font-weight: bold; color: #27ae60; }
 
@@ -124,17 +116,25 @@
         .modal-action-btn { margin-top: 30px; border-radius: 50px; }
         .korzinka-btn { background-color: #e74c3c; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); color: white; }
         .korzinka-btn:hover { background-color: #c0392b; color: white; }
+
+        #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: #f1c40f; color: #0b1d30; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; z-index: 1500; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        #backToTop:hover { background: #0b1d30; color: #f1c40f; transform: translateY(-4px); }
         
-        /* Mobil telefonlar uchun moslashuv */
         @media (max-width: 900px) {
             .hero { flex-direction: column; text-align: center; padding-top: 100px; }
             .hero-text { text-align: center; margin-bottom: 40px; }
+            header, header.scrolled { padding: 12px 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .reveal, .reveal-scale { opacity: 1 !important; transform: none !important; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="mainHeader">
         <h1 class="animate__animated animate__fadeInLeft">M<span>moliya.uz</span></h1>
         <nav class="animate__animated animate__fadeInRight">
             <a onclick="showMyInfo()">Men haqimda</a>
@@ -147,19 +147,17 @@
         <div class="hero-text animate__animated animate__fadeInLeft">
             <h2>Sizning Ishonchli Moliyaviy Hamkoringiz</h2>
             <p>Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.</p>
-            <a onclick="showMyInfo()" class="btn">Men bilan bog'lanish</a>
+            <a onclick="showMyInfo()" class="btn pulse-cta">Men bilan bog'lanish</a>
         </div>
-        
         <div class="hero-image-box animate__animated animate__fadeInRight animate__delay-1s">
-            <img src="user_image.jpg" alt="Jahongirning rasmi">
+            <img src="user_image.jpg" alt="Jahongirning rasmi" onerror="this.src='https://via.placeholder.com/400x480?text=Rasm';">
         </div>
     </section>
 
     <section class="services" id="xizmatlar">
-        <h2>Bizning Xizmatlar va Keyslar</h2>
+        <h2 class="reveal">Bizning Xizmatlar va Keyslar</h2>
         <div class="service-cards">
-            
-            <div class="card animate__animated animate__fadeInUp" onclick="showRealEstateModal()" style="cursor: pointer;">
+            <div class="card reveal-scale" onclick="showRealEstateModal()" style="cursor: pointer;">
                 <i class="fas fa-chart-line"></i>
                 <h3>Ko'chmas Mulk Investitsiyasi</h3>
                 <p>Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.</p>
@@ -167,8 +165,7 @@
                 <p>2026-yilga kelib, yer narxi <span class="highlight">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class="highlight">270% sof o'sish</span> demakdir.</p>
                 <span class="see-more">Batafsil tahlilni ko'rish</span>
             </div>
-
-            <div class="card animate__animated animate__fadeInUp animate__delay-1s" onclick="showKorzinkaModal()" style="cursor: pointer;">
+            <div class="card reveal-scale delay-1" onclick="showKorzinkaModal()" style="cursor: pointer;">
                 <i class="fas fa-calculator"></i>
                 <h3>Soliq Tahlili va Optimallash</h3>
                 <p>Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.</p>
@@ -176,27 +173,27 @@
                 <p>QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.</p>
                 <span class="see-more">Korzinka keysini yoritish</span>
             </div>
-
-            <div class="card animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card reveal-scale delay-2">
                 <i class="fas fa-file-contract"></i>
                 <h3>Biznes Reja Tuzish</h3>
                 <p>Startaplar va amaldagi biznes loyihalari uchun professional moliyaviy model va risk menedjment tizimini ishlab chiqish.</p>
                 <p>Kelajakdagi daromad va xarajatlar balansini aniq matematika bilan prognozlash.</p>
             </div>
-            
         </div>
     </section>
 
     <section class="contact" id="aloqa">
-        <h2>Biz bilan Bog'laning</h2>
-        <p>Manzil: Toshkent shahri</p>
-        <p>Telefon: +998 94 184 01 02</p>
-        <p>Email: mirzayorovjahongir7@gmail.com</p>
+        <h2 class="reveal">Biz bilan Bog'laning</h2>
+        <p class="reveal delay-1"><i class="fas fa-map-marker-alt"></i> Manzil: Toshkent shahri</p>
+        <p class="reveal delay-2"><i class="fas fa-phone"></i> Telefon: +998 94 184 01 02</p>
+        <p class="reveal delay-3"><i class="fas fa-envelope"></i> Email: mirzayorovjahongir7@gmail.com</p>
     </section>
 
     <footer>
         <p>&copy; 2026 Moliya.jahongir.uz - Barcha huquqlar himoyalangan.</p>
     </footer>
+
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Yuqoriga"><i class="fas fa-arrow-up"></i></button>
 
     <div id="infoOverlay" class="info-overlay">
         <div class="info-content animate__animated">
@@ -221,11 +218,11 @@
                 <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s">
                     <h4>Yangihayot Tumani (2021-2026) Narxlar Farqi Misolida:</h4>
                     <ul class="price-list">
-                        <li><span class="year">2021-yil (boshlang'ich):</span> <span class="price">8 000 USD / sotix</span></li>
-                        <i class="fas fa-arrow-down price-arrow"></i>
-                        <li><span class="year">2026-yil (prognoz):</span> <span class="price">30 000 USD / sotix</span></li>
+                        <li><span class="year">2021-yil (boshlang'ich):</span> <span class="price"><span class="counter" data-target="8000">0</span> USD / sotix</span></li>
+                        <i class="fas fa-arrow-right price-arrow"></i>
+                        <li><span class="year">2026-yil (prognoz):</span> <span class="price"><span class="counter" data-target="30000">0</span> USD / sotix</span></li>
                     </ul>
-                    <p class="profit-highlight">Sof o'sish: qariyb <span class="profit-percent">270%</span> 5 yil ichida!</p>
+                    <p class="profit-highlight">Sof o'sish: qariyb <span class="profit-percent"><span class="counter" data-target="270">0</span>%</span> 5 yil ichida!</p>
                 </div>
             </div>
             <button class="btn modal-action-btn">Batafsil tahlil olish</button>
@@ -235,7 +232,7 @@
     <div id="korzinkaOverlay" class="info-overlay">
         <div class="info-content korzinka-content animate__animated">
             <button class="close-btn" onclick="closeKorzinkaModal()">&times;</button>
-            <img src="https://anglesey.uz/wp-content/themes/korzinka-main-dist-master/assets/images/logo.png" alt="Korzinka Logo" class="korzinka-logo">
+            <img src="https://anglesey.uz/wp-content/themes/korzinka-main-dist-master/assets/images/logo.png" alt="Korzinka Logo" class="korzinka-logo" onerror="this.style.display='none';">
             <h2>Anglesey Food (Korzinka) keysini yoritish</h2>
             <div style="text-align: left; margin-top: 15px;">
                 <p>Yirik riteyl subyektlari uchun soliq yuklamasini qonuniy optimallashtirish va xavflarni kamaytirish strategiyalari.</p>
@@ -243,9 +240,9 @@
                     <h4 style="color: #e74c3c;">"Anglesey Food" Supermarketlar Tarmog'i Soliq Optimallashuvi Keysi:</h4>
                     <p>Kompaniyaning moliyaviy barqarorligini oshirish bo'yicha quyidagi choralarni tahlil qilamiz:</p>
                     <ul class="tax-optimization-list">
-                        <li class="animate__animated animate__fadeInRight animate__delay-1-5s"><i class="fas fa-check-circle"></i> QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.</li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.</li>
                         <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> Import tovarlar xarajatlarini soliq nuqtai nazaridan to'g'ri shakllantirish.</li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2-5s"><i class="fas fa-check-circle"></i> Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.</li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.</li>
                     </ul>
                 </div>
             </div>
@@ -254,6 +251,54 @@
     </div>
 
     <script>
+        const mainHeader = document.getElementById('mainHeader');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { mainHeader.classList.add('scrolled'); backToTop.classList.add('show'); }
+            else { mainHeader.classList.remove('scrolled'); backToTop.classList.remove('show'); }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        function animateCounter(el) {
+            const target = +el.getAttribute('data-target');
+            const duration = 1500; const startTime = performance.now();
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 4);
+                const value = Math.floor(eased * target);
+                el.textContent = value.toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
+                if (progress < 1) requestAnimationFrame(update);
+                else el.textContent = target.toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
+            }
+            requestAnimationFrame(update);
+        }
+        function runCountersIn(container) {
+            container.querySelectorAll('.counter').forEach(c => { c.textContent = '0'; animateCounter(c); });
+        }
+
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
         function showMyInfo() {
             const overlay = document.getElementById('infoOverlay');
             const content = overlay.querySelector('.info-content');
@@ -261,14 +306,12 @@
             content.className = 'info-content animate__animated animate__backInDown';
             content.querySelectorAll('p, .social-links li').forEach(el => el.classList.add('animate__fadeInUp'));
         }
-
         function closeMyInfo() {
             const overlay = document.getElementById('infoOverlay');
             const content = overlay.querySelector('.info-content');
             content.className = 'info-content animate__animated animate__zoomOutUp';
             setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content animate__animated'; }, 600);
         }
-
         function showRealEstateModal() {
             const card = document.querySelector('.services .card:nth-child(1)');
             card.classList.add('animate__animated', 'animate__pulse');
@@ -278,16 +321,15 @@
                 overlay.style.display = 'flex';
                 content.className = 'info-content real-estate-content animate__animated animate__zoomInDown';
                 card.classList.remove('animate__animated', 'animate__pulse');
+                runCountersIn(overlay);
             }, 500);
         }
-
         function closeRealEstateModal() {
             const overlay = document.getElementById('realEstateOverlay');
             const content = overlay.querySelector('.info-content');
             content.className = 'info-content real-estate-content animate__animated animate__zoomOutUp';
             setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content real-estate-content animate__animated'; }, 600);
         }
-
         function showKorzinkaModal() {
             const card = document.querySelector('.services .card:nth-child(2)');
             card.classList.add('animate__animated', 'animate__pulse');
@@ -299,23 +341,23 @@
                 card.classList.remove('animate__animated', 'animate__pulse');
             }, 500);
         }
-
         function closeKorzinkaModal() {
             const overlay = document.getElementById('korzinkaOverlay');
             const content = overlay.querySelector('.info-content');
             content.className = 'info-content korzinka-content animate__animated animate__zoomOutUp';
             setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content korzinka-content animate__animated'; }, 600);
         }
-        
         window.onclick = function(event) {
             const myInfoOverlay = document.getElementById('infoOverlay');
             const realEstateOverlay = document.getElementById('realEstateOverlay');
             const korzinkaOverlay = document.getElementById('korzinkaOverlay');
-            
             if (event.target == myInfoOverlay) closeMyInfo();
             else if (event.target == realEstateOverlay) closeRealEstateModal();
             else if (event.target == korzinkaOverlay) closeKorzinkaModal();
         }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); }
+        });
     </script>
 </body>
 </html>
