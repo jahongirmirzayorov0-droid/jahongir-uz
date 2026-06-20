@@ -192,6 +192,8 @@
         .profit-percent { font-size: 24px; font-weight: bold; color: #27ae60; }
 
         .korzinka-content { border-color: #e74c3c; }
+        .hamkorlik-content { border-color: #f1c40f; }
+        .hamkorlik-content h2 { color: #0b1d30; }
         .korzinka-logo { max-width: 150px; height: auto; margin-bottom: 15px; }
         .tax-optimization-list { list-style: none; padding: 0; margin: 0; margin-top: 15px; }
         .tax-optimization-list li { font-size: 14px; color: #555; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
@@ -226,6 +228,7 @@
         <nav class="animate__animated animate__fadeInRight">
             <a onclick="showMyInfo()">Men haqimda</a>
             <a href="#xizmatlar">Xizmatlar</a>
+            <a onclick="showHamkorlikModal()">Hamkorlik</a>
             <a href="#aloqa">Aloqa</a>
         </nav>
     </header>
@@ -339,6 +342,20 @@
                 </div>
             </div>
             <button class="btn modal-action-btn korzinka-btn">Soliq maslahatini olish</button>
+        </div>
+    </div>
+
+    <div id="hamkorlikOverlay" class="info-overlay">
+        <div class="info-content hamkorlik-content animate__animated">
+            <button class="close-btn" onclick="closeHamkorlikModal()">&times;</button>
+            <i class="fas fa-handshake" style="font-size: 60px; color: #f1c40f; margin-bottom: 20px; display: block; animation: pulseGlow 3s ease-in-out infinite;"></i>
+            <h2>Hamkorlikka Xush Kelibsiz!</h2>
+            <p style="font-size: 18px; color: #0b1d30; font-weight: 500;">Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉</p>
+            <p>Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik.</p>
+            <ul class="social-links">
+                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
+                <li><a href="https://t.me/jakhongir_0102" target="_blank" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
+            </ul>
         </div>
     </div>
 
@@ -466,20 +483,35 @@
             setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content korzinka-content animate__animated'; }, 600);
         }
         
+        function showHamkorlikModal() {
+            const overlay = document.getElementById('hamkorlikOverlay');
+            const content = overlay.querySelector('.info-content');
+            overlay.style.display = 'flex';
+            content.className = 'info-content hamkorlik-content animate__animated animate__zoomInDown';
+        }
+        function closeHamkorlikModal() {
+            const overlay = document.getElementById('hamkorlikOverlay');
+            const content = overlay.querySelector('.info-content');
+            content.className = 'info-content hamkorlik-content animate__animated animate__zoomOutUp';
+            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content hamkorlik-content animate__animated'; }, 600);
+        }
+
         window.onclick = function(event) {
             const myInfoOverlay = document.getElementById('infoOverlay');
             const realEstateOverlay = document.getElementById('realEstateOverlay');
             const korzinkaOverlay = document.getElementById('korzinkaOverlay');
+            const hamkorlikOverlay = document.getElementById('hamkorlikOverlay');
             
             if (event.target == myInfoOverlay) closeMyInfo();
             else if (event.target == realEstateOverlay) closeRealEstateModal();
             else if (event.target == korzinkaOverlay) closeKorzinkaModal();
+            else if (event.target == hamkorlikOverlay) closeHamkorlikModal();
         }
 
         /* ESC tugmasi bilan modalni yopish */
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal();
+                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal();
             }
         });
     </script>
