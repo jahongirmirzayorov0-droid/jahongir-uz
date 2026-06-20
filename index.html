@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== XAVFSIZLIK SOZLAMALARI (kiber himoya) ===== -->
+    <!-- Content-Security-Policy: faqat ishonchli manbalardan kontent yuklashga ruxsat (XSS himoyasi) -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        font-src 'self' https://cdnjs.cloudflare.com data:;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;">
+    <!-- Referrer maxfiyligi: boshqa saytlarga to'liq URL yubormaslik -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <title>mmoliya.uz - Moliyaviy Maslahatlar va Tahlillar</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     
     <style>
         /* Asosiy sozlamalar */
@@ -297,8 +314,8 @@
             <h2>Men Haqimda</h2>
             <p>Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.</p>
             <ul class="social-links">
-                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
-                <li><a href="https://t.me/jakhongir_0102" target="_blank" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
+                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
+                <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
             </ul>
         </div>
     </div>
@@ -353,8 +370,8 @@
             <p style="font-size: 18px; color: #0b1d30; font-weight: 500;">Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉</p>
             <p>Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik.</p>
             <ul class="social-links">
-                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
-                <li><a href="https://t.me/jakhongir_0102" target="_blank" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
+                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
+                <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
             </ul>
         </div>
     </div>
