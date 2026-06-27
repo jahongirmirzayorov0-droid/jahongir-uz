@@ -24,12 +24,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" crossorigin="anonymous"/>
     
     <style>
         /* Asosiy sozlamalar */
         * { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #fcfcfc; color: #333; overflow-x: hidden; }
+        body { font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #2d3a45; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+        h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+        nav, .btn, .lang-current, .lang-menu, .mentor-label { font-family: 'Poppins', sans-serif; }
         
         header { background-color: #0b1d30; color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
         header.scrolled { padding: 12px 50px; background-color: rgba(11, 29, 48, 0.95); backdrop-filter: blur(10px); box-shadow: 0 5px 25px rgba(0,0,0,0.4); }
@@ -40,11 +43,19 @@
         nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; cursor: pointer; border-bottom: 2px solid transparent; position: relative; }
         nav a:hover { color: #f1c40f; border-bottom: 2px solid #f1c40f; }
 
-        /* Til almashtirgich */
-        .lang-switcher { display: inline-flex; gap: 5px; margin-left: 25px; }
-        .lang-switcher button { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 4px 9px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 700; transition: 0.3s; font-family: inherit; }
-        .lang-switcher button:hover { border-color: #f1c40f; color: #f1c40f; }
-        .lang-switcher button.active { background: #f1c40f; color: #0b1d30; border-color: #f1c40f; }
+        /* Til almashtirgich (dropdown) */
+        .lang-dropdown { position: relative; margin-left: 28px; display: inline-block; }
+        .lang-current { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.3s; }
+        .lang-current:hover { border-color: #f1c40f; color: #f1c40f; background: rgba(241,196,15,0.1); }
+        .lang-current i { font-size: 11px; transition: transform 0.3s ease; }
+        .lang-dropdown.open .lang-current i { transform: rotate(180deg); }
+        .lang-menu { list-style: none; margin: 0; padding: 6px; position: absolute; top: calc(100% + 10px); right: 0; min-width: 160px; background: #ffffff; border-radius: 10px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s; z-index: 1100; }
+        .lang-dropdown.open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .lang-menu li { margin: 0; }
+        .lang-menu button { width: 100%; text-align: left; background: transparent; border: none; color: #2d3a45; padding: 10px 14px; border-radius: 7px; cursor: pointer; font-size: 14px; font-weight: 500; transition: 0.2s; display: flex; align-items: center; gap: 10px; font-family: inherit; }
+        .lang-menu button:hover { background: #f7f3e3; color: #0b1d30; }
+        .lang-menu button.active { background: #f1c40f; color: #0b1d30; font-weight: 700; }
+        .lang-menu button .flag { font-size: 12px; font-weight: 700; opacity: 0.6; min-width: 26px; }
 
         /* ZAMONAVIY ASOSIY BANNER (Split Design) + jonli gradient */
         .hero { 
@@ -194,7 +205,9 @@
         html[dir="rtl"] .hero-text { text-align: right; }
         html[dir="rtl"] .card { text-align: right; }
         html[dir="rtl"] nav a { margin-left: 0; margin-right: 20px; }
-        html[dir="rtl"] .lang-switcher { margin-left: 0; margin-right: 25px; }
+        html[dir="rtl"] .lang-dropdown { margin-left: 0; margin-right: 28px; }
+        html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+        html[dir="rtl"] .lang-menu button { text-align: right; }
         html[dir="rtl"] .info-content > div[style] { text-align: right !important; }
         html[dir="rtl"] .contact p i { margin-right: 0; margin-left: 8px; }
         
@@ -203,7 +216,7 @@
             .hero-text { text-align: center; margin-bottom: 40px; }
             header, header.scrolled { padding: 12px 20px; }
             nav a { margin-left: 12px; }
-            .lang-switcher { margin-left: 12px; }
+            .lang-dropdown { margin-left: 12px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -220,12 +233,18 @@
             <a href="#xizmatlar" data-i18n="nav_services">Xizmatlar</a>
             <a onclick="showHamkorlikModal()" data-i18n="nav_partnership">Hamkorlik</a>
             <a href="#aloqa" data-i18n="nav_contact">Aloqa</a>
-            <span class="lang-switcher">
-                <button data-lang="uz" onclick="setLang('uz')">UZ</button>
-                <button data-lang="en" onclick="setLang('en')">EN</button>
-                <button data-lang="ru" onclick="setLang('ru')">RU</button>
-                <button data-lang="ar" onclick="setLang('ar')">عربي</button>
-            </span>
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-current" onclick="toggleLangMenu(event)" aria-haspopup="true" aria-expanded="false">
+                    <span id="currentLangLabel">UZB</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="lang-menu" id="langMenu">
+                    <li><button data-lang="uz" onclick="setLang('uz')"><span class="flag">UZB</span> O'zbekcha</button></li>
+                    <li><button data-lang="en" onclick="setLang('en')"><span class="flag">ENG</span> English</button></li>
+                    <li><button data-lang="ru" onclick="setLang('ru')"><span class="flag">RUS</span> Русский</button></li>
+                    <li><button data-lang="ar" onclick="setLang('ar')"><span class="flag">ARB</span> العربية</button></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -549,6 +568,8 @@
             }
         };
 
+        const LANG_LABELS = { uz: 'UZB', en: 'ENG', ru: 'RUS', ar: 'ARB' };
+
         function setLang(lang) {
             if (!translations[lang]) lang = 'uz';
             const dict = translations[lang];
@@ -562,11 +583,35 @@
             });
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-            document.querySelectorAll('.lang-switcher button').forEach(b => {
+            const label = document.getElementById('currentLangLabel');
+            if (label) label.textContent = LANG_LABELS[lang] || 'UZB';
+            document.querySelectorAll('.lang-menu button').forEach(b => {
                 b.classList.toggle('active', b.getAttribute('data-lang') === lang);
             });
+            closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
+
+        /* Dropdown ochish/yopish */
+        function toggleLangMenu(e) {
+            if (e) e.stopPropagation();
+            const dd = document.getElementById('langDropdown');
+            const btn = dd.querySelector('.lang-current');
+            const open = dd.classList.toggle('open');
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        function closeLangMenu() {
+            const dd = document.getElementById('langDropdown');
+            if (!dd) return;
+            dd.classList.remove('open');
+            const btn = dd.querySelector('.lang-current');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+        /* Tashqariga bosilganda dropdownni yopish */
+        document.addEventListener('click', function (e) {
+            const dd = document.getElementById('langDropdown');
+            if (dd && !dd.contains(e.target)) closeLangMenu();
+        });
 
         /* Saqlangan tilni yuklash (standart: o'zbekcha) */
         (function () {
@@ -717,7 +762,7 @@
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal();
+                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu();
             }
         });
     </script>
