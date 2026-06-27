@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline';
-        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-        font-src 'self' https://cdnjs.cloudflare.com data:;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
         img-src 'self' data: https:;
         connect-src 'self';
         object-src 'none';
@@ -22,6 +22,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap" crossorigin="anonymous"/>
     
     <style>
         /* Asosiy sozlamalar */
@@ -98,6 +101,40 @@
         .contact p i { color: #f1c40f; margin-right: 8px; }
 
         footer { background-color: #0b1d30; color: white; text-align: center; padding: 20px 0; margin-top: auto; }
+
+        /* === USTOZ BO'LIMI (elegant, professional) === */
+        .mentor { 
+            background: linear-gradient(135deg, #0b1d30 0%, #15314f 100%);
+            padding: 90px 50px; text-align: center; position: relative; overflow: hidden;
+        }
+        .mentor::before {
+            content: '\201C';
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            font-family: 'Playfair Display', serif; font-size: 200px; color: rgba(241, 196, 15, 0.08);
+            line-height: 1; pointer-events: none; z-index: 0;
+        }
+        .mentor-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .mentor-label { 
+            display: inline-block; color: #f1c40f; font-size: 16px; font-weight: 600; letter-spacing: 4px; 
+            text-transform: uppercase; margin-bottom: 18px;
+        }
+        .mentor-label i { margin-right: 8px; }
+        .mentor-name { 
+            font-family: 'Playfair Display', Georgia, serif; 
+            font-size: 64px; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0;
+            background: linear-gradient(90deg, #f1c40f, #ffffff, #f1c40f);
+            background-size: 200% auto;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+            animation: shineText 5s linear infinite;
+        }
+        @keyframes shineText { to { background-position: 200% center; } }
+        .mentor-divider { width: 90px; height: 4px; background: #f1c40f; border-radius: 2px; margin: 0 auto 22px auto; }
+        .mentor-role { color: #e0e0e0; font-size: 19px; font-style: italic; line-height: 1.6; margin: 0; }
+        @media (max-width: 600px) {
+            .mentor-name { font-size: 42px; }
+            .mentor::before { font-size: 140px; }
+        }
 
         /* === SCROLL ORQALI PAYDO BO'LISH ANIMATSIYASI === */
         .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
@@ -236,6 +273,15 @@
         </div>
     </section>
 
+    <section class="mentor reveal" id="ustoz">
+        <div class="mentor-inner">
+            <span class="mentor-label"><i class="fas fa-graduation-cap"></i> <span data-i18n="mentor_label">Mening Ustozim</span></span>
+            <h2 class="mentor-name">Rajabov Maxmud</h2>
+            <div class="mentor-divider"></div>
+            <p class="mentor-role" data-i18n="mentor_role">Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.</p>
+        </div>
+    </section>
+
     <section class="contact" id="aloqa">
         <h2 class="reveal" data-i18n="contact_title">Biz bilan Bog'laning</h2>
         <p class="reveal delay-1"><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_address">Manzil: Toshkent shahri</span></p>
@@ -345,6 +391,8 @@
                 contact_phone: "Telefon: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 footer_text: "© 2026 Moliya.jahongir.uz - Barcha huquqlar himoyalangan.",
+                mentor_label: "Mening Ustozim",
+                mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.",
                 about_title: "Men Haqimda",
                 about_text: "Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.",
                 re_title: "Ko'chmas Mulk Investitsiyasi Tahlili",
@@ -388,6 +436,8 @@
                 contact_phone: "Phone: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 footer_text: "© 2026 Moliya.jahongir.uz - All rights reserved.",
+                mentor_label: "My Mentor",
+                mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.",
                 about_title: "About Me",
                 about_text: "Hello! I am Jahongir, a financial advisor and analyst. I help take your investments and business to a new level.",
                 re_title: "Real Estate Investment Analysis",
@@ -431,6 +481,8 @@
                 contact_phone: "Телефон: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 footer_text: "© 2026 Moliya.jahongir.uz - Все права защищены.",
+                mentor_label: "Мой наставник",
+                mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.",
                 about_title: "Обо мне",
                 about_text: "Здравствуйте! Я Жахонгир, финансовый консультант и аналитик. Помогу вывести ваши инвестиции и бизнес на новый уровень.",
                 re_title: "Анализ инвестиций в недвижимость",
@@ -474,6 +526,8 @@
                 contact_phone: "الهاتف: +998 94 184 01 02",
                 contact_email: "البريد الإلكتروني: mirzayorovjahongir7@gmail.com",
                 footer_text: "© 2026 Moliya.jahongir.uz - جميع الحقوق محفوظة.",
+                mentor_label: "أستاذي",
+                mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.",
                 about_title: "نبذة عني",
                 about_text: "مرحباً! أنا جهانغير، مستشار ومحلل مالي. أساعدك على الارتقاء باستثماراتك وعملك إلى مستوى جديد.",
                 re_title: "تحليل الاستثمار العقاري",
