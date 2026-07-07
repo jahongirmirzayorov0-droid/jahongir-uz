@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- ===== XAVFSIZLIK SOZLAMALARI (kiber himoya) ===== -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -17,15 +16,14 @@
         form-action 'self';
         upgrade-insecure-requests;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-
     <title>mmoliya.uz - Moliyaviy Maslahatlar va Tahlillar</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" crossorigin="anonymous"/>
-    
+
     <style>
         /* Asosiy sozlamalar */
         * { scroll-behavior: smooth; }
@@ -33,7 +31,10 @@
         h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
         h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; }
         nav, .btn, .lang-current, .lang-menu, .mentor-label { font-family: 'Poppins', sans-serif; }
-        
+
+        /* ===== YANGI: SCROLL PROGRESS BAR (tepadagi oltin chiziq) ===== */
+        #scrollProgress { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, #f1c40f, #f39c12, #f1c40f); z-index: 3000; box-shadow: 0 0 12px rgba(241,196,15,0.7); transition: width 0.08s linear; }
+
         header { background-color: #0b1d30; color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
         header.scrolled { padding: 12px 50px; background-color: rgba(11, 29, 48, 0.95); backdrop-filter: blur(10px); box-shadow: 0 5px 25px rgba(0,0,0,0.4); }
         header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; transition: font-size 0.4s ease; }
@@ -42,7 +43,6 @@
         nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 0; }
         nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; cursor: pointer; border-bottom: 2px solid transparent; position: relative; }
         nav a:hover { color: #f1c40f; border-bottom: 2px solid #f1c40f; }
-
         /* Til almashtirgich (dropdown) */
         .lang-dropdown { position: relative; margin-left: 28px; display: inline-block; }
         .lang-current { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.3s; }
@@ -56,9 +56,8 @@
         .lang-menu button:hover { background: #f7f3e3; color: #0b1d30; }
         .lang-menu button.active { background: #f1c40f; color: #0b1d30; font-weight: 700; }
         .lang-menu button .flag { font-size: 12px; font-weight: 700; opacity: 0.6; min-width: 26px; }
-
         /* ZAMONAVIY ASOSIY BANNER (Split Design) + jonli gradient */
-        .hero { 
+        .hero {
             background: linear-gradient(135deg, #0b1d30 0%, #1a3a5c 50%, #0b1d30 100%);
             background-size: 200% 200%;
             animation: gradientFlow 12s ease infinite;
@@ -71,33 +70,42 @@
         .hero::before { width: 400px; height: 400px; top: -100px; left: -100px; animation: floatBlob 14s ease-in-out infinite; }
         .hero::after { width: 300px; height: 300px; bottom: -80px; right: 10%; animation: floatBlob 18s ease-in-out infinite reverse; }
         @keyframes floatBlob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
-        
+
+        /* ===== YANGI: hero zarrachalar (canvas) va kursor prожektori ===== */
+        #heroCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .hero-spotlight { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.13) 0%, rgba(241,196,15,0) 65%); pointer-events: none; transform: translate(-50%, -50%); z-index: 1; opacity: 0; transition: opacity 0.4s ease; will-change: left, top; }
+
         .hero-text { flex: 1; text-align: left; color: white; position: relative; z-index: 2; }
         .hero-text h2 { font-size: 45px; margin-bottom: 20px; line-height: 1.2; }
         .hero-text p { font-size: 18px; max-width: 600px; margin-bottom: 35px; line-height: 1.6; color: #e0e0e0; }
-        
-        .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; }
+
+        .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; will-change: transform; transition: transform 0.15s ease-out; }
         .hero-image-box img { max-width: 100%; max-height: 480px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 4px solid #f1c40f; object-fit: contain; position: relative; z-index: 2; animation: floatImage 5s ease-in-out infinite; }
         @keyframes floatImage { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
         .hero-image-box::before { content: ''; position: absolute; width: 80%; height: 90%; background: rgba(241, 196, 15, 0.15); border-radius: 15px; transform: rotate(6deg) translate(15px, 15px); z-index: 1; animation: pulseGlow 5s ease-in-out infinite; }
         @keyframes pulseGlow { 0%, 100% { transform: rotate(6deg) translate(15px, 15px); opacity: 0.6; } 50% { transform: rotate(8deg) translate(20px, 20px); opacity: 1; } }
-        
+
         .btn { background-color: #f1c40f; color: #0b1d30; padding: 14px 40px; text-decoration: none; font-size: 18px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); position: relative; overflow: hidden; }
         .btn:hover { background-color: #ffffff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3); }
         .btn .ripple { position: absolute; border-radius: 50%; background: rgba(11, 29, 48, 0.3); transform: scale(0); animation: rippleEffect 0.6s linear; pointer-events: none; }
         @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
         .btn.pulse-cta { animation: btnPulse 2.5s infinite; }
         @keyframes btnPulse { 0% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } 50% { box-shadow: 0 4px 25px rgba(241, 196, 15, 0.8); } 100% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } }
-
+        /* magnit tugma yumshoq harakat qilishi uchun */
+        .btn.magnetic { transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), background-color 0.3s, box-shadow 0.3s; }
         .services { padding: 80px 50px; text-align: center; }
         .services h2 { font-size: 36px; margin-bottom: 50px; color: #0b1d30; position: relative; }
         .services h2::after { content: ''; width: 80px; height: 4px; background: #f1c40f; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-        
-        .service-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: stretch; }
-        .card { background-color: white; padding: 35px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease; text-align: left; border: 1px solid #eee; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-15px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: #f1c40f; }
-        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f1c40f, #f39c12); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+
+        .service-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: stretch; perspective: 1200px; }
+        .card { background-color: white; padding: 35px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease; text-align: left; border: 1px solid #eee; position: relative; overflow: hidden; transform-style: preserve-3d; will-change: transform; }
+        .card:hover { box-shadow: 0 25px 50px rgba(0,0,0,0.18); border-color: #f1c40f; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f1c40f, #f39c12); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; z-index: 3; }
         .card:hover::before { transform: scaleX(1); }
+        /* ===== YANGI: karta ichida yuguruvchi yorug'lik ===== */
+        .card .card-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; background: radial-gradient(circle 180px at var(--gx, 50%) var(--gy, 50%), rgba(241,196,15,0.18), transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 1; }
+        .card:hover .card-glow { opacity: 1; }
+        .card > *:not(.card-glow) { position: relative; z-index: 2; }
         .card i.fas { font-size: 45px; color: #f1c40f; margin-bottom: 20px; display: block; text-align: center; transition: transform 0.4s ease; }
         .card:hover i.fas { transform: scale(1.2) rotate(-6deg); }
         .card h3 { color: #0b1d30; margin-bottom: 15px; text-align: center; font-size: 22px; }
@@ -105,16 +113,15 @@
         .card .highlight { font-weight: bold; color: #0b1d30; background: rgba(241, 196, 15, 0.1); padding: 2px 5px; border-radius: 4px; }
         .card .see-more { color: #f1c40f; font-weight: bold; text-align: center; display: block; cursor: pointer; margin-top: 15px; transition: letter-spacing 0.3s ease; }
         .card:hover .see-more { letter-spacing: 1px; }
-
         .contact { background-color: #ecf0f1; padding: 70px 50px; text-align: center; }
         .contact h2 { margin-bottom: 20px; color: #2c3e50; }
         .contact p { font-size: 18px; margin-bottom: 10px; }
         .contact p i { color: #f1c40f; margin-right: 8px; }
-
+        .contact a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .contact a:hover { color: #f1c40f; }
         footer { background-color: #0b1d30; color: white; text-align: center; padding: 20px 0; margin-top: auto; }
-
         /* === USTOZ BO'LIMI (elegant, professional) === */
-        .mentor { 
+        .mentor {
             background: linear-gradient(135deg, #0b1d30 0%, #15314f 100%);
             padding: 90px 50px; text-align: center; position: relative; overflow: hidden;
         }
@@ -125,13 +132,13 @@
             line-height: 1; pointer-events: none; z-index: 0;
         }
         .mentor-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .mentor-label { 
-            display: inline-block; color: #f1c40f; font-size: 16px; font-weight: 600; letter-spacing: 4px; 
+        .mentor-label {
+            display: inline-block; color: #f1c40f; font-size: 16px; font-weight: 600; letter-spacing: 4px;
             text-transform: uppercase; margin-bottom: 18px;
         }
         .mentor-label i { margin-right: 8px; }
-        .mentor-name { 
-            font-family: 'Playfair Display', Georgia, serif; 
+        .mentor-name {
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 64px; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0;
             background: linear-gradient(90deg, #f1c40f, #ffffff, #f1c40f);
             background-size: 200% auto;
@@ -146,7 +153,6 @@
             .mentor-name { font-size: 42px; }
             .mentor::before { font-size: 140px; }
         }
-
         /* === SCROLL ORQALI PAYDO BO'LISH ANIMATSIYASI === */
         .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -159,7 +165,6 @@
         .delay-1 { transition-delay: 0.15s; }
         .delay-2 { transition-delay: 0.3s; }
         .delay-3 { transition-delay: 0.45s; }
-
         .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .info-content { background-color: white; padding: 50px 40px; border-radius: 25px; width: 80%; max-width: 500px; text-align: center; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 2px solid #f1c40f; }
         .close-btn { position: absolute; top: 20px; right: 25px; font-size: 32px; color: #333; cursor: pointer; background: none; border: none; transition: transform 0.3s ease, color 0.3s ease; }
@@ -172,7 +177,6 @@
         .social-links li a:hover { transform: translateY(-4px); }
         .social-links li a.instagram:hover { color: #e1306c; }
         .social-links li a.telegram:hover { color: #0088cc; }
-
         .real-estate-content { border-color: #27ae60; }
         .case-study-box { background-color: #fcfcfc; border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .case-study-box h4 { color: #0b1d30; margin-top: 0; margin-bottom: 15px; font-size: 18px; }
@@ -184,7 +188,6 @@
         @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
         .profit-highlight { font-size: 18px; text-align: center; margin-top: 20px; margin-bottom: 0; }
         .profit-percent { font-size: 24px; font-weight: bold; color: #27ae60; }
-
         .korzinka-content { border-color: #e74c3c; }
         .hamkorlik-content { border-color: #f1c40f; }
         .hamkorlik-content h2 { color: #0b1d30; }
@@ -195,11 +198,9 @@
         .modal-action-btn { margin-top: 30px; border-radius: 50px; }
         .korzinka-btn { background-color: #e74c3c; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); color: white; }
         .korzinka-btn:hover { background-color: #c0392b; color: white; }
-
         #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: #f1c40f; color: #0b1d30; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; z-index: 1500; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
         #backToTop:hover { background: #0b1d30; color: #f1c40f; transform: translateY(-4px); }
-
         /* === ARAB TILI UCHUN RTL (o'ngdan-chapga) MOSLASHUVI === */
         html[dir="rtl"] body { text-align: right; }
         html[dir="rtl"] .hero-text { text-align: right; }
@@ -210,7 +211,7 @@
         html[dir="rtl"] .lang-menu button { text-align: right; }
         html[dir="rtl"] .info-content > div[style] { text-align: right !important; }
         html[dir="rtl"] .contact p i { margin-right: 0; margin-left: 8px; }
-        
+
         @media (max-width: 900px) {
             .hero { flex-direction: column; text-align: center; padding-top: 100px; }
             .hero-text { text-align: center; margin-bottom: 40px; }
@@ -221,10 +222,13 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+            #heroCanvas, .hero-spotlight, .card .card-glow { display: none !important; }
         }
     </style>
 </head>
 <body>
+    <!-- YANGI: scroll progress bar -->
+    <div id="scrollProgress"></div>
 
     <header id="mainHeader">
         <h1 class="animate__animated animate__fadeInLeft">M<span>moliya.uz</span></h1>
@@ -247,24 +251,27 @@
             </div>
         </nav>
     </header>
-
     <section class="hero" id="asosiy">
+        <!-- YANGI: zarrachalar tarmog'i + kursor prожektori -->
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-spotlight" id="heroSpotlight"></div>
+
         <div class="hero-text animate__animated animate__fadeInLeft">
             <h2 data-i18n="hero_title">Sizning Ishonchli Moliyaviy Hamkoringiz</h2>
             <p data-i18n="hero_text">Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.</p>
-            <a onclick="showMyInfo()" class="btn pulse-cta" data-i18n="hero_btn">Men bilan bog'lanish</a>
+            <a onclick="showMyInfo()" class="btn pulse-cta magnetic" data-i18n="hero_btn">Men bilan bog'lanish</a>
         </div>
-        
-        <div class="hero-image-box animate__animated animate__fadeInRight animate__delay-1s">
-            <img src="user_image.jpg" alt="Jahongir" onerror="this.src='https://via.placeholder.com/400x480?text=Rasm';">
+
+        <div class="hero-image-box animate__animated animate__fadeInRight animate__delay-1s" id="heroImageBox">
+            <img src="user_image.jpg" alt="Jahongir" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22480%22%3E%3Crect width=%22400%22 height=%22480%22 fill=%22%230b1d30%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23f1c40f%22 font-size=%2224%22 text-anchor=%22middle%22 font-family=%22Arial%22%3ERasm%3C/text%3E%3C/svg%3E';">
         </div>
     </section>
-
     <section class="services" id="xizmatlar">
         <h2 class="reveal" data-i18n="services_title">Bizning Xizmatlar va Keyslar</h2>
         <div class="service-cards">
-            
+
             <div class="card reveal-scale" onclick="showRealEstateModal()" style="cursor: pointer;">
+                <div class="card-glow"></div>
                 <i class="fas fa-chart-line"></i>
                 <h3 data-i18n="card1_title">Ko'chmas Mulk Investitsiyasi</h3>
                 <p data-i18n="card1_p1">Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.</p>
@@ -272,8 +279,8 @@
                 <p data-i18n-html="card1_p3">2026-yilga kelib, yer narxi <span class="highlight">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class="highlight">270% sof o'sish</span> demakdir.</p>
                 <span class="see-more" data-i18n="card1_more">Batafsil tahlilni ko'rish</span>
             </div>
-
             <div class="card reveal-scale delay-1" onclick="showKorzinkaModal()" style="cursor: pointer;">
+                <div class="card-glow"></div>
                 <i class="fas fa-calculator"></i>
                 <h3 data-i18n="card2_title">Soliq Tahlili va Optimallash</h3>
                 <p data-i18n="card2_p1">Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.</p>
@@ -281,17 +288,16 @@
                 <p data-i18n="card2_p3">QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.</p>
                 <span class="see-more" data-i18n="card2_more">Korzinka keysini yoritish</span>
             </div>
-
             <div class="card reveal-scale delay-2">
+                <div class="card-glow"></div>
                 <i class="fas fa-file-contract"></i>
                 <h3 data-i18n="card3_title">Biznes Reja Tuzish</h3>
                 <p data-i18n="card3_p1">Startaplar va amaldagi biznes loyihalari uchun professional moliyaviy model va risk menedjment tizimini ishlab chiqish.</p>
                 <p data-i18n="card3_p2">Kelajakdagi daromad va xarajatlar balansini aniq matematika bilan prognozlash.</p>
             </div>
-            
+
         </div>
     </section>
-
     <section class="mentor reveal" id="ustoz">
         <div class="mentor-inner">
             <span class="mentor-label"><i class="fas fa-graduation-cap"></i> <span data-i18n="mentor_label">Mening Ustozim</span></span>
@@ -300,24 +306,20 @@
             <p class="mentor-role" data-i18n="mentor_role">Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.</p>
         </div>
     </section>
-
     <section class="contact" id="aloqa">
         <h2 class="reveal" data-i18n="contact_title">Biz bilan Bog'laning</h2>
         <p class="reveal delay-1"><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_address">Manzil: Toshkent shahri</span></p>
-        <p class="reveal delay-2"><i class="fas fa-phone"></i> <span data-i18n="contact_phone">Telefon: +998 94 184 01 02</span></p>
-        <p class="reveal delay-3"><i class="fas fa-envelope"></i> <span data-i18n="contact_email">Email: mirzayorovjahongir7@gmail.com</span></p>
+        <p class="reveal delay-2"><i class="fas fa-phone"></i> <a href="tel:+998941840102"><span data-i18n="contact_phone">Telefon: +998 94 184 01 02</span></a></p>
+        <p class="reveal delay-3"><i class="fas fa-envelope"></i> <a href="mailto:mirzayorovjahongir7@gmail.com"><span data-i18n="contact_email">Email: mirzayorovjahongir7@gmail.com</span></a></p>
     </section>
-
     <footer>
         <p data-i18n="footer_text">&copy; 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.</p>
     </footer>
-
     <button id="backToTop" onclick="scrollToTop()" aria-label="Yuqoriga"><i class="fas fa-arrow-up"></i></button>
-
     <div id="infoOverlay" class="info-overlay">
         <div class="info-content animate__animated">
             <button class="close-btn" onclick="closeMyInfo()">&times;</button>
-            <img src="user_image.jpg" alt="Jahongir" class="profile-img" onerror="this.src='https://via.placeholder.com/150';">
+            <img src="user_image.jpg" alt="Jahongir" class="profile-img" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%230b1d30%22/%3E%3Ctext x=%2250%25%22 y=%2255%25%22 fill=%22%23f1c40f%22 font-size=%2216%22 text-anchor=%22middle%22 font-family=%22Arial%22%3EJ%3C/text%3E%3C/svg%3E';">
             <h2 data-i18n="about_title">Men Haqimda</h2>
             <p data-i18n="about_text">Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.</p>
             <ul class="social-links">
@@ -326,7 +328,6 @@
             </ul>
         </div>
     </div>
-
     <div id="realEstateOverlay" class="info-overlay">
         <div class="info-content real-estate-content animate__animated">
             <button class="close-btn" onclick="closeRealEstateModal()">&times;</button>
@@ -347,7 +348,6 @@
             <button class="btn modal-action-btn" data-i18n="re_btn">Batafsil tahlil olish</button>
         </div>
     </div>
-
     <div id="korzinkaOverlay" class="info-overlay">
         <div class="info-content korzinka-content animate__animated">
             <button class="close-btn" onclick="closeKorzinkaModal()">&times;</button>
@@ -368,7 +368,6 @@
             <button class="btn modal-action-btn korzinka-btn" data-i18n="kz_btn">Soliq maslahatini olish</button>
         </div>
     </div>
-
     <div id="hamkorlikOverlay" class="info-overlay">
         <div class="info-content hamkorlik-content animate__animated">
             <button class="close-btn" onclick="closeHamkorlikModal()">&times;</button>
@@ -382,7 +381,6 @@
             </ul>
         </div>
     </div>
-
     <script>
         /* ===== TARJIMALAR (4 til: O'zbek, Ingliz, Rus, Arab) ===== */
         const translations = {
@@ -567,9 +565,7 @@
                 hk_text2: "دعنا نحقق أهدافك المالية معاً. تواصل معي ولنبدأ شراكتنا."
             }
         };
-
         const LANG_LABELS = { uz: 'UZB', en: 'ENG', ru: 'RUS', ar: 'ARB' };
-
         function setLang(lang) {
             if (!translations[lang]) lang = 'uz';
             const dict = translations[lang];
@@ -591,7 +587,6 @@
             closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
-
         /* Dropdown ochish/yopish */
         function toggleLangMenu(e) {
             if (e) e.stopPropagation();
@@ -612,7 +607,6 @@
             const dd = document.getElementById('langDropdown');
             if (dd && !dd.contains(e.target)) closeLangMenu();
         });
-
         /* Saqlangan tilni yuklash (standart: o'zbekcha) */
         (function () {
             let saved = 'uz';
@@ -620,18 +614,24 @@
             setLang(saved);
         })();
 
-        /* ===== HEADER SCROLL EFFEKTI ===== */
+        /* prefers-reduced-motion tekshiruvi (jonli effektlarni o'chirish uchun) */
+        const REDUCE_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ===== HEADER SCROLL EFFEKTI + SCROLL PROGRESS BAR ===== */
         const mainHeader = document.getElementById('mainHeader');
         const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-                backToTop.classList.add('show');
-            } else {
-                mainHeader.classList.remove('scrolled');
-                backToTop.classList.remove('show');
-            }
-        });
+        const scrollProgress = document.getElementById('scrollProgress');
+        function onScroll() {
+            const y = window.scrollY;
+            if (y > 50) { mainHeader.classList.add('scrolled'); backToTop.classList.add('show'); }
+            else { mainHeader.classList.remove('scrolled'); backToTop.classList.remove('show'); }
+            // progress bar
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = h > 0 ? (y / h) * 100 : 0;
+            if (scrollProgress) scrollProgress.style.width = pct + '%';
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
 
         /* ===== SCROLL ORQALI PAYDO BO'LISH (Intersection Observer) ===== */
         const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
@@ -666,7 +666,6 @@
                 animateCounter(c);
             });
         }
-
         /* ===== TUGMA RIPPLE EFFEKTI ===== */
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -681,11 +680,158 @@
                 setTimeout(() => ripple.remove(), 600);
             });
         });
-
         /* ===== YUQORIGA QAYTISH ===== */
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        /* ============================================================
+           ===== YANGI JONLI EFFEKTLAR =====
+           ============================================================ */
+
+        /* --- 1) HERO ZARRACHALAR TARMOG'I (canvas) --- */
+        (function initParticles() {
+            if (REDUCE_MOTION) return;
+            const canvas = document.getElementById('heroCanvas');
+            const hero = document.getElementById('asosiy');
+            if (!canvas || !hero) return;
+            const ctx = canvas.getContext('2d');
+            let W = 0, H = 0, particles = [], mouse = { x: null, y: null };
+
+            function resize() {
+                W = canvas.width = hero.offsetWidth;
+                H = canvas.height = hero.offsetHeight;
+                const count = Math.min(70, Math.floor(W * H / 16000));
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.4,
+                        vy: (Math.random() - 0.5) * 0.4,
+                        r: Math.random() * 1.8 + 0.6
+                    });
+                }
+            }
+
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            hero.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > W) p.vx *= -1;
+                    if (p.y < 0 || p.y > H) p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(241,196,15,0.55)';
+                    ctx.fill();
+                    // zarrachalar orasidagi chiziqlar
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const q = particles[j];
+                        const dx = p.x - q.x, dy = p.y - q.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(q.x, q.y);
+                            ctx.strokeStyle = 'rgba(255,255,255,' + (0.12 * (1 - dist / 120)) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                    // sichqoncha ta'siri
+                    if (mouse.x !== null) {
+                        const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 160) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = 'rgba(241,196,15,' + (0.3 * (1 - dist / 160)) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            draw();
+        })();
+
+        /* --- 2) KURSOR PROЖEKTORI (hero ustidagi yumshoq nur) --- */
+        (function initSpotlight() {
+            if (REDUCE_MOTION) return;
+            const hero = document.getElementById('asosiy');
+            const spot = document.getElementById('heroSpotlight');
+            if (!hero || !spot) return;
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                spot.style.left = (e.clientX - rect.left) + 'px';
+                spot.style.top = (e.clientY - rect.top) + 'px';
+                spot.style.opacity = '1';
+            });
+            hero.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
+        })();
+
+        /* --- 3) HERO RASM PARALLAKSI (chuqurlik effekti) --- */
+        (function initHeroParallax() {
+            if (REDUCE_MOTION) return;
+            const hero = document.getElementById('asosiy');
+            const box = document.getElementById('heroImageBox');
+            if (!hero || !box) return;
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                const cx = rect.width / 2, cy = rect.height / 2;
+                const mx = (e.clientX - rect.left - cx) / cx;
+                const my = (e.clientY - rect.top - cy) / cy;
+                box.style.transform = 'translate(' + (mx * 14) + 'px, ' + (my * 14) + 'px)';
+            });
+            hero.addEventListener('mouseleave', () => { box.style.transform = 'translate(0,0)'; });
+        })();
+
+        /* --- 4) 3D KARTA EGILISHI (tilt) + ichki yorug'lik --- */
+        (function initCardTilt() {
+            if (REDUCE_MOTION) return;
+            document.querySelectorAll('.service-cards .card').forEach(card => {
+                const glow = card.querySelector('.card-glow');
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rx = ((y / rect.height) - 0.5) * -10; // yuqoriga/pastga
+                    const ry = ((x / rect.width) - 0.5) * 10;   // chapga/o'ngga
+                    card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-10px)';
+                    if (glow) {
+                        glow.style.setProperty('--gx', x + 'px');
+                        glow.style.setProperty('--gy', y + 'px');
+                    }
+                });
+                card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            });
+        })();
+
+        /* --- 5) MAGNIT TUGMA (sichqonchaga tortiladi) --- */
+        (function initMagnetic() {
+            if (REDUCE_MOTION) return;
+            document.querySelectorAll('.btn.magnetic').forEach(btn => {
+                btn.addEventListener('mousemove', e => {
+                    const rect = btn.getBoundingClientRect();
+                    const mx = e.clientX - rect.left - rect.width / 2;
+                    const my = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = 'translate(' + (mx * 0.25) + 'px, ' + (my * 0.35) + 'px)';
+                });
+                btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+            });
+        })();
 
         /* ===== MODALLAR ===== */
         function showMyInfo() {
@@ -748,7 +894,6 @@
             content.className = 'info-content hamkorlik-content animate__animated animate__zoomOutUp';
             setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content hamkorlik-content animate__animated'; }, 600);
         }
-
         window.onclick = function (event) {
             const myInfoOverlay = document.getElementById('infoOverlay');
             const realEstateOverlay = document.getElementById('realEstateOverlay');
@@ -759,7 +904,6 @@
             else if (event.target == korzinkaOverlay) closeKorzinkaModal();
             else if (event.target == hamkorlikOverlay) closeHamkorlikModal();
         }
-
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu();
