@@ -287,6 +287,9 @@
         .calc-row.muted { opacity: 0.7; }
         .calc-row.muted b { font-weight: 500; }
         .calc-note { font-size: 12.5px; color: #94a3b8; margin-top: 12px; line-height: 1.5; }
+        .calc-help { font-size: 12px; color: #94a3b8; margin: 7px 2px 0 2px; line-height: 1.45; }
+        .calc-error { display: flex; align-items: center; gap: 9px; color: #c0392b; font-size: 14px; font-weight: 500; padding: 4px 0; }
+        .calc-error i { font-size: 16px; }
         .calc-disclaimer { color: #9fb0c2; font-size: 12.5px; max-width: 620px; margin: 22px auto 0 auto; position: relative; z-index: 1; }
         html[dir="rtl"] .calc-wrap { text-align: right; }
         @media (max-width: 600px) { .calc { padding: 60px 18px; } .calc-panel { padding: 26px 20px 30px 20px; } .calc-tab { min-width: 33%; font-size: 12px; } }
@@ -435,10 +438,12 @@
                 <div class="calc-field">
                     <label data-i18n="calc_vac_salary">O'rtacha oylik ish haqi (so'm)</label>
                     <input type="text" id="vacSalary" inputmode="numeric" placeholder="7 800 000">
+                    <p class="calc-help" data-i18n="calc_vac_help">Oxirgi 12 oylik ish haqingiz yig'indisini 12 ga bo'lgan o'rtacha summa.</p>
                 </div>
                 <div class="calc-field">
-                    <label data-i18n="calc_vac_days">Ta'til kunlari (ish kuni)</label>
-                    <input type="text" id="vacDays" inputmode="numeric" value="18">
+                    <label data-i18n="calc_vac_days">Ta'til kunlari (kalendar)</label>
+                    <input type="text" id="vacDays" inputmode="numeric" value="21">
+                    <p class="calc-help" data-i18n="calc_vac_dayshelp">Odatda yillik ta'til — 21 kalendar kun.</p>
                 </div>
                 <button class="calc-btn" onclick="calcVacation()" data-i18n="calc_btn">Hisoblash</button>
                 <div class="calc-result" id="vacResult"></div>
@@ -452,7 +457,7 @@
                 </div>
                 <div class="calc-field">
                     <label data-i18n="calc_pen_staj">Umumiy ish staji (yil)</label>
-                    <input type="text" id="penStaj" inputmode="numeric" placeholder="25">
+                    <input type="text" id="penStaj" inputmode="numeric" value="25">
                 </div>
                 <div class="calc-field">
                     <label data-i18n="calc_pen_genderlabel">Jins</label>
@@ -490,11 +495,11 @@
                 </div>
                 <div class="calc-field">
                     <label data-i18n="calc_loan_rate">Yillik foiz stavkasi (%)</label>
-                    <input type="text" id="loanRate" inputmode="numeric" placeholder="24">
+                    <input type="text" id="loanRate" inputmode="numeric" value="24">
                 </div>
                 <div class="calc-field">
                     <label data-i18n="calc_loan_term">Muddat (oy)</label>
-                    <input type="text" id="loanTerm" inputmode="numeric" placeholder="36">
+                    <input type="text" id="loanTerm" inputmode="numeric" value="36">
                 </div>
                 <button class="calc-btn" onclick="calcLoan()" data-i18n="calc_btn">Hisoblash</button>
                 <div class="calc-result" id="loanResult"></div>
@@ -599,7 +604,9 @@
                 calc_btn: "Hisoblash", calc_sum: "so'm",
                 calc_tax_amount: "Summa (so'm)", calc_tax_typelabel: "Summa turi", calc_tax_type_gross: "Gross (jami, soliqqacha)", calc_tax_type_net: "Net (qo'lga tegadigan)",
                 calc_tax_net: "Qo'lga tegadi", calc_tax_gross: "Jami (gross)", calc_tax_jshds: "JShDS (12%)", calc_tax_social: "Ijtimoiy soliq (ish beruvchi, 12%)",
-                calc_vac_salary: "O'rtacha oylik ish haqi (so'm)", calc_vac_days: "Ta'til kunlari (ish kuni)", calc_vac_daily: "O'rtacha kunlik ish haqi", calc_vac_total: "Ta'til puli (jami)", calc_vac_after: "Qo'lga (JShDS 12% ushlangach)",
+                calc_vac_salary: "O'rtacha oylik ish haqi (so'm)", calc_vac_days: "Ta'til kunlari (kalendar)", calc_vac_daily: "O'rtacha kunlik ish haqi", calc_vac_workdays: "Ta'til ish kunlari", calc_vac_total: "Ta'til puli (jami)", calc_vac_after: "Qo'lga (JShDS 12% ushlangach)",
+                calc_vac_help: "Oxirgi 12 oylik ish haqingiz yig'indisini 12 ga bo'lgan o'rtacha summa.", calc_vac_dayshelp: "Odatda yillik ta'til — 21 kalendar kun.",
+                calc_err_amount: "Iltimos, summani to'g'ri kiriting.", calc_err_staj: "Iltimos, ish stajini kiriting.", calc_err_term: "Iltimos, muddatni (oy) kiriting.",
                 calc_pen_salary: "O'rtacha oylik ish haqi (so'm)", calc_pen_staj: "Umumiy ish staji (yil)", calc_pen_genderlabel: "Jins", calc_pen_gender_m: "Erkak", calc_pen_gender_f: "Ayol",
                 calc_pen_result: "Taxminiy oylik pensiya", calc_pen_percent: "Ish haqingizning ulushi", calc_pen_note: "* Taxminiy hisob. Aniq miqdor Pensiya jamg'armasi tomonidan belgilanadi.",
                 calc_vat_amount: "Summa (so'm)", calc_vat_modelabel: "Amal", calc_vat_mode_add: "QQS qo'shish (narx ustiga)", calc_vat_mode_extract: "QQS ajratib olish (summa ichidan)",
@@ -660,7 +667,9 @@
                 calc_btn: "Calculate", calc_sum: "UZS",
                 calc_tax_amount: "Amount (UZS)", calc_tax_typelabel: "Amount type", calc_tax_type_gross: "Gross (before tax)", calc_tax_type_net: "Net (take-home)",
                 calc_tax_net: "Take-home", calc_tax_gross: "Gross", calc_tax_jshds: "Income tax (12%)", calc_tax_social: "Social tax (employer, 12%)",
-                calc_vac_salary: "Average monthly salary (UZS)", calc_vac_days: "Vacation days (working days)", calc_vac_daily: "Average daily wage", calc_vac_total: "Vacation pay (total)", calc_vac_after: "Take-home (after 12% tax)",
+                calc_vac_salary: "Average monthly salary (UZS)", calc_vac_days: "Vacation days (calendar)", calc_vac_daily: "Average daily wage", calc_vac_workdays: "Vacation working days", calc_vac_total: "Vacation pay (total)", calc_vac_after: "Take-home (after 12% tax)",
+                calc_vac_help: "Sum of your last 12 months' salary divided by 12.", calc_vac_dayshelp: "Standard annual leave is 21 calendar days.",
+                calc_err_amount: "Please enter a valid amount.", calc_err_staj: "Please enter your work experience.", calc_err_term: "Please enter the term (months).",
                 calc_pen_salary: "Average monthly salary (UZS)", calc_pen_staj: "Total work experience (years)", calc_pen_genderlabel: "Gender", calc_pen_gender_m: "Male", calc_pen_gender_f: "Female",
                 calc_pen_result: "Estimated monthly pension", calc_pen_percent: "Share of your salary", calc_pen_note: "* Approximate estimate. The exact amount is set by the Pension Fund.",
                 calc_vat_amount: "Amount (UZS)", calc_vat_modelabel: "Operation", calc_vat_mode_add: "Add VAT (on top of price)", calc_vat_mode_extract: "Extract VAT (from amount)",
@@ -721,7 +730,9 @@
                 calc_btn: "Рассчитать", calc_sum: "сум",
                 calc_tax_amount: "Сумма (сум)", calc_tax_typelabel: "Тип суммы", calc_tax_type_gross: "Gross (до налога)", calc_tax_type_net: "Net (на руки)",
                 calc_tax_net: "На руки", calc_tax_gross: "Всего (gross)", calc_tax_jshds: "НДФЛ (12%)", calc_tax_social: "Соцналог (работодатель, 12%)",
-                calc_vac_salary: "Средняя месячная зарплата (сум)", calc_vac_days: "Дни отпуска (рабочие дни)", calc_vac_daily: "Средний дневной заработок", calc_vac_total: "Отпускные (всего)", calc_vac_after: "На руки (после 12% налога)",
+                calc_vac_salary: "Средняя месячная зарплата (сум)", calc_vac_days: "Дни отпуска (календарные)", calc_vac_daily: "Средний дневной заработок", calc_vac_workdays: "Рабочих дней отпуска", calc_vac_total: "Отпускные (всего)", calc_vac_after: "На руки (после 12% налога)",
+                calc_vac_help: "Сумма зарплаты за последние 12 месяцев, делённая на 12.", calc_vac_dayshelp: "Обычный ежегодный отпуск — 21 календарный день.",
+                calc_err_amount: "Пожалуйста, введите корректную сумму.", calc_err_staj: "Пожалуйста, введите стаж работы.", calc_err_term: "Пожалуйста, введите срок (месяцев).",
                 calc_pen_salary: "Средняя месячная зарплата (сум)", calc_pen_staj: "Общий стаж (лет)", calc_pen_genderlabel: "Пол", calc_pen_gender_m: "Мужской", calc_pen_gender_f: "Женский",
                 calc_pen_result: "Ориентировочная пенсия", calc_pen_percent: "Доля от зарплаты", calc_pen_note: "* Приблизительный расчёт. Точную сумму определяет Пенсионный фонд.",
                 calc_vat_amount: "Сумма (сум)", calc_vat_modelabel: "Операция", calc_vat_mode_add: "Начислить НДС (сверху)", calc_vat_mode_extract: "Выделить НДС (из суммы)",
@@ -782,7 +793,9 @@
                 calc_btn: "احسب", calc_sum: "سوم",
                 calc_tax_amount: "المبلغ (سوم)", calc_tax_typelabel: "نوع المبلغ", calc_tax_type_gross: "إجمالي (قبل الضريبة)", calc_tax_type_net: "صافي (المستلم)",
                 calc_tax_net: "المستلم", calc_tax_gross: "الإجمالي", calc_tax_jshds: "ضريبة الدخل (12%)", calc_tax_social: "الضريبة الاجتماعية (صاحب العمل، 12%)",
-                calc_vac_salary: "متوسط الراتب الشهري (سوم)", calc_vac_days: "أيام الإجازة (أيام عمل)", calc_vac_daily: "متوسط الأجر اليومي", calc_vac_total: "بدل الإجازة (إجمالي)", calc_vac_after: "المستلم (بعد ضريبة 12%)",
+                calc_vac_salary: "متوسط الراتب الشهري (سوم)", calc_vac_days: "أيام الإجازة (تقويمية)", calc_vac_daily: "متوسط الأجر اليومي", calc_vac_workdays: "أيام عمل الإجازة", calc_vac_total: "بدل الإجازة (إجمالي)", calc_vac_after: "المستلم (بعد ضريبة 12%)",
+                calc_vac_help: "مجموع رواتب آخر 12 شهرًا مقسومًا على 12.", calc_vac_dayshelp: "الإجازة السنوية المعتادة 21 يومًا تقويميًا.",
+                calc_err_amount: "الرجاء إدخال مبلغ صحيح.", calc_err_staj: "الرجاء إدخال سنوات الخبرة.", calc_err_term: "الرجاء إدخال المدة (أشهر).",
                 calc_pen_salary: "متوسط الراتب الشهري (سوم)", calc_pen_staj: "إجمالي سنوات الخبرة", calc_pen_genderlabel: "الجنس", calc_pen_gender_m: "ذكر", calc_pen_gender_f: "أنثى",
                 calc_pen_result: "المعاش الشهري التقريبي", calc_pen_percent: "نسبة من راتبك", calc_pen_note: "* حساب تقريبي. المبلغ الدقيق يحدده صندوق المعاشات.",
                 calc_vat_amount: "المبلغ (سوم)", calc_vat_modelabel: "العملية", calc_vat_mode_add: "إضافة الضريبة (فوق السعر)", calc_vat_mode_extract: "استخراج الضريبة (من المبلغ)",
@@ -927,8 +940,23 @@
         function calcRow(label, value, cls) {
             return '<div class="calc-row ' + (cls || '') + '"><span>' + label + '</span><b>' + value + '</b></div>';
         }
+        function calcErr(boxId, key) {
+            const box = document.getElementById(boxId);
+            box.innerHTML = '<div class="calc-error"><i class="fas fa-circle-exclamation"></i> ' + CL(key) + '</div>';
+            box.classList.add('show');
+        }
+        /* Pul maydonlarini yozayotganda avtomatik formatlash (6000000 -> 6 000 000) */
+        function attachMoneyFormat(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('input', function () {
+                const digits = this.value.replace(/\D/g, '');
+                this.value = digits ? parseInt(digits, 10).toLocaleString('ru-RU').replace(/\u00A0/g, ' ') : '';
+            });
+        }
         function calcTax() {
             const amt = calcNum('taxAmount'); const type = document.getElementById('taxType').value;
+            if (amt <= 0) { return calcErr('taxResult', 'calc_err_amount'); }
             let gross, net;
             if (type === 'gross') { gross = amt; net = amt * 0.88; } else { net = amt; gross = amt / 0.88; }
             const jshds = gross * 0.12, social = gross * 0.12;
@@ -941,21 +969,28 @@
             box.classList.add('show');
         }
         function calcVacation() {
-            const sal = calcNum('vacSalary'); const days = calcNum('vacDays') || 18;
-            const daily = sal / 25.3, total = daily * days, after = total * 0.88;
+            const sal = calcNum('vacSalary'); let calDays = calcNum('vacDays');
+            if (sal <= 0) { return calcErr('vacResult', 'calc_err_amount'); }
+            if (calDays <= 0) calDays = 21;
+            /* 6 kunlik ish haftasi: kalendar kunlar -> ish kunlari (yakshanbalarsiz) */
+            const workDays = Math.round(calDays * 6 / 7);
+            const daily = sal / 25.3, total = daily * workDays, after = total * 0.88;
             const s = ' ' + CL('calc_sum');
             const box = document.getElementById('vacResult');
-            box.innerHTML = calcRow(CL('calc_vac_daily'), calcFmt(daily) + s) +
+            box.innerHTML = calcRow(CL('calc_vac_workdays'), workDays) +
+                calcRow(CL('calc_vac_daily'), calcFmt(daily) + s) +
                 calcRow(CL('calc_vac_total'), calcFmt(total) + s, 'highlight') +
                 calcRow(CL('calc_vac_after'), calcFmt(after) + s, 'muted');
             box.classList.add('show');
         }
         function calcPension() {
             const sal = calcNum('penSalary'); const staj = calcNum('penStaj'); const gender = document.getElementById('penGender').value;
+            if (sal <= 0) { return calcErr('penResult', 'calc_err_amount'); }
+            if (staj <= 0) { return calcErr('penResult', 'calc_err_staj'); }
             const req = (gender === 'm') ? 25 : 20;
             let pct;
             if (staj >= req) { pct = 0.55 + 0.01 * (staj - req); if (pct > 0.75) pct = 0.75; }
-            else { pct = req > 0 ? 0.55 * (staj / req) : 0; }
+            else { pct = 0.55 * (staj / req); }
             const pension = sal * pct;
             const s = ' ' + CL('calc_sum');
             const box = document.getElementById('penResult');
@@ -966,6 +1001,7 @@
         }
         function calcVat() {
             const amt = calcNum('vatAmount'); const mode = document.getElementById('vatMode').value;
+            if (amt <= 0) { return calcErr('vatResult', 'calc_err_amount'); }
             let vat, total, net;
             if (mode === 'add') { vat = amt * 0.12; total = amt * 1.12; net = amt; }
             else { vat = amt * 12 / 112; net = amt - vat; total = amt; }
@@ -978,9 +1014,10 @@
         }
         function calcLoan() {
             const P = calcNum('loanAmount'), rate = calcNum('loanRate'), n = calcNum('loanTerm');
+            if (P <= 0) { return calcErr('loanResult', 'calc_err_amount'); }
+            if (n <= 0) { return calcErr('loanResult', 'calc_err_term'); }
             const s = ' ' + CL('calc_sum');
             const box = document.getElementById('loanResult');
-            if (n <= 0 || P <= 0) { box.innerHTML = calcRow('—', '—'); box.classList.add('show'); return; }
             const r = rate / 100 / 12; let pay;
             if (r === 0) { pay = P / n; } else { const k = Math.pow(1 + r, n); pay = P * r * k / (k - 1); }
             const total = pay * n, over = total - P;
@@ -989,6 +1026,8 @@
                 calcRow(CL('calc_loan_over'), calcFmt(over) + s, 'muted');
             box.classList.add('show');
         }
+        /* Pul maydonlariga formatlashni ulash */
+        ['taxAmount', 'vacSalary', 'penSalary', 'vatAmount', 'loanAmount'].forEach(attachMoneyFormat);
         const LANG_LABELS = { uz: 'UZB', en: 'ENG', ru: 'RUS', ar: 'ARB' };
         function setLang(lang) {
             if (!translations[lang]) lang = 'uz';
