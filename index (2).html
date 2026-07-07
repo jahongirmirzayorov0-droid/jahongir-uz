@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== XAVFSIZLIK SOZLAMALARI (kiber himoya) ===== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>mmoliya.uz - Moliyaviy Maslahatlar va Tahlillar</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" crossorigin="anonymous"/>
+
+    <style>
+        /* Asosiy sozlamalar */
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #2d3a45; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+        h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+        nav, .btn, .lang-current, .lang-menu, .mentor-label { font-family: 'Poppins', sans-serif; }
+
+        /* ===== YANGI: SCROLL PROGRESS BAR (tepadagi oltin chiziq) ===== */
+        #scrollProgress { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, #f1c40f, #f39c12, #f1c40f); z-index: 3000; box-shadow: 0 0 12px rgba(241,196,15,0.7); transition: width 0.08s linear; }
+
+        header { background-color: #0b1d30; color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3); transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
+        header.scrolled { padding: 12px 50px; background-color: rgba(11, 29, 48, 0.95); backdrop-filter: blur(10px); box-shadow: 0 5px 25px rgba(0,0,0,0.4); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; transition: font-size 0.4s ease; }
+        header.scrolled h1 { font-size: 21px; }
+        header h1 span { color: #f1c40f; }
+        nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 0; }
+        nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; cursor: pointer; border-bottom: 2px solid transparent; position: relative; }
+        nav a:hover { color: #f1c40f; border-bottom: 2px solid #f1c40f; }
+        /* Til almashtirgich (dropdown) */
+        .lang-dropdown { position: relative; margin-left: 28px; display: inline-block; }
+        .lang-current { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.3s; }
+        .lang-current:hover { border-color: #f1c40f; color: #f1c40f; background: rgba(241,196,15,0.1); }
+        .lang-current i { font-size: 11px; transition: transform 0.3s ease; }
+        .lang-dropdown.open .lang-current i { transform: rotate(180deg); }
+        .lang-menu { list-style: none; margin: 0; padding: 6px; position: absolute; top: calc(100% + 10px); right: 0; min-width: 160px; background: #ffffff; border-radius: 10px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s; z-index: 1100; }
+        .lang-dropdown.open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .lang-menu li { margin: 0; }
+        .lang-menu button { width: 100%; text-align: left; background: transparent; border: none; color: #2d3a45; padding: 10px 14px; border-radius: 7px; cursor: pointer; font-size: 14px; font-weight: 500; transition: 0.2s; display: flex; align-items: center; gap: 10px; font-family: inherit; }
+        .lang-menu button:hover { background: #f7f3e3; color: #0b1d30; }
+        .lang-menu button.active { background: #f1c40f; color: #0b1d30; font-weight: 700; }
+        .lang-menu button .flag { font-size: 12px; font-weight: 700; opacity: 0.6; min-width: 26px; }
+        /* ZAMONAVIY ASOSIY BANNER (Split Design) + jonli gradient */
+        .hero {
+            background: linear-gradient(135deg, #0b1d30 0%, #1a3a5c 50%, #0b1d30 100%);
+            background-size: 200% 200%;
+            animation: gradientFlow 12s ease infinite;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 150px 8% 100px 8%; margin-top: 60px; min-height: 60vh; gap: 40px;
+            position: relative; overflow: hidden;
+        }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.15) 0%, rgba(241,196,15,0) 70%); z-index: 0; pointer-events: none; }
+        .hero::before { width: 400px; height: 400px; top: -100px; left: -100px; animation: floatBlob 14s ease-in-out infinite; }
+        .hero::after { width: 300px; height: 300px; bottom: -80px; right: 10%; animation: floatBlob 18s ease-in-out infinite reverse; }
+        @keyframes floatBlob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
+
+        /* ===== YANGI: hero zarrachalar (canvas) va kursor prожektori ===== */
+        #heroCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .hero-spotlight { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.13) 0%, rgba(241,196,15,0) 65%); pointer-events: none; transform: translate(-50%, -50%); z-index: 1; opacity: 0; transition: opacity 0.4s ease; will-change: left, top; }
+
+        .hero-text { flex: 1; text-align: left; color: white; position: relative; z-index: 2; }
+        .hero-text h2 { font-size: 45px; margin-bottom: 20px; line-height: 1.2; }
+        .hero-text p { font-size: 18px; max-width: 600px; margin-bottom: 35px; line-height: 1.6; color: #e0e0e0; }
+
+        .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; will-change: transform; transition: transform 0.15s ease-out; }
+        .hero-image-box img { max-width: 100%; max-height: 480px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 4px solid #f1c40f; object-fit: contain; position: relative; z-index: 2; animation: floatImage 5s ease-in-out infinite; }
+        @keyframes floatImage { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+        .hero-image-box::before { content: ''; position: absolute; width: 80%; height: 90%; background: rgba(241, 196, 15, 0.15); border-radius: 15px; transform: rotate(6deg) translate(15px, 15px); z-index: 1; animation: pulseGlow 5s ease-in-out infinite; }
+        @keyframes pulseGlow { 0%, 100% { transform: rotate(6deg) translate(15px, 15px); opacity: 0.6; } 50% { transform: rotate(8deg) translate(20px, 20px); opacity: 1; } }
+
+        .btn { background-color: #f1c40f; color: #0b1d30; padding: 14px 40px; text-decoration: none; font-size: 18px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); position: relative; overflow: hidden; }
+        .btn:hover { background-color: #ffffff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3); }
+        .btn .ripple { position: absolute; border-radius: 50%; background: rgba(11, 29, 48, 0.3); transform: scale(0); animation: rippleEffect 0.6s linear; pointer-events: none; }
+        @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
+        .btn.pulse-cta { animation: btnPulse 2.5s infinite; }
+        @keyframes btnPulse { 0% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } 50% { box-shadow: 0 4px 25px rgba(241, 196, 15, 0.8); } 100% { box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); } }
+        /* magnit tugma yumshoq harakat qilishi uchun */
+        .btn.magnetic { transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), background-color 0.3s, box-shadow 0.3s; }
+        .services { padding: 80px 50px; text-align: center; }
+        .services h2 { font-size: 36px; margin-bottom: 50px; color: #0b1d30; position: relative; }
+        .services h2::after { content: ''; width: 80px; height: 4px; background: #f1c40f; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        .service-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: stretch; perspective: 1200px; }
+        .card { background-color: white; padding: 35px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease; text-align: left; border: 1px solid #eee; position: relative; overflow: hidden; transform-style: preserve-3d; will-change: transform; }
+        .card:hover { box-shadow: 0 25px 50px rgba(0,0,0,0.18); border-color: #f1c40f; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f1c40f, #f39c12); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; z-index: 3; }
+        .card:hover::before { transform: scaleX(1); }
+        /* ===== YANGI: karta ichida yuguruvchi yorug'lik ===== */
+        .card .card-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; background: radial-gradient(circle 180px at var(--gx, 50%) var(--gy, 50%), rgba(241,196,15,0.18), transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 1; }
+        .card:hover .card-glow { opacity: 1; }
+        .card > *:not(.card-glow) { position: relative; z-index: 2; }
+        .card i.fas { font-size: 45px; color: #f1c40f; margin-bottom: 20px; display: block; text-align: center; transition: transform 0.4s ease; }
+        .card:hover i.fas { transform: scale(1.2) rotate(-6deg); }
+        .card h3 { color: #0b1d30; margin-bottom: 15px; text-align: center; font-size: 22px; }
+        .card p { color: #555; line-height: 1.7; font-size: 15px; margin-bottom: 12px; }
+        .card .highlight { font-weight: bold; color: #0b1d30; background: rgba(241, 196, 15, 0.1); padding: 2px 5px; border-radius: 4px; }
+        .card .see-more { color: #f1c40f; font-weight: bold; text-align: center; display: block; cursor: pointer; margin-top: 15px; transition: letter-spacing 0.3s ease; }
+        .card:hover .see-more { letter-spacing: 1px; }
+        .contact { background-color: #ecf0f1; padding: 70px 50px; text-align: center; }
+        .contact h2 { margin-bottom: 20px; color: #2c3e50; }
+        .contact p { font-size: 18px; margin-bottom: 10px; }
+        .contact p i { color: #f1c40f; margin-right: 8px; }
+        .contact a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .contact a:hover { color: #f1c40f; }
+        footer { background-color: #0b1d30; color: white; text-align: center; padding: 20px 0; margin-top: auto; }
+        /* === USTOZ BO'LIMI (elegant, professional) === */
+        .mentor {
+            background: linear-gradient(135deg, #0b1d30 0%, #15314f 100%);
+            padding: 90px 50px; text-align: center; position: relative; overflow: hidden;
+        }
+        .mentor::before {
+            content: '\201C';
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            font-family: 'Playfair Display', serif; font-size: 200px; color: rgba(241, 196, 15, 0.08);
+            line-height: 1; pointer-events: none; z-index: 0;
+        }
+        .mentor-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .mentor-label {
+            display: inline-block; color: #f1c40f; font-size: 16px; font-weight: 600; letter-spacing: 4px;
+            text-transform: uppercase; margin-bottom: 18px;
+        }
+        .mentor-label i { margin-right: 8px; }
+        .mentor-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 64px; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0;
+            background: linear-gradient(90deg, #f1c40f, #ffffff, #f1c40f);
+            background-size: 200% auto;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+            animation: shineText 5s linear infinite;
+        }
+        @keyframes shineText { to { background-position: 200% center; } }
+        .mentor-divider { width: 90px; height: 4px; background: #f1c40f; border-radius: 2px; margin: 0 auto 22px auto; }
+        .mentor-role { color: #e0e0e0; font-size: 19px; font-style: italic; line-height: 1.6; margin: 0; }
+        @media (max-width: 600px) {
+            .mentor-name { font-size: 42px; }
+            .mentor::before { font-size: 140px; }
+        }
+        /* === SCROLL ORQALI PAYDO BO'LISH ANIMATSIYASI === */
+        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
+        .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .info-content { background-color: white; padding: 50px 40px; border-radius: 25px; width: 80%; max-width: 500px; text-align: center; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 2px solid #f1c40f; }
+        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 32px; color: #333; cursor: pointer; background: none; border: none; transition: transform 0.3s ease, color 0.3s ease; }
+        .close-btn:hover { transform: rotate(90deg); color: #e74c3c; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid #f1c40f; margin-bottom: 20px; }
+        .info-content h2 { color: #0b1d30; margin-bottom: 10px; }
+        .info-content p { color: #555; line-height: 1.6; margin-bottom: 30px; }
+        .social-links { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 30px; }
+        .social-links li a { font-size: 20px; color: #333; transition: 0.3s; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: bold; }
+        .social-links li a:hover { transform: translateY(-4px); }
+        .social-links li a.instagram:hover { color: #e1306c; }
+        .social-links li a.telegram:hover { color: #0088cc; }
+        .real-estate-content { border-color: #27ae60; }
+        .case-study-box { background-color: #fcfcfc; border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .case-study-box h4 { color: #0b1d30; margin-top: 0; margin-bottom: 15px; font-size: 18px; }
+        .price-list { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; justify-content: space-around; margin-bottom: 15px; }
+        .price-list li { text-align: center; }
+        .year { font-weight: bold; color: #555; display: block; margin-bottom: 5px; }
+        .price { font-size: 22px; font-weight: bold; color: #e74c3c; }
+        .price-arrow { font-size: 30px; color: #ccc; animation: arrowBounce 1.5s ease-in-out infinite; }
+        @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+        .profit-highlight { font-size: 18px; text-align: center; margin-top: 20px; margin-bottom: 0; }
+        .profit-percent { font-size: 24px; font-weight: bold; color: #27ae60; }
+        .korzinka-content { border-color: #e74c3c; }
+        .hamkorlik-content { border-color: #f1c40f; }
+        .hamkorlik-content h2 { color: #0b1d30; }
+        .korzinka-logo { max-width: 150px; height: auto; margin-bottom: 15px; }
+        .tax-optimization-list { list-style: none; padding: 0; margin: 0; margin-top: 15px; }
+        .tax-optimization-list li { font-size: 14px; color: #555; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .tax-optimization-list i { color: #27ae60; font-size: 16px; }
+        .modal-action-btn { margin-top: 30px; border-radius: 50px; }
+        .korzinka-btn { background-color: #e74c3c; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); color: white; }
+        .korzinka-btn:hover { background-color: #c0392b; color: white; }
+        #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: #f1c40f; color: #0b1d30; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.4s ease; z-index: 1500; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        #backToTop:hover { background: #0b1d30; color: #f1c40f; transform: translateY(-4px); }
+        /* === ARAB TILI UCHUN RTL (o'ngdan-chapga) MOSLASHUVI === */
+        html[dir="rtl"] body { text-align: right; }
+        html[dir="rtl"] .hero-text { text-align: right; }
+        html[dir="rtl"] .card { text-align: right; }
+        html[dir="rtl"] nav a { margin-left: 0; margin-right: 20px; }
+        html[dir="rtl"] .lang-dropdown { margin-left: 0; margin-right: 28px; }
+        html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+        html[dir="rtl"] .lang-menu button { text-align: right; }
+        html[dir="rtl"] .info-content > div[style] { text-align: right !important; }
+        html[dir="rtl"] .contact p i { margin-right: 0; margin-left: 8px; }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .hero-text { text-align: center; margin-bottom: 40px; }
+            header, header.scrolled { padding: 12px 20px; }
+            nav a { margin-left: 12px; }
+            .lang-dropdown { margin-left: 12px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+            #heroCanvas, .hero-spotlight, .card .card-glow { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- YANGI: scroll progress bar -->
+    <div id="scrollProgress"></div>
+
+    <header id="mainHeader">
+        <h1 class="animate__animated animate__fadeInLeft">M<span>moliya.uz</span></h1>
+        <nav class="animate__animated animate__fadeInRight">
+            <a onclick="showMyInfo()" data-i18n="nav_about">Men haqimda</a>
+            <a href="#xizmatlar" data-i18n="nav_services">Xizmatlar</a>
+            <a onclick="showHamkorlikModal()" data-i18n="nav_partnership">Hamkorlik</a>
+            <a href="#aloqa" data-i18n="nav_contact">Aloqa</a>
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-current" onclick="toggleLangMenu(event)" aria-haspopup="true" aria-expanded="false">
+                    <span id="currentLangLabel">UZB</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="lang-menu" id="langMenu">
+                    <li><button data-lang="uz" onclick="setLang('uz')"><span class="flag">UZB</span> O'zbekcha</button></li>
+                    <li><button data-lang="en" onclick="setLang('en')"><span class="flag">ENG</span> English</button></li>
+                    <li><button data-lang="ru" onclick="setLang('ru')"><span class="flag">RUS</span> Русский</button></li>
+                    <li><button data-lang="ar" onclick="setLang('ar')"><span class="flag">ARB</span> العربية</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="hero" id="asosiy">
+        <!-- YANGI: zarrachalar tarmog'i + kursor prожektori -->
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-spotlight" id="heroSpotlight"></div>
+
+        <div class="hero-text animate__animated animate__fadeInLeft">
+            <h2 data-i18n="hero_title">Sizning Ishonchli Moliyaviy Hamkoringiz</h2>
+            <p data-i18n="hero_text">Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.</p>
+            <a onclick="showMyInfo()" class="btn pulse-cta magnetic" data-i18n="hero_btn">Men bilan bog'lanish</a>
+        </div>
+
+        <div class="hero-image-box animate__animated animate__fadeInRight animate__delay-1s" id="heroImageBox">
+            <img src="user_image.jpg" alt="Jahongir" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22480%22%3E%3Crect width=%22400%22 height=%22480%22 fill=%22%230b1d30%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23f1c40f%22 font-size=%2224%22 text-anchor=%22middle%22 font-family=%22Arial%22%3ERasm%3C/text%3E%3C/svg%3E';">
+        </div>
+    </section>
+    <section class="services" id="xizmatlar">
+        <h2 class="reveal" data-i18n="services_title">Bizning Xizmatlar va Keyslar</h2>
+        <div class="service-cards">
+
+            <div class="card reveal-scale" onclick="showRealEstateModal()" style="cursor: pointer;">
+                <div class="card-glow"></div>
+                <i class="fas fa-chart-line"></i>
+                <h3 data-i18n="card1_title">Ko'chmas Mulk Investitsiyasi</h3>
+                <p data-i18n="card1_p1">Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.</p>
+                <p data-i18n-html="card1_p2"><span class="highlight">Real Keys (Yangihayot tumani):</span> 2021-yilda ushbu tumanda 1 sotix yer narxi o'rtacha <span class="highlight">8 000 USD - 12 000 USD</span> bo'lgan.</p>
+                <p data-i18n-html="card1_p3">2026-yilga kelib, yer narxi <span class="highlight">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class="highlight">270% sof o'sish</span> demakdir.</p>
+                <span class="see-more" data-i18n="card1_more">Batafsil tahlilni ko'rish</span>
+            </div>
+            <div class="card reveal-scale delay-1" onclick="showKorzinkaModal()" style="cursor: pointer;">
+                <div class="card-glow"></div>
+                <i class="fas fa-calculator"></i>
+                <h3 data-i18n="card2_title">Soliq Tahlili va Optimallash</h3>
+                <p data-i18n="card2_p1">Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.</p>
+                <p data-i18n-html="card2_p2"><span class="highlight">Keys (Korzinka tarmog'i):</span> "Anglesey Food" kompaniyasi misolida soliq optimallashuvi.</p>
+                <p data-i18n="card2_p3">QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.</p>
+                <span class="see-more" data-i18n="card2_more">Korzinka keysini yoritish</span>
+            </div>
+            <div class="card reveal-scale delay-2">
+                <div class="card-glow"></div>
+                <i class="fas fa-file-contract"></i>
+                <h3 data-i18n="card3_title">Biznes Reja Tuzish</h3>
+                <p data-i18n="card3_p1">Startaplar va amaldagi biznes loyihalari uchun professional moliyaviy model va risk menedjment tizimini ishlab chiqish.</p>
+                <p data-i18n="card3_p2">Kelajakdagi daromad va xarajatlar balansini aniq matematika bilan prognozlash.</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="mentor reveal" id="ustoz">
+        <div class="mentor-inner">
+            <span class="mentor-label"><i class="fas fa-graduation-cap"></i> <span data-i18n="mentor_label">Mening Ustozim</span></span>
+            <h2 class="mentor-name">Rajabov Maxmud</h2>
+            <div class="mentor-divider"></div>
+            <p class="mentor-role" data-i18n="mentor_role">Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.</p>
+        </div>
+    </section>
+    <section class="contact" id="aloqa">
+        <h2 class="reveal" data-i18n="contact_title">Biz bilan Bog'laning</h2>
+        <p class="reveal delay-1"><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_address">Manzil: Toshkent shahri</span></p>
+        <p class="reveal delay-2"><i class="fas fa-phone"></i> <a href="tel:+998941840102"><span data-i18n="contact_phone">Telefon: +998 94 184 01 02</span></a></p>
+        <p class="reveal delay-3"><i class="fas fa-envelope"></i> <a href="mailto:mirzayorovjahongir7@gmail.com"><span data-i18n="contact_email">Email: mirzayorovjahongir7@gmail.com</span></a></p>
+    </section>
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.</p>
+    </footer>
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Yuqoriga"><i class="fas fa-arrow-up"></i></button>
+    <div id="infoOverlay" class="info-overlay">
+        <div class="info-content animate__animated">
+            <button class="close-btn" onclick="closeMyInfo()">&times;</button>
+            <img src="user_image.jpg" alt="Jahongir" class="profile-img" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%230b1d30%22/%3E%3Ctext x=%2250%25%22 y=%2255%25%22 fill=%22%23f1c40f%22 font-size=%2216%22 text-anchor=%22middle%22 font-family=%22Arial%22%3EJ%3C/text%3E%3C/svg%3E';">
+            <h2 data-i18n="about_title">Men Haqimda</h2>
+            <p data-i18n="about_text">Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.</p>
+            <ul class="social-links">
+                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
+                <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="realEstateOverlay" class="info-overlay">
+        <div class="info-content real-estate-content animate__animated">
+            <button class="close-btn" onclick="closeRealEstateModal()">&times;</button>
+            <i class="fas fa-chart-line" style="font-size: 50px; color: #27ae60; margin-bottom: 20px; display: block;"></i>
+            <h2 data-i18n="re_title">Ko'chmas Mulk Investitsiyasi Tahlili</h2>
+            <div style="text-align: left; margin-top: 15px;">
+                <p data-i18n="re_text">O'zbekistonda, ayniqsa Toshkent shahrida ko'chmas mulk va yer investitsiyalari bo'yicha professional strategik maslahatlar beramiz. Kapitalni xavfsiz va yuqori daromadli aktivlarga yo'naltirish.</p>
+                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s">
+                    <h4 data-i18n="re_case_title">Yangihayot Tumani (2021-2026) Narxlar Farqi Misolida:</h4>
+                    <ul class="price-list">
+                        <li><span class="year" data-i18n="re_year1">2021-yil (boshlang'ich):</span> <span class="price"><span class="counter" data-target="8000">0</span> <span data-i18n="re_unit">USD / sotix</span></span></li>
+                        <i class="fas fa-arrow-right price-arrow"></i>
+                        <li><span class="year" data-i18n="re_year2">2026-yil (prognoz):</span> <span class="price"><span class="counter" data-target="30000">0</span> <span data-i18n="re_unit">USD / sotix</span></span></li>
+                    </ul>
+                    <p class="profit-highlight"><span data-i18n="re_profit_pre">Sof o'sish: qariyb</span> <span class="profit-percent"><span class="counter" data-target="270">0</span>%</span> <span data-i18n="re_profit_post">5 yil ichida!</span></p>
+                </div>
+            </div>
+            <button class="btn modal-action-btn" data-i18n="re_btn">Batafsil tahlil olish</button>
+        </div>
+    </div>
+    <div id="korzinkaOverlay" class="info-overlay">
+        <div class="info-content korzinka-content animate__animated">
+            <button class="close-btn" onclick="closeKorzinkaModal()">&times;</button>
+            <img src="https://anglesey.uz/wp-content/themes/korzinka-main-dist-master/assets/images/logo.png" alt="Korzinka Logo" class="korzinka-logo" onerror="this.style.display='none';">
+            <h2 data-i18n="kz_title">Anglesey Food (Korzinka) keysini yoritish</h2>
+            <div style="text-align: left; margin-top: 15px;">
+                <p data-i18n="kz_text">Yirik riteyl subyektlari uchun soliq yuklamasini qonuniy optimallashtirish va xavflarni kamaytirish strategiyalari.</p>
+                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #e74c3c; background-color: #fdf2f2;">
+                    <h4 style="color: #e74c3c;" data-i18n="kz_case_title">"Anglesey Food" Supermarketlar Tarmog'i Soliq Optimallashuvi Keysi:</h4>
+                    <p data-i18n="kz_p">Kompaniyaning moliyaviy barqarorligini oshirish bo'yicha quyidagi choralarni tahlil qilamiz:</p>
+                    <ul class="tax-optimization-list">
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li1">QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li2">Import tovarlar xarajatlarini soliq nuqtai nazaridan to'g'ri shakllantirish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li3">Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn modal-action-btn korzinka-btn" data-i18n="kz_btn">Soliq maslahatini olish</button>
+        </div>
+    </div>
+    <div id="hamkorlikOverlay" class="info-overlay">
+        <div class="info-content hamkorlik-content animate__animated">
+            <button class="close-btn" onclick="closeHamkorlikModal()">&times;</button>
+            <i class="fas fa-handshake" style="font-size: 60px; color: #f1c40f; margin-bottom: 20px; display: block; animation: pulseGlow 3s ease-in-out infinite;"></i>
+            <h2 data-i18n="hk_title">Hamkorlikka Xush Kelibsiz!</h2>
+            <p style="font-size: 18px; color: #0b1d30; font-weight: 500;" data-i18n="hk_text1">Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉</p>
+            <p data-i18n="hk_text2">Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik.</p>
+            <ul class="social-links">
+                <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
+                <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        /* ===== TARJIMALAR (4 til: O'zbek, Ingliz, Rus, Arab) ===== */
+        const translations = {
+            uz: {
+                nav_about: "Men haqimda", nav_services: "Xizmatlar", nav_partnership: "Hamkorlik", nav_contact: "Aloqa",
+                hero_title: "Sizning Ishonchli Moliyaviy Hamkoringiz",
+                hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
+                hero_btn: "Men bilan bog'lanish",
+                services_title: "Bizning Xizmatlar va Keyslar",
+                card1_title: "Ko'chmas Mulk Investitsiyasi",
+                card1_p1: "Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.",
+                card1_p2: "<span class=\"highlight\">Real Keys (Yangihayot tumani):</span> 2021-yilda ushbu tumanda 1 sotix yer narxi o'rtacha <span class=\"highlight\">8 000 USD - 12 000 USD</span> bo'lgan.",
+                card1_p3: "2026-yilga kelib, yer narxi <span class=\"highlight\">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class=\"highlight\">270% sof o'sish</span> demakdir.",
+                card1_more: "Batafsil tahlilni ko'rish",
+                card2_title: "Soliq Tahlili va Optimallash",
+                card2_p1: "Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.",
+                card2_p2: "<span class=\"highlight\">Keys (Korzinka tarmog'i):</span> \"Anglesey Food\" kompaniyasi misolida soliq optimallashuvi.",
+                card2_p3: "QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.",
+                card2_more: "Korzinka keysini yoritish",
+                card3_title: "Biznes Reja Tuzish",
+                card3_p1: "Startaplar va amaldagi biznes loyihalari uchun professional moliyaviy model va risk menedjment tizimini ishlab chiqish.",
+                card3_p2: "Kelajakdagi daromad va xarajatlar balansini aniq matematika bilan prognozlash.",
+                contact_title: "Biz bilan Bog'laning",
+                contact_address: "Manzil: Toshkent shahri",
+                contact_phone: "Telefon: +998 94 184 01 02",
+                contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                footer_text: "© 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.",
+                mentor_label: "Mening Ustozim",
+                mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.",
+                about_title: "Men Haqimda",
+                about_text: "Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.",
+                re_title: "Ko'chmas Mulk Investitsiyasi Tahlili",
+                re_text: "O'zbekistonda, ayniqsa Toshkent shahrida ko'chmas mulk va yer investitsiyalari bo'yicha professional strategik maslahatlar beramiz. Kapitalni xavfsiz va yuqori daromadli aktivlarga yo'naltirish.",
+                re_case_title: "Yangihayot Tumani (2021-2026) Narxlar Farqi Misolida:",
+                re_year1: "2021-yil (boshlang'ich):", re_year2: "2026-yil (prognoz):", re_unit: "USD / sotix",
+                re_profit_pre: "Sof o'sish: qariyb", re_profit_post: "5 yil ichida!", re_btn: "Batafsil tahlil olish",
+                kz_title: "Anglesey Food (Korzinka) keysini yoritish",
+                kz_text: "Yirik riteyl subyektlari uchun soliq yuklamasini qonuniy optimallashtirish va xavflarni kamaytirish strategiyalari.",
+                kz_case_title: "\"Anglesey Food\" Supermarketlar Tarmog'i Soliq Optimallashuvi Keysi:",
+                kz_p: "Kompaniyaning moliyaviy barqarorligini oshirish bo'yicha quyidagi choralarni tahlil qilamiz:",
+                kz_li1: "QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.",
+                kz_li2: "Import tovarlar xarajatlarini soliq nuqtai nazaridan to'g'ri shakllantirish.",
+                kz_li3: "Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.",
+                kz_btn: "Soliq maslahatini olish",
+                hk_title: "Hamkorlikka Xush Kelibsiz!",
+                hk_text1: "Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉",
+                hk_text2: "Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik."
+            },
+            en: {
+                nav_about: "About", nav_services: "Services", nav_partnership: "Partnership", nav_contact: "Contact",
+                hero_title: "Your Reliable Financial Partner",
+                hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
+                hero_btn: "Contact me",
+                services_title: "Our Services and Case Studies",
+                card1_title: "Real Estate Investment",
+                card1_p1: "Analysis on properly directing capital into real estate and land assets.",
+                card1_p2: "<span class=\"highlight\">Real case (Yangihayot district):</span> In 2021, the average price of 1 sotix (100 m²) of land in this district was <span class=\"highlight\">8,000 USD - 12,000 USD</span>.",
+                card1_p3: "By 2026, the land price exceeded <span class=\"highlight\">30,000 USD</span>. That means nearly <span class=\"highlight\">270% net growth</span> in 5 years.",
+                card1_more: "View detailed analysis",
+                card2_title: "Tax Analysis and Optimization",
+                card2_p1: "Strategies for legally reducing the tax burden for large retail and business entities.",
+                card2_p2: "<span class=\"highlight\">Case (Korzinka network):</span> Tax optimization on the example of the \"Anglesey Food\" company.",
+                card2_p3: "Ways to increase company profitability through proper VAT chain management and reasonable use of tax incentives.",
+                card2_more: "Explore the Korzinka case",
+                card3_title: "Business Plan Development",
+                card3_p1: "Developing a professional financial model and risk management system for startups and existing business projects.",
+                card3_p2: "Forecasting the future balance of income and expenses with precise mathematics.",
+                contact_title: "Get in Touch",
+                contact_address: "Address: Tashkent city",
+                contact_phone: "Phone: +998 94 184 01 02",
+                contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                footer_text: "© 2026 Mmoliya.uz - All rights reserved.",
+                mentor_label: "My Mentor",
+                mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.",
+                about_title: "About Me",
+                about_text: "Hello! I am Jahongir, a financial advisor and analyst. I help take your investments and business to a new level.",
+                re_title: "Real Estate Investment Analysis",
+                re_text: "We provide professional strategic advice on real estate and land investments in Uzbekistan, especially in Tashkent. Directing capital into safe and high-yield assets.",
+                re_case_title: "Yangihayot District (2021-2026) Price Difference Example:",
+                re_year1: "2021 (initial):", re_year2: "2026 (forecast):", re_unit: "USD / sotix",
+                re_profit_pre: "Net growth: about", re_profit_post: "within 5 years!", re_btn: "Get detailed analysis",
+                kz_title: "Anglesey Food (Korzinka) Case Study",
+                kz_text: "Strategies for legally optimizing the tax burden and reducing risks for large retail entities.",
+                kz_case_title: "\"Anglesey Food\" Supermarket Network Tax Optimization Case:",
+                kz_p: "We analyze the following measures to improve the company's financial stability:",
+                kz_li1: "Properly organizing and re-accounting the VAT (12%) chain.",
+                kz_li2: "Correctly structuring the costs of imported goods from a tax perspective.",
+                kz_li3: "Opportunities to optimize social taxes and employee salaries.",
+                kz_btn: "Get tax advice",
+                hk_title: "Welcome to Partnership!",
+                hk_text1: "Congratulations on being about to make another right decision in your life! 🎉",
+                hk_text2: "Let's achieve your financial goals together. Get in touch and let's start our partnership."
+            },
+            ru: {
+                nav_about: "Обо мне", nav_services: "Услуги", nav_partnership: "Сотрудничество", nav_contact: "Контакты",
+                hero_title: "Ваш надёжный финансовый партнёр",
+                hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
+                hero_btn: "Связаться со мной",
+                services_title: "Наши услуги и кейсы",
+                card1_title: "Инвестиции в недвижимость",
+                card1_p1: "Анализ правильного направления капитала в недвижимость и земельные активы.",
+                card1_p2: "<span class=\"highlight\">Реальный кейс (район Янгихаёт):</span> В 2021 году средняя цена 1 сотки земли в этом районе составляла <span class=\"highlight\">8 000 USD - 12 000 USD</span>.",
+                card1_p3: "К 2026 году цена земли превысила <span class=\"highlight\">30 000 USD</span>. Это почти <span class=\"highlight\">270% чистого роста</span> за 5 лет.",
+                card1_more: "Посмотреть подробный анализ",
+                card2_title: "Налоговый анализ и оптимизация",
+                card2_p1: "Стратегии законного снижения налоговой нагрузки для крупных розничных и бизнес-субъектов.",
+                card2_p2: "<span class=\"highlight\">Кейс (сеть Korzinka):</span> Налоговая оптимизация на примере компании «Anglesey Food».",
+                card2_p3: "Способы повышения рентабельности компании за счёт правильного управления цепочкой НДС и разумного использования налоговых льгот.",
+                card2_more: "Раскрыть кейс Korzinka",
+                card3_title: "Разработка бизнес-плана",
+                card3_p1: "Разработка профессиональной финансовой модели и системы риск-менеджмента для стартапов и действующих бизнес-проектов.",
+                card3_p2: "Прогнозирование будущего баланса доходов и расходов с точной математикой.",
+                contact_title: "Свяжитесь с нами",
+                contact_address: "Адрес: город Ташкент",
+                contact_phone: "Телефон: +998 94 184 01 02",
+                contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                footer_text: "© 2026 Mmoliya.uz - Все права защищены.",
+                mentor_label: "Мой наставник",
+                mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.",
+                about_title: "Обо мне",
+                about_text: "Здравствуйте! Я Жахонгир, финансовый консультант и аналитик. Помогу вывести ваши инвестиции и бизнес на новый уровень.",
+                re_title: "Анализ инвестиций в недвижимость",
+                re_text: "Мы предоставляем профессиональные стратегические консультации по инвестициям в недвижимость и землю в Узбекистане, особенно в Ташкенте. Направление капитала в безопасные и высокодоходные активы.",
+                re_case_title: "На примере разницы цен района Янгихаёт (2021-2026):",
+                re_year1: "2021 год (начальная):", re_year2: "2026 год (прогноз):", re_unit: "USD / сотка",
+                re_profit_pre: "Чистый рост: около", re_profit_post: "за 5 лет!", re_btn: "Получить подробный анализ",
+                kz_title: "Раскрытие кейса Anglesey Food (Korzinka)",
+                kz_text: "Стратегии законной оптимизации налоговой нагрузки и снижения рисков для крупных розничных субъектов.",
+                kz_case_title: "Кейс налоговой оптимизации сети супермаркетов «Anglesey Food»:",
+                kz_p: "Мы анализируем следующие меры для повышения финансовой стабильности компании:",
+                kz_li1: "Правильная организация и переучёт цепочки НДС (12%).",
+                kz_li2: "Корректное формирование расходов на импортные товары с налоговой точки зрения.",
+                kz_li3: "Возможности оптимизации социальных налогов и зарплат сотрудников.",
+                kz_btn: "Получить налоговую консультацию",
+                hk_title: "Добро пожаловать в сотрудничество!",
+                hk_text1: "Поздравляю вас с тем, что вы собираетесь принять ещё одно правильное решение в своей жизни! 🎉",
+                hk_text2: "Давайте вместе достигнем ваших финансовых целей. Свяжитесь со мной, и начнём наше сотрудничество."
+            },
+            ar: {
+                nav_about: "نبذة عني", nav_services: "الخدمات", nav_partnership: "الشراكة", nav_contact: "اتصل بنا",
+                hero_title: "شريكك المالي الموثوق",
+                hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
+                hero_btn: "تواصل معي",
+                services_title: "خدماتنا ودراسات الحالة",
+                card1_title: "الاستثمار العقاري",
+                card1_p1: "تحليل التوجيه الصحيح لرأس المال نحو العقارات والأصول العقارية.",
+                card1_p2: "<span class=\"highlight\">حالة واقعية (منطقة يانغيهايات):</span> في عام 2021 كان متوسط سعر السوتيكس الواحد (100 م²) من الأرض في هذه المنطقة <span class=\"highlight\">8,000 - 12,000 دولار</span>.",
+                card1_p3: "بحلول عام 2026 تجاوز سعر الأرض <span class=\"highlight\">30,000 دولار</span>. أي ما يقارب <span class=\"highlight\">270% نمو صافٍ</span> خلال 5 سنوات.",
+                card1_more: "عرض التحليل التفصيلي",
+                card2_title: "تحليل الضرائب والتحسين",
+                card2_p1: "استراتيجيات لتقليل العبء الضريبي بشكل قانوني للكيانات التجارية وتجارة التجزئة الكبيرة.",
+                card2_p2: "<span class=\"highlight\">حالة (شبكة Korzinka):</span> تحسين الضرائب على مثال شركة «Anglesey Food».",
+                card2_p3: "طرق زيادة ربحية الشركة من خلال الإدارة الصحيحة لسلسلة ضريبة القيمة المضافة والاستخدام الحكيم للإعفاءات الضريبية.",
+                card2_more: "استعراض حالة Korzinka",
+                card3_title: "إعداد خطة العمل",
+                card3_p1: "تطوير نموذج مالي احترافي ونظام لإدارة المخاطر للشركات الناشئة والمشاريع التجارية القائمة.",
+                card3_p2: "توقع التوازن المستقبلي للإيرادات والمصروفات برياضيات دقيقة.",
+                contact_title: "تواصل معنا",
+                contact_address: "العنوان: مدينة طشقند",
+                contact_phone: "الهاتف: +998 94 184 01 02",
+                contact_email: "البريد الإلكتروني: mirzayorovjahongir7@gmail.com",
+                footer_text: "© 2026 Mmoliya.uz - جميع الحقوق محفوظة.",
+                mentor_label: "أستاذي",
+                mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.",
+                about_title: "نبذة عني",
+                about_text: "مرحباً! أنا جهانغير، مستشار ومحلل مالي. أساعدك على الارتقاء باستثماراتك وعملك إلى مستوى جديد.",
+                re_title: "تحليل الاستثمار العقاري",
+                re_text: "نقدم استشارات استراتيجية احترافية حول الاستثمار في العقارات والأراضي في أوزبكستان، وخاصة في طشقند. توجيه رأس المال نحو أصول آمنة وعالية العائد.",
+                re_case_title: "مثال فرق الأسعار في منطقة يانغيهايات (2021-2026):",
+                re_year1: "2021 (البداية):", re_year2: "2026 (توقع):", re_unit: "دولار / سوتيكس",
+                re_profit_pre: "نمو صافٍ: حوالي", re_profit_post: "خلال 5 سنوات!", re_btn: "احصل على تحليل مفصل",
+                kz_title: "استعراض حالة Anglesey Food (Korzinka)",
+                kz_text: "استراتيجيات لتحسين العبء الضريبي بشكل قانوني وتقليل المخاطر للكيانات الكبيرة في تجارة التجزئة.",
+                kz_case_title: "حالة تحسين ضرائب شبكة سوبر ماركت «Anglesey Food»:",
+                kz_p: "نحلل الإجراءات التالية لتحسين الاستقرار المالي للشركة:",
+                kz_li1: "التنظيم الصحيح وإعادة احتساب سلسلة ضريبة القيمة المضافة (12%).",
+                kz_li2: "الهيكلة الصحيحة لتكاليف السلع المستوردة من منظور ضريبي.",
+                kz_li3: "فرص تحسين الضرائب الاجتماعية ورواتب الموظفين.",
+                kz_btn: "احصل على استشارة ضريبية",
+                hk_title: "مرحباً بك في الشراكة!",
+                hk_text1: "أهنئك على أنك على وشك اتخاذ قرار صحيح آخر في حياتك! 🎉",
+                hk_text2: "دعنا نحقق أهدافك المالية معاً. تواصل معي ولنبدأ شراكتنا."
+            }
+        };
+        const LANG_LABELS = { uz: 'UZB', en: 'ENG', ru: 'RUS', ar: 'ARB' };
+        function setLang(lang) {
+            if (!translations[lang]) lang = 'uz';
+            const dict = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) el.textContent = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (dict[key] !== undefined) el.innerHTML = dict[key];
+            });
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            const label = document.getElementById('currentLangLabel');
+            if (label) label.textContent = LANG_LABELS[lang] || 'UZB';
+            document.querySelectorAll('.lang-menu button').forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+            });
+            closeLangMenu();
+            try { localStorage.setItem('siteLang', lang); } catch (e) {}
+        }
+        /* Dropdown ochish/yopish */
+        function toggleLangMenu(e) {
+            if (e) e.stopPropagation();
+            const dd = document.getElementById('langDropdown');
+            const btn = dd.querySelector('.lang-current');
+            const open = dd.classList.toggle('open');
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        function closeLangMenu() {
+            const dd = document.getElementById('langDropdown');
+            if (!dd) return;
+            dd.classList.remove('open');
+            const btn = dd.querySelector('.lang-current');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+        /* Tashqariga bosilganda dropdownni yopish */
+        document.addEventListener('click', function (e) {
+            const dd = document.getElementById('langDropdown');
+            if (dd && !dd.contains(e.target)) closeLangMenu();
+        });
+        /* Saqlangan tilni yuklash (standart: o'zbekcha) */
+        (function () {
+            let saved = 'uz';
+            try { saved = localStorage.getItem('siteLang') || 'uz'; } catch (e) {}
+            setLang(saved);
+        })();
+
+        /* prefers-reduced-motion tekshiruvi (jonli effektlarni o'chirish uchun) */
+        const REDUCE_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ===== HEADER SCROLL EFFEKTI + SCROLL PROGRESS BAR ===== */
+        const mainHeader = document.getElementById('mainHeader');
+        const backToTop = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        function onScroll() {
+            const y = window.scrollY;
+            if (y > 50) { mainHeader.classList.add('scrolled'); backToTop.classList.add('show'); }
+            else { mainHeader.classList.remove('scrolled'); backToTop.classList.remove('show'); }
+            // progress bar
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = h > 0 ? (y / h) * 100 : 0;
+            if (scrollProgress) scrollProgress.style.width = pct + '%';
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* ===== SCROLL ORQALI PAYDO BO'LISH (Intersection Observer) ===== */
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* ===== RAQAMLAR (COUNTER) ANIMATSIYASI ===== */
+        function animateCounter(el) {
+            const target = +el.getAttribute('data-target');
+            const duration = 1500;
+            const startTime = performance.now();
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 4);
+                const value = Math.floor(eased * target);
+                el.textContent = value.toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
+                if (progress < 1) requestAnimationFrame(update);
+                else el.textContent = target.toLocaleString('ru-RU').replace(/\u00A0/g, ' ');
+            }
+            requestAnimationFrame(update);
+        }
+        function runCountersIn(container) {
+            container.querySelectorAll('.counter').forEach(c => {
+                c.textContent = '0';
+                animateCounter(c);
+            });
+        }
+        /* ===== TUGMA RIPPLE EFFEKTI ===== */
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+        /* ===== YUQORIGA QAYTISH ===== */
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ============================================================
+           ===== YANGI JONLI EFFEKTLAR =====
+           ============================================================ */
+
+        /* --- 1) HERO ZARRACHALAR TARMOG'I (canvas) --- */
+        (function initParticles() {
+            if (REDUCE_MOTION) return;
+            const canvas = document.getElementById('heroCanvas');
+            const hero = document.getElementById('asosiy');
+            if (!canvas || !hero) return;
+            const ctx = canvas.getContext('2d');
+            let W = 0, H = 0, particles = [], mouse = { x: null, y: null };
+
+            function resize() {
+                W = canvas.width = hero.offsetWidth;
+                H = canvas.height = hero.offsetHeight;
+                const count = Math.min(70, Math.floor(W * H / 16000));
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.4,
+                        vy: (Math.random() - 0.5) * 0.4,
+                        r: Math.random() * 1.8 + 0.6
+                    });
+                }
+            }
+
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            hero.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > W) p.vx *= -1;
+                    if (p.y < 0 || p.y > H) p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(241,196,15,0.55)';
+                    ctx.fill();
+                    // zarrachalar orasidagi chiziqlar
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const q = particles[j];
+                        const dx = p.x - q.x, dy = p.y - q.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(q.x, q.y);
+                            ctx.strokeStyle = 'rgba(255,255,255,' + (0.12 * (1 - dist / 120)) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                    // sichqoncha ta'siri
+                    if (mouse.x !== null) {
+                        const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 160) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = 'rgba(241,196,15,' + (0.3 * (1 - dist / 160)) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            draw();
+        })();
+
+        /* --- 2) KURSOR PROЖEKTORI (hero ustidagi yumshoq nur) --- */
+        (function initSpotlight() {
+            if (REDUCE_MOTION) return;
+            const hero = document.getElementById('asosiy');
+            const spot = document.getElementById('heroSpotlight');
+            if (!hero || !spot) return;
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                spot.style.left = (e.clientX - rect.left) + 'px';
+                spot.style.top = (e.clientY - rect.top) + 'px';
+                spot.style.opacity = '1';
+            });
+            hero.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
+        })();
+
+        /* --- 3) HERO RASM PARALLAKSI (chuqurlik effekti) --- */
+        (function initHeroParallax() {
+            if (REDUCE_MOTION) return;
+            const hero = document.getElementById('asosiy');
+            const box = document.getElementById('heroImageBox');
+            if (!hero || !box) return;
+            hero.addEventListener('mousemove', e => {
+                const rect = hero.getBoundingClientRect();
+                const cx = rect.width / 2, cy = rect.height / 2;
+                const mx = (e.clientX - rect.left - cx) / cx;
+                const my = (e.clientY - rect.top - cy) / cy;
+                box.style.transform = 'translate(' + (mx * 14) + 'px, ' + (my * 14) + 'px)';
+            });
+            hero.addEventListener('mouseleave', () => { box.style.transform = 'translate(0,0)'; });
+        })();
+
+        /* --- 4) 3D KARTA EGILISHI (tilt) + ichki yorug'lik --- */
+        (function initCardTilt() {
+            if (REDUCE_MOTION) return;
+            document.querySelectorAll('.service-cards .card').forEach(card => {
+                const glow = card.querySelector('.card-glow');
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rx = ((y / rect.height) - 0.5) * -10; // yuqoriga/pastga
+                    const ry = ((x / rect.width) - 0.5) * 10;   // chapga/o'ngga
+                    card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-10px)';
+                    if (glow) {
+                        glow.style.setProperty('--gx', x + 'px');
+                        glow.style.setProperty('--gy', y + 'px');
+                    }
+                });
+                card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            });
+        })();
+
+        /* --- 5) MAGNIT TUGMA (sichqonchaga tortiladi) --- */
+        (function initMagnetic() {
+            if (REDUCE_MOTION) return;
+            document.querySelectorAll('.btn.magnetic').forEach(btn => {
+                btn.addEventListener('mousemove', e => {
+                    const rect = btn.getBoundingClientRect();
+                    const mx = e.clientX - rect.left - rect.width / 2;
+                    const my = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = 'translate(' + (mx * 0.25) + 'px, ' + (my * 0.35) + 'px)';
+                });
+                btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+            });
+        })();
+
+        /* ===== MODALLAR ===== */
+        function showMyInfo() {
+            const overlay = document.getElementById('infoOverlay');
+            const content = overlay.querySelector('.info-content');
+            overlay.style.display = 'flex';
+            content.className = 'info-content animate__animated animate__backInDown';
+            content.querySelectorAll('p, .social-links li').forEach(el => el.classList.add('animate__fadeInUp'));
+        }
+        function closeMyInfo() {
+            const overlay = document.getElementById('infoOverlay');
+            const content = overlay.querySelector('.info-content');
+            content.className = 'info-content animate__animated animate__zoomOutUp';
+            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content animate__animated'; }, 600);
+        }
+        function showRealEstateModal() {
+            const card = document.querySelector('.services .card:nth-child(1)');
+            card.classList.add('animate__animated', 'animate__pulse');
+            setTimeout(() => {
+                const overlay = document.getElementById('realEstateOverlay');
+                const content = overlay.querySelector('.info-content');
+                overlay.style.display = 'flex';
+                content.className = 'info-content real-estate-content animate__animated animate__zoomInDown';
+                card.classList.remove('animate__animated', 'animate__pulse');
+                runCountersIn(overlay);
+            }, 500);
+        }
+        function closeRealEstateModal() {
+            const overlay = document.getElementById('realEstateOverlay');
+            const content = overlay.querySelector('.info-content');
+            content.className = 'info-content real-estate-content animate__animated animate__zoomOutUp';
+            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content real-estate-content animate__animated'; }, 600);
+        }
+        function showKorzinkaModal() {
+            const card = document.querySelector('.services .card:nth-child(2)');
+            card.classList.add('animate__animated', 'animate__pulse');
+            setTimeout(() => {
+                const overlay = document.getElementById('korzinkaOverlay');
+                const content = overlay.querySelector('.info-content');
+                overlay.style.display = 'flex';
+                content.className = 'info-content korzinka-content animate__animated animate__zoomInDown';
+                card.classList.remove('animate__animated', 'animate__pulse');
+            }, 500);
+        }
+        function closeKorzinkaModal() {
+            const overlay = document.getElementById('korzinkaOverlay');
+            const content = overlay.querySelector('.info-content');
+            content.className = 'info-content korzinka-content animate__animated animate__zoomOutUp';
+            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content korzinka-content animate__animated'; }, 600);
+        }
+        function showHamkorlikModal() {
+            const overlay = document.getElementById('hamkorlikOverlay');
+            const content = overlay.querySelector('.info-content');
+            overlay.style.display = 'flex';
+            content.className = 'info-content hamkorlik-content animate__animated animate__zoomInDown';
+        }
+        function closeHamkorlikModal() {
+            const overlay = document.getElementById('hamkorlikOverlay');
+            const content = overlay.querySelector('.info-content');
+            content.className = 'info-content hamkorlik-content animate__animated animate__zoomOutUp';
+            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content hamkorlik-content animate__animated'; }, 600);
+        }
+        window.onclick = function (event) {
+            const myInfoOverlay = document.getElementById('infoOverlay');
+            const realEstateOverlay = document.getElementById('realEstateOverlay');
+            const korzinkaOverlay = document.getElementById('korzinkaOverlay');
+            const hamkorlikOverlay = document.getElementById('hamkorlikOverlay');
+            if (event.target == myInfoOverlay) closeMyInfo();
+            else if (event.target == realEstateOverlay) closeRealEstateModal();
+            else if (event.target == korzinkaOverlay) closeKorzinkaModal();
+            else if (event.target == hamkorlikOverlay) closeHamkorlikModal();
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu();
+            }
+        });
+    </script>
+</body>
+</html>
