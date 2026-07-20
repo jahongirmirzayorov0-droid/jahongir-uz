@@ -294,12 +294,53 @@
         html[dir="rtl"] .calc-wrap { text-align: right; }
         @media (max-width: 600px) { .calc { padding: 60px 18px; } .calc-panel { padding: 26px 20px 30px 20px; } .calc-tab { min-width: 33%; font-size: 12px; } }
 
+        /* ===== BURGER TUGMASI (mobil) ===== */
+        .burger { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; width: 44px; height: 44px; flex-direction: column; justify-content: center; gap: 5px; z-index: 1201; }
+        .burger span { display: block; width: 26px; height: 2.5px; background: #fff; border-radius: 3px; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.25s ease, background 0.3s; }
+        .burger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: #f1c40f; }
+        .burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .burger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); background: #f1c40f; }
+        .nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(4,12,22,0.6); backdrop-filter: blur(3px); z-index: 1150; opacity: 0; transition: opacity 0.35s ease; }
+        .nav-backdrop.show { display: block; opacity: 1; }
+
         @media (max-width: 900px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .hero { flex-direction: column; text-align: center; padding: 120px 6% 70px 6%; }
             .hero-text { text-align: center; margin-bottom: 40px; }
-            header, header.scrolled { padding: 12px 20px; }
-            nav a { margin-left: 12px; }
-            .lang-dropdown { margin-left: 12px; }
+            .hero-text h2 { font-size: 32px; }
+            .hero-text p { font-size: 16px; }
+            header, header.scrolled { padding: 14px 20px; }
+            header h1, header.scrolled h1 { font-size: 20px; }
+            .burger { display: flex; }
+            /* Menyu yon paneldan chiqadi */
+            nav {
+                position: fixed; top: 0; right: 0; height: 100vh; width: 78%; max-width: 320px;
+                background: #0b1d30; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+                padding: 90px 26px 30px 26px; gap: 4px; box-sizing: border-box;
+                transform: translateX(105%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.45); z-index: 1200; overflow-y: auto;
+            }
+            nav.open { transform: translateX(0); }
+            nav a { margin-left: 0; width: 100%; padding: 15px 4px; font-size: 16.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            nav a:hover { border-bottom-color: #f1c40f; padding-left: 10px; }
+            .lang-dropdown { margin-left: 0; margin-top: 22px; width: 100%; }
+            .lang-current { width: 100%; justify-content: space-between; padding: 12px 16px; }
+            .lang-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; margin-top: 8px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; padding: 0; }
+            .lang-dropdown.open .lang-menu { max-height: 260px; padding: 6px; }
+            html[dir="rtl"] nav { right: auto; left: 0; transform: translateX(-105%); box-shadow: 10px 0 40px rgba(0,0,0,0.45); }
+            html[dir="rtl"] nav.open { transform: translateX(0); }
+            html[dir="rtl"] nav a { margin-right: 0; }
+            body.nav-locked { overflow: hidden; }
+            /* Bo'limlarni mobilga moslash */
+            .services, .news { padding: 60px 20px; }
+            .card { width: 100%; max-width: 420px; }
+            .mentor { padding: 65px 22px; }
+            .mentor-name { font-size: 40px; }
+            .contact { padding: 55px 22px; }
+            .news-grid { grid-template-columns: 1fr; }
+            .news-sources { padding: 24px 20px; }
+            .source-links a { font-size: 13px; padding: 9px 14px; }
+            .info-content { width: 88%; padding: 40px 24px; }
+            #backToTop { bottom: 20px; right: 20px; width: 46px; height: 46px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -312,15 +353,19 @@
     <!-- YANGI: scroll progress bar -->
     <div id="scrollProgress"></div>
 
+    <div class="nav-backdrop" id="navBackdrop" onclick="closeMobileMenu()"></div>
     <header id="mainHeader">
         <h1 class="animate__animated animate__fadeInLeft">M<span>moliya.uz</span></h1>
-        <nav class="animate__animated animate__fadeInRight">
-            <a onclick="showMyInfo()" data-i18n="nav_about">Men haqimda</a>
-            <a href="#xizmatlar" data-i18n="nav_services">Xizmatlar</a>
-            <a href="#yangiliklar" data-i18n="nav_news">Yangiliklar</a>
-            <a href="#kalkulyatorlar" data-i18n="nav_calc">Kalkulyatorlar</a>
-            <a onclick="showHamkorlikModal()" data-i18n="nav_partnership">Hamkorlik</a>
-            <a href="#aloqa" data-i18n="nav_contact">Aloqa</a>
+        <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Menyu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="animate__animated animate__fadeInRight" id="mainNav">
+            <a onclick="showMyInfo(); closeMobileMenu();" data-i18n="nav_about">Men haqimda</a>
+            <a href="#xizmatlar" onclick="closeMobileMenu()" data-i18n="nav_services">Xizmatlar</a>
+            <a href="#yangiliklar" onclick="closeMobileMenu()" data-i18n="nav_news">Yangiliklar</a>
+            <a href="#kalkulyatorlar" onclick="closeMobileMenu()" data-i18n="nav_calc">Kalkulyatorlar</a>
+            <a onclick="showHamkorlikModal(); closeMobileMenu();" data-i18n="nav_partnership">Hamkorlik</a>
+            <a href="#aloqa" onclick="closeMobileMenu()" data-i18n="nav_contact">Aloqa</a>
             <div class="lang-dropdown" id="langDropdown">
                 <button class="lang-current" onclick="toggleLangMenu(event)" aria-haspopup="true" aria-expanded="false">
                     <span id="currentLangLabel">UZB</span>
@@ -1052,6 +1097,29 @@
             closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
+        /* ===== MOBIL MENYU (burger) ===== */
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            const btn = document.getElementById('burgerBtn');
+            const bd = document.getElementById('navBackdrop');
+            const open = nav.classList.toggle('open');
+            btn.classList.toggle('open', open);
+            bd.classList.toggle('show', open);
+            document.body.classList.toggle('nav-locked', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        function closeMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            if (!nav || !nav.classList.contains('open')) return;
+            nav.classList.remove('open');
+            document.getElementById('burgerBtn').classList.remove('open');
+            document.getElementById('navBackdrop').classList.remove('show');
+            document.body.classList.remove('nav-locked');
+            document.getElementById('burgerBtn').setAttribute('aria-expanded', 'false');
+        }
+        /* Ekran kattalashsa menyuni yopish */
+        window.addEventListener('resize', function () { if (window.innerWidth > 900) closeMobileMenu(); });
+
         /* Dropdown ochish/yopish */
         function toggleLangMenu(e) {
             if (e) e.stopPropagation();
@@ -1371,7 +1439,7 @@
         }
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu();
+                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu(); closeMobileMenu();
             }
         });
     </script>
