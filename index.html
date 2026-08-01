@@ -188,7 +188,7 @@
         @keyframes arrowBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
         .profit-highlight { font-size: 18px; text-align: center; margin-top: 20px; margin-bottom: 0; }
         .profit-percent { font-size: 24px; font-weight: bold; color: #27ae60; }
-        .korzinka-content { border-color: #e74c3c; }
+        .korzinka-content { border-color: #f1c40f; }
         .hamkorlik-content { border-color: #f1c40f; }
         .hamkorlik-content h2 { color: #0b1d30; }
         .korzinka-logo { max-width: 150px; height: auto; margin-bottom: 15px; }
@@ -450,21 +450,21 @@
 
             <div class="card reveal-scale" onclick="showRealEstateModal()" style="cursor: pointer;">
                 <div class="card-glow"></div>
-                <i class="fas fa-chart-line"></i>
-                <h3 data-i18n="card1_title">Ko'chmas Mulk Investitsiyasi</h3>
-                <p data-i18n="card1_p1">Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.</p>
-                <p data-i18n-html="card1_p2"><span class="highlight">Real Keys (Yangihayot tumani):</span> 2021-yilda ushbu tumanda 1 sotix yer narxi o'rtacha <span class="highlight">8 000 USD - 12 000 USD</span> bo'lgan.</p>
-                <p data-i18n-html="card1_p3">2026-yilga kelib, yer narxi <span class="highlight">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class="highlight">270% sof o'sish</span> demakdir.</p>
-                <span class="see-more" data-i18n="card1_more">Batafsil tahlilni ko'rish</span>
+                <i class="fas fa-chart-pie"></i>
+                <h3 data-i18n="card1_title">Investitsiya bo'yicha maslahat</h3>
+                <p data-i18n="card1_p1">Kapitalingizni qayerga va qanday joylashtirishni — depozit, oltin, ko'chmas mulk, qimmatli qog'ozlar — professional tahlil bilan tanlaymiz.</p>
+                <p data-i18n-html="card1_p2"><span class="highlight">Maqsad:</span> pulingizni ishlatib, xavfsiz va barqaror daromad olishga erishish.</p>
+                <p data-i18n-html="card1_p3">Risk darajangizga mos <span class="highlight">investitsiya portfeli</span> tuzishga yordam beraman.</p>
+                <span class="see-more" data-i18n="card1_more">Yo'nalishlarni ko'rish</span>
             </div>
             <div class="card reveal-scale delay-1" onclick="showKorzinkaModal()" style="cursor: pointer;">
                 <div class="card-glow"></div>
-                <i class="fas fa-calculator"></i>
-                <h3 data-i18n="card2_title">Soliq Tahlili va Optimallash</h3>
-                <p data-i18n="card2_p1">Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.</p>
-                <p data-i18n-html="card2_p2"><span class="highlight">Keys (Korzinka tarmog'i):</span> "Anglesey Food" kompaniyasi misolida soliq optimallashuvi.</p>
-                <p data-i18n="card2_p3">QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.</p>
-                <span class="see-more" data-i18n="card2_more">Korzinka keysini yoritish</span>
+                <i class="fas fa-book-open"></i>
+                <h3 data-i18n="card2_title">Moliyaviy Savodxonlik</h3>
+                <p data-i18n="card2_p1">Pulni to'g'ri boshqarish, jamg'arish va daromadni ko'paytirish ko'nikmalarini oddiy tilda o'rgataman.</p>
+                <p data-i18n-html="card2_p2"><span class="highlight">Kimlar uchun:</span> talabalar, ishchilar, tadbirkorlar — pul bilan ishlaydigan har bir kishi uchun.</p>
+                <p data-i18n="card2_p3">Byudjet tuzish, qarzdan qutulish, jamg'arma va investitsiya asoslari — hayotda darhol qo'llasa bo'ladigan bilimlar.</p>
+                <span class="see-more" data-i18n="card2_more">Mavzular ro'yxatini ko'rish</span>
             </div>
             <div class="card reveal-scale delay-2">
                 <div class="card-glow"></div>
@@ -675,41 +675,43 @@
     <div id="realEstateOverlay" class="info-overlay">
         <div class="info-content real-estate-content animate__animated">
             <button class="close-btn" onclick="closeRealEstateModal()">&times;</button>
-            <i class="fas fa-chart-line" style="font-size: 50px; color: #27ae60; margin-bottom: 20px; display: block;"></i>
-            <h2 data-i18n="re_title">Ko'chmas Mulk Investitsiyasi Tahlili</h2>
+            <i class="fas fa-chart-pie" style="font-size: 52px; color: #27ae60; margin-bottom: 18px; display: block;"></i>
+            <h2 data-i18n="re_title">Investitsiya bo'yicha maslahat</h2>
             <div style="text-align: left; margin-top: 15px;">
-                <p data-i18n="re_text">O'zbekistonda, ayniqsa Toshkent shahrida ko'chmas mulk va yer investitsiyalari bo'yicha professional strategik maslahatlar beramiz. Kapitalni xavfsiz va yuqori daromadli aktivlarga yo'naltirish.</p>
-                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s">
-                    <h4 data-i18n="re_case_title">Yangihayot Tumani (2021-2026) Narxlar Farqi Misolida:</h4>
-                    <ul class="price-list">
-                        <li><span class="year" data-i18n="re_year1">2021-yil (boshlang'ich):</span> <span class="price"><span class="counter" data-target="8000">0</span> <span data-i18n="re_unit">USD / sotix</span></span></li>
-                        <i class="fas fa-arrow-right price-arrow"></i>
-                        <li><span class="year" data-i18n="re_year2">2026-yil (prognoz):</span> <span class="price"><span class="counter" data-target="30000">0</span> <span data-i18n="re_unit">USD / sotix</span></span></li>
+                <p data-i18n="re_text">Kapitalingizni qayerga joylashtirish — bu muhim qaror. Har bir yo'nalishning risk va daromadini birgalikda tahlil qilib, sizga eng mosini tanlaymiz.</p>
+                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #27ae60; background-color: #f5fbf7;">
+                    <h4 style="color: #0b1d30;" data-i18n="re_case_title">Qaysi yo'nalishlarni ko'rib chiqamiz:</h4>
+                    <ul class="tax-optimization-list">
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li1">Bank depozitlari — barqaror, past riskli daromad.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li2">Oltin va qimmatbaho metallar — inflyatsiyadan himoya.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li3">Ko'chmas mulk va yer — uzoq muddatli o'sish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li4">Qimmatli qog'ozlar (aksiya, obligatsiya).</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li5">Riskni taqsimlash va portfel tuzish.</span></li>
                     </ul>
-                    <p class="profit-highlight"><span data-i18n="re_profit_pre">Sof o'sish: qariyb</span> <span class="profit-percent"><span class="counter" data-target="270">0</span>%</span> <span data-i18n="re_profit_post">5 yil ichida!</span></p>
                 </div>
             </div>
-            <button class="btn modal-action-btn" data-i18n="re_btn">Batafsil tahlil olish</button>
+            <button class="btn modal-action-btn" onclick="closeRealEstateModal(); showHamkorlikModal();" data-i18n="re_btn">Maslahat olish</button>
         </div>
     </div>
     <div id="korzinkaOverlay" class="info-overlay">
         <div class="info-content korzinka-content animate__animated">
             <button class="close-btn" onclick="closeKorzinkaModal()">&times;</button>
-            <img src="https://anglesey.uz/wp-content/themes/korzinka-main-dist-master/assets/images/logo.png" alt="Korzinka Logo" class="korzinka-logo" onerror="this.style.display='none';">
-            <h2 data-i18n="kz_title">Anglesey Food (Korzinka) keysini yoritish</h2>
+            <i class="fas fa-book-open" style="font-size: 52px; color: #f1c40f; margin-bottom: 18px; display: block;"></i>
+            <h2 data-i18n="kz_title">Moliyaviy Savodxonlik — Bilim = Boylik</h2>
             <div style="text-align: left; margin-top: 15px;">
-                <p data-i18n="kz_text">Yirik riteyl subyektlari uchun soliq yuklamasini qonuniy optimallashtirish va xavflarni kamaytirish strategiyalari.</p>
-                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #e74c3c; background-color: #fdf2f2;">
-                    <h4 style="color: #e74c3c;" data-i18n="kz_case_title">"Anglesey Food" Supermarketlar Tarmog'i Soliq Optimallashuvi Keysi:</h4>
-                    <p data-i18n="kz_p">Kompaniyaning moliyaviy barqarorligini oshirish bo'yicha quyidagi choralarni tahlil qilamiz:</p>
+                <p data-i18n="kz_text">Moliyaviy savodxonlik — bu pulni to'g'ri ishlatish san'ati. Uni oddiy va tushunarli tilda, real hayotiy misollar bilan o'rgataman.</p>
+                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #f1c40f; background-color: #fffdf5;">
+                    <h4 style="color: #0b1d30;" data-i18n="kz_case_title">Nimalarni o'rganasiz:</h4>
                     <ul class="tax-optimization-list">
-                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li1">QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li2">Import tovarlar xarajatlarini soliq nuqtai nazaridan to'g'ri shakllantirish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li3">Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li1">Byudjet tuzish va xarajatlarni nazorat qilish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li2">Jamg'arish odati va "moliyaviy yostiq" yaratish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li3">Qarz va kreditni oqilona boshqarish.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li4">Investitsiya asoslari: risk va daromad muvozanati.</span></li>
+                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li5">Inflyatsiyadan pulni himoya qilish yo'llari.</span></li>
                     </ul>
                 </div>
             </div>
-            <button class="btn modal-action-btn korzinka-btn" data-i18n="kz_btn">Soliq maslahatini olish</button>
+            <button class="btn modal-action-btn" onclick="closeKorzinkaModal(); showHamkorlikModal();" data-i18n="kz_btn">Bepul maslahatni boshlash</button>
         </div>
     </div>
     <div id="hamkorlikOverlay" class="info-overlay">
@@ -754,16 +756,16 @@
                 hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
                 hero_btn: "Men bilan bog'lanish",
                 services_title: "Bizning Xizmatlar va Keyslar",
-                card1_title: "Ko'chmas Mulk Investitsiyasi",
-                card1_p1: "Ko'chmas mulk va yer aktivlariga kapitalni to'g'ri yo'naltirish bo'yicha tahlillar.",
-                card1_p2: "<span class=\"highlight\">Real Keys (Yangihayot tumani):</span> 2021-yilda ushbu tumanda 1 sotix yer narxi o'rtacha <span class=\"highlight\">8 000 USD - 12 000 USD</span> bo'lgan.",
-                card1_p3: "2026-yilga kelib, yer narxi <span class=\"highlight\">30 000 USD</span>dan oshdi. Bu 5 yilda qariyb <span class=\"highlight\">270% sof o'sish</span> demakdir.",
-                card1_more: "Batafsil tahlilni ko'rish",
-                card2_title: "Soliq Tahlili va Optimallash",
-                card2_p1: "Yirik riteyl va biznes subyektlari uchun soliq yuklamasini qonuniy kamaytirish strategiyalari.",
-                card2_p2: "<span class=\"highlight\">Keys (Korzinka tarmog'i):</span> \"Anglesey Food\" kompaniyasi misolida soliq optimallashuvi.",
-                card2_p3: "QQS zanjirini to'g'ri boshqarish va soliq imtiyozlaridan oqilona foydalanish orqali kompaniya rentabelligini oshirish yo'llari.",
-                card2_more: "Korzinka keysini yoritish",
+                card1_title: "Investitsiya bo'yicha maslahat",
+                card1_p1: "Kapitalingizni qayerga va qanday joylashtirishni — depozit, oltin, ko'chmas mulk, qimmatli qog'ozlar — professional tahlil bilan tanlaymiz.",
+                card1_p2: "<span class=\"highlight\">Maqsad:</span> pulingizni ishlatib, xavfsiz va barqaror daromad olishga erishish.",
+                card1_p3: "Risk darajangizga mos <span class=\"highlight\">investitsiya portfeli</span> tuzishga yordam beraman.",
+                card1_more: "Yo'nalishlarni ko'rish",
+                card2_title: "Moliyaviy Savodxonlik",
+                card2_p1: "Pulni to'g'ri boshqarish, jamg'arish va daromadni ko'paytirish ko'nikmalarini oddiy tilda o'rgataman.",
+                card2_p2: "<span class=\"highlight\">Kimlar uchun:</span> talabalar, ishchilar, tadbirkorlar — pul bilan ishlaydigan har bir kishi uchun.",
+                card2_p3: "Byudjet tuzish, qarzdan qutulish, jamg'arma va investitsiya asoslari — hayotda darhol qo'llasa bo'ladigan bilimlar.",
+                card2_more: "Mavzular ro'yxatini ko'rish",
                 card3_title: "Biznes Reja Tuzish",
                 card3_p1: "Startaplar va amaldagi biznes loyihalari uchun professional moliyaviy model va risk menedjment tizimini ishlab chiqish.",
                 card3_p2: "Kelajakdagi daromad va xarajatlar balansini aniq matematika bilan prognozlash.",
@@ -780,19 +782,25 @@
                 mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.",
                 about_title: "Men Haqimda",
                 about_text: "Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.",
-                re_title: "Ko'chmas Mulk Investitsiyasi Tahlili",
-                re_text: "O'zbekistonda, ayniqsa Toshkent shahrida ko'chmas mulk va yer investitsiyalari bo'yicha professional strategik maslahatlar beramiz. Kapitalni xavfsiz va yuqori daromadli aktivlarga yo'naltirish.",
-                re_case_title: "Yangihayot Tumani (2021-2026) Narxlar Farqi Misolida:",
-                re_year1: "2021-yil (boshlang'ich):", re_year2: "2026-yil (prognoz):", re_unit: "USD / sotix",
-                re_profit_pre: "Sof o'sish: qariyb", re_profit_post: "5 yil ichida!", re_btn: "Batafsil tahlil olish",
-                kz_title: "Anglesey Food (Korzinka) keysini yoritish",
-                kz_text: "Yirik riteyl subyektlari uchun soliq yuklamasini qonuniy optimallashtirish va xavflarni kamaytirish strategiyalari.",
-                kz_case_title: "\"Anglesey Food\" Supermarketlar Tarmog'i Soliq Optimallashuvi Keysi:",
-                kz_p: "Kompaniyaning moliyaviy barqarorligini oshirish bo'yicha quyidagi choralarni tahlil qilamiz:",
-                kz_li1: "QQS (12%) zanjirini to'g'ri tashkil etish va qayta hisobga olish.",
-                kz_li2: "Import tovarlar xarajatlarini soliq nuqtai nazaridan to'g'ri shakllantirish.",
-                kz_li3: "Ijtimoiy soliqlar va xodimlar oyliklarini optimallashtirish imkoniyatlari.",
-                kz_btn: "Soliq maslahatini olish",
+                re_title: "Investitsiya bo'yicha maslahat",
+                re_text: "Kapitalingizni qayerga joylashtirish — bu muhim qaror. Har bir yo'nalishning risk va daromadini birgalikda tahlil qilib, sizga eng mosini tanlaymiz.",
+                re_case_title: "Qaysi yo'nalishlarni ko'rib chiqamiz:",
+                re_li1: "Bank depozitlari — barqaror, past riskli daromad.",
+                re_li2: "Oltin va qimmatbaho metallar — inflyatsiyadan himoya.",
+                re_li3: "Ko'chmas mulk va yer — uzoq muddatli o'sish.",
+                re_li4: "Qimmatli qog'ozlar (aksiya, obligatsiya).",
+                re_li5: "Riskni taqsimlash va portfel tuzish.",
+                re_btn: "Maslahat olish",
+                kz_title: "Moliyaviy Savodxonlik — Bilim = Boylik",
+                kz_text: "Moliyaviy savodxonlik — bu pulni to'g'ri ishlatish san'ati. Uni oddiy va tushunarli tilda, real hayotiy misollar bilan o'rgataman.",
+                kz_case_title: "Nimalarni o'rganasiz:",
+                kz_p: "",
+                kz_li1: "Byudjet tuzish va xarajatlarni nazorat qilish.",
+                kz_li2: "Jamg'arish odati va \"moliyaviy yostiq\" yaratish.",
+                kz_li3: "Qarz va kreditni oqilona boshqarish.",
+                kz_li4: "Investitsiya asoslari: risk va daromad muvozanati.",
+                kz_li5: "Inflyatsiyadan pulni himoya qilish yo'llari.",
+                kz_btn: "Bepul maslahatni boshlash",
                 hk_title: "Hamkorlikka Xush Kelibsiz!",
                 hk_text1: "Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉",
                 hk_text2: "Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik."
@@ -823,16 +831,16 @@
                 hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
                 hero_btn: "Contact me",
                 services_title: "Our Services and Case Studies",
-                card1_title: "Real Estate Investment",
-                card1_p1: "Analysis on properly directing capital into real estate and land assets.",
-                card1_p2: "<span class=\"highlight\">Real case (Yangihayot district):</span> In 2021, the average price of 1 sotix (100 m²) of land in this district was <span class=\"highlight\">8,000 USD - 12,000 USD</span>.",
-                card1_p3: "By 2026, the land price exceeded <span class=\"highlight\">30,000 USD</span>. That means nearly <span class=\"highlight\">270% net growth</span> in 5 years.",
-                card1_more: "View detailed analysis",
-                card2_title: "Tax Analysis and Optimization",
-                card2_p1: "Strategies for legally reducing the tax burden for large retail and business entities.",
-                card2_p2: "<span class=\"highlight\">Case (Korzinka network):</span> Tax optimization on the example of the \"Anglesey Food\" company.",
-                card2_p3: "Ways to increase company profitability through proper VAT chain management and reasonable use of tax incentives.",
-                card2_more: "Explore the Korzinka case",
+                card1_title: "Investment Advice",
+                card1_p1: "Where and how to place your capital — deposits, gold, real estate, securities — chosen through professional analysis.",
+                card1_p2: "<span class=\"highlight\">Goal:</span> put your money to work and earn safe, stable returns.",
+                card1_p3: "I help you build an <span class=\"highlight\">investment portfolio</span> that matches your risk level.",
+                card1_more: "See the directions",
+                card2_title: "Financial Literacy",
+                card2_p1: "I teach the skills of managing money, saving and growing income — in plain, simple language.",
+                card2_p2: "<span class=\"highlight\">For whom:</span> students, employees, entrepreneurs — everyone who deals with money.",
+                card2_p3: "Budgeting, getting out of debt, savings and investment basics — knowledge you can apply right away.",
+                card2_more: "See the list of topics",
                 card3_title: "Business Plan Development",
                 card3_p1: "Developing a professional financial model and risk management system for startups and existing business projects.",
                 card3_p2: "Forecasting the future balance of income and expenses with precise mathematics.",
@@ -849,19 +857,25 @@
                 mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.",
                 about_title: "About Me",
                 about_text: "Hello! I am Jahongir, a financial advisor and analyst. I help take your investments and business to a new level.",
-                re_title: "Real Estate Investment Analysis",
-                re_text: "We provide professional strategic advice on real estate and land investments in Uzbekistan, especially in Tashkent. Directing capital into safe and high-yield assets.",
-                re_case_title: "Yangihayot District (2021-2026) Price Difference Example:",
-                re_year1: "2021 (initial):", re_year2: "2026 (forecast):", re_unit: "USD / sotix",
-                re_profit_pre: "Net growth: about", re_profit_post: "within 5 years!", re_btn: "Get detailed analysis",
-                kz_title: "Anglesey Food (Korzinka) Case Study",
-                kz_text: "Strategies for legally optimizing the tax burden and reducing risks for large retail entities.",
-                kz_case_title: "\"Anglesey Food\" Supermarket Network Tax Optimization Case:",
-                kz_p: "We analyze the following measures to improve the company's financial stability:",
-                kz_li1: "Properly organizing and re-accounting the VAT (12%) chain.",
-                kz_li2: "Correctly structuring the costs of imported goods from a tax perspective.",
-                kz_li3: "Opportunities to optimize social taxes and employee salaries.",
-                kz_btn: "Get tax advice",
+                re_title: "Investment Advice",
+                re_text: "Where to place your capital is an important decision. Together we analyze the risk and return of each direction and choose the best fit for you.",
+                re_case_title: "Which directions we cover:",
+                re_li1: "Bank deposits — stable, low-risk income.",
+                re_li2: "Gold and precious metals — protection from inflation.",
+                re_li3: "Real estate and land — long-term growth.",
+                re_li4: "Securities (stocks, bonds).",
+                re_li5: "Diversifying risk and building a portfolio.",
+                re_btn: "Get advice",
+                kz_title: "Financial Literacy — Knowledge = Wealth",
+                kz_text: "Financial literacy is the art of using money wisely. I teach it in simple, clear language with real-life examples.",
+                kz_case_title: "What you'll learn:",
+                kz_p: "",
+                kz_li1: "Budgeting and controlling your expenses.",
+                kz_li2: "Building a saving habit and a \"financial cushion\".",
+                kz_li3: "Managing debt and loans wisely.",
+                kz_li4: "Investment basics: balancing risk and return.",
+                kz_li5: "Ways to protect your money from inflation.",
+                kz_btn: "Start a free consultation",
                 hk_title: "Welcome to Partnership!",
                 hk_text1: "Congratulations on being about to make another right decision in your life! 🎉",
                 hk_text2: "Let's achieve your financial goals together. Get in touch and let's start our partnership."
@@ -892,16 +906,16 @@
                 hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
                 hero_btn: "Связаться со мной",
                 services_title: "Наши услуги и кейсы",
-                card1_title: "Инвестиции в недвижимость",
-                card1_p1: "Анализ правильного направления капитала в недвижимость и земельные активы.",
-                card1_p2: "<span class=\"highlight\">Реальный кейс (район Янгихаёт):</span> В 2021 году средняя цена 1 сотки земли в этом районе составляла <span class=\"highlight\">8 000 USD - 12 000 USD</span>.",
-                card1_p3: "К 2026 году цена земли превысила <span class=\"highlight\">30 000 USD</span>. Это почти <span class=\"highlight\">270% чистого роста</span> за 5 лет.",
-                card1_more: "Посмотреть подробный анализ",
-                card2_title: "Налоговый анализ и оптимизация",
-                card2_p1: "Стратегии законного снижения налоговой нагрузки для крупных розничных и бизнес-субъектов.",
-                card2_p2: "<span class=\"highlight\">Кейс (сеть Korzinka):</span> Налоговая оптимизация на примере компании «Anglesey Food».",
-                card2_p3: "Способы повышения рентабельности компании за счёт правильного управления цепочкой НДС и разумного использования налоговых льгот.",
-                card2_more: "Раскрыть кейс Korzinka",
+                card1_title: "Инвестиционные консультации",
+                card1_p1: "Куда и как вложить капитал — депозиты, золото, недвижимость, ценные бумаги — выбираем на основе профессионального анализа.",
+                card1_p2: "<span class=\"highlight\">Цель:</span> заставить деньги работать и получать безопасный стабильный доход.",
+                card1_p3: "Помогу составить <span class=\"highlight\">инвестиционный портфель</span> под ваш уровень риска.",
+                card1_more: "Посмотреть направления",
+                card2_title: "Финансовая грамотность",
+                card2_p1: "Обучаю навыкам правильного управления деньгами, накоплений и роста доходов — простым языком.",
+                card2_p2: "<span class=\"highlight\">Для кого:</span> студенты, работники, предприниматели — для всех, кто имеет дело с деньгами.",
+                card2_p3: "Составление бюджета, выход из долгов, основы накоплений и инвестиций — знания, применимые сразу.",
+                card2_more: "Посмотреть список тем",
                 card3_title: "Разработка бизнес-плана",
                 card3_p1: "Разработка профессиональной финансовой модели и системы риск-менеджмента для стартапов и действующих бизнес-проектов.",
                 card3_p2: "Прогнозирование будущего баланса доходов и расходов с точной математикой.",
@@ -918,19 +932,25 @@
                 mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.",
                 about_title: "Обо мне",
                 about_text: "Здравствуйте! Я Жахонгир, финансовый консультант и аналитик. Помогу вывести ваши инвестиции и бизнес на новый уровень.",
-                re_title: "Анализ инвестиций в недвижимость",
-                re_text: "Мы предоставляем профессиональные стратегические консультации по инвестициям в недвижимость и землю в Узбекистане, особенно в Ташкенте. Направление капитала в безопасные и высокодоходные активы.",
-                re_case_title: "На примере разницы цен района Янгихаёт (2021-2026):",
-                re_year1: "2021 год (начальная):", re_year2: "2026 год (прогноз):", re_unit: "USD / сотка",
-                re_profit_pre: "Чистый рост: около", re_profit_post: "за 5 лет!", re_btn: "Получить подробный анализ",
-                kz_title: "Раскрытие кейса Anglesey Food (Korzinka)",
-                kz_text: "Стратегии законной оптимизации налоговой нагрузки и снижения рисков для крупных розничных субъектов.",
-                kz_case_title: "Кейс налоговой оптимизации сети супермаркетов «Anglesey Food»:",
-                kz_p: "Мы анализируем следующие меры для повышения финансовой стабильности компании:",
-                kz_li1: "Правильная организация и переучёт цепочки НДС (12%).",
-                kz_li2: "Корректное формирование расходов на импортные товары с налоговой точки зрения.",
-                kz_li3: "Возможности оптимизации социальных налогов и зарплат сотрудников.",
-                kz_btn: "Получить налоговую консультацию",
+                re_title: "Инвестиционные консультации",
+                re_text: "Куда вложить капитал — важное решение. Вместе анализируем риск и доходность каждого направления и выбираем лучшее для вас.",
+                re_case_title: "Какие направления рассматриваем:",
+                re_li1: "Банковские депозиты — стабильный доход с низким риском.",
+                re_li2: "Золото и драгметаллы — защита от инфляции.",
+                re_li3: "Недвижимость и земля — долгосрочный рост.",
+                re_li4: "Ценные бумаги (акции, облигации).",
+                re_li5: "Диверсификация рисков и составление портфеля.",
+                re_btn: "Получить консультацию",
+                kz_title: "Финансовая грамотность — Знания = Богатство",
+                kz_text: "Финансовая грамотность — это искусство разумно распоряжаться деньгами. Обучаю простым и понятным языком на реальных примерах.",
+                kz_case_title: "Чему вы научитесь:",
+                kz_p: "",
+                kz_li1: "Составление бюджета и контроль расходов.",
+                kz_li2: "Привычка копить и создание «финансовой подушки».",
+                kz_li3: "Разумное управление долгами и кредитами.",
+                kz_li4: "Основы инвестиций: баланс риска и доходности.",
+                kz_li5: "Способы защиты денег от инфляции.",
+                kz_btn: "Начать бесплатную консультацию",
                 hk_title: "Добро пожаловать в сотрудничество!",
                 hk_text1: "Поздравляю вас с тем, что вы собираетесь принять ещё одно правильное решение в своей жизни! 🎉",
                 hk_text2: "Давайте вместе достигнем ваших финансовых целей. Свяжитесь со мной, и начнём наше сотрудничество."
@@ -961,16 +981,16 @@
                 hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
                 hero_btn: "تواصل معي",
                 services_title: "خدماتنا ودراسات الحالة",
-                card1_title: "الاستثمار العقاري",
-                card1_p1: "تحليل التوجيه الصحيح لرأس المال نحو العقارات والأصول العقارية.",
-                card1_p2: "<span class=\"highlight\">حالة واقعية (منطقة يانغيهايات):</span> في عام 2021 كان متوسط سعر السوتيكس الواحد (100 م²) من الأرض في هذه المنطقة <span class=\"highlight\">8,000 - 12,000 دولار</span>.",
-                card1_p3: "بحلول عام 2026 تجاوز سعر الأرض <span class=\"highlight\">30,000 دولار</span>. أي ما يقارب <span class=\"highlight\">270% نمو صافٍ</span> خلال 5 سنوات.",
-                card1_more: "عرض التحليل التفصيلي",
-                card2_title: "تحليل الضرائب والتحسين",
-                card2_p1: "استراتيجيات لتقليل العبء الضريبي بشكل قانوني للكيانات التجارية وتجارة التجزئة الكبيرة.",
-                card2_p2: "<span class=\"highlight\">حالة (شبكة Korzinka):</span> تحسين الضرائب على مثال شركة «Anglesey Food».",
-                card2_p3: "طرق زيادة ربحية الشركة من خلال الإدارة الصحيحة لسلسلة ضريبة القيمة المضافة والاستخدام الحكيم للإعفاءات الضريبية.",
-                card2_more: "استعراض حالة Korzinka",
+                card1_title: "استشارات الاستثمار",
+                card1_p1: "أين وكيف تضع رأس مالك — الودائع، الذهب، العقارات، الأوراق المالية — نختار بتحليل احترافي.",
+                card1_p2: "<span class=\"highlight\">الهدف:</span> تشغيل أموالك وتحقيق دخل آمن ومستقر.",
+                card1_p3: "أساعدك في بناء <span class=\"highlight\">محفظة استثمارية</span> تناسب مستوى المخاطرة لديك.",
+                card1_more: "عرض الاتجاهات",
+                card2_title: "الثقافة المالية",
+                card2_p1: "أُعلّم مهارات إدارة المال والادخار وزيادة الدخل بلغة بسيطة وواضحة.",
+                card2_p2: "<span class=\"highlight\">لمن:</span> الطلاب والموظفون ورواد الأعمال — لكل من يتعامل مع المال.",
+                card2_p3: "إعداد الميزانية والخروج من الديون وأساسيات الادخار والاستثمار — معرفة تطبّقها فورًا.",
+                card2_more: "عرض قائمة المواضيع",
                 card3_title: "إعداد خطة العمل",
                 card3_p1: "تطوير نموذج مالي احترافي ونظام لإدارة المخاطر للشركات الناشئة والمشاريع التجارية القائمة.",
                 card3_p2: "توقع التوازن المستقبلي للإيرادات والمصروفات برياضيات دقيقة.",
@@ -987,19 +1007,25 @@
                 mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.",
                 about_title: "نبذة عني",
                 about_text: "مرحباً! أنا جهانغير، مستشار ومحلل مالي. أساعدك على الارتقاء باستثماراتك وعملك إلى مستوى جديد.",
-                re_title: "تحليل الاستثمار العقاري",
-                re_text: "نقدم استشارات استراتيجية احترافية حول الاستثمار في العقارات والأراضي في أوزبكستان، وخاصة في طشقند. توجيه رأس المال نحو أصول آمنة وعالية العائد.",
-                re_case_title: "مثال فرق الأسعار في منطقة يانغيهايات (2021-2026):",
-                re_year1: "2021 (البداية):", re_year2: "2026 (توقع):", re_unit: "دولار / سوتيكس",
-                re_profit_pre: "نمو صافٍ: حوالي", re_profit_post: "خلال 5 سنوات!", re_btn: "احصل على تحليل مفصل",
-                kz_title: "استعراض حالة Anglesey Food (Korzinka)",
-                kz_text: "استراتيجيات لتحسين العبء الضريبي بشكل قانوني وتقليل المخاطر للكيانات الكبيرة في تجارة التجزئة.",
-                kz_case_title: "حالة تحسين ضرائب شبكة سوبر ماركت «Anglesey Food»:",
-                kz_p: "نحلل الإجراءات التالية لتحسين الاستقرار المالي للشركة:",
-                kz_li1: "التنظيم الصحيح وإعادة احتساب سلسلة ضريبة القيمة المضافة (12%).",
-                kz_li2: "الهيكلة الصحيحة لتكاليف السلع المستوردة من منظور ضريبي.",
-                kz_li3: "فرص تحسين الضرائب الاجتماعية ورواتب الموظفين.",
-                kz_btn: "احصل على استشارة ضريبية",
+                re_title: "استشارات الاستثمار",
+                re_text: "أين تضع رأس مالك قرار مهم. نحلل معًا مخاطر وعوائد كل اتجاه ونختار الأنسب لك.",
+                re_case_title: "ما هي الاتجاهات التي نغطيها:",
+                re_li1: "الودائع المصرفية — دخل مستقر ومنخفض المخاطر.",
+                re_li2: "الذهب والمعادن الثمينة — حماية من التضخم.",
+                re_li3: "العقارات والأراضي — نمو طويل الأمد.",
+                re_li4: "الأوراق المالية (الأسهم والسندات).",
+                re_li5: "توزيع المخاطر وبناء المحفظة.",
+                re_btn: "احصل على استشارة",
+                kz_title: "الثقافة المالية — المعرفة = الثروة",
+                kz_text: "الثقافة المالية هي فن استخدام المال بحكمة. أُعلّمها بلغة بسيطة وواضحة مع أمثلة واقعية.",
+                kz_case_title: "ماذا ستتعلم:",
+                kz_p: "",
+                kz_li1: "إعداد الميزانية والتحكم في المصروفات.",
+                kz_li2: "عادة الادخار وبناء «وسادة مالية».",
+                kz_li3: "إدارة الديون والقروض بحكمة.",
+                kz_li4: "أساسيات الاستثمار: التوازن بين المخاطرة والعائد.",
+                kz_li5: "طرق حماية أموالك من التضخم.",
+                kz_btn: "ابدأ استشارة مجانية",
                 hk_title: "مرحباً بك في الشراكة!",
                 hk_text1: "أهنئك على أنك على وشك اتخاذ قرار صحيح آخر في حياتك! 🎉",
                 hk_text2: "دعنا نحقق أهدافك المالية معاً. تواصل معي ولنبدأ شراكتنا."
