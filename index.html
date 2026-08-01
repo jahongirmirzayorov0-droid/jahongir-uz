@@ -10,10 +10,10 @@
         style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
         font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
         img-src 'self' data: https:;
-        connect-src 'self';
+        connect-src 'self' https://formsubmit.co;
         object-src 'none';
         base-uri 'self';
-        form-action 'self';
+        form-action 'self' https://formsubmit.co;
         upgrade-insecure-requests;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>mmoliya.uz - Moliyaviy Maslahatlar va Tahlillar</title>
@@ -211,6 +211,37 @@
         html[dir="rtl"] .lang-menu button { text-align: right; }
         html[dir="rtl"] .info-content > div[style] { text-align: right !important; }
         html[dir="rtl"] .contact p i { margin-right: 0; margin-left: 8px; }
+
+        /* ===== ALOQA FORMASI ===== */
+        .contact-grid { max-width: 1050px; margin: 34px auto 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px; text-align: left; align-items: stretch; }
+        .contact-info { background: #0b1d30; border-radius: 18px; padding: 38px 34px; color: #fff; position: relative; overflow: hidden; }
+        .contact-info::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.14) 0%, rgba(241,196,15,0) 70%); }
+        .contact-info h3 { color: #fff; font-size: 22px; margin: 0 0 8px 0; position: relative; }
+        .contact-info .ci-sub { color: #b9c4d0; font-size: 14.5px; line-height: 1.6; margin: 0 0 26px 0; position: relative; }
+        .ci-item { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; position: relative; }
+        .ci-item .ci-ic { flex-shrink: 0; width: 42px; height: 42px; border-radius: 11px; background: rgba(241,196,15,0.13); display: flex; align-items: center; justify-content: center; color: #f1c40f; font-size: 17px; }
+        .ci-item a, .ci-item span { color: #e6ecf2; text-decoration: none; font-size: 14.5px; transition: color 0.3s; word-break: break-word; }
+        .ci-item a:hover { color: #f1c40f; }
+        .ci-social { display: flex; gap: 12px; margin-top: 28px; position: relative; }
+        .ci-social a { width: 44px; height: 44px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s; }
+        .ci-social a:hover { transform: translateY(-3px); }
+        .ci-social a.instagram:hover { background: #e1306c; }
+        .ci-social a.telegram:hover { background: #0088cc; }
+        .contact-form-wrap { background: #fff; border-radius: 18px; padding: 36px 34px; box-shadow: 0 12px 35px rgba(11,29,48,0.08); border: 1px solid #eef2f6; }
+        .contact-form-wrap h3 { color: #0b1d30; font-size: 20px; margin: 0 0 22px 0; }
+        .contact-form .cf-field { margin-bottom: 16px; }
+        .contact-form label { display: block; font-size: 13px; font-weight: 600; color: #334; margin-bottom: 6px; }
+        .contact-form input, .contact-form textarea { width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1.5px solid #dde4ec; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 15px; color: #0b1d30; background: #fbfcfd; transition: 0.25s; resize: vertical; }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #f1c40f; background: #fff; box-shadow: 0 0 0 3px rgba(241,196,15,0.15); }
+        .contact-submit { width: 100%; border: none; margin-top: 4px; cursor: pointer; }
+        .contact-submit:disabled { opacity: 0.65; cursor: wait; }
+        .contact-status { margin-top: 16px; font-size: 14px; font-weight: 500; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; border-radius: 10px; }
+        .contact-status.show { max-height: 120px; padding: 13px 16px; }
+        .contact-status.ok { background: rgba(39,174,96,0.12); color: #1e8449; }
+        .contact-status.err { background: rgba(231,76,60,0.1); color: #c0392b; }
+        .contact-hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+        html[dir="rtl"] .contact-grid, html[dir="rtl"] .contact-info, html[dir="rtl"] .contact-form-wrap { text-align: right; }
+        @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 
         /* ===== YANGILIKLAR BO'LIMI ===== */
         .news { padding: 80px 50px; text-align: center; background: #f7f9fb; position: relative; overflow: hidden; }
@@ -587,9 +618,43 @@
     </section>
     <section class="contact" id="aloqa">
         <h2 class="reveal" data-i18n="contact_title">Biz bilan Bog'laning</h2>
-        <p class="reveal delay-1"><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact_address">Manzil: Toshkent shahri</span></p>
-        <p class="reveal delay-2"><i class="fas fa-phone"></i> <a href="tel:+998941840102"><span data-i18n="contact_phone">Telefon: +998 94 184 01 02</span></a></p>
-        <p class="reveal delay-3"><i class="fas fa-envelope"></i> <a href="mailto:mirzayorovjahongir7@gmail.com"><span data-i18n="contact_email">Email: mirzayorovjahongir7@gmail.com</span></a></p>
+        <div class="contact-grid reveal delay-1">
+            <div class="contact-info">
+                <h3 data-i18n="contact_info_title">Aloqa ma'lumotlari</h3>
+                <p class="ci-sub" data-i18n="contact_info_sub">Savollaringiz bo'lsa, quyidagi orqali bog'laning yoki xabar qoldiring — tez orada javob beraman.</p>
+                <div class="ci-item"><span class="ci-ic"><i class="fas fa-map-marker-alt"></i></span> <span data-i18n="contact_address">Manzil: Toshkent shahri</span></div>
+                <div class="ci-item"><span class="ci-ic"><i class="fas fa-phone"></i></span> <a href="tel:+998941840102" dir="ltr">+998 94 184 01 02</a></div>
+                <div class="ci-item"><span class="ci-ic"><i class="fas fa-envelope"></i></span> <a href="mailto:mirzayorovjahongir7@gmail.com">mirzayorovjahongir7@gmail.com</a></div>
+                <div class="ci-social">
+                    <a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-wrap">
+                <h3 data-i18n="contact_form_title">Xabar qoldiring</h3>
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="cf-field">
+                        <label data-i18n="cf_name">Ismingiz</label>
+                        <input type="text" id="cfName" name="name" data-i18n-ph="cf_name_ph" placeholder="Ismingizni kiriting">
+                    </div>
+                    <div class="cf-field">
+                        <label data-i18n="cf_phone">Telefon raqamingiz</label>
+                        <input type="tel" id="cfPhone" name="phone" dir="ltr" placeholder="+998 __ ___ __ __">
+                    </div>
+                    <div class="cf-field">
+                        <label data-i18n="cf_email">Email (ixtiyoriy)</label>
+                        <input type="email" id="cfEmail" name="email" placeholder="email@example.com">
+                    </div>
+                    <div class="cf-field">
+                        <label data-i18n="cf_message">Xabaringiz</label>
+                        <textarea id="cfMessage" name="message" rows="4" data-i18n-ph="cf_message_ph" placeholder="Qanday yordam bera olaman?"></textarea>
+                    </div>
+                    <input type="text" name="_honey" class="contact-hp" tabindex="-1" autocomplete="off">
+                    <button type="submit" class="btn contact-submit" data-i18n="cf_send">Yuborish</button>
+                    <div class="contact-status" id="contactStatus"></div>
+                </form>
+            </div>
+        </div>
     </section>
     <footer>
         <p data-i18n="footer_text">&copy; 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.</p>
@@ -706,6 +771,10 @@
                 contact_address: "Manzil: Toshkent shahri",
                 contact_phone: "Telefon: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                contact_info_title: "Aloqa ma'lumotlari", contact_info_sub: "Savollaringiz bo'lsa, quyidagi orqali bog'laning yoki xabar qoldiring — tez orada javob beraman.",
+                contact_form_title: "Xabar qoldiring",
+                cf_name: "Ismingiz", cf_name_ph: "Ismingizni kiriting", cf_phone: "Telefon raqamingiz", cf_email: "Email (ixtiyoriy)", cf_message: "Xabaringiz", cf_message_ph: "Qanday yordam bera olaman?",
+                cf_send: "Yuborish", cf_sending: "Yuborilmoqda...", cf_success: "Rahmat! Xabaringiz yuborildi. Tez orada bog'lanaman.", cf_error: "Xatolik yuz berdi. Iltimos, birozdan so'ng qayta urinib ko'ring.", cf_required: "Iltimos, ism, telefon va xabar maydonlarini to'ldiring.",
                 footer_text: "© 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.",
                 mentor_label: "Mening Ustozim",
                 mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.",
@@ -771,6 +840,10 @@
                 contact_address: "Address: Tashkent city",
                 contact_phone: "Phone: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                contact_info_title: "Contact details", contact_info_sub: "If you have questions, reach out below or leave a message — I'll reply shortly.",
+                contact_form_title: "Leave a message",
+                cf_name: "Your name", cf_name_ph: "Enter your name", cf_phone: "Your phone number", cf_email: "Email (optional)", cf_message: "Your message", cf_message_ph: "How can I help you?",
+                cf_send: "Send", cf_sending: "Sending...", cf_success: "Thank you! Your message has been sent. I'll be in touch soon.", cf_error: "Something went wrong. Please try again shortly.", cf_required: "Please fill in the name, phone and message fields.",
                 footer_text: "© 2026 Mmoliya.uz - All rights reserved.",
                 mentor_label: "My Mentor",
                 mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.",
@@ -836,6 +909,10 @@
                 contact_address: "Адрес: город Ташкент",
                 contact_phone: "Телефон: +998 94 184 01 02",
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
+                contact_info_title: "Контактная информация", contact_info_sub: "Если у вас есть вопросы, свяжитесь со мной или оставьте сообщение — я скоро отвечу.",
+                contact_form_title: "Оставьте сообщение",
+                cf_name: "Ваше имя", cf_name_ph: "Введите ваше имя", cf_phone: "Ваш номер телефона", cf_email: "Email (необязательно)", cf_message: "Ваше сообщение", cf_message_ph: "Чем я могу помочь?",
+                cf_send: "Отправить", cf_sending: "Отправка...", cf_success: "Спасибо! Ваше сообщение отправлено. Скоро свяжусь с вами.", cf_error: "Произошла ошибка. Пожалуйста, попробуйте позже.", cf_required: "Пожалуйста, заполните поля: имя, телефон и сообщение.",
                 footer_text: "© 2026 Mmoliya.uz - Все права защищены.",
                 mentor_label: "Мой наставник",
                 mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.",
@@ -901,6 +978,10 @@
                 contact_address: "العنوان: مدينة طشقند",
                 contact_phone: "الهاتف: +998 94 184 01 02",
                 contact_email: "البريد الإلكتروني: mirzayorovjahongir7@gmail.com",
+                contact_info_title: "معلومات الاتصال", contact_info_sub: "إذا كانت لديك أسئلة، تواصل معي أدناه أو اترك رسالة — سأرد قريبًا.",
+                contact_form_title: "اترك رسالة",
+                cf_name: "اسمك", cf_name_ph: "أدخل اسمك", cf_phone: "رقم هاتفك", cf_email: "البريد الإلكتروني (اختياري)", cf_message: "رسالتك", cf_message_ph: "كيف يمكنني مساعدتك؟",
+                cf_send: "إرسال", cf_sending: "جارٍ الإرسال...", cf_success: "شكرًا! تم إرسال رسالتك. سأتواصل معك قريبًا.", cf_error: "حدث خطأ. يرجى المحاولة مرة أخرى بعد قليل.", cf_required: "يرجى ملء حقول الاسم والهاتف والرسالة.",
                 footer_text: "© 2026 Mmoliya.uz - جميع الحقوق محفوظة.",
                 mentor_label: "أستاذي",
                 mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.",
@@ -1137,6 +1218,10 @@
                 const key = el.getAttribute('data-i18n-html');
                 if (dict[key] !== undefined) el.innerHTML = dict[key];
             });
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+            });
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
             currentLang = lang;
@@ -1149,6 +1234,52 @@
             closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
+        /* ===== ALOQA FORMASI (FormSubmit AJAX) ===== */
+        (function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            const statusBox = document.getElementById('contactStatus');
+            const btn = form.querySelector('.contact-submit');
+            function showStatus(type, msgKey) {
+                statusBox.className = 'contact-status show ' + (type === 'ok' ? 'ok' : 'err');
+                statusBox.textContent = CL(msgKey);
+            }
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                /* Spam tuzog'i (honeypot) to'ldirilgan bo'lsa — jimgina to'xtatamiz */
+                if (form.querySelector('[name="_honey"]').value) return;
+                const name = document.getElementById('cfName').value.trim();
+                const phone = document.getElementById('cfPhone').value.trim();
+                const message = document.getElementById('cfMessage').value.trim();
+                const email = document.getElementById('cfEmail').value.trim();
+                if (!name || !phone || !message) { showStatus('err', 'cf_required'); return; }
+                btn.disabled = true;
+                const oldLabel = btn.textContent;
+                btn.textContent = CL('cf_sending');
+                try {
+                    const res = await fetch('https://formsubmit.co/ajax/mirzayorovjahongir7@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({
+                            name: name, phone: phone, email: email || '—', message: message,
+                            _subject: 'mmoliya.uz — Yangi murojaat',
+                            _template: 'table', _captcha: 'false'
+                        })
+                    });
+                    const data = await res.json();
+                    if (res.ok && (data.success === 'true' || data.success === true)) {
+                        showStatus('ok', 'cf_success');
+                        form.reset();
+                    } else { showStatus('err', 'cf_error'); }
+                } catch (err) {
+                    showStatus('err', 'cf_error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = oldLabel;
+                }
+            });
+        })();
+
         /* ===== MOBIL MENYU (burger) ===== */
         function toggleMobileMenu() {
             const nav = document.getElementById('mainNav');
