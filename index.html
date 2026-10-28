@@ -1105,25 +1105,51 @@
                 ar: { t: "أخبار الاقتصاد", e: "أحدث الأخبار حول اقتصاد البلاد والأعمال والاستثمارات." }
             }
         ];
+        /* news.json — GitHub Actions har 3 soatda RSS lentalardan yangilaydi (scripts/update_news.py).
+           Yuklanmasa yoki bo'sh bo'lsa, yuqoridagi newsData ko'rsatiladi. */
+        let liveNews = null;
+        let currentNewsCat = 'all';
+        function escapeHtml(s) {
+            return String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+        }
         function renderNews(lang) {
             const grid = document.getElementById('newsGrid');
             if (!grid) return;
             const dict = translations[lang] || translations.uz;
             const catNames = { soliq: dict.news_cat_tax, buxgalteriya: dict.news_cat_acc, iqtisod: dict.news_cat_eco };
-            grid.innerHTML = newsData.map((n, i) => {
-                const c = n[lang] || n.uz;
-                return '<article class="news-card" data-cat="' + n.catKey + '" style="animation-delay:' + (i * 0.08) + 's">' +
+            const list = liveNews
+                ? liveNews.map(n => ({ cat: n.cat, date: n.date + ' · ' + n.source, title: n.title, excerpt: n.excerpt, url: n.url }))
+                : newsData.map(n => { const c = n[lang] || n.uz; return { cat: n.catKey, date: n.date, title: c.t, excerpt: c.e, url: n.url }; });
+            grid.innerHTML = list.map((n, i) => {
+                return '<article class="news-card" data-cat="' + escapeHtml(n.cat) + '" style="animation-delay:' + (i * 0.08) + 's">' +
                     '<div class="news-top">' +
-                        '<span class="news-badge badge-' + n.catKey + '">' + catNames[n.catKey] + '</span>' +
-                        '<span class="news-date"><i class="far fa-calendar"></i> ' + n.date + '</span>' +
+                        '<span class="news-badge badge-' + escapeHtml(n.cat) + '">' + catNames[n.cat] + '</span>' +
+                        '<span class="news-date"><i class="far fa-calendar"></i> ' + escapeHtml(n.date) + '</span>' +
                     '</div>' +
-                    '<h3 class="news-title">' + c.t + '</h3>' +
-                    '<p class="news-excerpt">' + c.e + '</p>' +
-                    '<a href="' + n.url + '" target="_blank" rel="noopener noreferrer" class="news-link">' + dict.news_readmore + ' <i class="fas fa-arrow-right"></i></a>' +
+                    '<h3 class="news-title">' + escapeHtml(n.title) + '</h3>' +
+                    '<p class="news-excerpt">' + escapeHtml(n.excerpt) + '</p>' +
+                    '<a href="' + escapeHtml(n.url) + '" target="_blank" rel="noopener noreferrer" class="news-link">' + dict.news_readmore + ' <i class="fas fa-arrow-right"></i></a>' +
                 '</article>';
             }).join('');
+            if (currentNewsCat !== 'all') filterNews(currentNewsCat, document.querySelector('.news-filter-btn.active'));
         }
+        function loadLiveNews() {
+            fetch('news.json?v=' + Date.now(), { cache: 'no-store' })
+                .then(r => r.ok ? r.json() : null)
+                .then(data => {
+                    const cats = ['soliq', 'buxgalteriya', 'iqtisod'];
+                    const items = data && Array.isArray(data.items)
+                        ? data.items.filter(n => n && cats.includes(n.cat) && /^https:\/\//.test(n.url) && n.title)
+                        : [];
+                    if (!items.length) return;
+                    liveNews = items;
+                    renderNews(currentLang);
+                })
+                .catch(() => {});
+        }
+        loadLiveNews();
         function filterNews(cat, btn) {
+            currentNewsCat = cat;
             document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
             if (btn) btn.classList.add('active');
             document.querySelectorAll('.news-card').forEach(card => {
