@@ -10,10 +10,10 @@
         style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
         font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
         img-src 'self' data: https:;
-        connect-src 'self' https://formsubmit.co;
+        connect-src 'self' https://script.google.com https://script.googleusercontent.com;
         object-src 'none';
         base-uri 'self';
-        form-action 'self' https://formsubmit.co;
+        form-action 'self';
         upgrade-insecure-requests;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>mmoliya.uz - Moliyaviy Maslahatlar va Tahlillar</title>
@@ -1306,7 +1306,9 @@
             closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
-        /* ===== ALOQA FORMASI (FormSubmit AJAX) ===== */
+        /* ===== ALOQA FORMASI (Google Apps Script → Telegram bot) =====
+           Bot tokeni Apps Script'da saqlanadi, saytda emas. Kod: script.google.com, "mmoliya.uz Telegram forma" loyihasi. */
+        const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxj72zvvOMf6Lm-65ur_yWQAcwHmY3piWTnfMCHow_z-LFTwUnNBjPLyINXPnXE0wFCiQ/exec';
         (function () {
             const form = document.getElementById('contactForm');
             if (!form) return;
@@ -1329,17 +1331,14 @@
                 const oldLabel = btn.textContent;
                 btn.textContent = CL('cf_sending');
                 try {
-                    const res = await fetch('https://formsubmit.co/ajax/753aa14bd9a2bef0ac950ab6ce0c7be2', {
+                    /* text/plain — Apps Script CORS preflight (OPTIONS) so'rovini qabul qilmaydi */
+                    const res = await fetch(CONTACT_ENDPOINT, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify({
-                            name: name, phone: phone, email: email || '—', message: message,
-                            _subject: 'mmoliya.uz — Yangi murojaat',
-                            _template: 'table', _captcha: 'false'
-                        })
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({ name: name, phone: phone, email: email, message: message })
                     });
                     const data = await res.json();
-                    if (res.ok && (data.success === 'true' || data.success === true)) {
+                    if (res.ok && data.ok === true) {
                         showStatus('ok', 'cf_success');
                         form.reset();
                     } else { showStatus('err', 'cf_error'); }
