@@ -27,7 +27,7 @@ FEEDS = [
 CATEGORIES = [
     ("soliq", [
         r"soliq", r"qqs\b", r"qo'shilgan qiymat solig", r"aksiz", r"bojxona", r"boj\b",
-        r"deklaratsiya", r"soliq qo'mitasi", r"daromad solig", r"mol-mulk solig",
+        r"soliq deklaratsiya", r"daromad solig", r"mol-mulk solig",
     ]),
     ("buxgalteriya", [
         r"buxgalter", r"hisob-faktura", r"moliyaviy hisobot", r"\baudit", r"mhxs",
@@ -38,7 +38,7 @@ CATEGORIES = [
         r"iqtisod", r"inflyatsiya", r"yaim\b", r"valyuta", r"dollar", r"markaziy bank",
         r"investitsiya", r"eksport", r"import", r"byudjet", r"kredit", r"bank",
         r"tadbirkor", r"biznes", r"narx", r"birja", r"obligatsiya", r"aksiya",
-        r"savdo", r"tashqi qarz", r"foiz stavka",
+        r"tashqi savdo", r"savdo aylanma", r"tashqi qarz", r"foiz stavka",
     ]),
 ]
 
@@ -85,9 +85,14 @@ def fetch(url):
 
 
 def classify(title, summary):
-    text = normalize(title + " " + summary)
+    # Sarlavhada bitta kalit so'z yetarli; faqat matnda bo'lsa, kamida ikkita
+    # turli kalit so'z kerak — tasodifiy moslik (masalan, jinoyat xabaridagi
+    # "savdo shoxobchasi") yangiliklarga tushib qolmasin.
+    title, summary = normalize(title), normalize(summary)
     for cat, patterns in CATEGORIES:
-        if any(re.search(p, text) for p in patterns):
+        if any(re.search(p, title) for p in patterns):
+            return cat
+        if sum(1 for p in patterns if re.search(p, summary)) >= 2:
             return cat
     return None
 
