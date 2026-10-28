@@ -134,13 +134,19 @@ def main():
             print("Ogohlantirish: %s o'qilmadi: %s" % (source, exc), file=sys.stderr)
 
     cutoff = datetime.now(TASHKENT) - timedelta(days=MAX_AGE_DAYS)
-    seen = set()
+    seen_urls = set()
+    seen_words = []
     fresh = []
     for item in sorted(collected, key=lambda i: i["published"], reverse=True):
-        key = normalize(item["title"])
-        if item["published"] < cutoff or key in seen or item["url"] in seen:
+        if item["published"] < cutoff or item["url"] in seen_urls:
             continue
-        seen.update((key, item["url"]))
+        # Bir xil voqea turli saytlarda biroz boshqacha sarlavha bilan chiqadi
+        # (qo'shimchalar farq qilmasligi uchun so'zlarning boshidagi 4 harf solishtiriladi)
+        words = {w[:4] for w in re.findall(r"\w+", normalize(item["title"])) if len(w) > 3}
+        if any(len(words & prev) >= 0.5 * min(len(words), len(prev)) for prev in seen_words if prev):
+            continue
+        seen_urls.add(item["url"])
+        seen_words.append(words)
         fresh.append(item)
 
     chosen = []
