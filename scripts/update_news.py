@@ -42,6 +42,9 @@ CATEGORIES = [
     ]),
 ]
 
+# Moliyaga aloqasi bo'lmagan e'lonlar (masalan, UzA'dagi dissertatsiya himoyalari)
+EXCLUDE = [r"dissertatsiya", r"falsafa doktori", r"fanlari doktori"]
+
 PER_CATEGORY = 4
 MAX_AGE_DAYS = 21
 MIN_ITEMS = 3
@@ -89,6 +92,8 @@ def classify(title, summary):
     # turli kalit so'z kerak — tasodifiy moslik (masalan, jinoyat xabaridagi
     # "savdo shoxobchasi") yangiliklarga tushib qolmasin.
     title, summary = normalize(title), normalize(summary)
+    if any(re.search(p, title) for p in EXCLUDE):
+        return None
     for cat, patterns in CATEGORIES:
         if any(re.search(p, title) for p in patterns):
             return cat
