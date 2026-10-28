@@ -1,30 +1,6 @@
 {
-  "updated": "28.10.2026 17:36",
+  "updated": "28.10.2026 17:42",
   "items": [
-    {
-      "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "Xorazmda suv ta’minoti korxonasi yuridik inspektori 6 mln so‘m bilan ushlandi",
-      "excerpt": "Xorazm viloyatida “Xorazm suv ta’minoti” AJ yuridik inspektori tanishlari orqali savdo shoxobchasini ichimlik suvi tarmog‘iga ulab berishni va’da qilib, 6 mln so‘m…",
-      "url": "https://www.gazeta.uz/oz/2026/10/28/xorazm/",
-      "source": "Gazeta.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "“Oʻzbekiston kambagʻallikni qisqartirish boʻyicha chempion davlatlardan biri” — Bandlik vaziri oʻrinbosari",
-      "excerpt": "Marat Joʻrayevning aytishicha, Jahon banki mamlakat kambagʻallikni qisqartirish surʼati boʻyicha dunyoda beshta davlat qatoridan joy olganini qayd etgan.",
-      "url": "https://daryo.uz/2026/10/28/ozbekiston-kambagallikni-qisqartirish-boyicha-chempion-davlatlardan-biri-bandlik-vaziri-orinbosari/",
-      "source": "Daryo.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "28.10.2026",
-      "title": "AQSH 3-noyabrdan barcha aviayo‘lovchilar uchun majburiy deklaratsiya joriy etadi",
-      "excerpt": "Qo‘shma shtatlarga kelayotgan yo‘lovchilar parvozdan oldingi 21 kun ichida Kongo Demokratik Respublikasida bo‘lmaganini tasdiqlashi kerak.",
-      "url": "https://www.spot.uz/oz/2026/10/28/us-attestation/",
-      "source": "Spot.uz"
-    },
     {
       "cat": "iqtisod",
       "date": "28.10.2026",
@@ -44,18 +20,18 @@
     {
       "cat": "soliq",
       "date": "28.10.2026",
-      "title": "AQShga parvoz qiluvchilarga Kongodagi epidemiya sababli yangi talab qo‘yildi",
-      "excerpt": "3-noyabrdan AQShga uchayotganlar uchun sog‘liq deklaratsiyasini to‘ldirish majburiy bo‘ladi. Bu Kongoda 4,6 mingdan ortiq kishining o‘limiga sabab bo‘lgan virus bilan…",
-      "url": "https://www.gazeta.uz/oz/2026/10/28/flight-to-us/",
-      "source": "Gazeta.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "28.10.2026",
       "title": "Soliq imtiyozlari amalda, lekin hali kodeksga kiritilmagan. Deputatlar Iqtisodiyot va moliya vazirligini savolga tutdi",
       "excerpt": "O‘zbekistonda 2026-yil boshidan ko‘zda tutilgan soliq imtiyozlarining bir qismi, biznes allaqachon ulardan foydalanayotganiga qaramay, hali Soliq kodeksiga kiritilmagan…",
       "url": "https://www.gazeta.uz/oz/2026/10/28/benefits/",
       "source": "Gazeta.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "28.10.2026",
+      "title": "Apple Pay endi Orient Finans banki mijozlari uchun ham mavjud!",
+      "excerpt": "Endi Apple qurilmangiz orqali jismoniy kartasiz oson to‘lovlarni amalga oshirishingiz mumkin!",
+      "url": "https://daryo.uz/2026/10/28/apple-pay-endi-orient-finans-banki-mijozlari-uchun-ham-mavjud/",
+      "source": "Daryo.uz"
     },
     {
       "cat": "soliq",
@@ -63,6 +39,30 @@
       "title": "Suv omborlari atrofida turizm tashkil etgan tadbirkorlarga soliq va bojxona imtiyozlari beriladi",
       "excerpt": "Suv omborlari atrofida turizm tashkil etgan tadbirkorlar 2029-yil 1-oktabrgacha yer va mol-mulk solig‘ining 50 foizini to‘laydi. Ayrim uskunalar importida bojxona…",
       "url": "https://www.gazeta.uz/oz/2026/10/28/suv-omborlari/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "28.10.2026",
+      "title": "Suv omborlari atrofida turizm xizmatlarini tashkil etgan tadbirkorlarga soliq imtiyozlari beriladi",
+      "excerpt": "Suv omborlari va ularga tutash hududlarda turizm xizmatlarini tashkil etgan yuridik shaxslar uchun yer va mol-mulk solig‘i stavkalari belgilangan stavkalarning 50 foizi…",
+      "url": "https://daryo.uz/2026/10/28/suv-omborlari-atrofida-turizm-xizmatlarini-tashkil-etgan-tadbirkorlarga-soliq-imtiyozlari-beriladi/",
+      "source": "Daryo.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "28.10.2026",
+      "title": "Suv omborlari atrofidagi turizm biznesi uchun yer va mol-mulk solig‘i 50% ga kamayadi",
+      "excerpt": "Qayd etilishicha, turistik obyektlar ichki kanalizatsiya yoki oqova suvlarni tozalash tizimlari bilan jihozlanishi kerak.",
+      "url": "https://www.spot.uz/oz/2026/10/28/water-reservoir-tourism/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "28.10.2026",
+      "title": "Tarixiy nutq. “Gap imkon qadar ko‘proq vakolatlarni tortib olishda emas, siyosiy va iqtisodiy tizim barchaning manfaati yo‘lida samarali ishlashini ta’minlashda” — Vatslav Gavel",
+      "excerpt": "Gazeta tarixda muhim ahamiyat kasb etgan nutqlarni o‘zbek tilida berib boruvchi “Tarixiy nutq” ruknini davom ettiradi. Ushbu sonda Chexiyaning ilk prezidenti Vatslav…",
+      "url": "https://www.gazeta.uz/oz/2026/10/28/vaclav-havel/",
       "source": "Gazeta.uz"
     },
     {
