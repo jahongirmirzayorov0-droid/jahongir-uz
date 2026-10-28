@@ -397,7 +397,10 @@
         @media (max-width: 900px) {
             /* iPhone'da maydonga bosilganda sahifa kattalashib ketmasligi uchun kamida 16px */
             .contact-form input, .contact-form textarea, .calc-field input, .calc-field select { font-size: 16px; }
-            .nav-close { min-width: 44px; min-height: 44px; }
+            /* backdrop-filter header'ni fixed menyu uchun "konteyner"ga aylantiradi va menyu 72px balandlikka siqilib qoladi */
+            header.scrolled { -webkit-backdrop-filter: none; backdrop-filter: none; background-color: #0b1d30; }
+            /* Ochiq burger tugmasi (X) yopish vazifasini bajaradi, ikkinchi X ustma-ust tushmasin */
+            .nav-close { display: none; }
             .news-link { padding: 10px 0; }
         }
         @media (max-width: 600px) {
