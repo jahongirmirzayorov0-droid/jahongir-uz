@@ -1,13 +1,45 @@
 {
-  "updated": "29.10.2026 01:07",
+  "updated": "29.10.2026 14:31",
   "items": [
     {
       "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "O‘zbekneftgaz $1,1 mlrd lik kreditlarini qayta moliyalashtirmoqchi, $840 mln Uzbekistan GTL hissasiga to‘g‘ri keladi",
-      "excerpt": "Qayd etilishicha, qayta moliyalashtirish natijasida davlat kompaniyasi o‘rtacha foiz stavkasini 7,7% dan 3,8%ga tushirishni rejalashtirmoqda.",
-      "url": "https://www.spot.uz/oz/2026/10/28/loan-refinancing/",
+      "date": "29.10.2026",
+      "title": "Qirg‘iziston 2027-yilning fevraligacha olma importini butunlay taqiqladi",
+      "excerpt": "Hukumat shu orqali mahalliy olma hosilini sotishni ta’minlamoqchi. O‘zbekiston mamlakatga olma yetkazib beruvchilar uchligiga kiradi.",
+      "url": "https://www.spot.uz/oz/2026/10/29/kyrgyzstan-apples/",
       "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "29.10.2026",
+      "title": "Markaziy bank to‘lov svitchi orqali so‘mdagi hisob-kitoblar tartibini tasdiqladi",
+      "excerpt": "Banklar tizimga to‘g‘ridan to‘g‘ri ishtirokchi sifatida, to‘lov xizmatlari esa hisob-kitob banki ishtirokida ulana oladi.",
+      "url": "https://www.spot.uz/oz/2026/10/29/switch-ordnance/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "29.10.2026",
+      "title": "Avtovokzal va temir yo‘l vokzallarini soliqlardan ozod qilish taklif qilinmoqda",
+      "excerpt": "Shuningdek, tadbirkorlarga imtiyozli kreditlar berish va avtovokzallarda do‘kon, mehmonxona hamda quvvatlash shoxobchalarini ochishga ruxsat berish ko‘zda tutilmoqda.",
+      "url": "https://www.spot.uz/oz/2026/10/29/bus-rail-stations/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "29.10.2026",
+      "title": "“Bir tarmoqni qo‘llab-quvvatlash xarajatlari boshqalar zimmasiga tushadi”. Biznes shakar importiga kvotalarni tanqid qildi",
+      "excerpt": "UzBev 2027-yildan oq shakar importiga kvota joriy etilishiga qarshi chiqdi. Uning rahbari Alfiya Musinaning fikricha, bu narxlar oshishi, oziq-ovqat korxonalari xarajati…",
+      "url": "https://www.gazeta.uz/oz/2026/10/29/sugar-uzbekistan/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "29.10.2026",
+      "title": "Buxoroda bir oylik chaqalog‘ini 4 ming dollarga sotgan ona va xaridor ayolning ozodligi cheklandi",
+      "excerpt": "Chaqaloqni olgan ayol keyinchalik uni sud orqali farzandlikka rasmiylashtirgan. Biologik ona esa bolasini qaytarib olish uchun ushbu qaror ustidan shikoyat qilgan, biroq…",
+      "url": "https://daryo.uz/2026/10/29/buxoroda-bir-oylik-chaqalogini-4-ming-dollarga-sotgan-ona-va-uni-sotib-olgan-ayolga-ozodlikni-cheklandi/",
+      "source": "Daryo.uz"
     },
     {
       "cat": "soliq",
@@ -18,27 +50,11 @@
       "source": "Gazeta.uz"
     },
     {
-      "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "Hamkorbank Apple Pay xizmatini mijozlarga taqdim etadi",
-      "excerpt": "iPhone va Apple Watch orqali to‘lov qilishning yanada xavfsiz, ishonchli hamda maxfiy usuli.",
-      "url": "https://daryo.uz/2026/10/28/hamkorbank-apple-pay-xizmatini-mijozlarga-taqdim-etadi/",
-      "source": "Daryo.uz"
-    },
-    {
       "cat": "buxgalteriya",
       "date": "28.10.2026",
       "title": "Rustam Rahmatov IMAN Invest rahbarligidan ketadi, kompaniya mustaqil auditdan o‘tkaziladi",
       "excerpt": "IMAN $20 mln kamomad haqidagi da’volarni rad etib, bu turli moliyaviy ko‘rsatkichlar o‘rtasidagi farq ekanini bildirdi.",
       "url": "https://www.spot.uz/oz/2026/10/28/iman-ifcb/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "Apple macOS 27 tizimidagi yangi iMac va MacBook Pro’ni taqdim etdi. Narxlar",
-      "excerpt": "Ikkala kompyuter ham 6-noyabrda sotuvga chiqariladi, oldindan buyurtmalar esa 28-oktyabrdan boshlab qabul qilinadi.",
-      "url": "https://www.spot.uz/oz/2026/10/28/macbook-pro-imac/",
       "source": "Spot.uz"
     },
     {
@@ -56,22 +72,6 @@
       "excerpt": "Yangi qonun loyihasi bilan tadbirkorlarning bank hisobvaraqlariga qo‘yilgan cheklovlarni avtomatik bekor qilish, shuningdek, Qoraqalpog‘iston va 5-toifa tumanlarida…",
       "url": "https://www.spot.uz/oz/2026/10/28/tax-debt/",
       "source": "Spot.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "28.10.2026",
-      "title": "Dollar kursi yana ko‘tarildi",
-      "excerpt": "Amerika valyutasining so‘mga nisbatan kursi 85,04 so‘mga oshib, 12 004,02 so‘mni tashkil etdi.",
-      "url": "https://www.spot.uz/oz/2026/10/28/dollar-again-rise/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "28.10.2026",
-      "title": "Soliq imtiyozlari amalda, lekin hali kodeksga kiritilmagan. Deputatlar Iqtisodiyot va moliya vazirligini savolga tutdi",
-      "excerpt": "O‘zbekistonda 2026-yil boshidan ko‘zda tutilgan soliq imtiyozlarining bir qismi, biznes allaqachon ulardan foydalanayotganiga qaramay, hali Soliq kodeksiga kiritilmagan…",
-      "url": "https://www.gazeta.uz/oz/2026/10/28/benefits/",
-      "source": "Gazeta.uz"
     }
   ]
 }
