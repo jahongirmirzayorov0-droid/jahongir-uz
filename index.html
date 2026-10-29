@@ -744,6 +744,10 @@
                         <input type="tel" id="cfPhone" name="phone" dir="ltr" placeholder="+998 __ ___ __ __">
                     </div>
                     <div class="cf-field">
+                        <label data-i18n="cf_tg">Telegram username (ixtiyoriy)</label>
+                        <input type="text" id="cfTelegram" name="telegram" dir="ltr" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false">
+                    </div>
+                    <div class="cf-field">
                         <label data-i18n="cf_email">Email (ixtiyoriy)</label>
                         <input type="email" id="cfEmail" name="email" placeholder="email@example.com">
                     </div>
@@ -911,7 +915,7 @@
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 contact_info_title: "Aloqa ma'lumotlari", contact_info_sub: "Savollaringiz bo'lsa, quyidagi orqali bog'laning yoki xabar qoldiring — tez orada javob beraman.",
                 contact_form_title: "Xabar qoldiring",
-                cf_name: "Ismingiz", cf_name_ph: "Ismingizni kiriting", cf_phone: "Telefon raqamingiz", cf_email: "Email (ixtiyoriy)", cf_message: "Xabaringiz", cf_message_ph: "Qanday yordam bera olaman?",
+                cf_name: "Ismingiz", cf_name_ph: "Ismingizni kiriting", cf_phone: "Telefon raqamingiz", cf_tg: "Telegram username (ixtiyoriy)", cf_tg_invalid: "Telegram username noto'g'ri: 5–32 ta lotin harfi, raqam yoki _ bo'lishi kerak (masalan, @username).", cf_email: "Email (ixtiyoriy)", cf_message: "Xabaringiz", cf_message_ph: "Qanday yordam bera olaman?",
                 cf_send: "Yuborish", cf_sending: "Yuborilmoqda...", cf_success: "Rahmat! Xabaringiz yuborildi. Tez orada bog'lanaman.", cf_error: "Xatolik yuz berdi. Iltimos, birozdan so'ng qayta urinib ko'ring.", cf_required: "Iltimos, ism, telefon va xabar maydonlarini to'ldiring.",
                 footer_text: "© 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.",
                 mentor_label: "Mening Ustozim",
@@ -1018,7 +1022,7 @@
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 contact_info_title: "Contact details", contact_info_sub: "If you have questions, reach out below or leave a message — I'll reply shortly.",
                 contact_form_title: "Leave a message",
-                cf_name: "Your name", cf_name_ph: "Enter your name", cf_phone: "Your phone number", cf_email: "Email (optional)", cf_message: "Your message", cf_message_ph: "How can I help you?",
+                cf_name: "Your name", cf_name_ph: "Enter your name", cf_phone: "Your phone number", cf_tg: "Telegram username (optional)", cf_tg_invalid: "Invalid Telegram username: use 5–32 Latin letters, digits or _ (e.g. @username).", cf_email: "Email (optional)", cf_message: "Your message", cf_message_ph: "How can I help you?",
                 cf_send: "Send", cf_sending: "Sending...", cf_success: "Thank you! Your message has been sent. I'll be in touch soon.", cf_error: "Something went wrong. Please try again shortly.", cf_required: "Please fill in the name, phone and message fields.",
                 footer_text: "© 2026 Mmoliya.uz - All rights reserved.",
                 mentor_label: "My Mentor",
@@ -1125,7 +1129,7 @@
                 contact_email: "Email: mirzayorovjahongir7@gmail.com",
                 contact_info_title: "Контактная информация", contact_info_sub: "Если у вас есть вопросы, свяжитесь со мной или оставьте сообщение — я скоро отвечу.",
                 contact_form_title: "Оставьте сообщение",
-                cf_name: "Ваше имя", cf_name_ph: "Введите ваше имя", cf_phone: "Ваш номер телефона", cf_email: "Email (необязательно)", cf_message: "Ваше сообщение", cf_message_ph: "Чем я могу помочь?",
+                cf_name: "Ваше имя", cf_name_ph: "Введите ваше имя", cf_phone: "Ваш номер телефона", cf_tg: "Telegram username (необязательно)", cf_tg_invalid: "Неверный Telegram username: 5–32 латинские буквы, цифры или _ (например, @username).", cf_email: "Email (необязательно)", cf_message: "Ваше сообщение", cf_message_ph: "Чем я могу помочь?",
                 cf_send: "Отправить", cf_sending: "Отправка...", cf_success: "Спасибо! Ваше сообщение отправлено. Скоро свяжусь с вами.", cf_error: "Произошла ошибка. Пожалуйста, попробуйте позже.", cf_required: "Пожалуйста, заполните поля: имя, телефон и сообщение.",
                 footer_text: "© 2026 Mmoliya.uz - Все права защищены.",
                 mentor_label: "Мой наставник",
@@ -1232,7 +1236,7 @@
                 contact_email: "البريد الإلكتروني: mirzayorovjahongir7@gmail.com",
                 contact_info_title: "معلومات الاتصال", contact_info_sub: "إذا كانت لديك أسئلة، تواصل معي أدناه أو اترك رسالة — سأرد قريبًا.",
                 contact_form_title: "اترك رسالة",
-                cf_name: "اسمك", cf_name_ph: "أدخل اسمك", cf_phone: "رقم هاتفك", cf_email: "البريد الإلكتروني (اختياري)", cf_message: "رسالتك", cf_message_ph: "كيف يمكنني مساعدتك؟",
+                cf_name: "اسمك", cf_name_ph: "أدخل اسمك", cf_phone: "رقم هاتفك", cf_tg: "اسم المستخدم في تيليجرام (اختياري)", cf_tg_invalid: "اسم مستخدم تيليجرام غير صالح: من 5 إلى 32 حرفًا لاتينيًا أو رقمًا أو _ (مثل @username).", cf_email: "البريد الإلكتروني (اختياري)", cf_message: "رسالتك", cf_message_ph: "كيف يمكنني مساعدتك؟",
                 cf_send: "إرسال", cf_sending: "جارٍ الإرسال...", cf_success: "شكرًا! تم إرسال رسالتك. سأتواصل معك قريبًا.", cf_error: "حدث خطأ. يرجى المحاولة مرة أخرى بعد قليل.", cf_required: "يرجى ملء حقول الاسم والهاتف والرسالة.",
                 footer_text: "© 2026 Mmoliya.uz - جميع الحقوق محفوظة.",
                 mentor_label: "أستاذي",
@@ -1680,7 +1684,11 @@
                 const phone = document.getElementById('cfPhone').value.trim();
                 const message = document.getElementById('cfMessage').value.trim();
                 const email = document.getElementById('cfEmail').value.trim();
+                /* "@user", "user", "t.me/user" yoki "https://t.me/user" — hammasi "user" ga keltiriladi */
+                const telegram = document.getElementById('cfTelegram').value.trim()
+                    .replace(/^(https?:\/\/)?(www\.)?(t|telegram)\.me\//i, '').replace(/^@/, '').replace(/\/+$/, '');
                 if (!name || !phone || !message) { showStatus('err', 'cf_required'); return; }
+                if (telegram && !/^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(telegram)) { showStatus('err', 'cf_tg_invalid'); return; }
                 btn.disabled = true;
                 const oldLabel = btn.textContent;
                 btn.textContent = CL('cf_sending');
@@ -1689,7 +1697,7 @@
                     const res = await fetch(CONTACT_ENDPOINT, {
                         method: 'POST',
                         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: JSON.stringify({ name: name, phone: phone, email: email, message: message })
+                        body: JSON.stringify({ name: name, phone: phone, telegram: telegram, email: email, message: message })
                     });
                     const data = await res.json();
                     if (res.ok && data.ok === true) {
