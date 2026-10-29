@@ -10,7 +10,7 @@
         style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
         font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
         img-src 'self' data: https:;
-        connect-src 'self' https://script.google.com https://script.googleusercontent.com https://cbu.uz;
+        connect-src 'self' https://script.google.com https://script.googleusercontent.com;
         object-src 'none';
         base-uri 'self';
         form-action 'self';
@@ -81,7 +81,7 @@
         .hero-text h2 { font-size: 45px; margin-bottom: 20px; line-height: 1.2; }
         .hero-text p { font-size: 18px; max-width: 600px; margin-bottom: 35px; line-height: 1.6; color: #e0e0e0; }
 
-        /* === VALYUTA KURSLARI (O'zbekiston Markaziy banki, cbu.uz) === */
+        /* === VALYUTA KURSLARI (Milliy bank — NBU, sotib olish / sotish) === */
         .fx-rates { margin-top: 38px; max-width: 680px; }
         .fx-head { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #cbd5e1; margin-bottom: 12px; flex-wrap: wrap; }
         .fx-head strong { color: #fff; font-weight: 600; letter-spacing: 0.2px; }
@@ -94,19 +94,13 @@
         .fx-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
         .fx-sym { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(241,196,15,0.16); color: #f1c40f; font-weight: 700; font-size: 14px; }
         .fx-code { font-size: 12px; font-weight: 600; color: #cbd5e1; letter-spacing: 0.8px; }
-        .fx-rate { font-size: 18px; font-weight: 700; color: #fff; white-space: nowrap; line-height: 1.25; }
-        .fx-rate small { font-size: 11px; font-weight: 500; color: #94a3b8; margin-left: 4px; }
-        .fx-diff { font-size: 11.5px; font-weight: 600; white-space: nowrap; }
-        .fx-diff.up { color: #4ade80; }
-        .fx-diff.down { color: #f87171; }
-        .fx-diff.same { color: #94a3b8; }
-        .fx-bs { margin-top: 9px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.14); display: grid; gap: 3px; }
-        .fx-bs div { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; color: #94a3b8; white-space: nowrap; }
-        .fx-bs b { color: #e2e8f0; font-weight: 600; }
-        .fx-note { margin-top: 10px; font-size: 11.5px; color: #94a3b8; }
+        .fx-bs { margin-top: 4px; display: grid; gap: 7px; }
+        .fx-bs div { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; color: #94a3b8; white-space: nowrap; }
+        .fx-bs div + div { padding-top: 7px; border-top: 1px dashed rgba(255,255,255,0.14); }
+        .fx-bs b { color: #fff; font-size: 17px; font-weight: 700; }
         .fx-card.flash { animation: fxFlash 1.2s ease; }
         @keyframes fxFlash { 0% { background: rgba(241,196,15,0.35); } 100% { background: rgba(255,255,255,0.06); } }
-        .fx-skeleton .fx-rate, .fx-skeleton .fx-diff { color: transparent; background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .fx-skeleton .fx-bs b { color: transparent; background: rgba(255,255,255,0.1); border-radius: 4px; }
         .fx-error { font-size: 13px; color: #fca5a5; }
         .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; will-change: transform; transition: transform 0.15s ease-out; }
         .hero-image-box img { max-width: 100%; max-height: 480px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 4px solid #f1c40f; object-fit: contain; position: relative; z-index: 2; animation: floatImage 5s ease-in-out infinite; }
@@ -440,7 +434,7 @@
         }
         @media (max-width: 600px) {
             .fx-card { padding: 11px 12px; }
-            .fx-rate { font-size: 17px; }
+            .fx-bs b { font-size: 16px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -494,9 +488,8 @@
             <p data-i18n="hero_text">Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.</p>
             <a onclick="showMyInfo()" class="btn pulse-cta magnetic" data-i18n="hero_btn">Aloqa uchun</a>
             <div class="fx-rates" id="fxRates" aria-live="polite">
-                <div class="fx-head"><span class="fx-live"></span><strong data-i18n="fx_title">Markaziy bank kursi</strong><span id="fxDate"></span></div>
+                <div class="fx-head"><span class="fx-live"></span><strong data-i18n="fx_title">Valyuta kurslari</strong><span id="fxDate"></span></div>
                 <div class="fx-grid" id="fxGrid"></div>
-                <div class="fx-note" id="fxNote"></div>
             </div>
         </div>
 
@@ -815,7 +808,7 @@
                 hero_title: "Sizning Ishonchli Moliyaviy Hamkoringiz",
                 hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
                 hero_btn: "Aloqa uchun",
-                fx_title: "Markaziy bank kursi", fx_som: "so'm", fx_buy: "Sotib olish", fx_sell: "Sotish", fx_nbu_note: "Sotib olish va sotish — Milliy bank (NBU) kursi", fx_error: "Kurslarni yuklab bo'lmadi. Birozdan so'ng qayta urinib ko'ramiz.",
+                fx_title: "Valyuta kurslari", fx_nbu: "Milliy bank (NBU)", fx_buy: "Sotib olish", fx_sell: "Sotish", fx_error: "Kurslarni yuklab bo'lmadi. Birozdan so'ng qayta urinib ko'ramiz.",
                 services_title: "Bizning Xizmatlar va Keyslar",
                 card1_title: "Investitsiya bo'yicha maslahat",
                 card1_p1: "Kapitalingizni qayerga va qanday joylashtirishni — depozit, oltin, ko'chmas mulk, qimmatli qog'ozlar — professional tahlil bilan tanlaymiz.",
@@ -891,7 +884,7 @@
                 hero_title: "Your Reliable Financial Partner",
                 hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
                 hero_btn: "Contact me",
-                fx_title: "Central Bank rates", fx_som: "UZS", fx_buy: "Buy", fx_sell: "Sell", fx_nbu_note: "Buy and sell — National Bank of Uzbekistan (NBU) rates", fx_error: "Could not load exchange rates. We'll try again shortly.",
+                fx_title: "Exchange rates", fx_nbu: "National Bank (NBU)", fx_buy: "Buy", fx_sell: "Sell", fx_error: "Could not load exchange rates. We'll try again shortly.",
                 services_title: "Our Services and Case Studies",
                 card1_title: "Investment Advice",
                 card1_p1: "Where and how to place your capital — deposits, gold, real estate, securities — chosen through professional analysis.",
@@ -967,7 +960,7 @@
                 hero_title: "Ваш надёжный финансовый партнёр",
                 hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
                 hero_btn: "Связаться со мной",
-                fx_title: "Курс Центрального банка", fx_som: "сум", fx_buy: "Покупка", fx_sell: "Продажа", fx_nbu_note: "Покупка и продажа — курс Нацбанка (NBU)", fx_error: "Не удалось загрузить курсы. Повторим попытку чуть позже.",
+                fx_title: "Курсы валют", fx_nbu: "Нацбанк (NBU)", fx_buy: "Покупка", fx_sell: "Продажа", fx_error: "Не удалось загрузить курсы. Повторим попытку чуть позже.",
                 services_title: "Наши услуги и кейсы",
                 card1_title: "Инвестиционные консультации",
                 card1_p1: "Куда и как вложить капитал — депозиты, золото, недвижимость, ценные бумаги — выбираем на основе профессионального анализа.",
@@ -1043,7 +1036,7 @@
                 hero_title: "شريكك المالي الموثوق",
                 hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
                 hero_btn: "تواصل معي",
-                fx_title: "أسعار البنك المركزي", fx_som: "سوم", fx_buy: "شراء", fx_sell: "بيع", fx_nbu_note: "الشراء والبيع — أسعار البنك الوطني (NBU)", fx_error: "تعذّر تحميل أسعار الصرف. سنحاول مرة أخرى قريبًا.",
+                fx_title: "أسعار الصرف", fx_nbu: "البنك الوطني (NBU)", fx_buy: "شراء", fx_sell: "بيع", fx_error: "تعذّر تحميل أسعار الصرف. سنحاول مرة أخرى قريبًا.",
                 services_title: "خدماتنا ودراسات الحالة",
                 card1_title: "استشارات الاستثمار",
                 card1_p1: "أين وكيف تضع رأس مالك — الودائع، الذهب، العقارات، الأوراق المالية — نختار بتحليل احترافي.",
@@ -1351,87 +1344,72 @@
             closeLangMenu();
             try { localStorage.setItem('siteLang', lang); } catch (e) {}
         }
-        /* ===== VALYUTA KURSLARI =====
-           To'g'ridan-to'g'ri O'zbekiston Markaziy bankidan (cbu.uz) olinadi: sahifa ochilganda,
-           har 5 daqiqada va foydalanuvchi tabga qaytganda yangilanadi. */
+        /* ===== VALYUTA KURSLARI — Milliy bank (NBU) sotib olish / sotish =====
+           1) nbu_rates.json — darhol chiqadi (GitHub Actions har soatda yangilaydi, scripts/update_rates.py);
+           2) Apps Script (?action=nbu) — bank.uz'dagi NBU kursini jonli oladi (2 daqiqa kesh).
+           Sahifa ochiq turganda har daqiqada va tabga qaytilganda qayta tekshiriladi. */
         const FX_CODES = ['USD', 'EUR', 'RUB', 'GBP'];
         const FX_SYMBOLS = { USD: '$', EUR: '€', RUB: '₽', GBP: '£' };
-        const FX_LOCALES = { uz: 'ru-RU', ru: 'ru-RU', en: 'en-US', ar: 'en-US' }; // uz: 12 004,02 (Chrome'ning uz-UZ formati 12,004.02 beradi)
-        let fxData = null;
+        const FX_LOCALES = { uz: 'ru-RU', ru: 'ru-RU', en: 'en-US', ar: 'en-US' }; // uz: 12 004 (Chrome'ning uz-UZ formati 12,004 beradi)
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj72zvvOMf6Lm-65ur_yWQAcwHmY3piWTnfMCHow_z-LFTwUnNBjPLyINXPnXE0wFCiQ/exec'; // "mmoliya.uz Telegram forma" loyihasi
+        const FX_LIVE_URL = APPS_SCRIPT_URL + '?action=nbu';
+        let nbuRates = null;
         let fxFailed = false;
-        let nbuRates = null; // nbu_rates.json — GitHub Actions har soatda yangilaydi (scripts/update_rates.py)
-        function fxNum(v) {
-            return Number(v).toLocaleString(FX_LOCALES[currentLang] || 'ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        function fxStamp(t) { return String(t || '').replace(/(\d+)\.(\d+)\.(\d+) (\d+):(\d+)/, '$3$2$1$4$5'); } // "29.10.2026 15:31" → "202610291531"
+        function fxValid(rates) {
+            return !!rates && FX_CODES.every(c => rates[c] && rates[c].buy > 0 && rates[c].sell > 0);
         }
         function renderFx(changed) {
             const grid = document.getElementById('fxGrid');
             if (!grid) return;
-            const dateEl = document.getElementById('fxDate');
-            const noteEl = document.getElementById('fxNote');
-            const nbuTime = nbuRates && nbuRates.USD && nbuRates.USD.time;
-            noteEl.textContent = (fxData && nbuRates) ? CL('fx_nbu_note') + (nbuTime ? ' · ' + nbuTime : '') : '';
-            if (!fxData) {
-                dateEl.textContent = '';
+            const n = v => Number(v).toLocaleString(FX_LOCALES[currentLang] || 'ru-RU');
+            const time = nbuRates && nbuRates.USD.time;
+            document.getElementById('fxDate').textContent = nbuRates ? '· ' + CL('fx_nbu') + (time ? ' · ' + time : '') : '';
+            if (!nbuRates) {
                 grid.innerHTML = fxFailed
                     ? '<div class="fx-error">' + escapeHtml(CL('fx_error')) + '</div>'
-                    : FX_CODES.map(c => '<div class="fx-card fx-skeleton"><div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[c] + '</span><span class="fx-code">' + c + '</span></div><div class="fx-rate">00 000,00</div><div class="fx-diff">+00,00</div></div>').join('');
+                    : FX_CODES.map(c => '<div class="fx-card fx-skeleton"><div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[c] + '</span><span class="fx-code">' + c + '</span></div>' +
+                        '<div class="fx-bs"><div><span>&nbsp;</span><b>00 000</b></div><div><span>&nbsp;</span><b>00 000</b></div></div></div>').join('');
                 return;
             }
-            dateEl.textContent = '· ' + escapeHtml(fxData[0].Date);
-            grid.innerHTML = fxData.map(r => {
-                const diff = Number(r.Diff);
-                const dir = diff > 0 ? 'up' : diff < 0 ? 'down' : 'same';
-                const arrow = diff > 0 ? '▲ +' : diff < 0 ? '▼ ' : '— ';
-                return '<div class="fx-card' + (changed && changed.includes(r.Ccy) ? ' flash' : '') + '">' +
-                    '<div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[r.Ccy] + '</span>' +
-                        '<span class="fx-code">' + escapeHtml(r.Ccy) + (r.Nominal !== '1' ? ' × ' + escapeHtml(r.Nominal) : '') + '</span></div>' +
-                    '<div class="fx-rate">' + fxNum(r.Rate) + '<small>' + escapeHtml(CL('fx_som')) + '</small></div>' +
-                    '<div class="fx-diff ' + dir + '">' + arrow + fxNum(diff) + '</div>' +
-                    fxBuySell(r.Ccy) +
+            grid.innerHTML = FX_CODES.map(c => {
+                const r = nbuRates[c];
+                return '<div class="fx-card' + (changed && changed.includes(c) ? ' flash' : '') + '">' +
+                    '<div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[c] + '</span><span class="fx-code">' + c + '</span></div>' +
+                    '<div class="fx-bs">' +
+                        '<div><span>' + escapeHtml(CL('fx_buy')) + '</span><b>' + n(r.buy) + '</b></div>' +
+                        '<div><span>' + escapeHtml(CL('fx_sell')) + '</span><b>' + n(r.sell) + '</b></div>' +
+                    '</div>' +
                 '</div>';
             }).join('');
         }
-        function fxBuySell(code) {
-            const r = nbuRates && nbuRates[code];
-            if (!r || !(r.buy > 0) || !(r.sell > 0)) return '';
-            const n = v => Number(v).toLocaleString(FX_LOCALES[currentLang] || 'ru-RU');
-            return '<div class="fx-bs">' +
-                '<div><span>' + escapeHtml(CL('fx_buy')) + '</span><b>' + n(r.buy) + '</b></div>' +
-                '<div><span>' + escapeHtml(CL('fx_sell')) + '</span><b>' + n(r.sell) + '</b></div>' +
-            '</div>';
-        }
-        function loadNbuRates() {
-            fetch('nbu_rates.json?v=' + Date.now(), { cache: 'no-store' })
-                .then(r => r.ok ? r.json() : null)
-                .then(data => {
-                    if (!data || !data.rates) return;
-                    nbuRates = data.rates;
-                    renderFx();
-                })
-                .catch(() => {});
+        function applyFx(rates) {
+            if (!fxValid(rates)) return;
+            const changed = nbuRates ? FX_CODES.filter(c => rates[c].buy !== nbuRates[c].buy || rates[c].sell !== nbuRates[c].sell) : [];
+            if (nbuRates && !changed.length && rates.USD.time === nbuRates.USD.time) return;
+            nbuRates = rates;
+            fxFailed = false;
+            renderFx(changed);
         }
         function loadFx() {
-            loadNbuRates();
-            fetch('https://cbu.uz/uz/arkhiv-kursov-valyut/json/', { cache: 'no-store' })
-                .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-                .then(list => {
-                    const rows = FX_CODES.map(c => list.find(x => x.Ccy === c)).filter(r => r && !isNaN(Number(r.Rate)));
-                    if (rows.length !== FX_CODES.length) throw new Error('incomplete');
-                    const changed = fxData ? rows.filter((r, i) => r.Rate !== fxData[i].Rate).map(r => r.Ccy) : [];
-                    fxData = rows;
-                    fxFailed = false;
-                    renderFx(changed);
-                })
-                .catch(() => { if (!fxData) { fxFailed = true; renderFx(); } });
+            const fromFile = fetch('nbu_rates.json?v=' + Date.now(), { cache: 'no-store' })
+                .then(r => r.ok ? r.json() : null)
+                .then(d => { if (d && fxValid(d.rates) && (!nbuRates || fxStamp(d.rates.USD.time) > fxStamp(nbuRates.USD.time))) applyFx(d.rates); });
+            const live = fetch(FX_LIVE_URL, { cache: 'no-store' })
+                .then(r => r.ok ? r.json() : null)
+                .then(d => { if (d && d.ok) applyFx(d.rates); });
+            Promise.allSettled([fromFile, live]).then(() => {
+                if (!nbuRates) { fxFailed = true; renderFx(); }
+            });
         }
         renderFx();
         loadFx();
-        setInterval(loadFx, 5 * 60 * 1000);
+        setInterval(() => { if (!document.hidden) loadFx(); }, 60 * 1000);
         document.addEventListener('visibilitychange', () => { if (!document.hidden) loadFx(); });
 
         /* ===== ALOQA FORMASI (Google Apps Script → Telegram bot) =====
            Bot tokeni Apps Script'da saqlanadi, saytda emas. Kod: script.google.com, "mmoliya.uz Telegram forma" loyihasi. */
-        const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxj72zvvOMf6Lm-65ur_yWQAcwHmY3piWTnfMCHow_z-LFTwUnNBjPLyINXPnXE0wFCiQ/exec';
+        const CONTACT_ENDPOINT = APPS_SCRIPT_URL;
         (function () {
             const form = document.getElementById('contactForm');
             if (!form) return;
