@@ -176,6 +176,24 @@
             .mentor-name { font-size: 42px; }
             .mentor::before { font-size: 140px; }
         }
+        /* Ikki ustoz: kompyuterda yonma-yon (orasida ingichka chiziq), planshet va telefonda ustma-ust */
+        .mentor-inner { max-width: 1100px; }
+        .mentor-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        .mentor-card { padding: 6px 40px; }
+        .mentor-card + .mentor-card { border-left: 1px solid rgba(241,196,15,0.2); }
+        html[dir="rtl"] .mentor-card + .mentor-card { border-left: none; border-right: 1px solid rgba(241,196,15,0.2); }
+        .mentor-grid .mentor-name { font-size: 50px; }
+        .mentor-grid .mentor-role { font-size: 17.5px; }
+        @media (max-width: 1100px) { .mentor-grid .mentor-name { font-size: 42px; } }
+        @media (max-width: 900px) {
+            .mentor-grid { grid-template-columns: 1fr; }
+            .mentor-card { padding: 0 6px; }
+            .mentor-card + .mentor-card, html[dir="rtl"] .mentor-card + .mentor-card { border-left: none; border-right: none; border-top: 1px solid rgba(241,196,15,0.2); margin-top: 34px; padding-top: 34px; }
+        }
+        @media (max-width: 600px) {
+            .mentor-grid .mentor-name { font-size: 36px; }
+            .mentor-grid .mentor-role { font-size: 16px; }
+        }
         /* === SCROLL ORQALI PAYDO BO'LISH ANIMATSIYASI === */
         .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -712,10 +730,19 @@
     </section>
     <section class="mentor reveal" id="ustoz">
         <div class="mentor-inner">
-            <span class="mentor-label"><i class="fas fa-graduation-cap"></i> <span data-i18n="mentor_label">Mening Ustozim</span></span>
-            <h2 class="mentor-name">Rajabov Maxmud</h2>
-            <div class="mentor-divider"></div>
-            <p class="mentor-role" data-i18n="mentor_role">Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.</p>
+            <span class="mentor-label"><i class="fas fa-graduation-cap"></i> <span data-i18n="mentor_label">Mening Ustozlarim</span></span>
+            <div class="mentor-grid">
+                <div class="mentor-card">
+                    <h2 class="mentor-name">Rajabov Maxmud</h2>
+                    <div class="mentor-divider"></div>
+                    <p class="mentor-role" data-i18n="mentor_role">Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.</p>
+                </div>
+                <div class="mentor-card">
+                    <h2 class="mentor-name">Mirzayev Odilbek</h2>
+                    <div class="mentor-divider"></div>
+                    <p class="mentor-role" data-i18n="mentor_role2">Moliya kabi qat'iy raqamlar olamida menga sabr bilan saboq bergan ustozim.</p>
+                </div>
+            </div>
         </div>
     </section>
     <section class="contact" id="aloqa">
@@ -918,8 +945,8 @@
                 cf_name: "Ismingiz", cf_name_ph: "Ismingizni kiriting", cf_phone: "Telefon raqamingiz", cf_tg: "Telegram username", cf_tg_invalid: "Telegram username noto'g'ri: 5–32 ta lotin harfi, raqam yoki _ bo'lishi kerak (masalan, @username).", cf_email: "Email (ixtiyoriy)", cf_message: "Xabaringiz", cf_message_ph: "Qanday yordam bera olaman?",
                 cf_send: "Yuborish", cf_sending: "Yuborilmoqda...", cf_success: "Rahmat! Xabaringiz yuborildi. Tez orada bog'lanaman.", cf_error: "Xatolik yuz berdi. Iltimos, birozdan so'ng qayta urinib ko'ring.", cf_required: "Iltimos, ism, telefon, Telegram username va xabar maydonlarini to'ldiring.",
                 footer_text: "© 2026 Mmoliya.uz - Barcha huquqlar himoyalangan.",
-                mentor_label: "Mening Ustozim",
-                mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.",
+                mentor_label: "Mening Ustozlarim",
+                mentor_role: "Bilim va tajriba bilan menga yo'l ko'rsatgan ustoz va murabbiy. Bugungi muvaffaqiyatlarim zaminida uning qimmatli maslahatlari yotadi.", mentor_role2: "Moliya kabi qat'iy raqamlar olamida menga sabr bilan saboq bergan ustozim.",
                 about_title: "Men Haqimda",
                 about_text: "Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.",
                 re_title: "Investitsiya bo'yicha maslahat",
@@ -1025,8 +1052,8 @@
                 cf_name: "Your name", cf_name_ph: "Enter your name", cf_phone: "Your phone number", cf_tg: "Telegram username", cf_tg_invalid: "Invalid Telegram username: use 5–32 Latin letters, digits or _ (e.g. @username).", cf_email: "Email (optional)", cf_message: "Your message", cf_message_ph: "How can I help you?",
                 cf_send: "Send", cf_sending: "Sending...", cf_success: "Thank you! Your message has been sent. I'll be in touch soon.", cf_error: "Something went wrong. Please try again shortly.", cf_required: "Please fill in the name, phone, Telegram username and message fields.",
                 footer_text: "© 2026 Mmoliya.uz - All rights reserved.",
-                mentor_label: "My Mentor",
-                mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.",
+                mentor_label: "My Mentors",
+                mentor_role: "The mentor and teacher who guided me with knowledge and experience. My valuable achievements today are built on his precious advice.", mentor_role2: "The mentor who patiently taught me in the strict world of numbers that is finance.",
                 about_title: "About Me",
                 about_text: "Hello! I am Jahongir, a financial advisor and analyst. I help take your investments and business to a new level.",
                 re_title: "Investment Advice",
@@ -1132,8 +1159,8 @@
                 cf_name: "Ваше имя", cf_name_ph: "Введите ваше имя", cf_phone: "Ваш номер телефона", cf_tg: "Telegram username", cf_tg_invalid: "Неверный Telegram username: 5–32 латинские буквы, цифры или _ (например, @username).", cf_email: "Email (необязательно)", cf_message: "Ваше сообщение", cf_message_ph: "Чем я могу помочь?",
                 cf_send: "Отправить", cf_sending: "Отправка...", cf_success: "Спасибо! Ваше сообщение отправлено. Скоро свяжусь с вами.", cf_error: "Произошла ошибка. Пожалуйста, попробуйте позже.", cf_required: "Пожалуйста, заполните поля: имя, телефон, Telegram username и сообщение.",
                 footer_text: "© 2026 Mmoliya.uz - Все права защищены.",
-                mentor_label: "Мой наставник",
-                mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.",
+                mentor_label: "Мои наставники",
+                mentor_role: "Наставник и учитель, который направлял меня знаниями и опытом. В основе моих сегодняшних достижений лежат его ценные советы.", mentor_role2: "Наставник, который терпеливо учил меня в строгом мире цифр — мире финансов.",
                 about_title: "Обо мне",
                 about_text: "Здравствуйте! Я Жахонгир, финансовый консультант и аналитик. Помогу вывести ваши инвестиции и бизнес на новый уровень.",
                 re_title: "Инвестиционные консультации",
@@ -1239,8 +1266,8 @@
                 cf_name: "اسمك", cf_name_ph: "أدخل اسمك", cf_phone: "رقم هاتفك", cf_tg: "اسم المستخدم في تيليجرام", cf_tg_invalid: "اسم مستخدم تيليجرام غير صالح: من 5 إلى 32 حرفًا لاتينيًا أو رقمًا أو _ (مثل @username).", cf_email: "البريد الإلكتروني (اختياري)", cf_message: "رسالتك", cf_message_ph: "كيف يمكنني مساعدتك؟",
                 cf_send: "إرسال", cf_sending: "جارٍ الإرسال...", cf_success: "شكرًا! تم إرسال رسالتك. سأتواصل معك قريبًا.", cf_error: "حدث خطأ. يرجى المحاولة مرة أخرى بعد قليل.", cf_required: "يرجى ملء حقول الاسم والهاتف واسم المستخدم في تيليجرام والرسالة.",
                 footer_text: "© 2026 Mmoliya.uz - جميع الحقوق محفوظة.",
-                mentor_label: "أستاذي",
-                mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.",
+                mentor_label: "أساتذتي",
+                mentor_role: "المعلم والمرشد الذي وجّهني بالعلم والخبرة. إنجازاتي القيّمة اليوم مبنية على نصائحه الثمينة.", mentor_role2: "الأستاذ الذي علّمني بصبر في عالم الأرقام الصارم، عالم المال.",
                 about_title: "نبذة عني",
                 about_text: "مرحباً! أنا جهانغير، مستشار ومحلل مالي. أساعدك على الارتقاء باستثماراتك وعملك إلى مستوى جديد.",
                 re_title: "استشارات الاستثمار",
