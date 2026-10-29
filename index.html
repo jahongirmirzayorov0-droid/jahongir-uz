@@ -343,10 +343,18 @@
         .calc-row.muted { opacity: 0.7; }
         .calc-row.muted b { font-weight: 500; }
         /* Hisoblash tartibi — natija qanday kelib chiqqani qadam-baqadam */
-        .calc-steps { margin-top: 14px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-        .calc-steps-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #0b1d30; margin-bottom: 12px; }
-        .calc-steps-title i { color: #b8860b; }
-        .calc-steps ol { list-style: none; margin: 0; padding: 0; counter-reset: cstep; display: grid; gap: 12px; }
+        .calc-steps { margin-top: 14px; }
+        .calc-steps-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; color: #0b1d30; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+        .calc-steps-toggle:hover { border-color: #f1c40f; box-shadow: 0 2px 10px rgba(241,196,15,0.15); }
+        .calc-steps-toggle:focus-visible { outline: 2px solid #f1c40f; outline-offset: 2px; }
+        .calc-steps-toggle .cs-title { display: flex; align-items: center; gap: 8px; }
+        .calc-steps-toggle .cs-title i { color: #b8860b; }
+        .calc-steps-toggle .cs-chev { width: 26px; height: 26px; border-radius: 50%; background: #f1f5f9; color: #0b1d30; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: transform 0.25s ease, background 0.2s ease; }
+        .calc-steps.open .cs-chev { transform: rotate(180deg); background: #0b1d30; color: #f1c40f; }
+        .calc-steps-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+        .calc-steps.open .calc-steps-body { grid-template-rows: 1fr; }
+        .calc-steps-body > div { overflow: hidden; min-height: 0; }
+        .calc-steps ol { list-style: none; margin: 0; padding: 14px 2px 4px 2px; counter-reset: cstep; display: grid; gap: 12px; }
         .calc-steps li { counter-increment: cstep; position: relative; padding-left: 34px; }
         .calc-steps li::before { content: counter(cstep); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: #0b1d30; color: #f1c40f; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
         html[dir="rtl"] .calc-steps li { padding-left: 0; padding-right: 34px; }
@@ -448,6 +456,34 @@
         @media (max-width: 600px) {
             .fx-card { padding: 11px 12px; }
             .fx-bs b { font-size: 16px; }
+        }
+        /* === MODAL OYNALAR — tez va toza ko'rinish === */
+        .info-overlay { display: flex; visibility: hidden; opacity: 0; padding: 16px; box-sizing: border-box; background-color: rgba(4,12,22,0.62); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: opacity 0.18s ease, visibility 0s linear 0.18s; }
+        .info-overlay.open { visibility: visible; opacity: 1; transition: opacity 0.18s ease, visibility 0s; }
+        body.modal-open { overflow: hidden; }
+        .info-content { width: 100%; max-width: 480px; padding: 36px 32px 30px 32px; border: none; border-top: 4px solid #f1c40f; border-radius: 20px; box-shadow: 0 24px 60px rgba(4,12,22,0.35); transform: translateY(14px) scale(0.98); transition: transform 0.22s cubic-bezier(0.22,1,0.36,1); }
+        .info-overlay.open .info-content { transform: none; }
+        .real-estate-content { border-top-color: #27ae60; }
+        .close-btn { top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; background: #f1f5f9; color: #334155; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s ease, color 0.15s ease; }
+        .close-btn:hover { transform: none; background: #0b1d30; color: #fff; }
+        .close-btn:focus-visible { outline: 2px solid #f1c40f; outline-offset: 2px; }
+        html[dir="rtl"] .close-btn { right: auto; left: 14px; }
+        .profile-img { width: 112px; height: 112px; border-width: 4px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(11,29,48,0.15); }
+        .info-content h2 { font-size: 24px; margin: 0 0 8px 0; }
+        .info-content p { font-size: 15px; margin-bottom: 22px; }
+        .modal-badge { width: 64px; height: 64px; margin: 0 auto 14px auto; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(241,196,15,0.15); color: #d4a40c; font-size: 28px; }
+        .modal-badge.green { background: rgba(39,174,96,0.12); color: #27ae60; }
+        .social-links { flex-wrap: wrap; gap: 10px; }
+        .social-links li a { font-size: 15px; font-weight: 600; padding: 11px 18px; border-radius: 50px; color: #fff; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+        .social-links li a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(11,29,48,0.18); }
+        .social-links li a.telegram, .social-links li a.telegram:hover { background: #229ed9; color: #fff; }
+        .social-links li a.instagram, .social-links li a.instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888); color: #fff; }
+        .modal-action-btn { margin-top: 16px; width: 100%; font-size: 16px; padding: 13px 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box; }
+        .info-content .case-study-box { margin-top: 16px; }
+        @media (max-width: 600px) {
+            .info-content { padding: 30px 20px 22px 20px; border-radius: 16px; }
+            .social-links li { flex: 1 1 100%; }
+            .social-links li a { justify-content: center; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -727,8 +763,8 @@
     </footer>
     <button id="backToTop" onclick="scrollToTop()" aria-label="Yuqoriga"><i class="fas fa-arrow-up"></i></button>
     <div id="infoOverlay" class="info-overlay">
-        <div class="info-content animate__animated">
-            <button class="close-btn" onclick="closeMyInfo()">&times;</button>
+        <div class="info-content">
+            <button class="close-btn" onclick="closeMyInfo()" aria-label="Close"><i class="fas fa-xmark"></i></button>
             <img src="user_image.jpg" alt="Jahongir" class="profile-img" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%230b1d30%22/%3E%3Ctext x=%2250%25%22 y=%2255%25%22 fill=%22%23f1c40f%22 font-size=%2216%22 text-anchor=%22middle%22 font-family=%22Arial%22%3EJ%3C/text%3E%3C/svg%3E';">
             <h2 data-i18n="about_title">Men Haqimda</h2>
             <p data-i18n="about_text">Salom! Men Jahongir. Moliyaviy maslahatchi va tahlilchi. Sizning investitsiyalaringiz va biznesingizni yangi bosqichga olib chiqishga yordam beraman.</p>
@@ -736,23 +772,24 @@
                 <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
                 <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
             </ul>
+            <button type="button" class="btn modal-action-btn" onclick="goToContact()"><i class="fas fa-pen-to-square"></i> <span data-i18n="modal_write">Xabar qoldirish</span></button>
         </div>
     </div>
     <div id="realEstateOverlay" class="info-overlay">
-        <div class="info-content real-estate-content animate__animated">
-            <button class="close-btn" onclick="closeRealEstateModal()">&times;</button>
-            <i class="fas fa-chart-pie" style="font-size: 52px; color: #27ae60; margin-bottom: 18px; display: block;"></i>
+        <div class="info-content real-estate-content">
+            <button class="close-btn" onclick="closeRealEstateModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
+            <div class="modal-badge green"><i class="fas fa-chart-pie"></i></div>
             <h2 data-i18n="re_title">Investitsiya bo'yicha maslahat</h2>
             <div style="text-align: left; margin-top: 15px;">
                 <p data-i18n="re_text">Kapitalingizni qayerga joylashtirish — bu muhim qaror. Har bir yo'nalishning risk va daromadini birgalikda tahlil qilib, sizga eng mosini tanlaymiz.</p>
-                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #27ae60; background-color: #f5fbf7;">
+                <div class="case-study-box" style="border-color: #27ae60; background-color: #f5fbf7;">
                     <h4 style="color: #0b1d30;" data-i18n="re_case_title">Qaysi yo'nalishlarni ko'rib chiqamiz:</h4>
                     <ul class="tax-optimization-list">
-                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li1">Bank depozitlari — barqaror, past riskli daromad.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li2">Oltin va qimmatbaho metallar — inflyatsiyadan himoya.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li3">Ko'chmas mulk va yer — uzoq muddatli o'sish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li4">Qimmatli qog'ozlar (aksiya, obligatsiya).</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="re_li5">Riskni taqsimlash va portfel tuzish.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="re_li1">Bank depozitlari — barqaror, past riskli daromad.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="re_li2">Oltin va qimmatbaho metallar — inflyatsiyadan himoya.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="re_li3">Ko'chmas mulk va yer — uzoq muddatli o'sish.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="re_li4">Qimmatli qog'ozlar (aksiya, obligatsiya).</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="re_li5">Riskni taqsimlash va portfel tuzish.</span></li>
                     </ul>
                 </div>
             </div>
@@ -760,20 +797,20 @@
         </div>
     </div>
     <div id="korzinkaOverlay" class="info-overlay">
-        <div class="info-content korzinka-content animate__animated">
-            <button class="close-btn" onclick="closeKorzinkaModal()">&times;</button>
-            <i class="fas fa-book-open" style="font-size: 52px; color: #f1c40f; margin-bottom: 18px; display: block;"></i>
+        <div class="info-content korzinka-content">
+            <button class="close-btn" onclick="closeKorzinkaModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
+            <div class="modal-badge"><i class="fas fa-book-open"></i></div>
             <h2 data-i18n="kz_title">Moliyaviy Savodxonlik — Bilim = Boylik</h2>
             <div style="text-align: left; margin-top: 15px;">
                 <p data-i18n="kz_text">Moliyaviy savodxonlik — bu pulni to'g'ri ishlatish san'ati. Uni oddiy va tushunarli tilda, real hayotiy misollar bilan o'rgataman.</p>
-                <div class="case-study-box animate__animated animate__fadeInUp animate__delay-1s" style="border-color: #f1c40f; background-color: #fffdf5;">
+                <div class="case-study-box" style="border-color: #f1c40f; background-color: #fffdf5;">
                     <h4 style="color: #0b1d30;" data-i18n="kz_case_title">Nimalarni o'rganasiz:</h4>
                     <ul class="tax-optimization-list">
-                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li1">Byudjet tuzish va xarajatlarni nazorat qilish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-1s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li2">Jamg'arish odati va "moliyaviy yostiq" yaratish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li3">Qarz va kreditni oqilona boshqarish.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-2s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li4">Investitsiya asoslari: risk va daromad muvozanati.</span></li>
-                        <li class="animate__animated animate__fadeInRight animate__delay-3s"><i class="fas fa-check-circle"></i> <span data-i18n="kz_li5">Inflyatsiyadan pulni himoya qilish yo'llari.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="kz_li1">Byudjet tuzish va xarajatlarni nazorat qilish.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="kz_li2">Jamg'arish odati va "moliyaviy yostiq" yaratish.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="kz_li3">Qarz va kreditni oqilona boshqarish.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="kz_li4">Investitsiya asoslari: risk va daromad muvozanati.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="kz_li5">Inflyatsiyadan pulni himoya qilish yo'llari.</span></li>
                     </ul>
                 </div>
             </div>
@@ -781,9 +818,9 @@
         </div>
     </div>
     <div id="hamkorlikOverlay" class="info-overlay">
-        <div class="info-content hamkorlik-content animate__animated">
-            <button class="close-btn" onclick="closeHamkorlikModal()">&times;</button>
-            <i class="fas fa-handshake" style="font-size: 60px; color: #f1c40f; margin-bottom: 20px; display: block; animation: pulseGlow 3s ease-in-out infinite;"></i>
+        <div class="info-content hamkorlik-content">
+            <button class="close-btn" onclick="closeHamkorlikModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
+            <div class="modal-badge"><i class="fas fa-handshake"></i></div>
             <h2 data-i18n="hk_title">Hamkorlikka Xush Kelibsiz!</h2>
             <p style="font-size: 18px; color: #0b1d30; font-weight: 500;" data-i18n="hk_text1">Siz hayotingizda yana bir to'g'ri qarorni qabul qilmoqchi bo'lganligingiz bilan tabriklayman! 🎉</p>
             <p data-i18n="hk_text2">Keling, birgalikda moliyaviy maqsadlaringizga erishamiz. Men bilan bog'laning va hamkorligimizni boshlaylik.</p>
@@ -791,6 +828,7 @@
                 <li><a href="https://instagram.com/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> jakhongir_0102</a></li>
                 <li><a href="https://t.me/jakhongir_0102" target="_blank" rel="noopener noreferrer" class="telegram"><i class="fab fa-telegram-plane"></i> @jakhongir_0102</a></li>
             </ul>
+            <button type="button" class="btn modal-action-btn" onclick="goToContact()"><i class="fas fa-pen-to-square"></i> <span data-i18n="modal_write">Xabar qoldirish</span></button>
         </div>
     </div>
     <script>
@@ -851,7 +889,7 @@
                 calc_disclaimer: "* Kalkulyatorlar 2026-yildagi amaldagi stavkalar asosida taxminiy natija beradi va rasmiy hujjat o'rnini bosmaydi.",
                 hero_title: "Sizning Ishonchli Moliyaviy Hamkoringiz",
                 hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
-                hero_btn: "Aloqa uchun",
+                hero_btn: "Aloqa uchun", modal_write: "Xabar qoldirish",
                 fx_title: "Valyuta kurslari", fx_nbu: "Milliy bank (NBU)", fx_buy: "Sotib olish", fx_sell: "Sotish", fx_error: "Kurslarni yuklab bo'lmadi. Birozdan so'ng qayta urinib ko'ramiz.",
                 services_title: "Bizning Xizmatlar va Keyslar",
                 card1_title: "Investitsiya bo'yicha maslahat",
@@ -958,7 +996,7 @@
                 calc_disclaimer: "* Calculators give an approximate result based on 2026 rates and do not replace an official document.",
                 hero_title: "Your Reliable Financial Partner",
                 hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
-                hero_btn: "Contact me",
+                hero_btn: "Contact me", modal_write: "Leave a message",
                 fx_title: "Exchange rates", fx_nbu: "National Bank (NBU)", fx_buy: "Buy", fx_sell: "Sell", fx_error: "Could not load exchange rates. We'll try again shortly.",
                 services_title: "Our Services and Case Studies",
                 card1_title: "Investment Advice",
@@ -1065,7 +1103,7 @@
                 calc_disclaimer: "* Калькуляторы дают приблизительный результат на основе ставок 2026 года и не заменяют официальный документ.",
                 hero_title: "Ваш надёжный финансовый партнёр",
                 hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
-                hero_btn: "Связаться со мной",
+                hero_btn: "Связаться со мной", modal_write: "Оставить сообщение",
                 fx_title: "Курсы валют", fx_nbu: "Нацбанк (NBU)", fx_buy: "Покупка", fx_sell: "Продажа", fx_error: "Не удалось загрузить курсы. Повторим попытку чуть позже.",
                 services_title: "Наши услуги и кейсы",
                 card1_title: "Инвестиционные консультации",
@@ -1172,7 +1210,7 @@
                 calc_disclaimer: "* تقدّم الحاسبات نتيجة تقريبية بناءً على أسعار 2026 ولا تحل محل وثيقة رسمية.",
                 hero_title: "شريكك المالي الموثوق",
                 hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
-                hero_btn: "تواصل معي",
+                hero_btn: "تواصل معي", modal_write: "اترك رسالة",
                 fx_title: "أسعار الصرف", fx_nbu: "البنك الوطني (NBU)", fx_buy: "شراء", fx_sell: "بيع", fx_error: "تعذّر تحميل أسعار الصرف. سنحاول مرة أخرى قريبًا.",
                 services_title: "خدماتنا ودراسات الحالة",
                 card1_title: "استشارات الاستثمار",
@@ -1358,12 +1396,24 @@
         function calcFmt2(n) { return Number(n).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/ /g, ' '); }
         function calcDec(n, max) { return Number(n).toLocaleString('ru-RU', { maximumFractionDigits: max || 4 }).replace(/ /g, ' '); }
         function calcSup(n) { return String(n).replace(/\d/g, d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[d]); }
+        /* Odatda yopiq turadi; foydalanuvchi ochsa, keyingi hisoblashlarda ham ochiq qoladi */
+        let calcStepsOpen = false;
         function calcSteps(steps) {
-            return '<div class="calc-steps"><div class="calc-steps-title"><i class="fas fa-list-ol"></i> ' + CS('title') + '</div><ol>' +
+            return '<div class="calc-steps' + (calcStepsOpen ? ' open' : '') + '">' +
+                '<button type="button" class="calc-steps-toggle" aria-expanded="' + calcStepsOpen + '" onclick="toggleCalcSteps(this)">' +
+                    '<span class="cs-title"><i class="fas fa-list-ol"></i> ' + CS('title') + '</span>' +
+                    '<span class="cs-chev"><i class="fas fa-chevron-down"></i></span>' +
+                '</button>' +
+                '<div class="calc-steps-body"><div><ol>' +
                 steps.map(([key, formula]) => '<li><div class="cs-label">' + CS(key + '_l') + '</div>' +
                     '<div class="cs-formula">' + formula + '</div>' +
                     (CS(key + '_h') ? '<div class="cs-hint">' + CS(key + '_h') + '</div>' : '') + '</li>').join('') +
-                '</ol></div>';
+                '</ol></div></div></div>';
+        }
+        function toggleCalcSteps(btn) {
+            const box = btn.closest('.calc-steps');
+            calcStepsOpen = box.classList.toggle('open');
+            btn.setAttribute('aria-expanded', calcStepsOpen);
         }
         /* Pul maydonlarini yozayotganda avtomatik formatlash (6000000 -> 6 000 000) */
         function attachMoneyFormat(id) {
@@ -1924,77 +1974,44 @@
             });
         })();
 
-        /* ===== MODALLAR ===== */
-        function showMyInfo() {
-            const overlay = document.getElementById('infoOverlay');
+        /* ===== MODAL OYNALAR =====
+           Bir zumda ochiladi/yopiladi (CSS: .info-overlay.open, ~0.2 s). Bir vaqtda faqat bitta oyna ochiq turadi;
+           ochiq paytda sahifa aylanmaydi; fon yoki Esc bosilsa yopiladi. */
+        function openModal(id) {
+            const overlay = document.getElementById(id);
+            if (!overlay) return;
+            document.querySelectorAll('.info-overlay.open').forEach(o => { if (o !== overlay) o.classList.remove('open'); });
+            overlay.classList.add('open');
+            document.body.classList.add('modal-open');
             const content = overlay.querySelector('.info-content');
-            overlay.style.display = 'flex';
-            content.className = 'info-content animate__animated animate__backInDown';
-            content.querySelectorAll('p, .social-links li').forEach(el => el.classList.add('animate__fadeInUp'));
+            if (content) content.scrollTop = 0;
+            const closeBtn = overlay.querySelector('.close-btn');
+            if (closeBtn) closeBtn.focus({ preventScroll: true });
         }
-        function closeMyInfo() {
-            const overlay = document.getElementById('infoOverlay');
-            const content = overlay.querySelector('.info-content');
-            content.className = 'info-content animate__animated animate__zoomOutUp';
-            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content animate__animated'; }, 600);
+        function closeModal(id) {
+            const overlay = document.getElementById(id);
+            if (!overlay || !overlay.classList.contains('open')) return;
+            overlay.classList.remove('open');
+            if (!document.querySelector('.info-overlay.open')) document.body.classList.remove('modal-open');
         }
-        function showRealEstateModal() {
-            const card = document.querySelector('.services .card:nth-child(1)');
-            card.classList.add('animate__animated', 'animate__pulse');
-            setTimeout(() => {
-                const overlay = document.getElementById('realEstateOverlay');
-                const content = overlay.querySelector('.info-content');
-                overlay.style.display = 'flex';
-                content.className = 'info-content real-estate-content animate__animated animate__zoomInDown';
-                card.classList.remove('animate__animated', 'animate__pulse');
-                runCountersIn(overlay);
-            }, 500);
+        function showMyInfo() { openModal('infoOverlay'); }
+        function closeMyInfo() { closeModal('infoOverlay'); }
+        function showRealEstateModal() { openModal('realEstateOverlay'); runCountersIn(document.getElementById('realEstateOverlay')); }
+        function closeRealEstateModal() { closeModal('realEstateOverlay'); }
+        function showKorzinkaModal() { openModal('korzinkaOverlay'); }
+        function closeKorzinkaModal() { closeModal('korzinkaOverlay'); }
+        function showHamkorlikModal() { openModal('hamkorlikOverlay'); }
+        function closeHamkorlikModal() { closeModal('hamkorlikOverlay'); }
+        /* "Xabar qoldirish": oynani yopib, aloqa formasiga o'tadi */
+        function goToContact() {
+            document.querySelectorAll('.info-overlay.open').forEach(o => closeModal(o.id));
+            const form = document.getElementById('aloqa');
+            if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { const name = document.getElementById('cfName'); if (name) name.focus({ preventScroll: true }); }, 600);
         }
-        function closeRealEstateModal() {
-            const overlay = document.getElementById('realEstateOverlay');
-            const content = overlay.querySelector('.info-content');
-            content.className = 'info-content real-estate-content animate__animated animate__zoomOutUp';
-            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content real-estate-content animate__animated'; }, 600);
-        }
-        function showKorzinkaModal() {
-            const card = document.querySelector('.services .card:nth-child(2)');
-            card.classList.add('animate__animated', 'animate__pulse');
-            setTimeout(() => {
-                const overlay = document.getElementById('korzinkaOverlay');
-                const content = overlay.querySelector('.info-content');
-                overlay.style.display = 'flex';
-                content.className = 'info-content korzinka-content animate__animated animate__zoomInDown';
-                card.classList.remove('animate__animated', 'animate__pulse');
-            }, 500);
-        }
-        function closeKorzinkaModal() {
-            const overlay = document.getElementById('korzinkaOverlay');
-            const content = overlay.querySelector('.info-content');
-            content.className = 'info-content korzinka-content animate__animated animate__zoomOutUp';
-            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content korzinka-content animate__animated'; }, 600);
-        }
-        function showHamkorlikModal() {
-            const overlay = document.getElementById('hamkorlikOverlay');
-            const content = overlay.querySelector('.info-content');
-            overlay.style.display = 'flex';
-            content.className = 'info-content hamkorlik-content animate__animated animate__zoomInDown';
-        }
-        function closeHamkorlikModal() {
-            const overlay = document.getElementById('hamkorlikOverlay');
-            const content = overlay.querySelector('.info-content');
-            content.className = 'info-content hamkorlik-content animate__animated animate__zoomOutUp';
-            setTimeout(() => { overlay.style.display = 'none'; content.className = 'info-content hamkorlik-content animate__animated'; }, 600);
-        }
-        window.onclick = function (event) {
-            const myInfoOverlay = document.getElementById('infoOverlay');
-            const realEstateOverlay = document.getElementById('realEstateOverlay');
-            const korzinkaOverlay = document.getElementById('korzinkaOverlay');
-            const hamkorlikOverlay = document.getElementById('hamkorlikOverlay');
-            if (event.target == myInfoOverlay) closeMyInfo();
-            else if (event.target == realEstateOverlay) closeRealEstateModal();
-            else if (event.target == korzinkaOverlay) closeKorzinkaModal();
-            else if (event.target == hamkorlikOverlay) closeHamkorlikModal();
-        }
+        document.querySelectorAll('.info-overlay').forEach(overlay => {
+            overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(overlay.id); });
+        });
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu(); closeMobileMenu();
