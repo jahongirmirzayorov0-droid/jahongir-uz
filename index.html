@@ -334,7 +334,7 @@
         .calc-btn { width: 100%; background: #0b1d30; color: #f1c40f; border: none; padding: 15px; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 6px; }
         .calc-btn:hover { background: #f1c40f; color: #0b1d30; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(241,196,15,0.35); }
         .calc-result { margin-top: 22px; background: #f7f9fb; border: 1px solid #e6ebf0; border-radius: 12px; padding: 8px 20px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease; }
-        .calc-result.show { opacity: 1; max-height: 400px; padding: 20px; }
+        .calc-result.show { opacity: 1; max-height: 2400px; padding: 20px; }
         .calc-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px dashed #e2e8f0; font-size: 14.5px; }
         .calc-row:last-of-type { border-bottom: none; }
         .calc-row span { color: #556; }
@@ -342,6 +342,19 @@
         .calc-row.highlight b { color: #b8860b; font-size: 19px; }
         .calc-row.muted { opacity: 0.7; }
         .calc-row.muted b { font-weight: 500; }
+        /* Hisoblash tartibi — natija qanday kelib chiqqani qadam-baqadam */
+        .calc-steps { margin-top: 14px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
+        .calc-steps-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #0b1d30; margin-bottom: 12px; }
+        .calc-steps-title i { color: #b8860b; }
+        .calc-steps ol { list-style: none; margin: 0; padding: 0; counter-reset: cstep; display: grid; gap: 12px; }
+        .calc-steps li { counter-increment: cstep; position: relative; padding-left: 34px; }
+        .calc-steps li::before { content: counter(cstep); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: #0b1d30; color: #f1c40f; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        html[dir="rtl"] .calc-steps li { padding-left: 0; padding-right: 34px; }
+        html[dir="rtl"] .calc-steps li::before { left: auto; right: 0; }
+        .cs-label { font-size: 13.5px; font-weight: 600; color: #334155; line-height: 22px; }
+        .cs-formula { margin-top: 5px; display: inline-block; max-width: 100%; padding: 6px 11px; border-radius: 8px; background: #fff; border: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; color: #0b1d30; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; direction: ltr; }
+        .cs-formula em { font-style: normal; color: #b8860b; }
+        .cs-hint { margin-top: 5px; font-size: 12.5px; color: #64748b; line-height: 1.5; }
         .calc-note { font-size: 12.5px; color: #94a3b8; margin-top: 12px; line-height: 1.5; }
         .calc-help { font-size: 12px; color: #94a3b8; margin: 7px 2px 0 2px; line-height: 1.45; }
         .calc-error { display: flex; align-items: center; gap: 9px; color: #c0392b; font-size: 14px; font-weight: 500; padding: 4px 0; }
@@ -792,6 +805,37 @@
                 calc_subtitle: "Soliq, ta'til puli, pensiya va boshqa hisob-kitoblarni bir joyda bajaring.",
                 calc_tab_tax: "Ish haqi solig'i", calc_tab_vacation: "Ta'til puli", calc_tab_pension: "Pensiya", calc_tab_vat: "QQS", calc_tab_loan: "Kredit",
                 calc_btn: "Hisoblash", calc_sum: "so'm",
+                calc_steps: {
+                    title: "Hisoblash tartibi", years: "yil", male: "Erkaklar", female: "Ayollar", max: "eng yuqori chegara",
+                    tax_gross_l: "Hisoblangan ish haqi (soliqqacha)", tax_gross_h: "Qo'lga tegadigan summa hisoblangan ish haqining 88 foiziga teng, chunki undan 12% JShDS ushlanadi.",
+                    tax_jshds_l: "JShDS — jismoniy shaxslar daromad solig'i (12%)", tax_jshds_h: "Xodimning ish haqidan ushlab qolinadi va byudjetga o'tkaziladi.",
+                    tax_net_l: "Qo'lga tegadigan summa", tax_net_h: "Hisoblangan ish haqidan JShDS ayiriladi.",
+                    tax_social_l: "Ijtimoiy soliq (12%)", tax_social_h: "Ish beruvchi o'z hisobidan to'laydi — xodimning ish haqidan ushlanmaydi.",
+                    vac_days_l: "Ta'tildagi ish kunlari", vac_days_h: "6 kunlik ish haftasida har 7 kalendar kundan 6 tasi ish kuni hisoblanadi (yakshanbalar chiqariladi), natija butun songa yaxlitlanadi.",
+                    vac_daily_l: "O'rtacha kunlik ish haqi", vac_daily_h: "25,3 — 6 kunlik ish haftasida bir oydagi o'rtacha ish kunlari soni.",
+                    vac_total_l: "Ta'til puli (jami)", vac_total_h: "O'rtacha kunlik ish haqi ta'tildagi ish kunlari soniga ko'paytiriladi.",
+                    vac_after_l: "Qo'lga tegadigan summa", vac_after_h: "Ta'til pulidan 12% JShDS ushlab qolinadi.",
+                    pen_req_l: "Talab etiladigan to'liq ish staji", pen_req_h: "Erkaklar uchun — 25 yil, ayollar uchun — 20 yil.",
+                    pen_base_l: "To'liq staj uchun asosiy stavka", pen_base_h: "To'liq staj bo'lsa, pensiya o'rtacha oylik ish haqining 55 foizini tashkil etadi.",
+                    pen_extra_l: "Qo'shimcha staj uchun ustama", pen_extra_h: "To'liq stajdan ortiq har bir yil uchun +1%, jami stavka ko'pi bilan 75%.",
+                    pen_partial_l: "To'liq bo'lmagan staj uchun stavka", pen_partial_h: "Staj yetishmasa, 55% stavka ishlangan staj ulushiga mutanosib ravishda kamayadi.",
+                    pen_total_l: "Taxminiy oylik pensiya", pen_total_h: "O'rtacha oylik ish haqi aniqlangan stavkaga ko'paytiriladi.",
+                    vat_add_tax_l: "QQS summasi (12%)", vat_add_tax_h: "QQS qo'shilmagan narxning 12 foizi.",
+                    vat_add_total_l: "QQS bilan jami summa", vat_add_total_h: "Narxga QQS summasi qo'shiladi.",
+                    vat_ex_tax_l: "Summa ichidagi QQS", vat_ex_tax_h: "QQS bilan summa narxning 112 foiziga teng, shuning uchun undagi QQS ulushi 12/112.",
+                    vat_ex_net_l: "QQSsiz narx", vat_ex_net_h: "Umumiy summadan QQS ayiriladi.",
+                    loan_rate_l: "Oylik foiz stavkasi (r)", loan_rate_h: "Yillik stavka 12 oyga bo'linadi.",
+                    loan_k_l: "Koeffitsient (1 + r)ⁿ", loan_k_h: "n — kredit muddati (oy).",
+                    loan_pay_l: "Oylik to'lov (annuitet formulasi)", loan_pay_h: "To'lov = Summa × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1). Har oy bir xil summa to'lanadi.",
+                    loan_zero_l: "Oylik to'lov (foizsiz)", loan_zero_h: "Foiz stavkasi 0% bo'lgani uchun summa muddatga teng bo'linadi.",
+                    loan_total_l: "Jami to'lov", loan_total_h: "Oylik to'lov oylar soniga ko'paytiriladi.",
+                    loan_over_l: "Ortiqcha to'lov (foizlar)", loan_over_h: "Jami to'lovdan kredit summasi ayiriladi.",
+                    loan_part_l: "Asosiy qarzning oylik ulushi", loan_part_h: "Kredit summasi muddatga teng bo'linadi va har oy shu qism qaytariladi.",
+                    loan_first_l: "1-oy to'lovi (eng kattasi)", loan_first_h: "Asosiy qarz ulushi + qarzning to'liq qoldig'iga hisoblangan foiz.",
+                    loan_last_l: "Oxirgi oy to'lovi (eng kichigi)", loan_last_h: "Asosiy qarz ulushi + oxirgi qoldiqqa hisoblangan foiz.",
+                    loan_int_l: "Jami foizlar", loan_int_h: "Qoldiq har oy kamaygani sababli foizlar o'rtacha qoldiqqa hisoblanadi: Summa × r × (n + 1) ÷ 2.",
+                    loan_dtotal_l: "Jami to'lov", loan_dtotal_h: "Kredit summasiga jami foizlar qo'shiladi."
+                },
                 calc_tax_amount: "Summa (so'm)", calc_tax_typelabel: "Summa turi", calc_tax_type_gross: "Gross (jami, soliqqacha)", calc_tax_type_net: "Net (qo'lga tegadigan)",
                 calc_tax_net: "Qo'lga tegadi", calc_tax_gross: "Jami (gross)", calc_tax_jshds: "JShDS (12%)", calc_tax_social: "Ijtimoiy soliq (ish beruvchi, 12%)",
                 calc_vac_salary: "O'rtacha oylik ish haqi (so'm)", calc_vac_days: "Ta'til kunlari (kalendar)", calc_vac_daily: "O'rtacha kunlik ish haqi", calc_vac_workdays: "Ta'til ish kunlari", calc_vac_total: "Ta'til puli (jami)", calc_vac_after: "Qo'lga (JShDS 12% ushlangach)",
@@ -868,6 +912,37 @@
                 calc_subtitle: "Do tax, vacation pay, pension and other calculations in one place.",
                 calc_tab_tax: "Payroll tax", calc_tab_vacation: "Vacation pay", calc_tab_pension: "Pension", calc_tab_vat: "VAT", calc_tab_loan: "Loan",
                 calc_btn: "Calculate", calc_sum: "UZS",
+                calc_steps: {
+                    title: "How it's calculated", years: "years", male: "Men", female: "Women", max: "maximum",
+                    tax_gross_l: "Gross salary (before tax)", tax_gross_h: "Take-home pay equals 88% of the gross salary, because 12% personal income tax is withheld.",
+                    tax_jshds_l: "Personal income tax (12%)", tax_jshds_h: "Withheld from the employee's salary and paid to the budget.",
+                    tax_net_l: "Take-home pay", tax_net_h: "Personal income tax is subtracted from the gross salary.",
+                    tax_social_l: "Social tax (12%)", tax_social_h: "Paid by the employer on top of the salary — not deducted from the employee.",
+                    vac_days_l: "Working days of leave", vac_days_h: "With a 6-day work week, 6 of every 7 calendar days count as working days (Sundays excluded); the result is rounded.",
+                    vac_daily_l: "Average daily earnings", vac_daily_h: "25.3 is the average number of working days per month in a 6-day work week.",
+                    vac_total_l: "Vacation pay (gross)", vac_total_h: "Average daily earnings multiplied by the working days of leave.",
+                    vac_after_l: "Take-home amount", vac_after_h: "12% personal income tax is withheld from vacation pay.",
+                    pen_req_l: "Required full length of service", pen_req_h: "25 years for men, 20 years for women.",
+                    pen_base_l: "Base rate for full service", pen_base_h: "With full service, the pension is 55% of average monthly earnings.",
+                    pen_extra_l: "Bonus for extra service", pen_extra_h: "+1% for each year above full service, up to a total of 75%.",
+                    pen_partial_l: "Rate for incomplete service", pen_partial_h: "If service is short, the 55% rate is reduced in proportion to the years worked.",
+                    pen_total_l: "Estimated monthly pension", pen_total_h: "Average monthly earnings multiplied by the resulting rate.",
+                    vat_add_tax_l: "VAT amount (12%)", vat_add_tax_h: "12% of the price without VAT.",
+                    vat_add_total_l: "Total including VAT", vat_add_total_h: "The VAT amount is added to the price.",
+                    vat_ex_tax_l: "VAT included in the amount", vat_ex_tax_h: "An amount with VAT equals 112% of the price, so its VAT share is 12/112.",
+                    vat_ex_net_l: "Price without VAT", vat_ex_net_h: "VAT is subtracted from the total.",
+                    loan_rate_l: "Monthly interest rate (r)", loan_rate_h: "The annual rate divided by 12 months.",
+                    loan_k_l: "Factor (1 + r)ⁿ", loan_k_h: "n is the loan term in months.",
+                    loan_pay_l: "Monthly payment (annuity formula)", loan_pay_h: "Payment = Amount × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1). The same amount is paid every month.",
+                    loan_zero_l: "Monthly payment (interest-free)", loan_zero_h: "At 0% interest the amount is split evenly over the term.",
+                    loan_total_l: "Total payment", loan_total_h: "Monthly payment multiplied by the number of months.",
+                    loan_over_l: "Overpayment (interest)", loan_over_h: "Total payment minus the loan amount.",
+                    loan_part_l: "Monthly principal share", loan_part_h: "The loan amount split evenly over the term and repaid each month.",
+                    loan_first_l: "1st month payment (largest)", loan_first_h: "Principal share + interest on the full outstanding balance.",
+                    loan_last_l: "Last month payment (smallest)", loan_last_h: "Principal share + interest on the final balance.",
+                    loan_int_l: "Total interest", loan_int_h: "The balance falls every month, so interest is charged on the average balance: Amount × r × (n + 1) ÷ 2.",
+                    loan_dtotal_l: "Total payment", loan_dtotal_h: "Loan amount plus total interest."
+                },
                 calc_tax_amount: "Amount (UZS)", calc_tax_typelabel: "Amount type", calc_tax_type_gross: "Gross (before tax)", calc_tax_type_net: "Net (take-home)",
                 calc_tax_net: "Take-home", calc_tax_gross: "Gross", calc_tax_jshds: "Income tax (12%)", calc_tax_social: "Social tax (employer, 12%)",
                 calc_vac_salary: "Average monthly salary (UZS)", calc_vac_days: "Vacation days (calendar)", calc_vac_daily: "Average daily wage", calc_vac_workdays: "Vacation working days", calc_vac_total: "Vacation pay (total)", calc_vac_after: "Take-home (after 12% tax)",
@@ -944,6 +1019,37 @@
                 calc_subtitle: "Расчёт налогов, отпускных, пенсии и других значений в одном месте.",
                 calc_tab_tax: "Налог с зарплаты", calc_tab_vacation: "Отпускные", calc_tab_pension: "Пенсия", calc_tab_vat: "НДС", calc_tab_loan: "Кредит",
                 calc_btn: "Рассчитать", calc_sum: "сум",
+                calc_steps: {
+                    title: "Порядок расчёта", years: "лет", male: "Мужчины", female: "Женщины", max: "максимум",
+                    tax_gross_l: "Начисленная зарплата (до налога)", tax_gross_h: "Сумма на руки равна 88% начисленной зарплаты, так как удерживается 12% НДФЛ.",
+                    tax_jshds_l: "НДФЛ — налог на доходы физлиц (12%)", tax_jshds_h: "Удерживается из зарплаты сотрудника и перечисляется в бюджет.",
+                    tax_net_l: "Сумма на руки", tax_net_h: "Из начисленной зарплаты вычитается НДФЛ.",
+                    tax_social_l: "Социальный налог (12%)", tax_social_h: "Платит работодатель за свой счёт — из зарплаты сотрудника не удерживается.",
+                    vac_days_l: "Рабочие дни отпуска", vac_days_h: "При 6-дневной неделе 6 из каждых 7 календарных дней — рабочие (воскресенья исключаются), результат округляется.",
+                    vac_daily_l: "Средний дневной заработок", vac_daily_h: "25,3 — среднее число рабочих дней в месяце при 6-дневной рабочей неделе.",
+                    vac_total_l: "Отпускные (всего)", vac_total_h: "Средний дневной заработок умножается на рабочие дни отпуска.",
+                    vac_after_l: "Сумма на руки", vac_after_h: "С отпускных удерживается 12% НДФЛ.",
+                    pen_req_l: "Требуемый полный стаж", pen_req_h: "Для мужчин — 25 лет, для женщин — 20 лет.",
+                    pen_base_l: "Базовая ставка за полный стаж", pen_base_h: "При полном стаже пенсия составляет 55% среднемесячного заработка.",
+                    pen_extra_l: "Надбавка за сверхстаж", pen_extra_h: "+1% за каждый год сверх полного стажа, всего не более 75%.",
+                    pen_partial_l: "Ставка при неполном стаже", pen_partial_h: "При нехватке стажа ставка 55% уменьшается пропорционально отработанным годам.",
+                    pen_total_l: "Ориентировочная пенсия в месяц", pen_total_h: "Среднемесячный заработок умножается на итоговую ставку.",
+                    vat_add_tax_l: "Сумма НДС (12%)", vat_add_tax_h: "12% от цены без НДС.",
+                    vat_add_total_l: "Итого с НДС", vat_add_total_h: "К цене прибавляется сумма НДС.",
+                    vat_ex_tax_l: "НДС в составе суммы", vat_ex_tax_h: "Сумма с НДС равна 112% цены, поэтому доля НДС в ней — 12/112.",
+                    vat_ex_net_l: "Цена без НДС", vat_ex_net_h: "Из общей суммы вычитается НДС.",
+                    loan_rate_l: "Месячная процентная ставка (r)", loan_rate_h: "Годовая ставка делится на 12 месяцев.",
+                    loan_k_l: "Коэффициент (1 + r)ⁿ", loan_k_h: "n — срок кредита в месяцах.",
+                    loan_pay_l: "Ежемесячный платёж (формула аннуитета)", loan_pay_h: "Платёж = Сумма × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1). Каждый месяц платится одинаковая сумма.",
+                    loan_zero_l: "Ежемесячный платёж (без процентов)", loan_zero_h: "При ставке 0% сумма делится поровну на срок.",
+                    loan_total_l: "Общая сумма выплат", loan_total_h: "Ежемесячный платёж умножается на число месяцев.",
+                    loan_over_l: "Переплата (проценты)", loan_over_h: "Общая сумма выплат минус сумма кредита.",
+                    loan_part_l: "Ежемесячная доля основного долга", loan_part_h: "Сумма кредита делится поровну на срок и гасится каждый месяц.",
+                    loan_first_l: "Платёж за 1-й месяц (наибольший)", loan_first_h: "Доля основного долга + проценты на полный остаток долга.",
+                    loan_last_l: "Платёж за последний месяц (наименьший)", loan_last_h: "Доля основного долга + проценты на последний остаток.",
+                    loan_int_l: "Всего процентов", loan_int_h: "Остаток ежемесячно уменьшается, поэтому проценты начисляются на средний остаток: Сумма × r × (n + 1) ÷ 2.",
+                    loan_dtotal_l: "Общая сумма выплат", loan_dtotal_h: "К сумме кредита прибавляются все проценты."
+                },
                 calc_tax_amount: "Сумма (сум)", calc_tax_typelabel: "Тип суммы", calc_tax_type_gross: "Gross (до налога)", calc_tax_type_net: "Net (на руки)",
                 calc_tax_net: "На руки", calc_tax_gross: "Всего (gross)", calc_tax_jshds: "НДФЛ (12%)", calc_tax_social: "Соцналог (работодатель, 12%)",
                 calc_vac_salary: "Средняя месячная зарплата (сум)", calc_vac_days: "Дни отпуска (календарные)", calc_vac_daily: "Средний дневной заработок", calc_vac_workdays: "Рабочих дней отпуска", calc_vac_total: "Отпускные (всего)", calc_vac_after: "На руки (после 12% налога)",
@@ -1020,6 +1126,37 @@
                 calc_subtitle: "احسب الضرائب وبدل الإجازة والمعاش وغيرها في مكان واحد.",
                 calc_tab_tax: "ضريبة الراتب", calc_tab_vacation: "بدل الإجازة", calc_tab_pension: "المعاش", calc_tab_vat: "ضريبة القيمة", calc_tab_loan: "القرض",
                 calc_btn: "احسب", calc_sum: "سوم",
+                calc_steps: {
+                    title: "طريقة الحساب", years: "سنة", male: "الرجال", female: "النساء", max: "الحد الأقصى",
+                    tax_gross_l: "الراتب الإجمالي (قبل الضريبة)", tax_gross_h: "المبلغ الصافي يساوي 88% من الراتب الإجمالي، لأن ضريبة دخل الأفراد 12% تُقتطع منه.",
+                    tax_jshds_l: "ضريبة دخل الأفراد (12%)", tax_jshds_h: "تُقتطع من راتب الموظف وتُحوَّل إلى الميزانية.",
+                    tax_net_l: "المبلغ الصافي المستلم", tax_net_h: "تُطرح ضريبة الدخل من الراتب الإجمالي.",
+                    tax_social_l: "الضريبة الاجتماعية (12%)", tax_social_h: "يدفعها صاحب العمل من حسابه ولا تُقتطع من راتب الموظف.",
+                    vac_days_l: "أيام العمل خلال الإجازة", vac_days_h: "في أسبوع عمل من 6 أيام تُحتسب 6 أيام من كل 7 أيام تقويمية أيامَ عمل (تُستثنى أيام الأحد) ويُقرَّب الناتج.",
+                    vac_daily_l: "متوسط الأجر اليومي", vac_daily_h: "25.3 هو متوسط عدد أيام العمل في الشهر في أسبوع عمل من 6 أيام.",
+                    vac_total_l: "بدل الإجازة (الإجمالي)", vac_total_h: "يُضرب متوسط الأجر اليومي في عدد أيام العمل خلال الإجازة.",
+                    vac_after_l: "المبلغ الصافي المستلم", vac_after_h: "تُقتطع ضريبة الدخل 12% من بدل الإجازة.",
+                    pen_req_l: "مدة الخدمة الكاملة المطلوبة", pen_req_h: "25 سنة للرجال و20 سنة للنساء.",
+                    pen_base_l: "النسبة الأساسية للخدمة الكاملة", pen_base_h: "عند اكتمال الخدمة يبلغ المعاش 55% من متوسط الأجر الشهري.",
+                    pen_extra_l: "علاوة الخدمة الإضافية", pen_extra_h: "+1% عن كل سنة تزيد على الخدمة الكاملة، وبحد أقصى 75% إجمالًا.",
+                    pen_partial_l: "النسبة عند نقص الخدمة", pen_partial_h: "عند نقص مدة الخدمة تنخفض نسبة 55% بما يتناسب مع السنوات المعمول بها.",
+                    pen_total_l: "المعاش الشهري التقديري", pen_total_h: "يُضرب متوسط الأجر الشهري في النسبة الناتجة.",
+                    vat_add_tax_l: "مبلغ ضريبة القيمة المضافة (12%)", vat_add_tax_h: "12% من السعر دون الضريبة.",
+                    vat_add_total_l: "الإجمالي مع الضريبة", vat_add_total_h: "يُضاف مبلغ الضريبة إلى السعر.",
+                    vat_ex_tax_l: "الضريبة المتضمنة في المبلغ", vat_ex_tax_h: "المبلغ مع الضريبة يساوي 112% من السعر، لذا حصة الضريبة فيه 12/112.",
+                    vat_ex_net_l: "السعر دون الضريبة", vat_ex_net_h: "تُطرح الضريبة من المبلغ الإجمالي.",
+                    loan_rate_l: "سعر الفائدة الشهري (r)", loan_rate_h: "يُقسم السعر السنوي على 12 شهرًا.",
+                    loan_k_l: "المعامل (1 + r)ⁿ", loan_k_h: "n هي مدة القرض بالأشهر.",
+                    loan_pay_l: "القسط الشهري (صيغة الأقساط المتساوية)", loan_pay_h: "القسط = المبلغ × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1). يُدفع المبلغ نفسه كل شهر.",
+                    loan_zero_l: "القسط الشهري (دون فائدة)", loan_zero_h: "عند فائدة 0% يُقسم المبلغ بالتساوي على المدة.",
+                    loan_total_l: "إجمالي المدفوعات", loan_total_h: "يُضرب القسط الشهري في عدد الأشهر.",
+                    loan_over_l: "الدفعة الزائدة (الفوائد)", loan_over_h: "إجمالي المدفوعات ناقص مبلغ القرض.",
+                    loan_part_l: "الحصة الشهرية من أصل الدين", loan_part_h: "يُقسم مبلغ القرض بالتساوي على المدة ويُسدَّد كل شهر.",
+                    loan_first_l: "قسط الشهر الأول (الأكبر)", loan_first_h: "حصة أصل الدين + الفائدة على كامل الرصيد المتبقي.",
+                    loan_last_l: "قسط الشهر الأخير (الأصغر)", loan_last_h: "حصة أصل الدين + الفائدة على الرصيد الأخير.",
+                    loan_int_l: "إجمالي الفوائد", loan_int_h: "ينخفض الرصيد كل شهر، لذا تُحسب الفائدة على متوسط الرصيد: المبلغ × r × (n + 1) ÷ 2.",
+                    loan_dtotal_l: "إجمالي المدفوعات", loan_dtotal_h: "مبلغ القرض مضافًا إليه إجمالي الفوائد."
+                },
                 calc_tax_amount: "المبلغ (سوم)", calc_tax_typelabel: "نوع المبلغ", calc_tax_type_gross: "إجمالي (قبل الضريبة)", calc_tax_type_net: "صافي (المستلم)",
                 calc_tax_net: "المستلم", calc_tax_gross: "الإجمالي", calc_tax_jshds: "ضريبة الدخل (12%)", calc_tax_social: "الضريبة الاجتماعية (صاحب العمل، 12%)",
                 calc_vac_salary: "متوسط الراتب الشهري (سوم)", calc_vac_days: "أيام الإجازة (تقويمية)", calc_vac_daily: "متوسط الأجر اليومي", calc_vac_workdays: "أيام عمل الإجازة", calc_vac_total: "بدل الإجازة (إجمالي)", calc_vac_after: "المستلم (بعد ضريبة 12%)",
@@ -1213,6 +1350,21 @@
             box.innerHTML = '<div class="calc-error"><i class="fas fa-circle-exclamation"></i> ' + CL(key) + '</div>';
             box.classList.add('show');
         }
+        /* "Hisoblash tartibi": har bir qadam — [kalit, formula]; sarlavha va izoh calc_steps tarjimalaridan olinadi */
+        function CS(k) {
+            const d = (translations[currentLang] || translations.uz).calc_steps || translations.uz.calc_steps;
+            return d[k] || translations.uz.calc_steps[k] || '';
+        }
+        function calcFmt2(n) { return Number(n).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/ /g, ' '); }
+        function calcDec(n, max) { return Number(n).toLocaleString('ru-RU', { maximumFractionDigits: max || 4 }).replace(/ /g, ' '); }
+        function calcSup(n) { return String(n).replace(/\d/g, d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[d]); }
+        function calcSteps(steps) {
+            return '<div class="calc-steps"><div class="calc-steps-title"><i class="fas fa-list-ol"></i> ' + CS('title') + '</div><ol>' +
+                steps.map(([key, formula]) => '<li><div class="cs-label">' + CS(key + '_l') + '</div>' +
+                    '<div class="cs-formula">' + formula + '</div>' +
+                    (CS(key + '_h') ? '<div class="cs-hint">' + CS(key + '_h') + '</div>' : '') + '</li>').join('') +
+                '</ol></div>';
+        }
         /* Pul maydonlarini yozayotganda avtomatik formatlash (6000000 -> 6 000 000) */
         function attachMoneyFormat(id) {
             const el = document.getElementById(id);
@@ -1233,7 +1385,13 @@
             box.innerHTML = calcRow(CL('calc_tax_net'), calcFmt(net) + s, 'highlight') +
                 calcRow(CL('calc_tax_gross'), calcFmt(gross) + s) +
                 calcRow(CL('calc_tax_jshds'), calcFmt(jshds) + s) +
-                calcRow(CL('calc_tax_social'), calcFmt(social) + s, 'muted');
+                calcRow(CL('calc_tax_social'), calcFmt(social) + s, 'muted') +
+                calcSteps([
+                    ...(type === 'gross' ? [] : [['tax_gross', calcFmt(net) + ' ÷ 0,88 = <em>' + calcFmt(gross) + s + '</em>']]),
+                    ['tax_jshds', calcFmt(gross) + ' × 12% = <em>' + calcFmt(jshds) + s + '</em>'],
+                    ['tax_net', calcFmt(gross) + ' − ' + calcFmt(jshds) + ' = <em>' + calcFmt(net) + s + '</em>'],
+                    ['tax_social', calcFmt(gross) + ' × 12% = <em>' + calcFmt(social) + s + '</em>']
+                ]);
             box.classList.add('show');
         }
         function calcVacation() {
@@ -1248,7 +1406,13 @@
             box.innerHTML = calcRow(CL('calc_vac_workdays'), workDays) +
                 calcRow(CL('calc_vac_daily'), calcFmt(daily) + s) +
                 calcRow(CL('calc_vac_total'), calcFmt(total) + s, 'highlight') +
-                calcRow(CL('calc_vac_after'), calcFmt(after) + s, 'muted');
+                calcRow(CL('calc_vac_after'), calcFmt(after) + s, 'muted') +
+                calcSteps([
+                    ['vac_days', calcDec(calDays) + ' × 6 ÷ 7 = ' + (calDays * 6 % 7 ? calcFmt2(calDays * 6 / 7) + ' ≈ ' : '') + '<em>' + workDays + '</em>'],
+                    ['vac_daily', calcFmt(sal) + ' ÷ 25,3 = <em>' + calcFmt2(daily) + s + '</em>'],
+                    ['vac_total', calcFmt2(daily) + ' × ' + workDays + ' = <em>' + calcFmt(total) + s + '</em>'],
+                    ['vac_after', calcFmt(total) + ' − ' + calcFmt(total * 0.12) + ' (12%) = <em>' + calcFmt(after) + s + '</em>']
+                ]);
             box.classList.add('show');
         }
         function calcPension() {
@@ -1262,8 +1426,20 @@
             const pension = sal * pct;
             const s = ' ' + CL('calc_sum');
             const box = document.getElementById('penResult');
+            const yrs = ' ' + CS('years');
+            const pctTxt = calcDec(pct * 100, 2) + '%';
+            const steps = [['pen_req', CS(gender === 'm' ? 'male' : 'female') + ': <em>' + req + yrs + '</em> · ' + calcDec(staj, 1) + yrs + (staj >= req ? ' ≥ ' : ' < ') + req + yrs]];
+            if (staj >= req) {
+                const raw = 55 + (staj - req);
+                steps.push(['pen_base', '<em>55%</em>']);
+                steps.push(['pen_extra', '55% + (' + calcDec(staj, 1) + ' − ' + req + ') × 1% = ' + (raw > 75 ? calcDec(raw, 2) + '% → <em>75%</em> (' + CS('max') + ')' : '<em>' + pctTxt + '</em>')]);
+            } else {
+                steps.push(['pen_partial', '55% × ' + calcDec(staj, 1) + ' ÷ ' + req + ' = <em>' + pctTxt + '</em>']);
+            }
+            steps.push(['pen_total', calcFmt(sal) + ' × ' + pctTxt + ' = <em>' + calcFmt(pension) + s + '</em>']);
             box.innerHTML = calcRow(CL('calc_pen_result'), calcFmt(pension) + s, 'highlight') +
                 calcRow(CL('calc_pen_percent'), Math.round(pct * 100) + '%') +
+                calcSteps(steps) +
                 '<p class="calc-note">' + CL('calc_pen_note') + '</p>';
             box.classList.add('show');
         }
@@ -1277,7 +1453,14 @@
             const box = document.getElementById('vatResult');
             box.innerHTML = calcRow(CL('calc_vat_net'), calcFmt(net) + s) +
                 calcRow(CL('calc_vat_tax'), calcFmt(vat) + s, 'highlight') +
-                calcRow(CL('calc_vat_total'), calcFmt(total) + s);
+                calcRow(CL('calc_vat_total'), calcFmt(total) + s) +
+                calcSteps(mode === 'add' ? [
+                    ['vat_add_tax', calcFmt(amt) + ' × 12% = <em>' + calcFmt(vat) + s + '</em>'],
+                    ['vat_add_total', calcFmt(amt) + ' + ' + calcFmt(vat) + ' = <em>' + calcFmt(total) + s + '</em>']
+                ] : [
+                    ['vat_ex_tax', calcFmt(amt) + ' × 12 ÷ 112 = <em>' + calcFmt(vat) + s + '</em>'],
+                    ['vat_ex_net', calcFmt(amt) + ' − ' + calcFmt(vat) + ' = <em>' + calcFmt(net) + s + '</em>']
+                ]);
             box.classList.add('show');
         }
         function calcLoan() {
@@ -1299,15 +1482,35 @@
                 html = calcRow(CL('calc_loan_first'), calcFmt(firstPay) + s, 'highlight') +
                     calcRow(CL('calc_loan_last'), calcFmt(lastPay) + s) +
                     calcRow(CL('calc_loan_total'), calcFmt(total) + s) +
-                    calcRow(CL('calc_loan_over'), calcFmt(totalInterest) + s, 'muted');
+                    calcRow(CL('calc_loan_over'), calcFmt(totalInterest) + s, 'muted') +
+                    calcSteps([
+                        ['loan_rate', calcDec(rate, 2) + '% ÷ 12 = <em>' + calcDec(rate / 12, 4) + '%</em> (r = ' + calcDec(r, 6) + ')'],
+                        ['loan_part', calcFmt(P) + ' ÷ ' + n + ' = <em>' + calcFmt(principalPart) + s + '</em>'],
+                        ['loan_first', calcFmt(principalPart) + ' + ' + calcFmt(P) + ' × ' + calcDec(r, 6) + ' = <em>' + calcFmt(firstPay) + s + '</em>'],
+                        ['loan_last', calcFmt(principalPart) + ' + ' + calcFmt(principalPart) + ' × ' + calcDec(r, 6) + ' = <em>' + calcFmt(lastPay) + s + '</em>'],
+                        ['loan_int', calcFmt(P) + ' × ' + calcDec(r, 6) + ' × (' + n + ' + 1) ÷ 2 = <em>' + calcFmt(totalInterest) + s + '</em>'],
+                        ['loan_dtotal', calcFmt(P) + ' + ' + calcFmt(totalInterest) + ' = <em>' + calcFmt(total) + s + '</em>']
+                    ]);
             } else {
                 /* Annuitet: teng oylik to'lov */
-                let pay;
-                if (r === 0) { pay = P / n; } else { const k = Math.pow(1 + r, n); pay = P * r * k / (k - 1); }
+                let pay, k = 1;
+                if (r === 0) { pay = P / n; } else { k = Math.pow(1 + r, n); pay = P * r * k / (k - 1); }
                 const total = pay * n, over = total - P;
+                const kTxt = calcDec(k, 6);
                 html = calcRow(CL('calc_loan_monthly'), calcFmt(pay) + s, 'highlight') +
                     calcRow(CL('calc_loan_total'), calcFmt(total) + s) +
-                    calcRow(CL('calc_loan_over'), calcFmt(over) + s, 'muted');
+                    calcRow(CL('calc_loan_over'), calcFmt(over) + s, 'muted') +
+                    calcSteps([
+                        ...(r === 0 ? [
+                            ['loan_zero', calcFmt(P) + ' ÷ ' + n + ' = <em>' + calcFmt(pay) + s + '</em>']
+                        ] : [
+                            ['loan_rate', calcDec(rate, 2) + '% ÷ 12 = <em>' + calcDec(rate / 12, 4) + '%</em> (r = ' + calcDec(r, 6) + ')'],
+                            ['loan_k', '(1 + ' + calcDec(r, 6) + ')' + calcSup(n) + ' = <em>' + kTxt + '</em>'],
+                            ['loan_pay', calcFmt(P) + ' × ' + calcDec(r, 6) + ' × ' + kTxt + ' ÷ (' + kTxt + ' − 1) = <em>' + calcFmt(pay) + s + '</em>']
+                        ]),
+                        ['loan_total', calcFmt(pay) + ' × ' + n + ' = <em>' + calcFmt(total) + s + '</em>'],
+                        ['loan_over', calcFmt(total) + ' − ' + calcFmt(P) + ' = <em>' + calcFmt(over) + s + '</em>']
+                    ]);
             }
             html += '<p class="calc-note">' + CL('calc_loan_note') + '</p>';
             box.innerHTML = html;
