@@ -1,53 +1,37 @@
 {
-  "updated": "30.10.2026 14:42",
+  "updated": "30.10.2026 22:47",
   "items": [
     {
       "cat": "iqtisod",
       "date": "30.10.2026",
-      "title": "Hakerlar Binance`dan milliardlab dollar o‘g‘irladi. Summa rekord darajada bo‘lishi mumkin",
-      "excerpt": "Hakerlar eng yirik kriptobirja — Binance tizimini buzib kirib, turli hisob-kitoblarga ko‘ra, 5,5 mlrd dollargacha bo‘lgan kriptovalyutani o‘g‘irladi. Agar raqamlar…",
-      "url": "https://www.gazeta.uz/oz/2026/10/30/binance/",
-      "source": "Gazeta.uz"
+      "title": "To‘qimachilik: Qashqadaryo viloyatidagi ilg‘or tajriba ommalashmoqda",
+      "excerpt": "Bugun jahon bozorida mahsulot sifati bilan birga uning tannarxi, ishlab chiqarish jarayonida sarflanadigan resurslar miqdori ham muhim raqobat omiliga aylanmoqda…",
+      "url": "https://uza.uz/oz/posts/toqimachilik-qashqadaryo-viloyatidagi-ilgor-tajriba-ommalashmoqda_930634",
+      "source": "UzA"
     },
     {
       "cat": "iqtisod",
       "date": "30.10.2026",
-      "title": "Tadbirkorlar o‘rnatgan radarlarga kamar taqmaganlik qoidabuzarligini qayd etishga ruxsat beriladi",
-      "excerpt": "Hukumat qarori bilan 1-noyabrdan tadbirkorlar o‘rnatgan foto va video qayd etish vositalari xavfsizlik kamari bilan bog‘liq qoidabuzarliklarni ham qayd eta oladi.",
-      "url": "https://daryo.uz/2026/10/30/tadbirkorlar-ornatgan-radarlarga-rement-taqmaganlik-qoidabuzarligini-qayd-etishga-ruxsat-beriladi/",
+      "title": "“Biz faqat davlatga bog‘liq emasmiz”: O‘zbekneftgaz 2027-yildan davlat kafolati ostidagi kreditlardan voz kechadi",
+      "excerpt": "Kompaniya banklarning ishonchi ortishi va bozor narxlariga bosqichma-bosqich o‘tish evaziga o‘z kredit reytingini saqlab qolishni rejalashtirmoqda.",
+      "url": "https://www.spot.uz/oz/2026/10/30/state-support/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "30.10.2026",
+      "title": "Tarixdagi eng yirik kriptoo‘g‘rilik: KXDR hakerlari Binance’dan 6 mlrd dollar o‘g‘irlashda gumonlandi",
+      "excerpt": "Hujumchilar texnik mutaxassisning noutbukini buzib kirib, asosiy mablag‘larni atigi 20 daqiqa ichida qo‘lga kiritgan. Tahlilchilar operatsiya ortida KXDR bilan bog‘liq…",
+      "url": "https://daryo.uz/2026/10/30/tarixdagi-eng-yirik-kriptoogrilik-kxdr-hakerlari-binancedan-6-mlrd-dollar-ogirlashda-gumonlandi/",
       "source": "Daryo.uz"
     },
     {
       "cat": "iqtisod",
       "date": "30.10.2026",
-      "title": "Kapitalbankda ipotekani qayta moliyalashtirish — yillik 21%",
-      "excerpt": "Ipoteka krediti bo‘yicha oylik to‘lovingiz yuqorimi? Kreditingizni boshqa bankdan Kapitalbankga o‘tkazib, yanada qulayroq shartlarda to‘lovlarni davom ettiring.",
-      "url": "https://daryo.uz/2026/10/30/kapitalbankda-ipotekani-qayta-moliyalashtirish-yillik-21/",
+      "title": "Namanganda elektr hisoblagichini nosoz deb ko‘rsatib, 4 ming dollar talab qilgan shaxslar ushlandi",
+      "excerpt": "“Energosavdo” filialining bo‘lim boshlig‘i va ustasi fuqaroga 300 mln so‘m jarima yozilishini aytib, dalolatnoma rasmiylashtirmaslik evaziga pul talab qilgan.",
+      "url": "https://daryo.uz/2026/10/30/namanganda-elektr-hisoblagichini-nosoz-deb-korsatib-4-ming-dollar-talab-qilgan-shaxslar-ushlandi/",
       "source": "Daryo.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "30.10.2026",
-      "title": "Xakerlar Binance kriptobirjasini buzib kirib, $6,3 mlrddan ortiq mablag‘ni o‘g‘irladi",
-      "excerpt": "Platforma hamkorlari blokcheynlardagi mablag‘ning yarmidan sal kamini muzlatib qo‘ydi. Hujumda Shimoliy Koreya bilan bog‘liq xakerlar guruhi ayblangan.",
-      "url": "https://www.spot.uz/oz/2026/10/30/binance/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "buxgalteriya",
-      "date": "29.10.2026",
-      "title": "Mehnat inspeksiyasi 35 mingga yaqin xodimga 832 mlrd so‘mdan ortiq ish haqi undirib berdi",
-      "excerpt": "To‘qqiz oyda 36,1 mingta qonunbuzilish holati aniqlanib, mansabdor shaxslarga 22,3 mlrd so‘m ma’muriy jarima qo‘llanildi.",
-      "url": "https://www.spot.uz/oz/2026/10/29/salary/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "29.10.2026",
-      "title": "Avtovokzal va temir yo‘l vokzallarini 3 yilgacha soliqlardan ozod qilish taklif qilinmoqda",
-      "excerpt": "Shuningdek, tadbirkorlarga imtiyozli kreditlar berish va avtovokzallarda do‘kon, mehmonxona hamda quvvatlash shoxobchalarini ochishga ruxsat berish ko‘zda tutilmoqda.",
-      "url": "https://www.spot.uz/oz/2026/10/29/bus-rail-stations/",
-      "source": "Spot.uz"
     }
   ]
 }
