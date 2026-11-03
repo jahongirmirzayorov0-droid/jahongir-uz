@@ -1,28 +1,36 @@
 {
-  "updated": "03.11.2026 02:28",
+  "updated": "03.11.2026 10:41",
   "items": [
+    {
+      "cat": "buxgalteriya",
+      "date": "03.11.2026",
+      "title": "“O‘zgarishlar mavjud muhitning rivojlanishiga yordam berishi kerak”. Arxitektor Mariya Sultonova shahar makonini tashkil etish haqida",
+      "excerpt": "Foydalanilmaydigan bog‘lar, qizib ketadigan binolar, piyodalar uchun noqulay ko‘chalar kabi ko‘plab muammolarni loyihalash bosqichidayoq oldindan ko‘rish mumkin…",
+      "url": "https://www.gazeta.uz/oz/2026/11/03/sad/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "03.11.2026",
+      "title": "Markaziy bank tijorat banklarining moliyaviy ommaboplik reytingini ishlab chiqmoqda",
+      "excerpt": "Reyting banklarning aholi va mikro, kichik hamda o‘rta biznesga moliyaviy xizmatlardan foydalanish imkoniyatini yaratish, xizmatlar sifati va qulayligini ta’minlash…",
+      "url": "https://www.spot.uz/oz/2026/11/03/financial-accessibility-rating/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "03.11.2026",
+      "title": "Apple, Google va boshqa xorijiy kompaniyalar O‘zbekistonda 232,8 mlrd so‘m soliq to‘ladi",
+      "excerpt": "2026-yilning yanvar–sentyabr oylarida elektron xizmatlar ko‘rsatuvchi 109 ta xorijiy kompaniya tomonidan to‘langan soliqlar hajmi o‘tgan yilga nisbatan 85 foizga oshdi…",
+      "url": "https://daryo.uz/2026/11/03/apple-google-va-boshqa-xorijiy-kompaniyalar-ozbekistonda-232-8-mlrd-som-soliq-toladi/",
+      "source": "Daryo.uz"
+    },
     {
       "cat": "iqtisod",
       "date": "02.11.2026",
       "title": "O‘zbekistonda suyultirilgan gaz narxi va ehtiyojmand oilalarga kompensatsiya to‘lash tartibi belgilandi",
       "excerpt": "Aholiga yetkazib beriladigan suyultirilgan gazning har bir kilosi uchun 5 ming so‘mlik sotish narxi belgilandi. Ehtiyojmand oilalarga esa har oy 20 kilogacha gaz uchun…",
       "url": "https://daryo.uz/2026/11/02/ozbekistonda-suyultirilgan-gaz-narxi-va-ehtiyojmand-oilalarga-kompensatsiya-tolash-tartibi-belgilandi/",
-      "source": "Daryo.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "02.11.2026",
-      "title": "Xorijiy bigtex kompaniyalar O‘zbekistonda 9 oyda qariyb $20 mln soliq to‘ladi",
-      "excerpt": "Ko‘rsatilgan xizmatlar qiymati 85,2% ga oshib, 1,94 trln so‘mga yetdi. Eng yirik uchta soliq to‘lovchi Apple, Google va Meta bo‘ldi.",
-      "url": "https://www.spot.uz/oz/2026/11/02/big-tech-taxes/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "02.11.2026",
-      "title": "Ryanair rahbari Maskni “ahmoq” deb atadi va u bilan janjal kompaniyaga 40 mln dollarlik bepul reklama keltirganini aytdi",
-      "excerpt": "Ryanair o‘z samolyotlariga Starlink o‘rnatishdan bosh tortgach, aviakompaniya rahbari va Ilon Mask o‘rtasida janjal boshlangan. Ryanair esa bundan foydalanib, hatto…",
-      "url": "https://daryo.uz/2026/11/02/ryanair-rahbari-maskni-ahmoq-deb-atadi-va-u-bilan-janjal-kompaniyaga-40-mln-dollarlik-bepul-reklama-keltirganini-aytdi/",
       "source": "Daryo.uz"
     },
     {
