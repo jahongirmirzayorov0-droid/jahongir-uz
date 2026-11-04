@@ -109,6 +109,46 @@
         .key-actions { display: flex; gap: 10px; justify-content: flex-end; }
         [hidden] { display: none !important; }
 
+        /* Provodkalar zanjiri */
+        .level.chainc { background: linear-gradient(135deg, #ecfdf3, #ffffff 70%); border: 2px solid #86efac; }
+        .level.chainc .level-icon { background: var(--ok); color: #fff; }
+        .level.chainc .level-num { color: #15803d; }
+        .ch-head { margin: 4px 0 16px; }
+        .ch-head h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin: 0 0 6px; color: var(--navy); }
+        .ch-head p { margin: 0; color: var(--muted); font-size: 14px; max-width: 760px; }
+        .ch-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: start; }
+        .ch-layout > * { min-width: 0; }
+        .ch-intro { background: #fffbea; border: 1px solid #fde68a; border-radius: 14px; padding: 13px 16px; font-size: 14px; color: #422006; margin-bottom: 14px; }
+        .ch-sum { font-size: 22px; font-weight: 800; color: var(--navy); margin: -8px 0 18px; font-variant-numeric: tabular-nums; }
+        .ch-side { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+        .options + .ch-side { margin-top: 20px; }
+        .ch-side .tag { font-size: 12.5px; padding: 5px 12px; }
+        .ch-wait { border: 2px dashed var(--line); border-radius: 14px; padding: 18px; text-align: center; color: #94a3b8; font-size: 13.5px; }
+        .ledger { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px; position: sticky; top: 76px; }
+        .ledger h3 { font-size: 14px; color: var(--navy); margin: 0 0 8px; display: flex; gap: 8px; align-items: center; }
+        .ledger h3 i { color: var(--gold-dark); }
+        .ledger-block { margin-bottom: 16px; max-height: 320px; overflow-y: auto; }
+        .ledger-block:last-child { margin-bottom: 0; }
+        .j-row { display: flex; gap: 8px; align-items: baseline; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed var(--line); font-variant-numeric: tabular-nums; }
+        .j-row .n { color: #94a3b8; min-width: 16px; }
+        .j-row .e { font-weight: 700; color: var(--navy); white-space: nowrap; }
+        .j-row .s { margin-left: auto; white-space: nowrap; color: #334155; }
+        .j-row .m { width: 14px; text-align: center; }
+        .j-row .m.ok { color: var(--ok); }
+        .j-row .m.bad { color: var(--bad); }
+        .j-empty { font-size: 13px; color: #94a3b8; padding: 4px 0; }
+        .b-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 8px; border-radius: 8px; }
+        .b-row .c { font-weight: 800; color: var(--navy); min-width: 38px; font-variant-numeric: tabular-nums; }
+        .b-row .nm { flex: 1; min-width: 0; color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .b-row .v { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; color: #334155; }
+        .b-row.closed { background: var(--ok-bg); }
+        .b-row.closed .v { color: var(--ok); }
+        .b-row.flash { animation: flash 1.2s ease; }
+        @keyframes flash { 0% { background: #fde68a; } 100% { background: var(--ok-bg); } }
+        .closed-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 0 0 20px; }
+        .closed-chips span { background: var(--ok-bg); color: var(--ok); border: 1px solid #bbf7d0; border-radius: 50px; padding: 4px 11px; font-size: 12.5px; font-weight: 700; }
+        @media (max-width: 1000px) { .ch-layout { grid-template-columns: minmax(0, 1fr); } .ledger { position: static; } }
+
         .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 50px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
         .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
@@ -309,6 +349,58 @@
             </div>
         </section>
 
+        <!-- Provodkalar zanjiri: ro'yxat -->
+        <section class="screen" id="chains">
+            <div class="game-bar">
+                <div class="game-title"><button type="button" onclick="showHome()" aria-label="Boʻlimlarga qaytish"><i class="fas fa-arrow-left"></i></button><span>Boʻlimlar</span></div>
+            </div>
+            <div class="ch-head">
+                <h2>Provodkalar zanjiri</h2>
+                <p>Har bir zanjirda bitta xoʻjalik operatsiyasi boshidan oxirigacha yuritiladi. Har qadamda avval <b>Debet</b>, keyin <b>Kredit</b> schotini tanlang. Yonda jurnal va schotlar qoldigʻi yuritiladi: qoldiq nolga tushgan schot yopilgan deb belgilanadi.</p>
+            </div>
+            <div class="levels" id="chainList"></div>
+        </section>
+
+        <!-- Provodkalar zanjiri: o'yin -->
+        <section class="screen" id="chain">
+            <div class="game-bar">
+                <div class="game-title"><button type="button" onclick="openChains()" aria-label="Zanjirlar roʻyxatiga qaytish"><i class="fas fa-arrow-left"></i></button><span id="cTitle"></span></div>
+                <div class="hud">
+                    <span id="cCount"></span>
+                    <span class="score"><i class="fas fa-check" style="color:var(--ok)"></i> <b id="cRight">0</b></span>
+                    <span class="score"><i class="fas fa-coins"></i> <b id="cScore">0</b></span>
+                </div>
+            </div>
+            <div class="q-progress"><div id="cBar" style="width:0%"></div></div>
+            <div class="ch-layout">
+                <div>
+                    <div class="ch-intro" id="cIntro"></div>
+                    <div class="q-card" id="cCard">
+                        <div class="q-meta"><span class="tag tag-hisob" id="cStepTag"></span></div>
+                        <p class="scenario" id="cText"></p>
+                        <div class="ch-sum" id="cSum"></div>
+                        <div class="ch-side"><span class="tag tag-debet">Debet</span><span id="cDtPick"></span></div>
+                        <div class="options" id="cDt"></div>
+                        <div class="ch-side"><span class="tag tag-kredit">Kredit</span><span id="cKtPick"></span></div>
+                        <div class="options" id="cKt"></div>
+                        <div class="feedback" id="cFeedback" aria-live="polite">
+                            <div class="fb-title" id="cFbTitle"></div>
+                            <p class="fb-text" id="cFbText"></p>
+                            <div class="fb-actions"><button class="btn btn-navy" type="button" id="cNext" onclick="nextChainStep()"></button></div>
+                        </div>
+                    </div>
+                    <div class="result" id="cResult" hidden></div>
+                    <p class="kbd-hint">Klaviatura: 1–4 — schot tanlash, Enter — keyingi qadam</p>
+                </div>
+                <aside class="ledger" aria-label="Jurnal va schotlar qoldigʻi">
+                    <h3><i class="fas fa-book-open"></i> Jurnal</h3>
+                    <div class="ledger-block" id="cJournal"></div>
+                    <h3><i class="fas fa-scale-balanced"></i> Schotlar qoldigʻi</h3>
+                    <div class="ledger-block" id="cBalances"></div>
+                </aside>
+            </div>
+        </section>
+
         <!-- Maxsus bo'lim kaliti -->
         <div class="key-dialog" id="keyDialog" role="dialog" aria-modal="true" aria-labelledby="keyTitle">
             <form class="key-box" onsubmit="submitKey(event)">
@@ -411,7 +503,7 @@
                 '<div class="level-top"><div class="level-icon"><i class="fas ' + EXAM.icon + '"></i></div><div><div class="level-num">Barcha boʻlimlar · ' + EXAM_SIZE + ' ta savol</div><h3>' + EXAM.title + '</h3></div></div>' +
                 '<p class="level-desc">' + EXAM.desc + '</p>' +
                 '<div class="level-meta"><span>' + (state.best.exam ? 'Eng yaxshi natija: ' + state.best.exam + '%' : 'Hali topshirilmagan') + '</span><span class="stars">' + starHtml(state.best.exam ? starsFor(state.best.exam) : 0) + '</span></div>' +
-            '</button>' + renderSpecialCard();
+            '</button>' + renderSpecialCard() + renderChainCard();
         }
         /* Maxsus bo'lim kartasi: qulflangan bo'lsa — kalit so'raydi, ochilgan bo'lsa — raund boshlaydi */
         function renderSpecialCard() {
@@ -474,6 +566,198 @@
             try { localStorage.removeItem(SPECIAL_KEY_STORE); } catch (e) {}
             renderHome();
         }
+        /* ===== PROVODKALAR ZANJIRI =====
+           chains.json: { chains: [{ id, title, icon, intro, opening: {code: summa (+Dt / -Kt)}, steps: [{ text, sum, dt, kt, why }] }] }
+           Har qadamda avval Debet, keyin Kredit tanlanadi; qoldiqlar yuritilib, nolga tushgan schot "yopildi" deb belgilanadi. */
+        let CHAINS = [], chain = null;
+        const fmt = n => Number(n).toLocaleString('ru-RU');
+        const chainBestKey = c => 'ch:' + c.id;
+
+        /* Zanjir oxirida yopiladigan schotlar (qadamlarda ishlatilgan va qoldig'i 0) */
+        function chainClosures(c) {
+            const bal = Object.assign({}, c.opening || {}), used = [];
+            c.steps.forEach(s => {
+                bal[s.dt] = (bal[s.dt] || 0) + s.sum; bal[s.kt] = (bal[s.kt] || 0) - s.sum;
+                [s.dt, s.kt].forEach(x => { if (!used.includes(x)) used.push(x); });
+            });
+            return used.filter(x => bal[x] === 0);
+        }
+        function renderChainCard() {
+            if (!CHAINS.length) return '';
+            const bests = CHAINS.map(c => state.best[chainBestKey(c)]).filter(v => v != null);
+            const avg = bests.length ? bests.reduce((s, v) => s + v, 0) / CHAINS.length : 0;
+            return '<button class="level chainc" type="button" onclick="openChains()">' +
+                '<div class="level-top"><div class="level-icon"><i class="fas fa-link"></i></div><div><div class="level-num">Yangi · ' + CHAINS.length + ' ta zanjir</div><h3>Provodkalar zanjiri</h3></div></div>' +
+                '<p class="level-desc">Operatsiyani boshidan oxirigacha yuriting: har qadamda Debet va Kreditni toping, schot yopilguncha.</p>' +
+                '<div class="progress"><div style="width:' + (bests.length / CHAINS.length * 100) + '%"></div></div>' +
+                '<div class="level-meta"><span>' + bests.length + ' / ' + CHAINS.length + ' bajarildi</span><span class="stars">' + starHtml(starsFor(avg)) + '</span></div>' +
+            '</button>';
+        }
+        function openChains() {
+            chain = null;
+            $('chainList').innerHTML = CHAINS.map((c, k) => {
+                const best = state.best[chainBestKey(c)];
+                const closes = chainClosures(c);
+                return '<button class="level" type="button" onclick="startChain(' + k + ')">' +
+                    '<div class="level-top"><div class="level-icon"><i class="fas ' + esc(c.icon || 'fa-link') + '"></i></div><div><div class="level-num">' + (k + 1) + '-zanjir · ' + c.steps.length + ' qadam</div><h3>' + esc(c.title) + '</h3></div></div>' +
+                    '<p class="level-desc">Yopiladi: ' + closes.map(esc).join(', ') + '</p>' +
+                    '<div class="level-meta"><span>' + (best != null ? 'Eng yaxshi natija: ' + best + '%' : 'Hali oʻynalmagan') + '</span><span class="stars">' + starHtml(best != null ? starsFor(best) : 0) + '</span></div>' +
+                '</button>';
+            }).join('');
+            show('chains');
+        }
+        function startChain(k) {
+            const c = CHAINS[k];
+            if (!c) return;
+            const opening = c.opening || {};
+            chain = { k, c, i: 0, phase: 'dt', right: 0, picks: 0, score: 0, log: [], bal: Object.assign({}, opening), order: Object.keys(opening), used: new Set(), stepOk: true };
+            $('cTitle').textContent = c.title;
+            $('cIntro').innerHTML = '<b>Vaziyat:</b> ' + esc(c.intro);
+            $('cCard').hidden = false;
+            $('cResult').hidden = true;
+            show('chain');
+            renderChainStep();
+            renderLedger([]);
+        }
+        /* Variantlar: to'g'ri schot + (ko'pincha) qarama-qarshi tomondagi schot (Dt/Kt adashtirish) + zanjir va guruhdagi o'xshash schotlar */
+        function chainOptions(correct, other) {
+            const pool = new Set();
+            chain.c.steps.forEach(s => { pool.add(s.dt); pool.add(s.kt); });
+            const g = ACC[correct] && ACC[correct].group;
+            if (g) ACCOUNTS.forEach(a => { if (a.group === g) pool.add(a.code); });
+            pool.delete(correct); pool.delete(other);
+            const picks = Math.random() < 0.75 ? [other] : [];
+            for (const code of shuffle([...pool])) { if (picks.length >= 3) break; if (ACC[code]) picks.push(code); }
+            if (picks.length < 3) picks.push(other);
+            return shuffle([correct].concat(picks.slice(0, 3)));
+        }
+        function chainOptsHtml(codes) {
+            return codes.map((code, k) => '<button class="opt" type="button" data-code="' + esc(code) + '" onclick="pickChain(this)">' +
+                '<span class="key">' + (k + 1) + '</span><span class="code">' + esc(code) + '</span>' +
+                (state.master ? '' : '<span class="name">' + esc(ACC[code].name) + '</span>') + '</button>').join('');
+        }
+        function renderChainHud() {
+            const n = chain.c.steps.length;
+            $('cCount').textContent = Math.min(chain.i + 1, n) + ' / ' + n + ' qadam';
+            $('cRight').textContent = chain.right + ' / ' + chain.picks;
+            $('cScore').textContent = chain.score;
+            $('cBar').style.width = (chain.i / n * 100) + '%';
+        }
+        function renderChainStep() {
+            const s = chain.c.steps[chain.i];
+            chain.phase = 'dt';
+            chain.stepOk = true;
+            renderChainHud();
+            $('cStepTag').textContent = (chain.i + 1) + '-qadam';
+            $('cText').textContent = s.text;
+            $('cSum').textContent = fmt(s.sum) + ' soʻm';
+            $('cDtPick').textContent = 'Qaysi schot debetlanadi?';
+            $('cDt').innerHTML = chainOptsHtml(chainOptions(s.dt, s.kt));
+            $('cKtPick').textContent = '';
+            $('cKt').innerHTML = '<div class="ch-wait">Avval debet schotini tanlang</div>';
+            $('cFeedback').className = 'feedback';
+        }
+        function pickChain(btn) {
+            const side = chain && chain.phase;
+            if (side !== 'dt' && side !== 'kt') return;
+            const box = $(side === 'dt' ? 'cDt' : 'cKt');
+            if (!box.contains(btn)) return;
+            const s = chain.c.steps[chain.i];
+            const correct = side === 'dt' ? s.dt : s.kt;
+            const ok = btn.getAttribute('data-code') === correct;
+            box.querySelectorAll('.opt').forEach(b => {
+                b.disabled = true;
+                const code = b.getAttribute('data-code');
+                if (code === correct) b.classList.add('correct');
+                else if (b === btn) b.classList.add('wrong');
+                else b.classList.add('dim');
+            });
+            chain.picks++;
+            const rec = state.acc[correct] || (state.acc[correct] = { ok: 0, bad: 0 });
+            if (ok) {
+                const pts = state.master ? 20 : 10;
+                chain.right++; chain.score += pts; state.score += pts; rec.ok++;
+            } else {
+                chain.stepOk = false; rec.bad++;
+            }
+            saveState();
+            $(side === 'dt' ? 'cDtPick' : 'cKtPick').innerHTML = ok
+                ? '<i class="fas fa-check" style="color:var(--ok)"></i> Toʻgʻri'
+                : '<i class="fas fa-xmark" style="color:var(--bad)"></i> Toʻgʻrisi: <b>' + esc(correct) + '</b> — ' + esc(ACC[correct].name);
+            if (side === 'dt') {
+                chain.phase = 'kt';
+                $('cKtPick').textContent = 'Qaysi schot kreditlanadi?';
+                $('cKt').innerHTML = chainOptsHtml(chainOptions(s.kt, s.dt));
+            } else {
+                chain.phase = 'done';
+                applyChainEntry(s);
+            }
+            renderChainHud();
+        }
+        function applyChainEntry(s) {
+            const b = chain.bal;
+            b[s.dt] = (b[s.dt] || 0) + s.sum;
+            b[s.kt] = (b[s.kt] || 0) - s.sum;
+            [s.dt, s.kt].forEach(x => { chain.used.add(x); if (!chain.order.includes(x)) chain.order.push(x); });
+            chain.log.push({ dt: s.dt, kt: s.kt, sum: s.sum, ok: chain.stepOk });
+            const closedNow = [s.dt, s.kt].filter(x => b[x] === 0);
+            renderLedger(closedNow);
+            const last = chain.i === chain.c.steps.length - 1;
+            $('cFbTitle').innerHTML = chain.stepOk
+                ? '<i class="fas fa-circle-check"></i> Toʻgʻri provodka!'
+                : '<i class="fas fa-circle-info"></i> Toʻgʻri provodka:';
+            $('cFbText').innerHTML = '<b>Dt ' + esc(s.dt) + ' — Kt ' + esc(s.kt) + '</b> · ' + fmt(s.sum) + ' soʻm<br>' + esc(s.why) +
+                (closedNow.length ? '<br><i class="fas fa-lock" style="color:var(--ok)"></i> <b>Yopildi:</b> ' + closedNow.map(x => esc(x) + ' ' + esc(ACC[x].name)).join('; ') : '');
+            $('cFeedback').className = 'feedback show ' + (chain.stepOk ? 'ok' : 'bad');
+            $('cNext').innerHTML = last ? 'Natijani koʻrish <i class="fas fa-flag-checkered"></i>' : 'Keyingi qadam <i class="fas fa-arrow-right"></i>';
+            $('cNext').focus({ preventScroll: true });
+        }
+        function renderLedger(flash) {
+            $('cJournal').innerHTML = chain.log.length ? chain.log.map((e, k) =>
+                '<div class="j-row"><span class="n">' + (k + 1) + '</span><span class="e">Dt ' + esc(e.dt) + ' · Kt ' + esc(e.kt) + '</span><span class="s">' + fmt(e.sum) + '</span>' +
+                '<span class="m ' + (e.ok ? 'ok' : 'bad') + '"><i class="fas fa-' + (e.ok ? 'check' : 'xmark') + '"></i></span></div>').join('')
+                : '<div class="j-empty">Hali provodka yoʻq</div>';
+            $('cBalances').innerHTML = chain.order.length ? chain.order.map(code => {
+                const v = chain.bal[code] || 0;
+                const closed = v === 0 && chain.used.has(code);
+                const val = v > 0 ? 'Dt ' + fmt(v) : v < 0 ? 'Kt ' + fmt(-v) : (closed ? '<i class="fas fa-lock"></i> yopildi' : '0');
+                return '<div class="b-row' + (closed ? ' closed' : '') + (flash.includes(code) ? ' flash' : '') + '" title="' + esc(ACC[code] ? ACC[code].name : '') + '">' +
+                    '<span class="c">' + esc(code) + '</span><span class="nm">' + esc(ACC[code] ? ACC[code].name : '') + '</span><span class="v">' + val + '</span></div>';
+            }).join('') : '<div class="j-empty">Schotlar hali ishlatilmagan</div>';
+        }
+        function nextChainStep() {
+            if (!chain || chain.phase !== 'done') return;
+            chain.i++;
+            if (chain.i >= chain.c.steps.length) return finishChain();
+            renderChainStep();
+            $('cCard').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+        function finishChain() {
+            const c = chain.c, key = chainBestKey(c);
+            const pct = Math.round(chain.right / chain.picks * 100);
+            if (state.best[key] == null || pct > state.best[key]) state.best[key] = pct;
+            saveState();
+            chain.phase = 'end';
+            renderChainHud();
+            $('cBar').style.width = '100%';
+            const closed = chain.order.filter(x => chain.used.has(x) && chain.bal[x] === 0);
+            const next = CHAINS[chain.k + 1];
+            $('cCard').hidden = true;
+            $('cResult').hidden = false;
+            $('cResult').innerHTML =
+                '<div class="result-badge"><i class="fas fa-' + (pct >= 70 ? 'trophy' : 'book-open') + '"></i></div>' +
+                '<h2>' + (pct >= 90 ? 'Ajoyib!' : pct >= 70 ? 'Yaxshi natija!' : 'Yana mashq qiling') + '</h2>' +
+                '<div class="big-stars">' + starHtml(starsFor(pct)) + '</div>' +
+                '<div class="result-stats"><div><b>' + chain.right + ' / ' + chain.picks + '</b><span>toʻgʻri tanlov</span></div><div><b>' + pct + '%</b><span>natija</span></div><div><b>' + closed.length + '</b><span>yopilgan schot</span></div></div>' +
+                (closed.length ? '<div class="closed-chips">' + closed.map(x => '<span><i class="fas fa-lock"></i> ' + esc(x) + '</span>').join('') + '</div>' : '') +
+                '<div class="result-actions">' +
+                    '<button class="btn btn-gold" type="button" onclick="startChain(' + chain.k + ')"><i class="fas fa-rotate-right"></i> Qayta oʻynash</button>' +
+                    (next ? '<button class="btn btn-navy" type="button" onclick="startChain(' + (chain.k + 1) + ')">Keyingi zanjir <i class="fas fa-arrow-right"></i></button>' : '') +
+                    '<button class="btn btn-ghost" type="button" onclick="openChains()"><i class="fas fa-list"></i> Zanjirlar</button>' +
+                '</div>';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function show(id) {
             document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
             window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
@@ -637,6 +921,15 @@
         $('keyDialog').addEventListener('click', e => { if (e.target === $('keyDialog')) closeKeyDialog(); });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && $('keyDialog').classList.contains('open')) return closeKeyDialog();
+            if (chain && $('chain').classList.contains('active')) {
+                if ((chain.phase === 'dt' || chain.phase === 'kt') && /^[1-4]$/.test(e.key)) {
+                    const b = document.querySelectorAll('#c' + (chain.phase === 'dt' ? 'Dt' : 'Kt') + ' .opt')[parseInt(e.key, 10) - 1];
+                    if (b) pickChain(b);
+                } else if (chain.phase === 'done' && e.key === 'Enter' && document.activeElement !== $('cNext')) {
+                    nextChainStep();
+                }
+                return;
+            }
             if (!round || !$('game').classList.contains('active')) return;
             if (!round.locked && /^[1-4]$/.test(e.key)) {
                 const b = document.querySelectorAll('#qOptions .opt')[parseInt(e.key, 10) - 1];
@@ -655,6 +948,15 @@
                 loadState();
                 $('loading').remove();
                 showHome();
+                /* Zanjirlar alohida faylda; yuklanmasa qolgan o'yin baribir ishlaydi */
+                return fetch('chains.json', { cache: 'no-cache' })
+                    .then(r => r.ok ? r.json() : null)
+                    .then(d => {
+                        if (!d || !Array.isArray(d.chains)) return;
+                        CHAINS = d.chains.filter(c => c.steps.length && c.steps.every(s => ACC[s.dt] && ACC[s.kt]));
+                        if ($('home').classList.contains('active')) renderHome();
+                    })
+                    .catch(() => {});
             })
             .catch(() => { $('loading').innerHTML = '<i class="fas fa-triangle-exclamation"></i> Oʻyinni yuklab boʻlmadi. Sahifani yangilang.'; });
     </script>
