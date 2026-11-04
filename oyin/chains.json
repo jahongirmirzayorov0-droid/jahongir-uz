@@ -1,0 +1,257 @@
+{
+  "note": "Provodkalar zanjiri: har bir operatsiya boshidan schot yopilguncha. opening — boshlang'ich qoldiq (+ debet, - kredit). Stavkalar: JShDS 12% (shundan INPS 0,1%), ijtimoiy soliq 12%, QQS 12%, foyda soligʻi 15%, dividend soligʻi 5%.",
+  "chains": [
+    {
+      "id": "ish-haqi",
+      "title": "Ish haqi: hisoblashdan toʻlashgacha",
+      "icon": "fa-users",
+      "intro": "«Ilm Servis» MChJ maʼmuriy xodimlariga oylik ish haqi 10 000 000 soʻm. JShDS 12% (shundan 0,1% INPS), ijtimoiy soliq 12%. Ish haqi xodimlarning plastik kartalariga toʻlanadi.",
+      "opening": { "5110": 50000000 },
+      "steps": [
+        { "text": "Maʼmuriy xodimlarga oylik ish haqi hisoblandi", "sum": 10000000, "dt": "9420", "kt": "6710", "why": "Ish haqi — davr xarajati (9420 Maʼmuriy xarajatlar), ayni paytda xodimlar oldida toʻlash majburiyati (6710) paydo boʻladi." },
+        { "text": "Ish haqidan JShDS ushlab qolindi (12% − INPS ulushi = 1 190 000)", "sum": 1190000, "dt": "6710", "kt": "6410", "why": "Ushlangan soliq xodimga toʻlanadigan summani kamaytiradi (6710 debeti) va budjet oldidagi qarzni oshiradi (6410 krediti)." },
+        { "text": "Xodimlarning shaxsiy jamgʻarib boriladigan pensiya hisobvaraqlariga (INPS) 0,1% ajratildi", "sum": 10000, "dt": "6710", "kt": "6510", "why": "INPS JShDS hisobidan ajratiladi va xodim ish haqidan ushlanadi: 6710 debetlanadi, majburiyat 6510 da aks etadi." },
+        { "text": "Ish haqi fondiga ijtimoiy soliq (12%) hisoblandi", "sum": 1200000, "dt": "9420", "kt": "6410", "why": "Ijtimoiy soliqni ish beruvchi oʻz hisobidan toʻlaydi — u xodimdan ushlanmaydi, shuning uchun 6710 emas, xarajat schoti 9420 debetlanadi." },
+        { "text": "Toʻlanadigan ish haqi asosiy hisobvaraqdan ish haqi (karta) hisobvaragʻiga oʻtkazildi", "sum": 8800000, "dt": "5530", "kt": "5110", "why": "10 000 000 − 1 190 000 − 10 000 = 8 800 000. Pul bir bank hisobvaragʻidan maxsus hisobvaraqqa (5530) oʻtadi, 5110 kamayadi." },
+        { "text": "Ish haqi xodimlarning plastik kartalariga toʻlab berildi", "sum": 8800000, "dt": "6710", "kt": "5530", "why": "Xodimlar oldidagi qarz uziladi (6710 debeti), maxsus hisobvaraqdagi pul kamayadi. 6710 qoldigʻi endi 0 — schot yopildi." },
+        { "text": "JShDS va ijtimoiy soliq budjetga toʻlandi (1 190 000 + 1 200 000)", "sum": 2390000, "dt": "6410", "kt": "5110", "why": "Budjet oldidagi qarz toʻlanadi: 6410 debetlanadi va yopiladi." },
+        { "text": "INPS badali toʻlandi", "sum": 10000, "dt": "6510", "kt": "5110", "why": "INPS boʻyicha majburiyat uziladi — 6510 yopildi." },
+        { "text": "Oy oxirida maʼmuriy xarajatlar yakuniy moliyaviy natijaga yopildi (10 000 000 + 1 200 000)", "sum": 11200000, "dt": "9910", "kt": "9420", "why": "Davr xarajatlari oy (yil) oxirida 9910 debetiga oʻtkaziladi — 9420 qoldiqsiz qoladi." }
+      ]
+    },
+    {
+      "id": "ish-haqi-bonak",
+      "title": "Ish haqi boʻnagi (avans) va oy yakuni",
+      "icon": "fa-money-bill-wave",
+      "intro": "Oy oʻrtasida xodimlarga 4 000 000 soʻm ish haqi boʻnagi (avans) beriladi. Oy oxirida jami 10 000 000 soʻm ish haqi hisoblanadi, boʻnak ushlab qolinib, qolgani toʻlanadi.",
+      "opening": { "5110": 50000000 },
+      "steps": [
+        { "text": "Ish haqi boʻnagi uchun mablagʻ karta hisobvaragʻiga oʻtkazildi", "sum": 4000000, "dt": "5530", "kt": "5110", "why": "Pul asosiy hisobvaraqdan (5110) maxsus hisobvaraqqa (5530) oʻtadi." },
+        { "text": "Xodimlarga ish haqi boʻnagi toʻlandi", "sum": 4000000, "dt": "4210", "kt": "5530", "why": "Hali ish haqi hisoblanmagan, shuning uchun toʻlov xodimlarga berilgan boʻnak (4210) sifatida aks etadi." },
+        { "text": "Oy oxirida ish haqi hisoblandi", "sum": 10000000, "dt": "9420", "kt": "6710", "why": "Ish haqi xarajatga olinadi va xodimlar oldidagi majburiyat paydo boʻladi." },
+        { "text": "JShDS ushlab qolindi (12% − INPS)", "sum": 1190000, "dt": "6710", "kt": "6410", "why": "Ushlanma toʻlanadigan ish haqini kamaytiradi, budjetga qarz oshadi." },
+        { "text": "INPS (0,1%) ajratildi", "sum": 10000, "dt": "6710", "kt": "6510", "why": "INPS xodim ish haqidan ushlanadi va 6510 da aks etadi." },
+        { "text": "Oy oʻrtasida toʻlangan boʻnak hisoblangan ish haqidan ushlab qolindi", "sum": 4000000, "dt": "6710", "kt": "4210", "why": "Boʻnak endi ish haqi hisobiga oʻtadi: 6710 kamayadi, 4210 yopiladi." },
+        { "text": "Qolgan ish haqi karta hisobvaragʻiga oʻtkazildi (10 000 000 − 1 190 000 − 10 000 − 4 000 000)", "sum": 4800000, "dt": "5530", "kt": "5110", "why": "Toʻlash uchun mablagʻ maxsus hisobvaraqqa oʻtkaziladi." },
+        { "text": "Qolgan ish haqi xodimlarga toʻlandi", "sum": 4800000, "dt": "6710", "kt": "5530", "why": "Xodimlar oldidagi qarz toʻliq uzildi — 6710 va 5530 yopildi." }
+      ]
+    },
+    {
+      "id": "xodim-qarzi",
+      "title": "Xodimga qarz va uni ish haqidan ushlash",
+      "icon": "fa-hand-holding-dollar",
+      "intro": "Xodimga 5 000 000 soʻm foizsiz qarz berildi. Xodim arizasi asosida qarz shu oyning 8 000 000 soʻmlik ish haqidan toʻliq ushlab qolinadi.",
+      "opening": { "5110": 20000000 },
+      "steps": [
+        { "text": "Xodimga foizsiz qarz berildi (kartasiga oʻtkazildi)", "sum": 5000000, "dt": "4720", "kt": "5110", "why": "Berilgan qarz — xodimning tashkilotga qarzi, debitorlik qarzi 4720 da hisobga olinadi." },
+        { "text": "Xodimga oylik ish haqi hisoblandi", "sum": 8000000, "dt": "9420", "kt": "6710", "why": "Ish haqi xarajatga olinadi va xodim oldida majburiyat paydo boʻladi." },
+        { "text": "JShDS ushlab qolindi (960 000 − INPS 8 000)", "sum": 952000, "dt": "6710", "kt": "6410", "why": "Soliq ushlanmasi toʻlanadigan ish haqini kamaytiradi." },
+        { "text": "INPS (0,1%) ajratildi", "sum": 8000, "dt": "6710", "kt": "6510", "why": "INPS xodim ish haqidan ushlanadi." },
+        { "text": "Qarz xodim ish haqidan toʻliq ushlab qolindi", "sum": 5000000, "dt": "6710", "kt": "4720", "why": "Xodimga toʻlanadigan summa kamayadi, uning qarzi yopiladi — 4720 qoldigʻi 0." },
+        { "text": "Qolgan ish haqi karta hisobvaragʻiga oʻtkazildi (8 000 000 − 952 000 − 8 000 − 5 000 000)", "sum": 2040000, "dt": "5530", "kt": "5110", "why": "Toʻlash uchun mablagʻ maxsus hisobvaraqqa oʻtkaziladi." },
+        { "text": "Ish haqi xodimga toʻlandi", "sum": 2040000, "dt": "6710", "kt": "5530", "why": "Xodim oldidagi qarz uzildi — 6710 va 5530 yopildi." }
+      ]
+    },
+    {
+      "id": "material-bonak",
+      "title": "Material xaridi: boʻnakdan ishlab chiqarishgacha",
+      "icon": "fa-boxes-stacked",
+      "intro": "Korxona yetkazib beruvchiga xom ashyo uchun 100% oldindan toʻlov qiladi: 10 000 000 soʻm + QQS 12% = 11 200 000 soʻm. Material keyin ishlab chiqarishga beriladi.",
+      "opening": { "5110": 50000000 },
+      "steps": [
+        { "text": "Yetkazib beruvchiga materiallar uchun boʻnak oʻtkazildi", "sum": 11200000, "dt": "4310", "kt": "5110", "why": "Mol hali kelmagan — toʻlov tovar-moddiy zaxiralar uchun berilgan boʻnak (4310) sifatida aks etadi." },
+        { "text": "Xom ashyo omborga kirim qilindi (QQSsiz qiymati)", "sum": 10000000, "dt": "1010", "kt": "6010", "why": "Material zaxiraga olinadi, yetkazib beruvchi oldida majburiyat (6010) paydo boʻladi." },
+        { "text": "Hisobvaraq-fakturadagi QQS hisobga olishga qabul qilindi", "sum": 1200000, "dt": "4410", "kt": "6010", "why": "Xarid QQSi budjet bilan hisob-kitobda hisobga olinadi — 4410 debetida." },
+        { "text": "Ilgari berilgan boʻnak yetkazib beruvchi qarzi hisobiga oʻtkazildi", "sum": 11200000, "dt": "6010", "kt": "4310", "why": "Boʻnak va majburiyat oʻzaro yopiladi: 6010 va 4310 qoldigʻi 0." },
+        { "text": "Xom ashyo ishlab chiqarishga berildi", "sum": 10000000, "dt": "2010", "kt": "1010", "why": "Material ishlab chiqarish xarajatiga aylanadi — 2010 debetlanadi, 1010 yopiladi." }
+      ]
+    },
+    {
+      "id": "xizmat-bonak",
+      "title": "Xizmat sotish: buyurtmachi boʻnagi bilan",
+      "icon": "fa-handshake",
+      "intro": "Buyurtmachi konsalting xizmati uchun 5 600 000 soʻm (shu jumladan QQS 600 000) oldindan toʻladi. Xizmat koʻrsatilgach, hisob-kitob yopiladi.",
+      "opening": { "5110": 10000000 },
+      "steps": [
+        { "text": "Buyurtmachidan oldindan toʻlov (boʻnak) keldi", "sum": 5600000, "dt": "5110", "kt": "6310", "why": "Xizmat hali koʻrsatilmagan — olingan pul majburiyat (olingan boʻnak, 6310) sifatida aks etadi, daromad emas." },
+        { "text": "Xizmat koʻrsatildi, dalolatnoma imzolandi — daromad (QQSsiz)", "sum": 5000000, "dt": "4010", "kt": "9030", "why": "Xizmat koʻrsatilgan payt daromad tan olinadi (9030), buyurtmachining qarzi 4010 da." },
+        { "text": "Sotishdan QQS hisoblandi", "sum": 600000, "dt": "4010", "kt": "6410", "why": "QQS buyurtmachidan olinadi va budjetga qarz sifatida 6410 krediti boʻladi." },
+        { "text": "Olingan boʻnak buyurtmachi qarzi hisobiga oʻtkazildi", "sum": 5600000, "dt": "6310", "kt": "4010", "why": "Boʻnak va debitorlik qarzi oʻzaro yopiladi — 6310 va 4010 qoldigʻi 0." },
+        { "text": "QQS budjetga toʻlandi", "sum": 600000, "dt": "6410", "kt": "5110", "why": "Budjet oldidagi qarz uzildi — 6410 yopildi." },
+        { "text": "Oy oxirida xizmatdan daromad yakuniy natijaga yopildi", "sum": 5000000, "dt": "9030", "kt": "9910", "why": "Daromad schotlari davr oxirida 9910 kreditiga yopiladi." }
+      ]
+    },
+    {
+      "id": "tovar-savdo",
+      "title": "Tovar savdosi: xariddan foydagacha",
+      "icon": "fa-cart-shopping",
+      "intro": "Savdo korxonasi 20 000 000 soʻm (+ QQS 2 400 000) lik tovar sotib oladi va uni 30 000 000 soʻm (+ QQS 3 600 000) ga sotadi.",
+      "opening": { "5110": 30000000 },
+      "steps": [
+        { "text": "Tovarlar omborga kirim qilindi (QQSsiz)", "sum": 20000000, "dt": "2910", "kt": "6010", "why": "Qayta sotish uchun olingan mol — tovar (2910), yetkazib beruvchiga qarz 6010 da." },
+        { "text": "Xarid QQSi hisobga olishga qabul qilindi", "sum": 2400000, "dt": "4410", "kt": "6010", "why": "Xarid QQSi keyinchalik sotish QQSidan chegiriladi — 4410 da yigʻiladi." },
+        { "text": "Yetkazib beruvchiga toʻlov qilindi", "sum": 22400000, "dt": "6010", "kt": "5110", "why": "Yetkazib beruvchi oldidagi qarz uzildi — 6010 yopildi." },
+        { "text": "Tovarlar xaridorga sotildi (QQSsiz sotish qiymati)", "sum": 30000000, "dt": "4010", "kt": "9020", "why": "Tovar sotishdan daromad 9020 da, xaridor qarzi 4010 da." },
+        { "text": "Sotishdan QQS hisoblandi", "sum": 3600000, "dt": "4010", "kt": "6410", "why": "Sotish QQSi budjetga majburiyat sifatida 6410 krediti boʻladi." },
+        { "text": "Sotilgan tovar tannarxi hisobdan chiqarildi", "sum": 20000000, "dt": "9120", "kt": "2910", "why": "Sotilgan tovar ombordan chiqadi va tannarxga (9120) oʻtadi — 2910 yopildi." },
+        { "text": "Xaridor pulni toʻladi", "sum": 33600000, "dt": "5110", "kt": "4010", "why": "Debitorlik qarzi uzildi — 4010 yopildi." },
+        { "text": "Xarid QQSi sotish QQSi hisobiga oʻtkazildi (hisobga olindi)", "sum": 2400000, "dt": "6410", "kt": "4410", "why": "Toʻlanadigan QQS xarid QQSi summasiga kamayadi — 4410 yopildi." },
+        { "text": "Qolgan QQS budjetga toʻlandi (3 600 000 − 2 400 000)", "sum": 1200000, "dt": "6410", "kt": "5110", "why": "Budjetga qarz uzildi — 6410 yopildi." },
+        { "text": "Sotishdan daromad yakuniy natijaga yopildi", "sum": 30000000, "dt": "9020", "kt": "9910", "why": "Daromad schoti davr oxirida 9910 kreditiga yopiladi." },
+        { "text": "Sotilgan tovar tannarxi yakuniy natijaga yopildi", "sum": 20000000, "dt": "9910", "kt": "9120", "why": "Tannarx 9910 debetiga yopiladi. 9910 da 10 000 000 soʻm foyda qoladi." }
+      ]
+    },
+    {
+      "id": "hisobdor-shaxs",
+      "title": "Hisobdor shaxs: xoʻjalik xarajatlari",
+      "icon": "fa-receipt",
+      "intro": "Xodimga ofis uchun kanselyariya tovarlari sotib olish uchun kassadan 2 000 000 soʻm hisobot ostida beriladi. U 1 700 000 soʻm sarflab, qolganini qaytaradi.",
+      "opening": { "5110": 20000000 },
+      "steps": [
+        { "text": "Bankdan kassaga naqd pul olindi", "sum": 2000000, "dt": "5010", "kt": "5110", "why": "Pul bank hisobvaragʻidan (5110) kassaga (5010) oʻtadi." },
+        { "text": "Xodimga xoʻjalik xarajatlari uchun hisobot ostida pul berildi", "sum": 2000000, "dt": "4230", "kt": "5010", "why": "Hisobot ostida berilgan pul — umumxoʻjalik xarajatlari uchun berilgan boʻnak (4230)." },
+        { "text": "Avans hisoboti tasdiqlandi: kanselyariya tovarlari kirim qilindi", "sum": 1700000, "dt": "1090", "kt": "4230", "why": "Sotib olingan narsa — material (1090), xodimning hisobot ostidagi qarzi kamayadi." },
+        { "text": "Xodim ishlatilmagan pulni kassaga qaytardi", "sum": 300000, "dt": "5010", "kt": "4230", "why": "Qoldiq kassaga qaytdi — 4230 yopildi." },
+        { "text": "Kassadagi pul bankka topshirish uchun inkassatorga berildi", "sum": 300000, "dt": "5710", "kt": "5010", "why": "Pul kassadan chiqdi, lekin hali bankka tushmagan — yoʻldagi pul (5710)." },
+        { "text": "Pul bank hisobvaragʻiga tushdi", "sum": 300000, "dt": "5110", "kt": "5710", "why": "Yoʻldagi pul bankka yetib keldi — 5710 yopildi." },
+        { "text": "Kanselyariya tovarlari ofis ehtiyojlariga sarflandi", "sum": 1700000, "dt": "9420", "kt": "1090", "why": "Ofis uchun sarflangan material — maʼmuriy xarajat. 1090 yopildi." },
+        { "text": "Oy oxirida xarajat yakuniy natijaga yopildi", "sum": 1700000, "dt": "9910", "kt": "9420", "why": "Davr xarajati 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "xizmat-safari",
+      "title": "Xizmat safari va ortiqcha sarf",
+      "icon": "fa-plane",
+      "intro": "Xodimga xizmat safari uchun 3 000 000 soʻm boʻnak beriladi. Safardan keyin avans hisobotida 3 400 000 soʻm xarajat tasdiqlanadi.",
+      "opening": { "5110": 20000000 },
+      "steps": [
+        { "text": "Xodimga safar boʻnagi kartasiga oʻtkazildi", "sum": 3000000, "dt": "4220", "kt": "5110", "why": "Safar uchun berilgan pul — xizmat safarlariga berilgan boʻnak (4220)." },
+        { "text": "Avans hisoboti tasdiqlandi: boʻnak doirasidagi safar xarajatlari", "sum": 3000000, "dt": "9420", "kt": "4220", "why": "Safar xarajati maʼmuriy xarajatga olinadi, boʻnak yopiladi — 4220 qoldigʻi 0." },
+        { "text": "Xodim boʻnakdan ortiq sarflagan summa tan olindi", "sum": 400000, "dt": "9420", "kt": "6970", "why": "Xodim oʻz pulidan sarflagan — tashkilot unga qarzdor: hisobdor shaxslarga qarz (6970)." },
+        { "text": "Ortiqcha sarf xodimga qaytarib berildi", "sum": 400000, "dt": "6970", "kt": "5110", "why": "Xodimga qarz toʻlandi — 6970 yopildi." },
+        { "text": "Oy oxirida safar xarajatlari yakuniy natijaga yopildi", "sum": 3400000, "dt": "9910", "kt": "9420", "why": "Davr xarajati 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "asosiy-vosita",
+      "title": "Kompyuter xaridi va eskirish",
+      "icon": "fa-desktop",
+      "intro": "Ofis uchun 15 000 000 soʻm (+ QQS 1 800 000) lik kompyuterlar sotib olinadi. Foydali xizmat muddati — 5 yil, eskirish toʻgʻri chiziqli usulda.",
+      "opening": { "5110": 50000000 },
+      "steps": [
+        { "text": "Yetkazib beruvchidan kompyuterlar qabul qilindi (QQSsiz)", "sum": 15000000, "dt": "0820", "kt": "6010", "why": "Asosiy vosita avval kapital qoʻyilma sifatida yigʻiladi — asosiy vositalarni xarid qilish (0820)." },
+        { "text": "Xarid QQSi hisobga olishga qabul qilindi", "sum": 1800000, "dt": "4410", "kt": "6010", "why": "Xarid QQSi 4410 da hisobga olinadi." },
+        { "text": "Kompyuterlar foydalanishga topshirildi", "sum": 15000000, "dt": "0150", "kt": "0820", "why": "Foydalanishga topshirilgach, qiymat asosiy vositalarga (0150) oʻtadi — 0820 yopildi." },
+        { "text": "Yetkazib beruvchiga toʻlov qilindi", "sum": 16800000, "dt": "6010", "kt": "5110", "why": "Yetkazib beruvchi oldidagi qarz uzildi — 6010 yopildi." },
+        { "text": "Birinchi oy uchun eskirish hisoblandi (15 000 000 / 60 oy)", "sum": 250000, "dt": "9420", "kt": "0250", "why": "Ofis texnikasi eskirishi maʼmuriy xarajat; jamgʻarilgan eskirish 0250 kreditida." },
+        { "text": "Eskirish xarajati yakuniy natijaga yopildi", "sum": 250000, "dt": "9910", "kt": "9420", "why": "Davr xarajati 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "av-sotish",
+      "title": "Asosiy vositani sotish",
+      "icon": "fa-car",
+      "intro": "Korxona boshlangʻich qiymati 200 000 000 soʻm, jamgʻarilgan eskirishi 150 000 000 soʻm boʻlgan avtomobilni 60 000 000 soʻm + QQS 7 200 000 ga sotadi.",
+      "opening": { "0160": 200000000, "0260": -150000000, "5110": 10000000 },
+      "steps": [
+        { "text": "Avtomobil eskirishi hisobdan chiqarildi", "sum": 150000000, "dt": "0260", "kt": "0160", "why": "Chiqib ketayotgan vositaning jamgʻarilgan eskirishi uning boshlangʻich qiymatidan chegiriladi — 0260 yopildi." },
+        { "text": "Avtomobilning qoldiq qiymati chiqib ketishga oʻtkazildi", "sum": 50000000, "dt": "9210", "kt": "0160", "why": "Qoldiq qiymat (200 − 150 = 50 mln) asosiy vositalarning chiqib ketishi schotiga (9210) oʻtadi — 0160 yopildi." },
+        { "text": "Avtomobil xaridorga sotildi (QQS bilan)", "sum": 67200000, "dt": "4010", "kt": "9210", "why": "Sotish qiymati 9210 kreditiga, xaridor qarzi 4010 ga yoziladi." },
+        { "text": "Sotishdan QQS hisoblandi", "sum": 7200000, "dt": "9210", "kt": "6410", "why": "QQS 9210 dan budjetga qarz sifatida chiqariladi." },
+        { "text": "Sotishdan olingan foyda aniqlandi (67,2 − 50 − 7,2 = 10 mln)", "sum": 10000000, "dt": "9210", "kt": "9310", "why": "9210 dagi kredit qoldigʻi — foyda; u asosiy vositalarning chiqib ketishidan foydaga (9310) oʻtadi va 9210 yopiladi." },
+        { "text": "Xaridor pulni toʻladi", "sum": 67200000, "dt": "5110", "kt": "4010", "why": "Debitorlik qarzi uzildi — 4010 yopildi." },
+        { "text": "QQS budjetga toʻlandi", "sum": 7200000, "dt": "6410", "kt": "5110", "why": "Budjetga qarz uzildi — 6410 yopildi." },
+        { "text": "Foyda yakuniy natijaga yopildi", "sum": 10000000, "dt": "9310", "kt": "9910", "why": "Boshqa operatsion daromad 9910 kreditiga yopiladi." }
+      ]
+    },
+    {
+      "id": "kredit",
+      "title": "Bank krediti va foizlar",
+      "icon": "fa-building-columns",
+      "intro": "Korxona bankdan 1 yilgacha muddatga 100 000 000 soʻm kredit oladi. Oylik foiz — 2 000 000 soʻm.",
+      "opening": { "5110": 10000000 },
+      "steps": [
+        { "text": "Bankdan qisqa muddatli kredit olindi", "sum": 100000000, "dt": "5110", "kt": "6810", "why": "Pul hisobvaraqqa tushdi, bank oldida qisqa muddatli kredit majburiyati (6810) paydo boʻldi." },
+        { "text": "Oy uchun kredit foizi hisoblandi", "sum": 2000000, "dt": "9610", "kt": "6920", "why": "Foiz — moliyaviy xarajat (9610); toʻlanmagan foiz hisoblangan foizlar (6920) sifatida aks etadi." },
+        { "text": "Foiz bankka toʻlandi", "sum": 2000000, "dt": "6920", "kt": "5110", "why": "Foiz boʻyicha qarz uzildi — 6920 yopildi." },
+        { "text": "Kredit muddatida qaytarildi", "sum": 100000000, "dt": "6810", "kt": "5110", "why": "Kredit qarzi uzildi — 6810 yopildi." },
+        { "text": "Foiz xarajati yakuniy natijaga yopildi", "sum": 2000000, "dt": "9910", "kt": "9610", "why": "Moliyaviy xarajat 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "valyuta",
+      "title": "Valyutadagi tushum va kurs farqi",
+      "icon": "fa-dollar-sign",
+      "intro": "Korxona xorijiy buyurtmachiga 1 000 USD lik xizmat koʻrsatadi (kurs 12 000). Toʻlov kunida kurs 12 100, valyutani sotish kursi esa 12 050 boʻladi.",
+      "opening": {},
+      "steps": [
+        { "text": "Xorijiy buyurtmachiga xizmat koʻrsatildi (1 000 USD × 12 000)", "sum": 12000000, "dt": "4010", "kt": "9030", "why": "Xizmatdan daromad tan olinadi, buyurtmachi qarzi 4010 da soʻmda aks etadi." },
+        { "text": "Toʻlov kunigacha kurs oʻsdi — debitorlik qarzi qayta baholandi (12 100)", "sum": 100000, "dt": "4010", "kt": "9540", "why": "Valyutadagi aktiv qiymati oshdi — ijobiy kurs farqi moliyaviy daromad (9540)." },
+        { "text": "1 000 USD valyuta hisobvaragʻiga tushdi", "sum": 12100000, "dt": "5210", "kt": "4010", "why": "Valyuta mamlakat ichidagi valyuta hisobvaragʻiga (5210) tushdi — 4010 yopildi." },
+        { "text": "Valyuta bankka sotish uchun yuborildi", "sum": 12100000, "dt": "5710", "kt": "5210", "why": "Valyuta hisobvaraqdan chiqdi, soʻm hali tushmagan — yoʻldagi pul (5710). 5210 yopildi." },
+        { "text": "Sotishdan soʻm hisob-kitob hisobvaragʻiga tushdi (12 050)", "sum": 12050000, "dt": "5110", "kt": "5710", "why": "Soʻm tushdi; 5710 da 50 000 soʻm farq qoldi." },
+        { "text": "Valyutani past kursda sotishdan zarar aks ettirildi", "sum": 50000, "dt": "9620", "kt": "5710", "why": "Farq — kurs farqidan zarar (9620). 5710 yopildi." },
+        { "text": "Xizmat daromadi yakuniy natijaga yopildi", "sum": 12000000, "dt": "9030", "kt": "9910", "why": "Daromad 9910 kreditiga yopiladi." },
+        { "text": "Kurs farqidan daromad yakuniy natijaga yopildi", "sum": 100000, "dt": "9540", "kt": "9910", "why": "Moliyaviy daromad 9910 kreditiga yopiladi." },
+        { "text": "Kurs farqidan zarar yakuniy natijaga yopildi", "sum": 50000, "dt": "9910", "kt": "9620", "why": "Moliyaviy xarajat 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "ustav-kapital",
+      "title": "Ustav kapitalini shakllantirish",
+      "icon": "fa-landmark",
+      "intro": "Yangi MChJ ustav kapitali 50 000 000 soʻm: birinchi taʼsischi 30 000 000 soʻm pul, ikkinchisi 20 000 000 soʻmlik kompyuter jihozlari kiritadi.",
+      "opening": {},
+      "steps": [
+        { "text": "Taʼsischilarning ustav kapitaliga ulushlari aks ettirildi", "sum": 50000000, "dt": "4610", "kt": "8330", "why": "MChJ ustav kapitali pay va ulushlarda (8330); taʼsischilar hali kiritmagan ulush — ularning qarzi (4610)." },
+        { "text": "Birinchi taʼsischi ulushini pul bilan kiritdi", "sum": 30000000, "dt": "5110", "kt": "4610", "why": "Pul tushdi, taʼsischi qarzi kamaydi." },
+        { "text": "Ikkinchi taʼsischi ulushini kompyuter jihozlari bilan kiritdi", "sum": 20000000, "dt": "0820", "kt": "4610", "why": "Mol-mulk kapital qoʻyilma sifatida qabul qilinadi; taʼsischilar qarzi toʻliq uzildi — 4610 yopildi." },
+        { "text": "Jihozlar foydalanishga topshirildi", "sum": 20000000, "dt": "0150", "kt": "0820", "why": "Qiymat asosiy vositalarga oʻtadi — 0820 yopildi." }
+      ]
+    },
+    {
+      "id": "yil-yakuni",
+      "title": "Yil yakuni: foyda soligʻi va dividend",
+      "icon": "fa-chart-pie",
+      "intro": "Yil yakunida soliq toʻlangunga qadar foyda 100 000 000 soʻm (9910 kredit qoldigʻi). Foyda soligʻi 15%. Taʼsischilarga 40 000 000 soʻm dividend eʼlon qilinadi (dividend soligʻi 5%).",
+      "opening": { "9910": -100000000, "5110": 200000000 },
+      "steps": [
+        { "text": "Yillik foyda soligʻi hisoblandi (15%)", "sum": 15000000, "dt": "9810", "kt": "6410", "why": "Foyda soligʻi xarajati 9810 da, budjetga qarz 6410 da." },
+        { "text": "Foyda soligʻi xarajati yakuniy natijaga yopildi", "sum": 15000000, "dt": "9910", "kt": "9810", "why": "9810 yopiladi, 9910 da sof foyda 85 000 000 qoladi." },
+        { "text": "Sof foyda taqsimlanmagan foydaga oʻtkazildi", "sum": 85000000, "dt": "9910", "kt": "8710", "why": "Yil oxirida 9910 yopiladi, sof foyda hisobot davrining taqsimlanmagan foydasiga (8710) oʻtadi." },
+        { "text": "Foyda soligʻi budjetga toʻlandi", "sum": 15000000, "dt": "6410", "kt": "5110", "why": "Budjetga qarz uzildi." },
+        { "text": "Taʼsischilar qarori bilan dividend eʼlon qilindi", "sum": 40000000, "dt": "8710", "kt": "6610", "why": "Dividend taqsimlanmagan foydadan toʻlanadi; taʼsischilarga qarz — toʻlanadigan dividendlar (6610)." },
+        { "text": "Dividenddan 5% soliq ushlab qolindi", "sum": 2000000, "dt": "6610", "kt": "6410", "why": "Ushlangan soliq taʼsischiga toʻlanadigan summani kamaytiradi, budjetga qarz oshadi." },
+        { "text": "Dividend taʼsischilarga toʻlandi", "sum": 38000000, "dt": "6610", "kt": "5110", "why": "Dividend boʻyicha qarz uzildi — 6610 yopildi." },
+        { "text": "Dividend soligʻi budjetga toʻlandi", "sum": 2000000, "dt": "6410", "kt": "5110", "why": "Budjetga qarz uzildi — 6410 yopildi." },
+        { "text": "Taqsimlanmay qolgan foyda jamgʻarilgan foydaga oʻtkazildi (85 − 40)", "sum": 45000000, "dt": "8710", "kt": "8720", "why": "Yangi yil boshida hisobot davri foydasi jamgʻarilgan foydaga (8720) oʻtadi — 8710 yopildi." }
+      ]
+    },
+    {
+      "id": "ijara",
+      "title": "Ofis ijarasi: oldindan toʻlov",
+      "icon": "fa-key",
+      "intro": "Korxona ofis ijarasi uchun 3 oylik haqni (oyiga 10 000 000 soʻm) oldindan toʻlaydi va har oy xarajatga oʻtkazadi.",
+      "opening": { "5110": 50000000 },
+      "steps": [
+        { "text": "3 oylik ijara haqi oldindan toʻlandi", "sum": 30000000, "dt": "3110", "kt": "5110", "why": "Keyingi oylarga tegishli toʻlov — oldindan toʻlangan operativ ijara haqi (3110), hali xarajat emas." },
+        { "text": "1-oy ijara haqi xarajatga oʻtkazildi", "sum": 10000000, "dt": "9420", "kt": "3110", "why": "Har oy oʻsha oyga tegishli qism xarajatga olinadi." },
+        { "text": "2-oy ijara haqi xarajatga oʻtkazildi", "sum": 10000000, "dt": "9420", "kt": "3110", "why": "Xarajat oyma-oy taqsimlanadi." },
+        { "text": "3-oy ijara haqi xarajatga oʻtkazildi", "sum": 10000000, "dt": "9420", "kt": "3110", "why": "Oxirgi qism xarajatga oʻtdi — 3110 yopildi." },
+        { "text": "Ijara xarajatlari yakuniy natijaga yopildi", "sum": 30000000, "dt": "9910", "kt": "9420", "why": "Davr xarajati 9910 debetiga yopiladi." }
+      ]
+    },
+    {
+      "id": "kamomad",
+      "title": "Inventarizatsiya: kamomad va undirish",
+      "icon": "fa-clipboard-list",
+      "intro": "Inventarizatsiyada 1 500 000 soʻmlik xoʻjalik inventari kamomadi aniqlanadi. Aybdor xodim zararni ish haqidan qoplashga rozi boʻladi.",
+      "opening": { "1080": 6000000, "6710": -9000000 },
+      "steps": [
+        { "text": "Xoʻjalik inventari kamomadi aniqlandi", "sum": 1500000, "dt": "5910", "kt": "1080", "why": "Aybdor aniqlangunga qadar kamomad 5910 da (kamomadlar va yoʻqotishlar) yigʻiladi." },
+        { "text": "Kamomad aybdor xodim hisobiga oʻtkazildi", "sum": 1500000, "dt": "4730", "kt": "5910", "why": "Xodimning moddiy zararni qoplash boʻyicha qarzi (4730) paydo boʻladi — 5910 yopildi." },
+        { "text": "Zarar xodimning ish haqidan ushlab qolindi", "sum": 1500000, "dt": "6710", "kt": "4730", "why": "Xodimga toʻlanadigan ish haqi kamayadi, uning qarzi yopiladi — 4730 qoldigʻi 0." }
+      ]
+    }
+  ]
+}
