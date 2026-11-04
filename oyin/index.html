@@ -9,7 +9,7 @@
         style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
         font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
         img-src 'self' data:;
-        connect-src 'self';
+        connect-src 'self' https://script.google.com https://script.googleusercontent.com;
         object-src 'none';
         base-uri 'self';
         form-action 'self';
@@ -88,6 +88,26 @@
         .level.exam h3 { color: #fff; }
         .level.exam .level-desc, .level.exam .level-meta, .level.exam .level-num { color: #cbd5e1; }
         .level.exam .level-icon { background: rgba(241,196,15,0.2); color: var(--gold); }
+        /* Maxsus (yopiq) bo'lim */
+        .level.special { background: linear-gradient(135deg, #3a2a00, #0b1d30); color: #fff; border: 2px solid var(--gold); }
+        .level.special h3 { color: #fff; }
+        .level.special .level-desc, .level.special .level-meta, .level.special .level-num { color: #e2d6a8; }
+        .level.special .level-icon { background: var(--gold); color: var(--navy); }
+        .level.special .progress { background: rgba(255,255,255,0.15); }
+        .level.special.locked { background: repeating-linear-gradient(135deg, #f8fafc 0 12px, #f1f5f9 12px 24px); color: var(--navy); border: 2px dashed #cbd5e1; }
+        .level.special.locked h3 { color: var(--navy); }
+        .level.special.locked .level-desc, .level.special.locked .level-meta, .level.special.locked .level-num { color: var(--muted); }
+        .level.special.locked .level-icon { background: #e2e8f0; color: var(--muted); }
+        .key-dialog { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(4,12,22,0.6); backdrop-filter: blur(3px); visibility: hidden; opacity: 0; transition: opacity 0.18s ease, visibility 0s linear 0.18s; }
+        .key-dialog.open { visibility: visible; opacity: 1; transition: opacity 0.18s ease, visibility 0s; }
+        .key-box { width: 100%; max-width: 380px; background: #fff; border-radius: 18px; border-top: 4px solid var(--gold); padding: 26px 24px 22px; box-shadow: 0 24px 60px rgba(4,12,22,0.35); position: relative; }
+        .key-box h3 { margin: 0 0 6px; color: var(--navy); font-size: 19px; display: flex; align-items: center; gap: 8px; }
+        .key-box p { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+        .key-box input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--line); font-size: 16px; font-family: inherit; }
+        .key-box input:focus { outline: 2px solid var(--gold); border-color: transparent; }
+        .key-error { min-height: 20px; margin: 8px 0 6px; color: var(--bad); font-size: 13.5px; }
+        .key-actions { display: flex; gap: 10px; justify-content: flex-end; }
+        [hidden] { display: none !important; }
 
         .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 50px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
@@ -241,6 +261,7 @@
             <div class="tools">
                 <button class="btn btn-ghost" type="button" onclick="showDict()"><i class="fas fa-book"></i> Schotlar lugʻati</button>
                 <button class="btn btn-ghost" type="button" onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Natijalarni tozalash</button>
+                <button class="btn btn-ghost" type="button" id="lockBtn" onclick="lockSpecial()" hidden><i class="fas fa-lock"></i> Maxsus boʻlimni qulflash</button>
             </div>
         </section>
 
@@ -288,6 +309,20 @@
             </div>
         </section>
 
+        <!-- Maxsus bo'lim kaliti -->
+        <div class="key-dialog" id="keyDialog" role="dialog" aria-modal="true" aria-labelledby="keyTitle">
+            <form class="key-box" onsubmit="submitKey(event)">
+                <h3 id="keyTitle"><i class="fas fa-lock" style="color:var(--gold-dark)"></i> Yopiq boʻlim</h3>
+                <p>Bu boʻlim faqat sayt egasi uchun. Davom etish uchun kalitni kiriting.</p>
+                <input type="password" id="keyInput" autocomplete="current-password" placeholder="Kalit" aria-label="Kalit">
+                <div class="key-error" id="keyError" aria-live="polite"></div>
+                <div class="key-actions">
+                    <button class="btn btn-ghost" type="button" onclick="closeKeyDialog()">Bekor qilish</button>
+                    <button class="btn btn-navy" type="submit" id="keySubmit"><i class="fas fa-unlock"></i> Ochish</button>
+                </div>
+            </form>
+        </div>
+
         <!-- Lug'at -->
         <section class="screen" id="dict">
             <div class="section-head">
@@ -320,6 +355,13 @@
         const EXAM = { id: 'exam', title: 'Yakuniy imtihon', desc: 'Barcha boʻlimlardan aralash 20 ta vaziyat. Haqiqiy ustalar uchun!', icon: 'fa-graduation-cap' };
         const ROUND_SIZE = 10, EXAM_SIZE = 20, LIVES = 3, MASTER_AT = 2;
         const STORE_KEY = 'mmoliya_schotlar_v1';
+        /* Maxsus bo'lim: schotlar ro'yxati saytda yo'q — Apps Script uni faqat to'g'ri kalit bilan beradi.
+           Ochilgandan keyin ro'yxat shu brauzerda saqlanadi (kalitning o'zi saqlanmaydi). */
+        const SPECIAL = { id: 'special', title: 'Kundalik schotlarim', desc: 'Har kuni ishlatiladigan schotlar boʻyicha vaziyatlar. Faqat sayt egasi uchun.', icon: 'fa-star' };
+        const SPECIAL_KEY_STORE = 'mmoliya_special_v1';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj72zvvOMf6Lm-65ur_yWQAcwHmY3piWTnfMCHow_z-LFTwUnNBjPLyINXPnXE0wFCiQ/exec';
+        let special = null;
+        try { const s = JSON.parse(localStorage.getItem(SPECIAL_KEY_STORE)); if (s && Array.isArray(s.codes)) special = s; } catch (e) {}
 
         let ACCOUNTS = [], QUESTIONS = [], ACC = {};
         let state = { acc: {}, best: {}, score: 0, master: false };
@@ -352,6 +394,7 @@
             const allStars = [...SECTIONS, EXAM].reduce((s, x) => s + (state.best[x.id] ? starsFor(state.best[x.id]) : 0), 0);
             $('statStars').textContent = allStars + ' / ' + (SECTIONS.length + 1) * 3;
             $('masterToggle').setAttribute('aria-checked', state.master);
+            $('lockBtn').hidden = !special;
 
             $('levels').innerHTML = SECTIONS.map((s, i) => {
                 const accs = ACCOUNTS.filter(a => sectionOf(a.code) === s.id);
@@ -368,7 +411,68 @@
                 '<div class="level-top"><div class="level-icon"><i class="fas ' + EXAM.icon + '"></i></div><div><div class="level-num">Barcha boʻlimlar · ' + EXAM_SIZE + ' ta savol</div><h3>' + EXAM.title + '</h3></div></div>' +
                 '<p class="level-desc">' + EXAM.desc + '</p>' +
                 '<div class="level-meta"><span>' + (state.best.exam ? 'Eng yaxshi natija: ' + state.best.exam + '%' : 'Hali topshirilmagan') + '</span><span class="stars">' + starHtml(state.best.exam ? starsFor(state.best.exam) : 0) + '</span></div>' +
+            '</button>' + renderSpecialCard();
+        }
+        /* Maxsus bo'lim kartasi: qulflangan bo'lsa — kalit so'raydi, ochilgan bo'lsa — raund boshlaydi */
+        function renderSpecialCard() {
+            if (!special) {
+                return '<button class="level special locked" type="button" onclick="openKeyDialog()">' +
+                    '<div class="level-top"><div class="level-icon"><i class="fas fa-lock"></i></div><div><div class="level-num">Yopiq boʻlim</div><h3>' + SPECIAL.title + '</h3></div></div>' +
+                    '<p class="level-desc">Faqat sayt egasi uchun. Ochish uchun kalit kerak.</p>' +
+                    '<div class="level-meta"><span><i class="fas fa-key"></i> Kalitni kiritish</span><span></span></div>' +
+                '</button>';
+            }
+            const accs = special.codes.filter(c => ACC[c]);
+            const m = accs.filter(isMastered).length;
+            const best = state.best.special;
+            return '<button class="level special" type="button" onclick="startRound(\'special\')">' +
+                '<div class="level-top"><div class="level-icon"><i class="fas ' + SPECIAL.icon + '"></i></div><div><div class="level-num">Maxsus · ' + accs.length + ' ta schot</div><h3>' + SPECIAL.title + '</h3></div></div>' +
+                '<p class="level-desc">' + SPECIAL.desc + '</p>' +
+                '<div class="progress"><div style="width:' + (accs.length ? m / accs.length * 100 : 0) + '%"></div></div>' +
+                '<div class="level-meta"><span>' + m + ' / ' + accs.length + ' oʻzlashtirildi</span><span class="stars">' + starHtml(best ? starsFor(best) : 0) + '</span></div>' +
             '</button>';
+        }
+        function openKeyDialog() {
+            $('keyError').textContent = '';
+            $('keyInput').value = '';
+            $('keyDialog').classList.add('open');
+            setTimeout(() => $('keyInput').focus(), 50);
+        }
+        function closeKeyDialog() { $('keyDialog').classList.remove('open'); }
+        const KEY_ERRORS = {
+            wrong_key: 'Kalit notoʻgʻri.',
+            locked: 'Juda koʻp notoʻgʻri urinish. 10 daqiqadan soʻng qayta urinib koʻring.',
+            not_configured: 'Kalit hali sozlanmagan (Apps Script → Script Properties → SPECIAL_KEY).'
+        };
+        async function submitKey(e) {
+            e.preventDefault();
+            const key = $('keyInput').value.trim();
+            if (!key) return;
+            const btn = $('keySubmit');
+            btn.disabled = true;
+            $('keyError').textContent = '';
+            try {
+                /* text/plain — Apps Script CORS preflight so'rovini qabul qilmaydi */
+                const res = await fetch(APPS_SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'special', key: key }) });
+                const data = await res.json();
+                if (data.ok && Array.isArray(data.codes)) {
+                    special = { codes: data.codes.map(String) };
+                    try { localStorage.setItem(SPECIAL_KEY_STORE, JSON.stringify(special)); } catch (err) {}
+                    closeKeyDialog();
+                    renderHome();
+                } else {
+                    $('keyError').textContent = KEY_ERRORS[data.error] || 'Xatolik yuz berdi.';
+                }
+            } catch (err) {
+                $('keyError').textContent = 'Server bilan bogʻlanib boʻlmadi. Internetni tekshiring.';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        function lockSpecial() {
+            special = null;
+            try { localStorage.removeItem(SPECIAL_KEY_STORE); } catch (e) {}
+            renderHome();
         }
         function show(id) {
             document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
@@ -395,9 +499,13 @@
         function startRound(sectionId) {
             currentSection = sectionId;
             const isExam = sectionId === 'exam';
-            const pool = isExam ? QUESTIONS : QUESTIONS.filter(q => sectionOf(q.answer) === sectionId);
+            const isSpecial = sectionId === 'special';
+            if (isSpecial && !special) return openKeyDialog();
+            const pool = isExam ? QUESTIONS
+                : isSpecial ? QUESTIONS.filter(q => special.codes.includes(q.answer))
+                : QUESTIONS.filter(q => sectionOf(q.answer) === sectionId);
             if (!pool.length) return;
-            const sec = isExam ? EXAM : SECTIONS.find(s => s.id === sectionId);
+            const sec = isExam ? EXAM : isSpecial ? SPECIAL : SECTIONS.find(s => s.id === sectionId);
             round = { sectionId, title: sec.title, list: pickQuestions(pool, isExam ? EXAM_SIZE : ROUND_SIZE), i: 0, lives: LIVES, score: 0, streak: 0, correct: 0, answered: 0, wrong: [], newly: 0, locked: false };
             $('gTitle').textContent = sec.title;
             show('game');
@@ -417,7 +525,7 @@
             renderHud();
             const t = ASK_TAG[q.ask] || ASK_TAG.hisob;
             const sec = SECTIONS.find(s => s.id === sectionOf(q.answer));
-            $('qMeta').innerHTML = '<span class="tag ' + t[0] + '">' + t[1] + '</span>' + (round.sectionId === 'exam' && sec ? '<span class="tag tag-sec">' + esc(sec.title) + '</span>' : '');
+            $('qMeta').innerHTML = '<span class="tag ' + t[0] + '">' + t[1] + '</span>' + ((round.sectionId === 'exam' || round.sectionId === 'special') && sec ? '<span class="tag tag-sec">' + esc(sec.title) + '</span>' : '');
             $('qText').textContent = q.scenario;
             round.opts = shuffle(q.options);
             $('qOptions').innerHTML = round.opts.map((code, k) => {
@@ -526,7 +634,9 @@
         function toggleMaster() { state.master = !state.master; saveState(); $('masterToggle').setAttribute('aria-checked', state.master); }
         $('masterToggle').addEventListener('click', toggleMaster);
         $('masterToggle').addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleMaster(); } });
+        $('keyDialog').addEventListener('click', e => { if (e.target === $('keyDialog')) closeKeyDialog(); });
         document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && $('keyDialog').classList.contains('open')) return closeKeyDialog();
             if (!round || !$('game').classList.contains('active')) return;
             if (!round.locked && /^[1-4]$/.test(e.key)) {
                 const b = document.querySelectorAll('#qOptions .opt')[parseInt(e.key, 10) - 1];
