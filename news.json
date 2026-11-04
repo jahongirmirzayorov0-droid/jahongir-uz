@@ -1,53 +1,37 @@
 {
-  "updated": "04.11.2026 06:04",
+  "updated": "04.11.2026 15:35",
   "items": [
     {
       "cat": "iqtisod",
       "date": "04.11.2026",
-      "title": "Vaşingtondan ayblov, Pxenyandan raketa namoyişi",
-      "excerpt": "Şimoliy Koreya kripto valyuta bozoridagi yirik öğirlikka aloqadorlik haqidagi ayblovini keskin inkor etdi. Gap “Binance” birjasidan 5,3 milliard yevro atrofida mablağ…",
-      "url": "https://uza.uz/oz/posts/vashingtondan-ayblov-pxenyandan-raketa-namoyishi_932106",
+      "title": "Farğonada iqtisodiyotning yarmi sanoatlaşgan qişloq xöjaligiga tegişli",
+      "excerpt": "Yaqin yillarga qadar Farğona viloyati qişloq xöjaligida paxta va don yetiştiriş asosiy örinni egallagan bölsa, sönggi yillarda tarmoqda sezilarli tarkibiy özgarişlar yuz…",
+      "url": "https://uza.uz/oz/posts/fargonada-iqtisodiyotning-yarmi-sanoatlashgan-qishloq-xojaligiga-tegishli_932229",
       "source": "UzA"
     },
     {
       "cat": "iqtisod",
-      "date": "03.11.2026",
-      "title": "Binance’dan 6,3 mlrd dollar qanday o‘g‘irlangan — tafsilotlar",
-      "excerpt": "Binance kompaniyasi kripto-o‘g‘irlik yuzasidan dastlabki hisobotini e’lon qildi. Ma’lum bo‘lishicha, hakerlar hujumga besh oy davomida tayyorgarlik ko‘rgan.",
-      "url": "https://daryo.uz/2026/11/03/binancedan-6-3-mlrd-dollar-qanday-ogirlangan-tafsilotlar/",
-      "source": "Daryo.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "03.11.2026",
-      "title": "Namangan va Italiya: manfaatli kelişuvlar imzolandi",
-      "excerpt": "Namangan viloyati hokimi, Özbekiston Respublikasi Oliy Majlisi Senati aʼzosi Şavkat Abdurazzoqov boşçiligida investitsiya sohasiga aloqador mutasaddilar hamda…",
-      "url": "https://uza.uz/oz/posts/namangan-va-italiya-manfaatli-kelishuvlar-imzolandi_932039",
-      "source": "UzA"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "03.11.2026",
-      "title": "Buxoro neftni qayta ishlash zavodida 328 mln dollarlik modernizatsiya loyihasi amalga oshiriladi",
-      "excerpt": "Loyiha natijasida korxonaning yillik qayta ishlash quvvati 5 million tonnaga yetkaziladi. Shuningdek, Yevro-5 talablariga javob beradigan Ai-92 va Ai-95 rusumli benzin…",
-      "url": "https://daryo.uz/2026/11/03/buxoro-neftni-qayta-ishlash-zavodida-328-mln-dollarlik-modernizatsiya-loyihasi-amalga-oshiriladi/",
-      "source": "Daryo.uz"
-    },
-    {
-      "cat": "buxgalteriya",
-      "date": "03.11.2026",
-      "title": "“Rejada bor”. Toshkent metropoliteni rahbari o‘rinbosari — ayollar uchun alohida vagonlar ajratish haqida",
-      "excerpt": "Toshkent metropolitenida hozircha ayollar uchun alohida vagonlar ajratish imkoni yo‘q. “Biroq yangi yo‘nalishlar qurish va vagonlar xarid qilishda bu masalani inobatga…",
-      "url": "https://www.gazeta.uz/oz/2026/11/03/metro/",
+      "date": "04.11.2026",
+      "title": "O‘zbekistonda asosiy stavka 2029-yilgacha 10 foizdan pasayishi mumkin — Markaziy bank",
+      "excerpt": "MB inflyatsiyaning barqaror sekinlashishi fonida 2029-yilgacha asosiy stavkaning bir xonali darajagacha pasaytirilishi mumkinligini istisno etmaydi. Regulyatorda…",
+      "url": "https://www.gazeta.uz/oz/2026/11/04/main-rate-2029/",
       "source": "Gazeta.uz"
     },
     {
-      "cat": "soliq",
-      "date": "02.11.2026",
-      "title": "Xorijiy bigtex kompaniyalar O‘zbekistonda 9 oyda qariyb $20 mln soliq to‘ladi",
-      "excerpt": "Ko‘rsatilgan xizmatlar qiymati 85,2% ga oshib, 1,94 trln so‘mga yetdi. Eng yirik uchta soliq to‘lovchi Apple, Google va Meta bo‘ldi.",
-      "url": "https://www.spot.uz/oz/2026/11/02/big-tech-taxes/",
-      "source": "Spot.uz"
+      "cat": "iqtisod",
+      "date": "04.11.2026",
+      "title": "Buxoro viloyatidagi Tekhnochem neft-kimyo klasteriga $420 mln investitsiya kiritilishi kutilmoqda. Tafsilotlar",
+      "excerpt": "Buxoro viloyatidagi Tekhnochem neft-kimyo klasterini rivojlantirish uchun $420 mln ajratish ko‘zda tutilgan. Uning $300 mlni O‘zbekiston va Kanada ta’sischilari…",
+      "url": "https://www.gazeta.uz/oz/2026/11/04/tekhnochem/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "04.11.2026",
+      "title": "Binance tarixdagi eng yirik kriptoo‘g‘rilik qanday sodir bo‘lganini ochiqladi",
+      "excerpt": "Dunyodagi eng yirik kriptobirja bo‘lmish Binance 29-oktabr kuni tizimdan 6,34 mlrd dollar qanday o‘g‘irlanganini ochiqladi: hakerlar hujumi o‘g‘rilikdan besh oy oldin…",
+      "url": "https://www.gazeta.uz/oz/2026/11/04/binance/",
+      "source": "Gazeta.uz"
     }
   ]
 }
