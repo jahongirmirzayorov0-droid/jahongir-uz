@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Schotlar ustasi — BHMS 21 oʻyini | mmoliya.uz</title>
+    <meta name="description" content="BHMS 21 hisobvaraqlar rejasini oʻyin orqali oʻrganing: vaziyatli savollar, barcha 338 schot, boʻlimma-boʻlim. Bepul moliyaviy savodxonlik oʻyini.">
+    <link rel="canonical" href="https://mmoliya.uz/oyin/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap" crossorigin="anonymous"/>
+    <style>
+        :root {
+            --navy: #0b1d30; --navy-2: #15314f; --gold: #f1c40f; --gold-dark: #b8860b;
+            --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --bg: #f4f7fa; --card: #ffffff;
+            --ok: #16a34a; --ok-bg: #ecfdf3; --bad: #dc2626; --bad-bg: #fef2f2;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Poppins', 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+        button { font-family: inherit; }
+        a { color: inherit; }
+
+        /* Yuqori panel */
+        .topbar { position: sticky; top: 0; z-index: 50; background: var(--navy); color: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+        .topbar-inner { max-width: 1100px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+        .brand { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 900; text-decoration: none; color: #fff; white-space: nowrap; }
+        .brand span { color: var(--gold); }
+        .top-actions { display: flex; align-items: center; gap: 8px; }
+        .chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 50px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 13px; font-weight: 600; color: #fff; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+        .chip:hover { background: rgba(255,255,255,0.16); }
+        .chip i { color: var(--gold); }
+
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 26px 20px 60px; }
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeIn 0.25s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+        /* Bosh ekran */
+        .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; border-radius: 22px; padding: 34px 34px 30px; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.22), rgba(241,196,15,0) 70%); }
+        .hero-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-size: 12.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1.15; margin: 10px 0 10px; }
+        .hero p { color: #cbd5e1; max-width: 640px; margin: 0 0 22px; }
+        .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 640px; position: relative; z-index: 1; }
+        .stat { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 12px 14px; }
+        .stat b { display: block; font-size: 22px; color: #fff; }
+        .stat span { font-size: 12px; color: #94a3b8; }
+        .progress { height: 8px; border-radius: 8px; background: rgba(255,255,255,0.12); overflow: hidden; margin-top: 8px; }
+        .progress > div { height: 100%; background: linear-gradient(90deg, var(--gold), #ffe27a); border-radius: 8px; transition: width 0.5s ease; }
+
+        .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin: 34px 0 14px; flex-wrap: wrap; }
+        .section-head h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin: 0; color: var(--navy); }
+        .section-head p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+        .mode-toggle { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: 50px; padding: 7px 8px 7px 14px; font-size: 13.5px; font-weight: 600; color: var(--navy); cursor: pointer; user-select: none; }
+        .switch { width: 42px; height: 24px; border-radius: 24px; background: #cbd5e1; position: relative; transition: background 0.2s; flex-shrink: 0; }
+        .switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        .mode-toggle[aria-checked="true"] .switch { background: var(--navy); }
+        .mode-toggle[aria-checked="true"] .switch::after { transform: translateX(18px); background: var(--gold); }
+
+        .levels { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+        .level { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 10px; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+        .level:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(11,29,48,0.1); border-color: var(--gold); }
+        .level:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+        .level-top { display: flex; align-items: center; gap: 12px; }
+        .level-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(241,196,15,0.15); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
+        .level-num { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+        .level h3 { margin: 0; font-size: 16px; line-height: 1.3; color: var(--navy); }
+        .level-desc { font-size: 12.5px; color: var(--muted); margin: 0; flex: 1; }
+        .level-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12.5px; color: var(--muted); }
+        .stars { color: #e2e8f0; letter-spacing: 2px; font-size: 14px; }
+        .stars .on { color: var(--gold); }
+        .level .progress { background: #eef2f6; margin-top: 0; }
+        .level.exam { background: linear-gradient(135deg, var(--navy), var(--navy-2)); color: #fff; border-color: transparent; }
+        .level.exam h3 { color: #fff; }
+        .level.exam .level-desc, .level.exam .level-meta, .level.exam .level-num { color: #cbd5e1; }
+        .level.exam .level-icon { background: rgba(241,196,15,0.2); color: var(--gold); }
+
+        .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 50px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+        .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+        .btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 14px rgba(241,196,15,0.35); }
+        .btn-gold:hover { transform: translateY(-2px); }
+        .btn-navy { background: var(--navy); color: #fff; }
+        .btn-navy:hover { background: #12304f; }
+        .btn-ghost { background: #fff; color: var(--navy); border: 1px solid var(--line); }
+        .btn-ghost:hover { border-color: var(--navy); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        /* O'yin ekrani */
+        .game-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+        .game-title { font-weight: 700; color: var(--navy); font-size: 15px; display: flex; align-items: center; gap: 8px; }
+        .game-title button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 15px; padding: 6px; border-radius: 8px; }
+        .game-title button:hover { background: #e9eef4; color: var(--navy); }
+        .hud { display: flex; gap: 8px; flex-wrap: wrap; }
+        .hud span { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--line); border-radius: 50px; padding: 6px 12px; font-size: 13.5px; font-weight: 700; color: var(--navy); }
+        .hud .hearts i { color: var(--bad); }
+        .hud .hearts i.lost { color: #e2e8f0; }
+        .hud .streak i { color: #f97316; }
+        .hud .score i { color: var(--gold-dark); }
+        .q-progress { height: 6px; background: #e2e8f0; border-radius: 6px; overflow: hidden; margin-bottom: 18px; }
+        .q-progress > div { height: 100%; background: var(--navy); transition: width 0.3s ease; }
+
+        .q-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 26px; box-shadow: 0 10px 30px rgba(11,29,48,0.06); }
+        .q-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .tag { font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 50px; letter-spacing: 0.4px; }
+        .tag-hisob { background: #eef2ff; color: #4338ca; }
+        .tag-debet { background: #ecfdf3; color: #15803d; }
+        .tag-kredit { background: #fff7ed; color: #c2410c; }
+        .tag-sec { background: #f1f5f9; color: var(--muted); }
+        .scenario { font-size: 18px; line-height: 1.6; color: var(--ink); margin: 0 0 20px; font-weight: 500; }
+        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .opt { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--line); background: #fff; cursor: pointer; text-align: left; font-size: 14.5px; color: var(--ink); transition: border-color 0.15s, background 0.15s, transform 0.1s; min-height: 64px; }
+        .opt:hover:not(:disabled) { border-color: var(--navy); background: #f8fafc; }
+        .opt:active:not(:disabled) { transform: scale(0.99); }
+        .opt:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+        .opt .key { width: 26px; height: 26px; border-radius: 8px; background: #f1f5f9; color: var(--muted); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .opt .code { font-weight: 800; font-size: 17px; color: var(--navy); font-variant-numeric: tabular-nums; flex-shrink: 0; min-width: 46px; }
+        .opt .name { color: #334155; line-height: 1.35; }
+        .opt:disabled { cursor: default; }
+        .opt.correct { border-color: var(--ok); background: var(--ok-bg); }
+        .opt.correct .key { background: var(--ok); color: #fff; }
+        .opt.wrong { border-color: var(--bad); background: var(--bad-bg); }
+        .opt.wrong .key { background: var(--bad); color: #fff; }
+        .opt.dim { opacity: 0.55; }
+
+        .feedback { margin-top: 18px; border-radius: 14px; padding: 16px 18px; display: none; }
+        .feedback.show { display: block; animation: fadeIn 0.2s ease; }
+        .feedback.ok { background: var(--ok-bg); border: 1px solid #bbf7d0; }
+        .feedback.bad { background: var(--bad-bg); border: 1px solid #fecaca; }
+        .fb-title { font-weight: 800; font-size: 15.5px; display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .feedback.ok .fb-title { color: var(--ok); }
+        .feedback.bad .fb-title { color: var(--bad); }
+        .fb-text { font-size: 14.5px; color: #1e293b; margin: 0; }
+        .fb-actions { margin-top: 14px; display: flex; justify-content: flex-end; }
+        .kbd-hint { margin-top: 12px; font-size: 12px; color: var(--muted); text-align: center; }
+
+        /* Natija ekrani */
+        .result { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(11,29,48,0.06); }
+        .result-badge { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 36px; background: rgba(241,196,15,0.15); color: var(--gold-dark); }
+        .result h2 { font-family: 'Playfair Display', serif; font-size: 30px; margin: 0 0 6px; color: var(--navy); }
+        .result .big-stars { font-size: 30px; letter-spacing: 6px; color: #e2e8f0; margin: 6px 0 14px; }
+        .result .big-stars .on { color: var(--gold); }
+        .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 520px; margin: 0 auto 22px; }
+        .result-stats div { background: var(--bg); border-radius: 14px; padding: 12px; }
+        .result-stats b { display: block; font-size: 22px; color: var(--navy); }
+        .result-stats span { font-size: 12px; color: var(--muted); }
+        .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .review { text-align: left; margin-top: 26px; }
+        .review h3 { font-size: 16px; color: var(--navy); margin: 0 0 10px; }
+        .review-item { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; font-size: 14px; }
+        .review-item p { margin: 0 0 6px; color: #334155; }
+        .review-item b { color: var(--ok); }
+
+        /* Lug'at */
+        .dict-search { width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line); font-size: 16px; font-family: inherit; margin-bottom: 16px; background: #fff; }
+        .dict-search:focus { outline: 2px solid var(--gold); border-color: transparent; }
+        .dict-group { background: #fff; border: 1px solid var(--line); border-radius: 16px; margin-bottom: 14px; overflow: hidden; }
+        .dict-group h3 { margin: 0; padding: 14px 18px; font-size: 15px; background: #f8fafc; color: var(--navy); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; }
+        .dict-group h3 span { color: var(--muted); font-weight: 600; font-size: 13px; }
+        .acc { display: flex; gap: 12px; padding: 10px 18px; border-bottom: 1px solid #f1f5f9; font-size: 14px; align-items: baseline; }
+        .acc:last-child { border-bottom: none; }
+        .acc .c { font-weight: 800; color: var(--navy); min-width: 46px; font-variant-numeric: tabular-nums; }
+        .acc.head { background: #fffbea; font-weight: 700; }
+        .acc .n { flex: 1; color: #334155; }
+        .acc .m { font-size: 12px; color: var(--ok); white-space: nowrap; }
+        .acc .m.no { color: #cbd5e1; }
+
+        .src { margin-top: 30px; font-size: 12.5px; color: var(--muted); text-align: center; }
+        .src a { color: var(--navy); }
+        .loading { text-align: center; padding: 80px 0; color: var(--muted); }
+
+        @media (max-width: 700px) {
+            .hero { padding: 26px 20px 22px; border-radius: 18px; }
+            .hero h1 { font-size: 30px; }
+            .stat b { font-size: 18px; }
+            .options { grid-template-columns: 1fr; }
+            .q-card { padding: 20px 16px; border-radius: 16px; }
+            .scenario { font-size: 16.5px; }
+            .result { padding: 24px 16px; }
+            .result-stats b { font-size: 18px; }
+            .top-actions .chip span { display: none; }
+            .kbd-hint { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="/">M<span>moliya.uz</span></a>
+            <div class="top-actions">
+                <button class="chip" type="button" onclick="showHome()"><i class="fas fa-gamepad"></i><span>Boʻlimlar</span></button>
+                <button class="chip" type="button" onclick="showDict()"><i class="fas fa-book"></i><span>Schotlar lugʻati</span></button>
+                <a class="chip" href="/"><i class="fas fa-house"></i><span>Saytga qaytish</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="loading" id="loading"><i class="fas fa-spinner fa-spin"></i> Yuklanmoqda…</div>
+
+        <!-- Bosh ekran: bo'limlar -->
+        <section class="screen" id="home">
+            <div class="hero">
+                <span class="hero-tag"><i class="fas fa-trophy"></i> Moliyaviy savodxonlik oʻyini</span>
+                <h1>Schotlar ustasi</h1>
+                <p>BHMS 21 hisobvaraqlar rejasini real vaziyatlar orqali oʻrganing: har savolda korxonadagi xoʻjalik operatsiyasi beriladi — qaysi schot ishlatilishini toping. Har javobdan keyin rasmiy yoʻriqnomaga asoslangan izoh chiqadi.</p>
+                <div class="stats">
+                    <div class="stat"><b id="statMastered">0 / 0</b><span>oʻzlashtirilgan schot</span><div class="progress"><div id="statBar" style="width:0%"></div></div></div>
+                    <div class="stat"><b id="statScore">0</b><span>jami ochko</span></div>
+                    <div class="stat"><b id="statStars">0 / 27</b><span>yulduz</span></div>
+                </div>
+            </div>
+
+            <div class="section-head">
+                <div>
+                    <h2>Boʻlimlar</h2>
+                    <p>Har bir raundda 10 ta vaziyat va 3 ta jon. Schotni 2 marta toʻgʻri topsangiz — u oʻzlashtirilgan hisoblanadi.</p>
+                </div>
+                <div class="mode-toggle" id="masterToggle" role="switch" aria-checked="false" tabindex="0">
+                    <span><i class="fas fa-bolt" style="color:var(--gold-dark)"></i> Usta rejimi: faqat kodlar (×2 ochko)</span>
+                    <span class="switch"></span>
+                </div>
+            </div>
+            <div class="levels" id="levels"></div>
+
+            <div class="tools">
+                <button class="btn btn-ghost" type="button" onclick="showDict()"><i class="fas fa-book"></i> Schotlar lugʻati</button>
+                <button class="btn btn-ghost" type="button" onclick="resetProgress()"><i class="fas fa-rotate-left"></i> Natijalarni tozalash</button>
+            </div>
+        </section>
+
+        <!-- O'yin -->
+        <section class="screen" id="game">
+            <div class="game-bar">
+                <div class="game-title"><button type="button" onclick="quitRound()" aria-label="Boʻlimlarga qaytish"><i class="fas fa-arrow-left"></i></button><span id="gTitle"></span></div>
+                <div class="hud">
+                    <span id="gCount">1 / 10</span>
+                    <span class="hearts" id="gHearts"></span>
+                    <span class="streak"><i class="fas fa-fire"></i> <b id="gStreak">0</b></span>
+                    <span class="score"><i class="fas fa-coins"></i> <b id="gScore">0</b></span>
+                </div>
+            </div>
+            <div class="q-progress"><div id="gBar" style="width:0%"></div></div>
+            <div class="q-card">
+                <div class="q-meta" id="qMeta"></div>
+                <p class="scenario" id="qText"></p>
+                <div class="options" id="qOptions"></div>
+                <div class="feedback" id="qFeedback" aria-live="polite">
+                    <div class="fb-title" id="fbTitle"></div>
+                    <p class="fb-text" id="fbText"></p>
+                    <div class="fb-actions"><button class="btn btn-navy" type="button" id="nextBtn" onclick="nextQuestion()">Keyingisi <i class="fas fa-arrow-right"></i></button></div>
+                </div>
+            </div>
+            <p class="kbd-hint">Klaviatura: 1–4 — javob tanlash, Enter — keyingi savol</p>
+        </section>
+
+        <!-- Natija -->
+        <section class="screen" id="result">
+            <div class="result">
+                <div class="result-badge" id="rBadge"><i class="fas fa-trophy"></i></div>
+                <h2 id="rTitle"></h2>
+                <div class="big-stars" id="rStars"></div>
+                <div class="result-stats">
+                    <div><b id="rCorrect"></b><span>toʻgʻri javob</span></div>
+                    <div><b id="rScore"></b><span>ochko</span></div>
+                    <div><b id="rNew"></b><span>yangi oʻzlashtirilgan</span></div>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-gold" type="button" onclick="startRound(currentSection)"><i class="fas fa-rotate-right"></i> Yana oʻynash</button>
+                    <button class="btn btn-ghost" type="button" onclick="showHome()"><i class="fas fa-th-large"></i> Boʻlimlar</button>
+                </div>
+                <div class="review" id="rReview"></div>
+            </div>
+        </section>
+
+        <!-- Lug'at -->
+        <section class="screen" id="dict">
+            <div class="section-head">
+                <div>
+                    <h2>Schotlar lugʻati</h2>
+                    <p>BHMS 21 boʻyicha barcha schotlar. <i class="fas fa-check" style="color:var(--ok)"></i> — oʻzlashtirganlaringiz.</p>
+                </div>
+            </div>
+            <input type="search" class="dict-search" id="dictSearch" placeholder="Kod yoki nom boʻyicha qidiring, masalan: 0150 yoki ish haqi" autocomplete="off">
+            <div id="dictList"></div>
+        </section>
+
+        <p class="src">Manba: Oʻzbekiston Respublikasi buxgalteriya hisobining milliy standarti (21-sonli BHMS) — <a href="https://lex.uz/docs/-7282737" target="_blank" rel="noopener noreferrer">lex.uz</a>, amaldagi tahrir. Natijalaringiz faqat shu brauzerda saqlanadi.</p>
+    </main>
+
+    <script>
+        /* ===== MA'LUMOTLAR =====
+           data.json: { accounts: [{code,name,type,group,bob,par}], questions: [{id,answer,ask,scenario,options,explain}] }
+           Savollar BHMS 21 yo'riqnomasi asosida tuzilgan. */
+        const SECTIONS = [
+            { id: 's1', title: 'Uzoq muddatli aktivlar', desc: 'Asosiy vositalar, eskirish, nomoddiy aktivlar, investitsiyalar, kapital qoʻyilmalar', icon: 'fa-building', from: 100, to: 999 },
+            { id: 's2', title: 'Zaxiralar va ishlab chiqarish', desc: 'Materiallar, ishlab chiqarish xarajatlari, tayyor mahsulot, tovarlar, kelgusi davr xarajatlari', icon: 'fa-boxes-stacked', from: 1000, to: 3999 },
+            { id: 's3', title: 'Debitorlar va pul mablagʻlari', desc: 'Olinadigan toʻlovlar, boʻnaklar, kassa, bank, valyuta, qisqa muddatli investitsiyalar', icon: 'fa-wallet', from: 4000, to: 5999 },
+            { id: 's4', title: 'Joriy majburiyatlar', desc: 'Mol yetkazib beruvchilar, budjet, ish haqi, sugʻurta, qisqa muddatli kreditlar', icon: 'fa-file-invoice-dollar', from: 6000, to: 6999 },
+            { id: 's5', title: 'Uzoq muddatli majburiyatlar', desc: 'Uzoq muddatli kreditlar, qarzlar va boshqa uzoq muddatli majburiyatlar', icon: 'fa-hourglass-half', from: 7000, to: 7999 },
+            { id: 's6', title: 'Xususiy kapital', desc: 'Ustav, qoʻshilgan va rezerv kapital, taqsimlanmagan foyda, maqsadli tushumlar', icon: 'fa-landmark', from: 8000, to: 8999 },
+            { id: 's7', title: 'Daromadlar va xarajatlar', desc: 'Sotishdan tushum, tannarx, davr xarajatlari, moliyaviy natija', icon: 'fa-chart-line', from: 9000, to: 9999 },
+            { id: 's8', title: 'Balansdan tashqari schotlar', desc: 'Ijaraga olingan mulk, masʼul saqlash, taʼminotlar va boshqa 001–016 schotlar', icon: 'fa-folder-open', offBalance: true }
+        ];
+        const EXAM = { id: 'exam', title: 'Yakuniy imtihon', desc: 'Barcha boʻlimlardan aralash 20 ta vaziyat. Haqiqiy ustalar uchun!', icon: 'fa-graduation-cap' };
+        const ROUND_SIZE = 10, EXAM_SIZE = 20, LIVES = 3, MASTER_AT = 2;
+        const STORE_KEY = 'mmoliya_schotlar_v1';
+
+        let ACCOUNTS = [], QUESTIONS = [], ACC = {};
+        let state = { acc: {}, best: {}, score: 0, master: false };
+        let round = null, currentSection = null;
+
+        const $ = id => document.getElementById(id);
+        const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+        function sectionOf(code) {
+            if (code.length === 3) return 's8';
+            const n = parseInt(code, 10);
+            const s = SECTIONS.find(x => !x.offBalance && n >= x.from && n <= x.to);
+            return s ? s.id : null;
+        }
+        function loadState() {
+            try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); if (s && s.acc) state = Object.assign(state, s); } catch (e) {}
+        }
+        function saveState() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+        function isMastered(code) { const a = state.acc[code]; return !!a && a.ok >= MASTER_AT; }
+        function starsFor(pct) { return pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 40 ? 1 : 0; }
+        function starHtml(n, total) { let h = ''; for (let i = 0; i < (total || 3); i++) h += '<span class="' + (i < n ? 'on' : '') + '">★</span>'; return h; }
+
+        /* ===== BOSH EKRAN ===== */
+        function renderHome() {
+            const total = ACCOUNTS.length;
+            const mastered = ACCOUNTS.filter(a => isMastered(a.code)).length;
+            $('statMastered').textContent = mastered + ' / ' + total;
+            $('statBar').style.width = (total ? mastered / total * 100 : 0) + '%';
+            $('statScore').textContent = state.score.toLocaleString('ru-RU');
+            const allStars = [...SECTIONS, EXAM].reduce((s, x) => s + (state.best[x.id] ? starsFor(state.best[x.id]) : 0), 0);
+            $('statStars').textContent = allStars + ' / ' + (SECTIONS.length + 1) * 3;
+            $('masterToggle').setAttribute('aria-checked', state.master);
+
+            $('levels').innerHTML = SECTIONS.map((s, i) => {
+                const accs = ACCOUNTS.filter(a => sectionOf(a.code) === s.id);
+                const m = accs.filter(a => isMastered(a.code)).length;
+                const best = state.best[s.id];
+                return '<button class="level" type="button" onclick="startRound(\'' + s.id + '\')">' +
+                    '<div class="level-top"><div class="level-icon"><i class="fas ' + s.icon + '"></i></div><div><div class="level-num">' + (i + 1) + '-boʻlim · ' + accs.length + ' ta schot</div><h3>' + esc(s.title) + '</h3></div></div>' +
+                    '<p class="level-desc">' + esc(s.desc) + '</p>' +
+                    '<div class="progress"><div style="width:' + (accs.length ? m / accs.length * 100 : 0) + '%"></div></div>' +
+                    '<div class="level-meta"><span>' + m + ' / ' + accs.length + ' oʻzlashtirildi</span><span class="stars">' + starHtml(best ? starsFor(best) : 0) + '</span></div>' +
+                '</button>';
+            }).join('') +
+            '<button class="level exam" type="button" onclick="startRound(\'exam\')">' +
+                '<div class="level-top"><div class="level-icon"><i class="fas ' + EXAM.icon + '"></i></div><div><div class="level-num">Barcha boʻlimlar · ' + EXAM_SIZE + ' ta savol</div><h3>' + EXAM.title + '</h3></div></div>' +
+                '<p class="level-desc">' + EXAM.desc + '</p>' +
+                '<div class="level-meta"><span>' + (state.best.exam ? 'Eng yaxshi natija: ' + state.best.exam + '%' : 'Hali topshirilmagan') + '</span><span class="stars">' + starHtml(state.best.exam ? starsFor(state.best.exam) : 0) + '</span></div>' +
+            '</button>';
+        }
+        function show(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === id));
+            window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+        }
+        function showHome() { round = null; renderHome(); show('home'); }
+
+        /* ===== RAUND ===== */
+        /* Savollar tanlash: hali o'zlashtirilmagan va xato qilingan schotlar ko'proq chiqadi, bir raundda bitta schot takrorlanmaydi */
+        function pickQuestions(pool, size) {
+            const weighted = pool.map(q => {
+                const a = state.acc[q.answer] || { ok: 0, bad: 0 };
+                let w = isMastered(q.answer) ? 1 : 4;
+                w += Math.min(a.bad, 3) * 2;
+                return { q, key: Math.pow(Math.random(), 1 / w) };
+            }).sort((x, y) => y.key - x.key);
+            const out = [], used = new Set();
+            for (const { q } of weighted) { if (out.length >= size) break; if (!used.has(q.answer)) { out.push(q); used.add(q.answer); } }
+            for (const { q } of weighted) { if (out.length >= size) break; if (!out.includes(q)) out.push(q); }
+            return out;
+        }
+        function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+        function startRound(sectionId) {
+            currentSection = sectionId;
+            const isExam = sectionId === 'exam';
+            const pool = isExam ? QUESTIONS : QUESTIONS.filter(q => sectionOf(q.answer) === sectionId);
+            if (!pool.length) return;
+            const sec = isExam ? EXAM : SECTIONS.find(s => s.id === sectionId);
+            round = { sectionId, title: sec.title, list: pickQuestions(pool, isExam ? EXAM_SIZE : ROUND_SIZE), i: 0, lives: LIVES, score: 0, streak: 0, correct: 0, answered: 0, wrong: [], newly: 0, locked: false };
+            $('gTitle').textContent = sec.title;
+            show('game');
+            renderQuestion();
+        }
+        function renderHud() {
+            $('gCount').textContent = (round.i + 1) + ' / ' + round.list.length;
+            $('gHearts').innerHTML = Array.from({ length: LIVES }, (_, k) => '<i class="fas fa-heart' + (k < round.lives ? '' : ' lost') + '"></i>').join('');
+            $('gStreak').textContent = round.streak;
+            $('gScore').textContent = round.score;
+            $('gBar').style.width = (round.i / round.list.length * 100) + '%';
+        }
+        const ASK_TAG = { hisob: ['tag-hisob', 'Qaysi schotda?'], debet: ['tag-debet', 'Debet'], kredit: ['tag-kredit', 'Kredit'] };
+        function renderQuestion() {
+            const q = round.list[round.i];
+            round.locked = false;
+            renderHud();
+            const t = ASK_TAG[q.ask] || ASK_TAG.hisob;
+            const sec = SECTIONS.find(s => s.id === sectionOf(q.answer));
+            $('qMeta').innerHTML = '<span class="tag ' + t[0] + '">' + t[1] + '</span>' + (round.sectionId === 'exam' && sec ? '<span class="tag tag-sec">' + esc(sec.title) + '</span>' : '');
+            $('qText').textContent = q.scenario;
+            round.opts = shuffle(q.options);
+            $('qOptions').innerHTML = round.opts.map((code, k) => {
+                const a = ACC[code] || { name: '' };
+                return '<button class="opt" type="button" data-code="' + esc(code) + '" onclick="answer(this)">' +
+                    '<span class="key">' + (k + 1) + '</span><span class="code">' + esc(code) + '</span>' +
+                    (state.master ? '' : '<span class="name">' + esc(a.name) + '</span>') + '</button>';
+            }).join('');
+            $('qFeedback').className = 'feedback';
+        }
+        function answer(btn) {
+            if (round.locked) return;
+            round.locked = true;
+            const q = round.list[round.i];
+            const picked = btn.getAttribute('data-code');
+            const ok = picked === q.answer;
+            const rec = state.acc[q.answer] || (state.acc[q.answer] = { ok: 0, bad: 0 });
+            const wasMastered = isMastered(q.answer);
+            round.answered++;
+            document.querySelectorAll('#qOptions .opt').forEach(b => {
+                b.disabled = true;
+                const c = b.getAttribute('data-code');
+                if (c === q.answer) b.classList.add('correct');
+                else if (b === btn) b.classList.add('wrong');
+                else b.classList.add('dim');
+            });
+            if (ok) {
+                round.correct++; round.streak++;
+                const pts = (10 + Math.min(round.streak - 1, 5) * 2) * (state.master ? 2 : 1);
+                round.score += pts;
+                rec.ok++;
+                if (!wasMastered && isMastered(q.answer)) round.newly++;
+                $('fbTitle').innerHTML = '<i class="fas fa-circle-check"></i> Toʻgʻri! +' + pts + ' ochko' + (round.streak >= 3 ? ' · ' + round.streak + ' ta ketma-ket 🔥' : '');
+            } else {
+                round.streak = 0; round.lives--;
+                rec.bad++;
+                if (rec.ok > 0) rec.ok--;
+                round.wrong.push(q);
+                const acc = ACC[q.answer];
+                $('fbTitle').innerHTML = '<i class="fas fa-circle-xmark"></i> Notoʻgʻri. Toʻgʻri javob: ' + esc(q.answer) + (acc ? ' «' + esc(acc.name) + '»' : '');
+            }
+            $('fbText').textContent = q.explain;
+            $('qFeedback').className = 'feedback show ' + (ok ? 'ok' : 'bad');
+            const last = round.i + 1 >= round.list.length || round.lives <= 0;
+            $('nextBtn').innerHTML = last ? 'Natijani koʻrish <i class="fas fa-flag-checkered"></i>' : 'Keyingisi <i class="fas fa-arrow-right"></i>';
+            renderHud();
+            saveState();
+            $('nextBtn').focus({ preventScroll: true });
+            $('qFeedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        function nextQuestion() {
+            if (!round || !round.locked) return;
+            if (round.i + 1 >= round.list.length || round.lives <= 0) return finishRound();
+            round.i++;
+            renderQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function finishRound() {
+            const pct = Math.round(round.correct / round.list.length * 100);
+            const stars = starsFor(pct);
+            const id = round.sectionId;
+            if (!state.best[id] || pct > state.best[id]) state.best[id] = pct;
+            state.score += round.score;
+            saveState();
+            const out = round.lives <= 0;
+            $('rTitle').textContent = out ? 'Jonlar tugadi' : pct >= 90 ? 'Ajoyib natija!' : pct >= 70 ? 'Yaxshi natija!' : pct >= 40 ? 'Yomon emas!' : 'Mashq qilishda davom eting';
+            $('rBadge').innerHTML = '<i class="fas ' + (out ? 'fa-heart-crack' : stars >= 2 ? 'fa-trophy' : 'fa-seedling') + '"></i>';
+            $('rStars').innerHTML = starHtml(stars);
+            $('rCorrect').textContent = round.correct + ' / ' + round.list.length;
+            $('rScore').textContent = round.score;
+            $('rNew').textContent = round.newly;
+            $('rReview').innerHTML = round.wrong.length ? '<h3><i class="fas fa-rotate"></i> Xatolar ustida ishlash</h3>' + round.wrong.map(q => {
+                const acc = ACC[q.answer];
+                return '<div class="review-item"><p>' + esc(q.scenario) + '</p><b>' + esc(q.answer) + (acc ? ' «' + esc(acc.name) + '»' : '') + '</b><p style="margin-top:6px">' + esc(q.explain) + '</p></div>';
+            }).join('') : '';
+            show('result');
+        }
+        function quitRound() {
+            if (round && round.answered > 0 && !confirm('Raundni tugatmasdan chiqasizmi? Toʻplangan ochkolar saqlanmaydi.')) return;
+            showHome();
+        }
+        function resetProgress() {
+            if (!confirm('Barcha natijalar, ochkolar va yulduzlar oʻchiriladi. Davom etasizmi?')) return;
+            state = { acc: {}, best: {}, score: 0, master: state.master };
+            saveState();
+            renderHome();
+        }
+
+        /* ===== LUG'AT ===== */
+        function showDict() { round = null; renderDict(); show('dict'); $('dictSearch').focus({ preventScroll: true }); }
+        function renderDict() {
+            const term = $('dictSearch').value.trim().toLowerCase();
+            $('dictList').innerHTML = SECTIONS.map(s => {
+                const accs = ACCOUNTS.filter(a => sectionOf(a.code) === s.id && (!term || a.code.includes(term) || a.name.toLowerCase().includes(term)));
+                if (!accs.length) return '';
+                const m = ACCOUNTS.filter(a => sectionOf(a.code) === s.id && isMastered(a.code)).length;
+                const all = ACCOUNTS.filter(a => sectionOf(a.code) === s.id).length;
+                return '<div class="dict-group"><h3>' + esc(s.title) + '<span>' + m + ' / ' + all + '</span></h3>' +
+                    accs.map(a => '<div class="acc' + (a.type && a.type !== 'BT' ? ' head' : '') + '"><span class="c">' + esc(a.code) + '</span><span class="n">' + esc(a.name) + '</span>' +
+                        '<span class="m' + (isMastered(a.code) ? '' : ' no') + '"><i class="fas fa-check"></i></span></div>').join('') + '</div>';
+            }).join('') || '<p style="color:var(--muted)">Hech narsa topilmadi.</p>';
+        }
+        $('dictSearch').addEventListener('input', renderDict);
+
+        /* ===== BOSHQARUV ===== */
+        function toggleMaster() { state.master = !state.master; saveState(); $('masterToggle').setAttribute('aria-checked', state.master); }
+        $('masterToggle').addEventListener('click', toggleMaster);
+        $('masterToggle').addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleMaster(); } });
+        document.addEventListener('keydown', e => {
+            if (!round || !$('game').classList.contains('active')) return;
+            if (!round.locked && /^[1-4]$/.test(e.key)) {
+                const b = document.querySelectorAll('#qOptions .opt')[parseInt(e.key, 10) - 1];
+                if (b) answer(b);
+            } else if (round.locked && e.key === 'Enter' && document.activeElement !== $('nextBtn')) {
+                nextQuestion();
+            }
+        });
+
+        fetch('data.json', { cache: 'no-cache' })
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(data => {
+                ACCOUNTS = data.accounts;
+                QUESTIONS = data.questions.filter(q => q.options && q.options.includes(q.answer));
+                ACCOUNTS.forEach(a => { ACC[a.code] = a; });
+                loadState();
+                $('loading').remove();
+                showHome();
+            })
+            .catch(() => { $('loading').innerHTML = '<i class="fas fa-triangle-exclamation"></i> Oʻyinni yuklab boʻlmadi. Sahifani yangilang.'; });
+    </script>
+</body>
+</html>
