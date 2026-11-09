@@ -278,7 +278,7 @@
             <div class="hero">
                 <span class="hero-tag"><i class="fas fa-trophy"></i> Moliyaviy savodxonlik oʻyini</span>
                 <h1>Schotlar ustasi</h1>
-                <p>BHMS 21 hisobvaraqlar rejasini real vaziyatlar orqali oʻrganing: har savolda korxonadagi xoʻjalik operatsiyasi beriladi — qaysi schot ishlatilishini toping. Har javobdan keyin rasmiy yoʻriqnomaga asoslangan izoh chiqadi.</p>
+                <p>BHMS 21 hisobvaraqlar rejasini real vaziyatlar orqali oʻrganing: har savolda korxonadagi xoʻjalik operatsiyasi beriladi — uning provodkasini tuzing: avval Debet, keyin Kredit schotini toping. Har javobdan keyin rasmiy yoʻriqnomaga asoslangan izoh chiqadi.</p>
                 <div class="stats">
                     <div class="stat"><b id="statMastered">0 / 0</b><span>oʻzlashtirilgan schot</span><div class="progress"><div id="statBar" style="width:0%"></div></div></div>
                     <div class="stat"><b id="statScore">0</b><span>jami ochko</span></div>
@@ -320,6 +320,10 @@
             <div class="q-card">
                 <div class="q-meta" id="qMeta"></div>
                 <p class="scenario" id="qText"></p>
+                <div class="ch-side" id="qDtRow"><span class="tag tag-debet">Debet</span><span id="qDtPick"></span></div>
+                <div class="options" id="qDt"></div>
+                <div class="ch-side" id="qKtRow"><span class="tag tag-kredit">Kredit</span><span id="qKtPick"></span></div>
+                <div class="options" id="qKt"></div>
                 <div class="options" id="qOptions"></div>
                 <div class="feedback" id="qFeedback" aria-live="polite">
                     <div class="fb-title" id="fbTitle"></div>
@@ -327,7 +331,7 @@
                     <div class="fb-actions"><button class="btn btn-navy" type="button" id="nextBtn" onclick="nextQuestion()">Keyingisi <i class="fas fa-arrow-right"></i></button></div>
                 </div>
             </div>
-            <p class="kbd-hint">Klaviatura: 1–4 — javob tanlash, Enter — keyingi savol</p>
+            <p class="kbd-hint">Klaviatura: 1–4 — schot tanlash (avval Debet, keyin Kredit), Enter — keyingi savol</p>
         </section>
 
         <!-- Natija -->
@@ -803,14 +807,53 @@
             $('gBar').style.width = (round.i / round.list.length * 100) + '%';
         }
         const ASK_TAG = { hisob: ['tag-hisob', 'Qaysi schotda?'], debet: ['tag-debet', 'Debet'], kredit: ['tag-kredit', 'Kredit'] };
+        /* Provodka savollari: q.dt / q.kt. Balansdan tashqari schotlarda ikkinchi tomon "-" (bir tomonlama yozuv). */
+        const ONE_SIDED = '-';
+        const COMMON_CODES = ['5110', '5010', '6010', '4010', '6410', '6710', '9420', '9430', '9390', '2010', '1010', '0820', '4310', '6310', '8710', '9910', '6970', '4230'];
+        const isEntry = q => !!(q.dt && q.kt);
+        const entryText = q => 'Dt ' + q.dt + ' — Kt ' + q.kt;
+        function sideOptions(q, side) {
+            const correct = q[side], other = q[side === 'dt' ? 'kt' : 'dt'];
+            if (correct === q.answer) return shuffle(q.options);          // savol tuzuvchisi tanlagan chalg'ituvchilar
+            const pool = new Set(COMMON_CODES);
+            const g = ACC[correct] && ACC[correct].group;
+            if (g) ACCOUNTS.forEach(a => { if (a.group === g && a.code.length === 4) pool.add(a.code); });
+            [correct, other, ONE_SIDED].forEach(x => pool.delete(x));
+            const picks = [];
+            if (other !== ONE_SIDED && Math.random() < 0.5) picks.push(other); // Debet/Kreditni adashtirish
+            for (const code of shuffle([...pool])) { if (picks.length >= 3) break; if (ACC[code]) picks.push(code); }
+            return shuffle([correct].concat(picks.slice(0, 3)));
+        }
+        function optHtml(code, k) {
+            const one = code === ONE_SIDED;
+            const name = one ? 'Bir tomonlama yozuv (balans schoti bilan bogʻlanmaydi)' : (ACC[code] || { name: '' }).name;
+            return '<button class="opt" type="button" data-code="' + esc(code) + '" onclick="pickSide(this)">' +
+                '<span class="key">' + (k + 1) + '</span><span class="code">' + (one ? '—' : esc(code)) + '</span>' +
+                (state.master && !one ? '' : '<span class="name">' + esc(name) + '</span>') + '</button>';
+        }
+        function codeLabel(code) { return code === ONE_SIDED ? 'bir tomonlama yozuv' : code + (ACC[code] ? ' «' + ACC[code].name + '»' : ''); }
         function renderQuestion() {
             const q = round.list[round.i];
             round.locked = false;
             renderHud();
-            const t = ASK_TAG[q.ask] || ASK_TAG.hisob;
+            const entry = isEntry(q);
+            const t = entry ? ['tag-hisob', 'Provodkani tuzing'] : (ASK_TAG[q.ask] || ASK_TAG.hisob);
             const sec = SECTIONS.find(s => s.id === sectionOf(q.answer));
             $('qMeta').innerHTML = '<span class="tag ' + t[0] + '">' + t[1] + '</span>' + ((round.sectionId === 'exam' || round.sectionId === 'special') && sec ? '<span class="tag tag-sec">' + esc(sec.title) + '</span>' : '');
             $('qText').textContent = q.scenario;
+            ['qDtRow', 'qDt', 'qKtRow', 'qKt'].forEach(id => { $(id).hidden = !entry; });
+            $('qOptions').hidden = entry;
+            $('qFeedback').className = 'feedback';
+            if (entry) {
+                round.phase = 'dt';
+                round.sideOk = true;
+                $('qDtPick').textContent = 'Qaysi schot debetlanadi?';
+                $('qDt').innerHTML = sideOptions(q, 'dt').map(optHtml).join('');
+                $('qKtPick').textContent = '';
+                $('qKt').innerHTML = '<div class="ch-wait">Avval debet schotini tanlang</div>';
+                return;
+            }
+            round.phase = 'single';
             round.opts = shuffle(q.options);
             $('qOptions').innerHTML = round.opts.map((code, k) => {
                 const a = ACC[code] || { name: '' };
@@ -820,22 +863,49 @@
             }).join('');
             $('qFeedback').className = 'feedback';
         }
-        function answer(btn) {
-            if (round.locked) return;
-            round.locked = true;
-            const q = round.list[round.i];
-            const picked = btn.getAttribute('data-code');
-            const ok = picked === q.answer;
-            const rec = state.acc[q.answer] || (state.acc[q.answer] = { ok: 0, bad: 0 });
-            const wasMastered = isMastered(q.answer);
-            round.answered++;
-            document.querySelectorAll('#qOptions .opt').forEach(b => {
+        function markOptions(box, correct, btn) {
+            box.querySelectorAll('.opt').forEach(b => {
                 b.disabled = true;
                 const c = b.getAttribute('data-code');
-                if (c === q.answer) b.classList.add('correct');
+                if (c === correct) b.classList.add('correct');
                 else if (b === btn) b.classList.add('wrong');
                 else b.classList.add('dim');
             });
+        }
+        /* Provodka savoli: avval Debet, keyin Kredit. Ikkalasi to'g'ri bo'lsa — savol to'g'ri. */
+        function pickSide(btn) {
+            if (round.locked || (round.phase !== 'dt' && round.phase !== 'kt')) return;
+            const side = round.phase;
+            const box = $(side === 'dt' ? 'qDt' : 'qKt');
+            if (!box.contains(btn)) return;
+            const q = round.list[round.i];
+            const correct = q[side];
+            const ok = btn.getAttribute('data-code') === correct;
+            markOptions(box, correct, btn);
+            if (!ok) round.sideOk = false;
+            $(side === 'dt' ? 'qDtPick' : 'qKtPick').innerHTML = ok
+                ? '<i class="fas fa-check" style="color:var(--ok)"></i> Toʻgʻri'
+                : '<i class="fas fa-xmark" style="color:var(--bad)"></i> Toʻgʻrisi: <b>' + esc(codeLabel(correct)) + '</b>';
+            if (side === 'dt') {
+                round.phase = 'kt';
+                $('qKtPick').textContent = 'Qaysi schot kreditlanadi?';
+                $('qKt').innerHTML = sideOptions(q, 'kt').map(optHtml).join('');
+                return;
+            }
+            settleAnswer(q, round.sideOk);
+        }
+        function answer(btn) {
+            if (round.locked || round.phase !== 'single') return;
+            const q = round.list[round.i];
+            markOptions($('qOptions'), q.answer, btn);
+            settleAnswer(q, btn.getAttribute('data-code') === q.answer);
+        }
+        function settleAnswer(q, ok) {
+            round.locked = true;
+            round.phase = 'done';
+            const rec = state.acc[q.answer] || (state.acc[q.answer] = { ok: 0, bad: 0 });
+            const wasMastered = isMastered(q.answer);
+            round.answered++;
             if (ok) {
                 round.correct++; round.streak++;
                 const pts = (10 + Math.min(round.streak - 1, 5) * 2) * (state.master ? 2 : 1);
@@ -848,8 +918,7 @@
                 rec.bad++;
                 if (rec.ok > 0) rec.ok--;
                 round.wrong.push(q);
-                const acc = ACC[q.answer];
-                $('fbTitle').innerHTML = '<i class="fas fa-circle-xmark"></i> Notoʻgʻri. Toʻgʻri javob: ' + esc(q.answer) + (acc ? ' «' + esc(acc.name) + '»' : '');
+                $('fbTitle').innerHTML = '<i class="fas fa-circle-xmark"></i> Notoʻgʻri. ' + (isEntry(q) ? 'Toʻgʻri provodka: ' + esc(entryText(q)) : 'Toʻgʻri javob: ' + esc(codeLabel(q.answer)));
             }
             $('fbText').textContent = q.explain;
             $('qFeedback').className = 'feedback show ' + (ok ? 'ok' : 'bad');
@@ -881,10 +950,9 @@
             $('rCorrect').textContent = round.correct + ' / ' + round.list.length;
             $('rScore').textContent = round.score;
             $('rNew').textContent = round.newly;
-            $('rReview').innerHTML = round.wrong.length ? '<h3><i class="fas fa-rotate"></i> Xatolar ustida ishlash</h3>' + round.wrong.map(q => {
-                const acc = ACC[q.answer];
-                return '<div class="review-item"><p>' + esc(q.scenario) + '</p><b>' + esc(q.answer) + (acc ? ' «' + esc(acc.name) + '»' : '') + '</b><p style="margin-top:6px">' + esc(q.explain) + '</p></div>';
-            }).join('') : '';
+            $('rReview').innerHTML = round.wrong.length ? '<h3><i class="fas fa-rotate"></i> Xatolar ustida ishlash</h3>' + round.wrong.map(q =>
+                '<div class="review-item"><p>' + esc(q.scenario) + '</p><b>' + esc(isEntry(q) ? entryText(q) : codeLabel(q.answer)) + '</b><p style="margin-top:6px">' + esc(q.explain) + '</p></div>'
+            ).join('') : '';
             show('result');
         }
         function quitRound() {
@@ -932,8 +1000,9 @@
             }
             if (!round || !$('game').classList.contains('active')) return;
             if (!round.locked && /^[1-4]$/.test(e.key)) {
-                const b = document.querySelectorAll('#qOptions .opt')[parseInt(e.key, 10) - 1];
-                if (b) answer(b);
+                const box = round.phase === 'dt' ? '#qDt' : round.phase === 'kt' ? '#qKt' : '#qOptions';
+                const b = document.querySelectorAll(box + ' .opt')[parseInt(e.key, 10) - 1];
+                if (b) (round.phase === 'single' ? answer : pickSide)(b);
             } else if (round.locked && e.key === 'Enter' && document.activeElement !== $('nextBtn')) {
                 nextQuestion();
             }
