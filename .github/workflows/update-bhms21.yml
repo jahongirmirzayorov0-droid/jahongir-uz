@@ -1,0 +1,67 @@
+name: 21-sonli BHMS (lex.uz) yangilanishini tekshirish
+
+# Har kuni lex.uz'dagi 21-sonli BHMS amaldagi tahririni o'yin ma'lumotlari bilan solishtiradi.
+# O'zgarish bo'lsa: oyin/data.json avtomatik moslashtiriladi (schot nomlari yangilanadi, rejadan
+# chiqarilgan schotlar bo'yicha savollar olib tashlanadi), snapshot yangilanadi va qaysi bandlar
+# hamda savollar ko'rib chiqilishi kerakligi haqida Issue ochiladi (GitHub egaga xabar yuboradi).
+on:
+  schedule:
+    - cron: "15 3 * * *"   # har kuni 08:15 (Toshkent)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+
+concurrency:
+  group: update-site-data
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: lex.uz'dagi amaldagi tahrirni solishtirish
+        id: check
+        run: |
+          set +e
+          perl scripts/bhms21.pl check --fetch oyin/bhms21_snapshot.json oyin/data.json bhms21_report.md "$RUNNER_TEMP/bhms21.html"
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ] && [ "$code" -ne 10 ]; then
+            echo "::error::lex.uz sahifasini tekshirib bo'lmadi (kod $code) — o'yin ma'lumotlari o'zgartirilmadi"
+            exit 1
+          fi
+          echo "updated=$([ "$code" -eq 10 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: O'zgargan fayllarni commit qilish
+        id: commit
+        run: |
+          if git diff --quiet -- oyin/data.json oyin/bhms21_snapshot.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add oyin/data.json oyin/bhms21_snapshot.json
+          git commit -m "21-sonli BHMS: o'yin ma'lumotlari lex.uz'dagi amaldagi tahrirga moslashtirildi"
+          git pull --rebase
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Ko'rib chiqish uchun Issue ochish
+        if: steps.check.outputs.updated == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          head -c 60000 bhms21_report.md > issue.md
+          gh issue create --title "21-sonli BHMS yangilandi — oʻyin savollarini koʻrib chiqish kerak" --body-file issue.md
+
+      - name: Saytni qayta nashr qilish
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages build so'rovi yuborilmadi"
