@@ -431,7 +431,7 @@
             <div id="dictList"></div>
         </section>
 
-        <p class="src">Manba: Oʻzbekiston Respublikasi buxgalteriya hisobining milliy standarti (21-sonli BHMS) — <a href="https://lex.uz/docs/-7282737" target="_blank" rel="noopener noreferrer">lex.uz</a>, amaldagi tahrir. Natijalaringiz faqat shu brauzerda saqlanadi.</p>
+        <p class="src">Manba: Oʻzbekiston Respublikasi buxgalteriya hisobining milliy standarti (21-sonli BHMS) — <a href="https://lex.uz/docs/-7282737" target="_blank" rel="noopener noreferrer">lex.uz</a>, amaldagi tahrir<span id="srcEdition"></span>. Natijalaringiz faqat shu brauzerda saqlanadi.</p>
     </main>
 
     <script>
@@ -1014,6 +1014,8 @@
                 ACCOUNTS = data.accounts;
                 QUESTIONS = data.questions.filter(q => q.options && q.options.includes(q.answer));
                 ACCOUNTS.forEach(a => { ACC[a.code] = a; });
+                /* meta.edition: lex.uz'dagi amaldagi tahrir sanasi — har kuni GitHub Actions tekshiradi (scripts/bhms21.pl) */
+                if (data.meta && data.meta.edition) $('srcEdition').textContent = ' (' + data.meta.edition + '; har kuni avtomatik tekshiriladi)';
                 loadState();
                 $('loading').remove();
                 showHome();
