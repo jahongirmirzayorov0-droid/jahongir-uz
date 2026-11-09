@@ -1,0 +1,3629 @@
+{
+   "accounts" : [
+      {
+         "code" : "0100",
+         "name" : "Asosiy vositalar",
+         "type" : "A"
+      },
+      {
+         "code" : "0110",
+         "name" : "Yer",
+         "type" : ""
+      },
+      {
+         "code" : "0111",
+         "name" : "Yerni obodonlashtirish",
+         "type" : ""
+      },
+      {
+         "code" : "0112",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalarni obodonlashtirish",
+         "type" : ""
+      },
+      {
+         "code" : "0120",
+         "name" : "Binolar, inshootlar va uzatuvchi moslamalar",
+         "type" : ""
+      },
+      {
+         "code" : "0130",
+         "name" : "Mashina va asbob-uskunalar",
+         "type" : ""
+      },
+      {
+         "code" : "0140",
+         "name" : "Mebel va ofis jihozlari",
+         "type" : ""
+      },
+      {
+         "code" : "0150",
+         "name" : "Kompyuter jihozlari va hisoblash texnikasi",
+         "type" : ""
+      },
+      {
+         "code" : "0160",
+         "name" : "Transport vositalari",
+         "type" : ""
+      },
+      {
+         "code" : "0170",
+         "name" : "Ishchi va mahsuldor hayvonlar",
+         "type" : ""
+      },
+      {
+         "code" : "0180",
+         "name" : "Koʻp yillik oʻsimliklar",
+         "type" : ""
+      },
+      {
+         "code" : "0190",
+         "name" : "Boshqa asosiy vositalar",
+         "type" : ""
+      },
+      {
+         "code" : "0199",
+         "name" : "Konservatsiya qilingan asosiy vositalar",
+         "type" : ""
+      },
+      {
+         "code" : "0200",
+         "name" : "Asosiy vositalarning eskirishi",
+         "type" : "KA"
+      },
+      {
+         "code" : "0211",
+         "name" : "Yerni obodonlashtirishning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0212",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalarni obodonlashtirishning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0220",
+         "name" : "Bino, inshoot va uzatuvchi moslamalarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0230",
+         "name" : "Mashina va asbob-uskunalarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0240",
+         "name" : "Mebel va ofis jihozlarining eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0250",
+         "name" : "Kompyuter jihozlari va hisoblash texnikasining eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0260",
+         "name" : "Transport vositalarining eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0270",
+         "name" : "Ishchi hayvonlarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0280",
+         "name" : "Koʻp yillik oʻsimliklarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0290",
+         "name" : "Boshqa asosiy vositalarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0299",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalarning eskirishi",
+         "type" : ""
+      },
+      {
+         "code" : "0300",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalar",
+         "type" : "A"
+      },
+      {
+         "code" : "0310",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalar",
+         "type" : ""
+      },
+      {
+         "code" : "0400",
+         "name" : "Nomoddiy aktivlar",
+         "type" : "A"
+      },
+      {
+         "code" : "0410",
+         "name" : "Patentlar, litsenziyalar va nou-xau",
+         "type" : ""
+      },
+      {
+         "code" : "0420",
+         "name" : "Savdo markalari, tovar belgilari va sanoat namunalari",
+         "type" : ""
+      },
+      {
+         "code" : "0430",
+         "name" : "Dasturiy taʼminot",
+         "type" : ""
+      },
+      {
+         "code" : "0440",
+         "name" : "Yer va tabiat resurslaridan foydalanish huquqlari",
+         "type" : ""
+      },
+      {
+         "code" : "0460",
+         "name" : "Franshizing",
+         "type" : ""
+      },
+      {
+         "code" : "0470",
+         "name" : "Mualliflik huquqlari",
+         "type" : ""
+      },
+      {
+         "code" : "0480",
+         "name" : "Gudvill",
+         "type" : ""
+      },
+      {
+         "code" : "0490",
+         "name" : "Boshqa nomoddiy aktivlar",
+         "type" : ""
+      },
+      {
+         "code" : "0500",
+         "name" : "Nomoddiy aktivlar amortizatsiyasi",
+         "type" : "KA"
+      },
+      {
+         "code" : "0510",
+         "name" : "Patentlar, litsenziyalar va nou-xauning amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0520",
+         "name" : "Savdo markalari, tovar belgilari va sanoat namunalarining amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0530",
+         "name" : "Dasturiy taʼminotning amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0540",
+         "name" : "Yer va tabiat resurslaridan foydalanish huquqlarining amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0560",
+         "name" : "Franshizing amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0570",
+         "name" : "Mualliflik huquqlarining amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0590",
+         "name" : "Boshqa nomoddiy aktivlarning amortizatsiyasi",
+         "type" : ""
+      },
+      {
+         "code" : "0600",
+         "name" : "Uzoq muddatli investitsiyalar",
+         "type" : "A"
+      },
+      {
+         "code" : "0610",
+         "name" : "Qimmatli qogʻozlar",
+         "type" : ""
+      },
+      {
+         "code" : "0620",
+         "name" : "Shuʼba xoʻjalik jamiyatlariga investitsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "0630",
+         "name" : "Qaram xoʻjalik jamiyatlariga investitsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "0640",
+         "name" : "Chet el kapitali ishtirokidagi tashkilotlarga investitsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "0690",
+         "name" : "Boshqa uzoq muddatli investitsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "0700",
+         "name" : "Oʻrnatiladigan asbob-uskunalar",
+         "type" : "A"
+      },
+      {
+         "code" : "0710",
+         "name" : "Oʻrnatiladigan asbob-uskunalar — mahalliy",
+         "type" : ""
+      },
+      {
+         "code" : "0720",
+         "name" : "Oʻrnatiladigan asbob-uskunalar — xorijiy",
+         "type" : ""
+      },
+      {
+         "code" : "0800",
+         "name" : "Kapital qoʻyilmalar",
+         "type" : "A"
+      },
+      {
+         "code" : "0810",
+         "name" : "Tugallanmagan qurilish",
+         "type" : ""
+      },
+      {
+         "code" : "0820",
+         "name" : "Asosiy vositalarni xarid qilish",
+         "type" : ""
+      },
+      {
+         "code" : "0830",
+         "name" : "Nomoddiy aktivlarni xarid qilish",
+         "type" : ""
+      },
+      {
+         "code" : "0840",
+         "name" : "Asosiy podani tashkil qilish",
+         "type" : ""
+      },
+      {
+         "code" : "0850",
+         "name" : "Yerni obodonlashtirishga kapital qoʻyilmalar",
+         "type" : ""
+      },
+      {
+         "code" : "0860",
+         "name" : "Moliyaviy ijaraga olingan asosiy vositalarga kapital qoʻyilmalar",
+         "type" : ""
+      },
+      {
+         "code" : "0870",
+         "name" : "Operativ ijaraga olingan asosiy vositalarga kapital qoʻyilmalar",
+         "type" : ""
+      },
+      {
+         "code" : "0890",
+         "name" : "Boshqa kapital qoʻyilmalar",
+         "type" : ""
+      },
+      {
+         "code" : "0900",
+         "name" : "Uzoq muddatli debitorlik qarzlari va kechiktirilgan xarajatlar",
+         "type" : "A"
+      },
+      {
+         "code" : "0910",
+         "name" : "Olingan veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "0920",
+         "name" : "Moliyaviy ijara boʻyicha olinadigan toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "0930",
+         "name" : "Xodimlarning uzoq muddatli qarzlari",
+         "type" : ""
+      },
+      {
+         "code" : "0940",
+         "name" : "Boshqa uzoq muddatli debitorlik qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "0950",
+         "name" : "Vaqtinchalik farqlar boʻyicha kechiktirilgan foyda soligʻi",
+         "type" : ""
+      },
+      {
+         "code" : "0960",
+         "name" : "Diskont (chegirma)lar boʻyicha uzoq muddatli kechiktirilgan xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "0990",
+         "name" : "Boshqa uzoq muddatli kechiktirilgan xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "1000",
+         "name" : "Materiallar",
+         "type" : "A"
+      },
+      {
+         "code" : "1010",
+         "name" : "Xom ashyo va materiallar",
+         "type" : ""
+      },
+      {
+         "code" : "1020",
+         "name" : "Sotib olingan yarim tayyor mahsulotlar va butlovchi buyumlar",
+         "type" : ""
+      },
+      {
+         "code" : "1030",
+         "name" : "Yoqilgʻilar",
+         "type" : ""
+      },
+      {
+         "code" : "1040",
+         "name" : "Ehtiyot qismlar",
+         "type" : ""
+      },
+      {
+         "code" : "1050",
+         "name" : "Qurilish materiallari",
+         "type" : ""
+      },
+      {
+         "code" : "1060",
+         "name" : "Tara",
+         "type" : ""
+      },
+      {
+         "code" : "1070",
+         "name" : "Chetga qayta ishlash uchun berilgan materiallar",
+         "type" : ""
+      },
+      {
+         "code" : "1080",
+         "name" : "Inventar va xoʻjalik jihozlari",
+         "type" : ""
+      },
+      {
+         "code" : "1090",
+         "name" : "Boshqa materiallar",
+         "type" : ""
+      },
+      {
+         "code" : "1100",
+         "name" : "Oʻstirishdagi va boquvdagi hayvonlar",
+         "type" : "A"
+      },
+      {
+         "code" : "1110",
+         "name" : "Oʻstirishdagi hayvonlar",
+         "type" : ""
+      },
+      {
+         "code" : "1120",
+         "name" : "Boʻrdoqidagi hayvonlar",
+         "type" : ""
+      },
+      {
+         "code" : "1200",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "1300",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "1400",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "1500",
+         "name" : "Materiallarni tayyorlash va xarid qilish",
+         "type" : "A"
+      },
+      {
+         "code" : "1510",
+         "name" : "Materiallarni tayyorlash va xarid qilish",
+         "type" : ""
+      },
+      {
+         "code" : "1600",
+         "name" : "Materiallar qiymatidagi farqlar",
+         "type" : "A"
+      },
+      {
+         "code" : "1610",
+         "name" : "Materiallar qiymatidagi farqlar",
+         "type" : ""
+      },
+      {
+         "code" : "1700",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "1800",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "1900",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "2000",
+         "name" : "Asosiy ishlab chiqarish",
+         "type" : "A"
+      },
+      {
+         "code" : "2010",
+         "name" : "Asosiy ishlab chiqarish",
+         "type" : ""
+      },
+      {
+         "code" : "2100",
+         "name" : "Oʻzida ishlab chiqarilgan yarim tayyor mahsulotlar",
+         "type" : "A"
+      },
+      {
+         "code" : "2110",
+         "name" : "Oʻzida ishlab chiqarilgan yarim tayyor mahsulotlar",
+         "type" : ""
+      },
+      {
+         "code" : "2200",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "2300",
+         "name" : "Yordamchi ishlab chiqarish",
+         "type" : "A"
+      },
+      {
+         "code" : "2310",
+         "name" : "Yordamchi ishlab chiqarish",
+         "type" : ""
+      },
+      {
+         "code" : "2400",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "2500",
+         "name" : "Umumiy ishlab chiqarish xarajatlari",
+         "type" : "A"
+      },
+      {
+         "code" : "2510",
+         "name" : "Umumiy ishlab chiqarish xarajatlari",
+         "type" : ""
+      },
+      {
+         "code" : "2600",
+         "name" : "Ishlab chiqarishdagi yaroqsiz mahsulotlar",
+         "type" : "A"
+      },
+      {
+         "code" : "2610",
+         "name" : "Ishlab chiqarishdagi yaroqsiz mahsulotlar",
+         "type" : ""
+      },
+      {
+         "code" : "2700",
+         "name" : "Xizmat koʻrsatuvchi xoʻjaliklar",
+         "type" : "A"
+      },
+      {
+         "code" : "2710",
+         "name" : "Xizmat koʻrsatuvchi xoʻjaliklar",
+         "type" : ""
+      },
+      {
+         "code" : "2800",
+         "name" : "Tayyor mahsulotlar",
+         "type" : "A"
+      },
+      {
+         "code" : "2810",
+         "name" : "Ombordagi tayyor mahsulotlar",
+         "type" : ""
+      },
+      {
+         "code" : "2820",
+         "name" : "Koʻrgazmadagi tayyor mahsulotlar",
+         "type" : ""
+      },
+      {
+         "code" : "2830",
+         "name" : "Vositachilik shartnomasi boʻyicha berilgan tayyor mahsulotlar",
+         "type" : ""
+      },
+      {
+         "code" : "2900",
+         "name" : "Tovarlar",
+         "type" : "A"
+      },
+      {
+         "code" : "2910",
+         "name" : "Ombordagi tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "2920",
+         "name" : "Chakana savdodagi tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "2930",
+         "name" : "Koʻrgazmadagi tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "2940",
+         "name" : "Prokatdagi buyumlar",
+         "type" : ""
+      },
+      {
+         "code" : "2950",
+         "name" : "Tovarlar bilan band va boʻsh taralar",
+         "type" : ""
+      },
+      {
+         "code" : "2960",
+         "name" : "Vositachilik shartnomasi boʻyicha berilgan tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "2970",
+         "name" : "Yoʻldagi tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "2980",
+         "name" : "Savdo ustamasi",
+         "type" : "KA"
+      },
+      {
+         "code" : "2990",
+         "name" : "Boshqa tovarlar",
+         "type" : ""
+      },
+      {
+         "code" : "3000",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3100",
+         "name" : "Kelgusi davr xarajatlari — joriy qismi",
+         "type" : "A"
+      },
+      {
+         "code" : "3110",
+         "name" : "Oldindan toʻlangan operativ ijara haqi",
+         "type" : ""
+      },
+      {
+         "code" : "3120",
+         "name" : "Oldindan toʻlangan xizmat haqi",
+         "type" : ""
+      },
+      {
+         "code" : "3190",
+         "name" : "Boshqa kelgusi davr xarajatlari",
+         "type" : ""
+      },
+      {
+         "code" : "3200",
+         "name" : "Kechiktirilgan xarajatlar — joriy qismi",
+         "type" : "A"
+      },
+      {
+         "code" : "3210",
+         "name" : "Vaqtinchalik farqlar boʻyicha kechiktirilgan foyda soligʻi",
+         "type" : ""
+      },
+      {
+         "code" : "3220",
+         "name" : "Diskont (chegirma)lar boʻyicha kechiktirilgan xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "3290",
+         "name" : "Boshqa kechiktirilgan xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "3300",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3400",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3500",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3600",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3700",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3800",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "3900",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "4000",
+         "name" : "Olinadigan joriy toʻlovlar",
+         "type" : "A"
+      },
+      {
+         "code" : "4010",
+         "name" : "Xaridorlar va buyurtmachilardan olinadigan toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4020",
+         "name" : "Olingan veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "4100",
+         "name" : "Ajratilgan boʻlinmalar, shuʼba va qaram xoʻjalik jamiyatlaridan olinadigan joriy toʻlovlar",
+         "type" : "A"
+      },
+      {
+         "code" : "4110",
+         "name" : "Ajratilgan boʻlinmalardan olinadigan toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4120",
+         "name" : "Shuʼba va qaram xoʻjalik jamiyatlaridan olinadigan toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4200",
+         "name" : "Xodimlarga berilgan boʻnaklar",
+         "type" : "A"
+      },
+      {
+         "code" : "4210",
+         "name" : "Ish haqi boʻyicha berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4220",
+         "name" : "Xizmat safarlariga berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4230",
+         "name" : "Umumxoʻjalik xarajatlari uchun berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4290",
+         "name" : "Xodimlarga berilgan boshqa boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4300",
+         "name" : "Mol yetkazib beruvchilar va pudratchilarga berilgan boʻnaklar",
+         "type" : "A"
+      },
+      {
+         "code" : "4310",
+         "name" : "Tovar-moddiy zaxiralar uchun mol yetkazib beruvchilar va pudratchilarga berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4320",
+         "name" : "Uzoq muddatli aktivlar uchun mol yetkazib beruvchilar va pudratchilarga berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4330",
+         "name" : "Boshqa berilgan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "4400",
+         "name" : "Budjetga boʻnak toʻlovlari",
+         "type" : "A"
+      },
+      {
+         "code" : "4410",
+         "name" : "Budjetga soliqlar va yigʻimlar boʻyicha boʻnak toʻlovlari (turlari boʻyicha)",
+         "type" : ""
+      },
+      {
+         "code" : "4500",
+         "name" : "Davlat maqsadli jamgʻarmalariga va sugʻurtalar boʻyicha boʻnak toʻlovlari",
+         "type" : "A"
+      },
+      {
+         "code" : "4510",
+         "name" : "Sugʻurtalar boʻyicha boʻnak toʻlovlari",
+         "type" : ""
+      },
+      {
+         "code" : "4520",
+         "name" : "Davlat maqsadli jamgʻarmalariga boʻnak toʻlovlari",
+         "type" : ""
+      },
+      {
+         "code" : "4600",
+         "name" : "Ustav kapitaliga taʼsischilarning ulushlari boʻyicha debitorlik qarzi",
+         "type" : "A"
+      },
+      {
+         "code" : "4610",
+         "name" : "Ustav kapitaliga taʼsischilarning ulushlari boʻyicha qarzi",
+         "type" : ""
+      },
+      {
+         "code" : "4700",
+         "name" : "Xodimlarning boshqa operatsiyalar boʻyicha qarzi",
+         "type" : "A"
+      },
+      {
+         "code" : "4710",
+         "name" : "Kreditga sotilgan tovarlar boʻyicha xodimlarning qarzi",
+         "type" : ""
+      },
+      {
+         "code" : "4720",
+         "name" : "Berilgan qarzlar boʻyicha xodimlarning qarzi",
+         "type" : ""
+      },
+      {
+         "code" : "4730",
+         "name" : "Moddiy zararni qoplash boʻyicha xodimlarning qarzi",
+         "type" : ""
+      },
+      {
+         "code" : "4790",
+         "name" : "Xodimlarning boshqa qarzlari",
+         "type" : ""
+      },
+      {
+         "code" : "4800",
+         "name" : "Boshqa joriy debitorlik qarzlar",
+         "type" : "A"
+      },
+      {
+         "code" : "4810",
+         "name" : "Moliyaviy ijara boʻyicha olinadigan joriy toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4820",
+         "name" : "Operativ ijara boʻyicha olinadigan joriy toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4830",
+         "name" : "Olinadigan foizlar",
+         "type" : ""
+      },
+      {
+         "code" : "4840",
+         "name" : "Olinadigan dividendlar",
+         "type" : ""
+      },
+      {
+         "code" : "4850",
+         "name" : "Olinadigan royalti",
+         "type" : ""
+      },
+      {
+         "code" : "4860",
+         "name" : "Daʼvolar boʻyicha olinadigan toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "4890",
+         "name" : "Boshqa debitorlik qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "4900",
+         "name" : "Shubhali qarzlar boʻyicha rezerv",
+         "type" : "KA"
+      },
+      {
+         "code" : "4910",
+         "name" : "Shubhali qarzlar boʻyicha rezerv",
+         "type" : ""
+      },
+      {
+         "code" : "5000",
+         "name" : "Kassadagi pul mablagʻlari",
+         "type" : "A"
+      },
+      {
+         "code" : "5010",
+         "name" : "Milliy valyutadagi pul mablagʻlari",
+         "type" : ""
+      },
+      {
+         "code" : "5020",
+         "name" : "Chet el valyutasidagi pul mablagʻlari",
+         "type" : ""
+      },
+      {
+         "code" : "5100",
+         "name" : "Hisob-kitob hisobvaragʻidagi pul mablagʻlari",
+         "type" : "A"
+      },
+      {
+         "code" : "5110",
+         "name" : "Hisob-kitob hisobvaragʻi",
+         "type" : ""
+      },
+      {
+         "code" : "5200",
+         "name" : "Chet el valyutasidagi pul mablagʻlari",
+         "type" : "A"
+      },
+      {
+         "code" : "5210",
+         "name" : "Mamlakat ichidagi chet el valyutasi hisobvaraqlari",
+         "type" : ""
+      },
+      {
+         "code" : "5220",
+         "name" : "Chet eldagi valyuta hisobvaraqlari",
+         "type" : ""
+      },
+      {
+         "code" : "5300",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "5400",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "5500",
+         "name" : "Bankdagi maxsus hisobvaraqlardagi pul mablagʻlari",
+         "type" : "A"
+      },
+      {
+         "code" : "5510",
+         "name" : "Akkreditivlar",
+         "type" : ""
+      },
+      {
+         "code" : "5520",
+         "name" : "Chek daftarchalari",
+         "type" : ""
+      },
+      {
+         "code" : "5530",
+         "name" : "Boshqa maxsus hisobvaraqlar",
+         "type" : ""
+      },
+      {
+         "code" : "5600",
+         "name" : "Pul ekvivalentlari",
+         "type" : "A"
+      },
+      {
+         "code" : "5610",
+         "name" : "Pul ekvivalentlari (turlari boʻyicha)",
+         "type" : ""
+      },
+      {
+         "code" : "5700",
+         "name" : "Yoʻldagi pul mablagʻ (oʻtkazma)lari",
+         "type" : "A"
+      },
+      {
+         "code" : "5710",
+         "name" : "Yoʻldagi pul mablagʻ (oʻtkazma)lari",
+         "type" : ""
+      },
+      {
+         "code" : "5800",
+         "name" : "Qisqa muddatli investitsiyalar",
+         "type" : "A"
+      },
+      {
+         "code" : "5810",
+         "name" : "Qimmatli qogʻozlar",
+         "type" : ""
+      },
+      {
+         "code" : "5830",
+         "name" : "Berilgan qisqa muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "5890",
+         "name" : "Boshqa joriy investitsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "5900",
+         "name" : "Kamomadlar va qiymatliklarning buzilishidan yoʻqotishlar hamda boshqa joriy aktivlar",
+         "type" : "A"
+      },
+      {
+         "code" : "5910",
+         "name" : "Kamomadlar va qiymatliklarning buzilishidan yoʻqotishlar",
+         "type" : ""
+      },
+      {
+         "code" : "5920",
+         "name" : "Boshqa joriy aktivlar",
+         "type" : ""
+      },
+      {
+         "code" : "6000",
+         "name" : "Mol yetkazib beruvchilar va pudratchilarga toʻlovlar boʻyicha joriy majburiyatlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6010",
+         "name" : "Mol yetkazib beruvchilar va pudratchilarga toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6020",
+         "name" : "Berilgan veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "6100",
+         "name" : "Ajratilgan boʻlinmalar, shuʼba va qaram xoʻjalik jamiyatlariga toʻlovlar boʻyicha joriy majburiyatlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6110",
+         "name" : "Ajratilgan boʻlinmalarga toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6120",
+         "name" : "Shuʼba va qaram xoʻjalik jamiyatlariga toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6200",
+         "name" : "Kechiktirilgan joriy majburiyatlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6210",
+         "name" : "Diskont (chegirma)lar koʻrinishidagi kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "6220",
+         "name" : "Mukofot (ustama)lar koʻrinishidagi kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "6230",
+         "name" : "Boshqa kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "6240",
+         "name" : "Soliqlar va yigʻimlar boʻyicha kechiktirilgan majburiyatlar",
+         "type" : ""
+      },
+      {
+         "code" : "6250",
+         "name" : "Vaqtinchalik farqlar boʻyicha kechiktirilgan foyda soligʻi majburiyatlari",
+         "type" : ""
+      },
+      {
+         "code" : "6290",
+         "name" : "Boshqa kechiktirilgan majburiyatlar",
+         "type" : ""
+      },
+      {
+         "code" : "6300",
+         "name" : "Olingan boʻnaklarning joriy qismi",
+         "type" : "P"
+      },
+      {
+         "code" : "6310",
+         "name" : "Xaridorlar va buyurtmachilardan olingan boʻnaklar — joriy qismi",
+         "type" : ""
+      },
+      {
+         "code" : "6320",
+         "name" : "Aksiyaga obunachilardan olingan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "6390",
+         "name" : "Boshqa olingan boʻnaklar",
+         "type" : ""
+      },
+      {
+         "code" : "6400",
+         "name" : "Budjetga toʻlovlar boʻyicha qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6410",
+         "name" : "Budjetga toʻlovlar boʻyicha qarzlar (turlari boʻyicha)",
+         "type" : ""
+      },
+      {
+         "code" : "6500",
+         "name" : "Sugʻurta va davlat maqsadli jamgʻarmalariga toʻlovlar boʻyicha joriy qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6510",
+         "name" : "Sugʻurta boʻyicha toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6520",
+         "name" : "Davlat maqsadli jamgʻarmalariga toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6600",
+         "name" : "Taʼsischilarga boʻlgan joriy qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6610",
+         "name" : "Toʻlanadigan dividendlar",
+         "type" : ""
+      },
+      {
+         "code" : "6620",
+         "name" : "Chiqib ketayotgan taʼsischilarga ulushlari boʻyicha qarz",
+         "type" : ""
+      },
+      {
+         "code" : "6630",
+         "name" : "Taʼsischilarning ustav kapitalini oshirish boʻyicha ulushlari",
+         "type" : ""
+      },
+      {
+         "code" : "6700",
+         "name" : "Ish haqi boʻyicha xodimlar bilan hisob-kitoblar",
+         "type" : "P"
+      },
+      {
+         "code" : "6710",
+         "name" : "Ish haqi boʻyicha xodimlar bilan hisob-kitoblar",
+         "type" : ""
+      },
+      {
+         "code" : "6720",
+         "name" : "Deponentlangan ish haqi",
+         "type" : ""
+      },
+      {
+         "code" : "6800",
+         "name" : "Qisqa muddatli kreditlar va qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6810",
+         "name" : "Qisqa muddatli kreditlar",
+         "type" : ""
+      },
+      {
+         "code" : "6820",
+         "name" : "Qisqa muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "6830",
+         "name" : "Toʻlanadigan obligatsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "6840",
+         "name" : "Toʻlanadigan veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "6900",
+         "name" : "Boshqa joriy kreditorlik qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "6910",
+         "name" : "Toʻlanadigan operativ ijara",
+         "type" : ""
+      },
+      {
+         "code" : "6920",
+         "name" : "Hisoblangan foizlar",
+         "type" : ""
+      },
+      {
+         "code" : "6930",
+         "name" : "Royalti boʻyicha qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "6940",
+         "name" : "Kafolatlar boʻyicha qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "6950",
+         "name" : "Uzoq muddatli majburiyatlar — joriy qismi",
+         "type" : ""
+      },
+      {
+         "code" : "6960",
+         "name" : "Daʼvolar boʻyicha toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "6970",
+         "name" : "Hisobdor shaxslarga boʻlgan qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "6990",
+         "name" : "Boshqa majburiyatlar",
+         "type" : ""
+      },
+      {
+         "code" : "7000",
+         "name" : "Mol yetkazib beruvchilar va pudratchilarga uzoq muddatli toʻlovlar",
+         "type" : "P"
+      },
+      {
+         "code" : "7010",
+         "name" : "Mol yetkazib beruvchilar va pudratchilarga uzoq muddatli toʻlovlar",
+         "type" : ""
+      },
+      {
+         "code" : "7020",
+         "name" : "Berilgan uzoq muddatli veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "7100",
+         "name" : "Ajratilgan boʻlinmalar, shuʼba va qaram xoʻjalik jamiyatlariga toʻlovlar boʻyicha uzoq muddatli majburiyatlar",
+         "type" : "P"
+      },
+      {
+         "code" : "7110",
+         "name" : "Ajratilgan boʻlinmalarga boʻlgan uzoq muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "7120",
+         "name" : "Shuʼba va qaram xoʻjalik jamiyatlariga boʻlgan uzoq muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "7200",
+         "name" : "Kechiktirilgan uzoq muddatli majburiyatlar",
+         "type" : "P"
+      },
+      {
+         "code" : "7210",
+         "name" : "Diskont (chegirma)lar koʻrinishidagi uzoq muddatli kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "7220",
+         "name" : "Mukofot (ustama)lar koʻrinishidagi uzoq muddatli kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "7230",
+         "name" : "Boshqa uzoq muddatli kechiktirilgan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "7240",
+         "name" : "Soliqlar va yigʻimlar boʻyicha uzoq muddatli kechiktirilgan majburiyatlar",
+         "type" : ""
+      },
+      {
+         "code" : "7250",
+         "name" : "Vaqtinchalik farqlar boʻyicha kechiktirilgan foyda soligʻi uzoq muddatli majburiyatlari",
+         "type" : ""
+      },
+      {
+         "code" : "7290",
+         "name" : "Boshqa uzoq muddatli kechiktirilgan majburiyatlar",
+         "type" : ""
+      },
+      {
+         "code" : "7300",
+         "name" : "Xaridorlar va buyurtmachilardan olingan boʻnaklar — uzoq muddatli qismi",
+         "type" : "P"
+      },
+      {
+         "code" : "7310",
+         "name" : "Xaridorlar va buyurtmachilardan olingan boʻnaklar — uzoq muddatli qismi",
+         "type" : ""
+      },
+      {
+         "code" : "7400",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "7500",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "7600",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "7700",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "7800",
+         "name" : "Uzoq muddatli kreditlar va qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "7810",
+         "name" : "Uzoq muddatli kreditlar",
+         "type" : ""
+      },
+      {
+         "code" : "7820",
+         "name" : "Uzoq muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "7830",
+         "name" : "Toʻlanadigan uzoq muddatli obligatsiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "7840",
+         "name" : "Toʻlanadigan uzoq muddatli veksellar",
+         "type" : ""
+      },
+      {
+         "code" : "7900",
+         "name" : "Boshqa uzoq muddatli kreditorlik qarzlar",
+         "type" : "P"
+      },
+      {
+         "code" : "7910",
+         "name" : "Toʻlanadigan moliyaviy ijara",
+         "type" : ""
+      },
+      {
+         "code" : "7920",
+         "name" : "Kreditorlarga boʻlgan boshqa uzoq muddatli qarzlar",
+         "type" : ""
+      },
+      {
+         "code" : "8000",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "8100",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "8200",
+         "name" : "",
+         "type" : ""
+      },
+      {
+         "code" : "8300",
+         "name" : "Ustav kapitali",
+         "type" : "P"
+      },
+      {
+         "code" : "8310",
+         "name" : "Oddiy aksiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "8320",
+         "name" : "Imtiyozli aksiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "8330",
+         "name" : "Pay va ulushlar",
+         "type" : ""
+      },
+      {
+         "code" : "8400",
+         "name" : "Qoʻshilgan kapital",
+         "type" : "P"
+      },
+      {
+         "code" : "8410",
+         "name" : "Emissiya daromadi",
+         "type" : ""
+      },
+      {
+         "code" : "8420",
+         "name" : "Ustav kapitalini shakllantirishdagi kurs farqi",
+         "type" : ""
+      },
+      {
+         "code" : "8500",
+         "name" : "Rezerv kapitali",
+         "type" : "P"
+      },
+      {
+         "code" : "8510",
+         "name" : "Uzoq muddatli aktivlarni qayta baholash boʻyicha tuzatishlar",
+         "type" : ""
+      },
+      {
+         "code" : "8520",
+         "name" : "Rezerv kapitali (fondi)",
+         "type" : ""
+      },
+      {
+         "code" : "8530",
+         "name" : "Tekinga olingan mulk",
+         "type" : ""
+      },
+      {
+         "code" : "8600",
+         "name" : "Sotib olingan xususiy aksiyalar",
+         "type" : "KP"
+      },
+      {
+         "code" : "8610",
+         "name" : "Sotib olingan xususiy aksiyalar — oddiy",
+         "type" : ""
+      },
+      {
+         "code" : "8620",
+         "name" : "Sotib olingan xususiy aksiyalar — imtiyozli",
+         "type" : ""
+      },
+      {
+         "code" : "8700",
+         "name" : "Taqsimlanmagan foyda (qoplanmagan zarar)",
+         "type" : "P"
+      },
+      {
+         "code" : "8710",
+         "name" : "Hisobot davrining taqsimlanmagan foydasi (qoplanmagan zarari)",
+         "type" : ""
+      },
+      {
+         "code" : "8720",
+         "name" : "Jamgʻarilgan foyda (qoplanmagan zarar)",
+         "type" : ""
+      },
+      {
+         "code" : "8800",
+         "name" : "Maqsadli tushumlar",
+         "type" : "P"
+      },
+      {
+         "code" : "8810",
+         "name" : "Grantlar",
+         "type" : ""
+      },
+      {
+         "code" : "8820",
+         "name" : "Subsidiyalar",
+         "type" : ""
+      },
+      {
+         "code" : "8830",
+         "name" : "Aʼzolik badallari",
+         "type" : ""
+      },
+      {
+         "code" : "8840",
+         "name" : "Maqsadli foydalaniladigan soliq imtiyozlari",
+         "type" : ""
+      },
+      {
+         "code" : "8890",
+         "name" : "Boshqa maqsadli tushumlar",
+         "type" : ""
+      },
+      {
+         "code" : "8900",
+         "name" : "Kelgusi xarajatlar va toʻlovlar rezervlari",
+         "type" : "P"
+      },
+      {
+         "code" : "8910",
+         "name" : "Kelgusi xarajatlar va toʻlovlar rezervlari",
+         "type" : ""
+      },
+      {
+         "code" : "9000",
+         "name" : "Asosiy (operatsion) faoliyatning daromadlari",
+         "type" : ""
+      },
+      {
+         "code" : "9010",
+         "name" : "Tayyor mahsulotlarni sotishdan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9020",
+         "name" : "Tovarlarni sotishdan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9030",
+         "name" : "Ishlar bajarish va xizmatlar koʻrsatishdan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9040",
+         "name" : "Sotilgan tovarlar (mahsulotlar)ning qaytishi",
+         "type" : ""
+      },
+      {
+         "code" : "9050",
+         "name" : "Xaridorlar va buyurtmachilarga berilgan chegirmalar",
+         "type" : ""
+      },
+      {
+         "code" : "9100",
+         "name" : "Sotilgan mahsulot (tovar, ish, xizmat)larning tannarxi",
+         "type" : ""
+      },
+      {
+         "code" : "9110",
+         "name" : "Sotilgan tayyor mahsulotlarning tannarxi",
+         "type" : ""
+      },
+      {
+         "code" : "9120",
+         "name" : "Sotilgan tovarlarning tannarxi",
+         "type" : ""
+      },
+      {
+         "code" : "9130",
+         "name" : "Bajarilgan ish va koʻrsatilgan xizmatlarning tannarxi",
+         "type" : ""
+      },
+      {
+         "code" : "9140",
+         "name" : "Davriy hisobda tovar-moddiy zaxiralarni sotib olish/xarid qilish",
+         "type" : ""
+      },
+      {
+         "code" : "9150",
+         "name" : "Davriy hisobda tovar-moddiy zaxiralar boʻyicha tuzatishlar",
+         "type" : ""
+      },
+      {
+         "code" : "9200",
+         "name" : "Asosiy vositalar va boshqa aktivlarning chiqib ketishi",
+         "type" : ""
+      },
+      {
+         "code" : "9210",
+         "name" : "Asosiy vositalarning chiqib ketishi",
+         "type" : ""
+      },
+      {
+         "code" : "9220",
+         "name" : "Boshqa aktivlarning chiqib ketishi",
+         "type" : ""
+      },
+      {
+         "code" : "9300",
+         "name" : "Asosiy faoliyatning boshqa daromadlari",
+         "type" : ""
+      },
+      {
+         "code" : "9310",
+         "name" : "Asosiy vositalarning chiqib ketishidan foyda",
+         "type" : ""
+      },
+      {
+         "code" : "9320",
+         "name" : "Boshqa aktivlarning chiqib ketishidan foyda",
+         "type" : ""
+      },
+      {
+         "code" : "9330",
+         "name" : "Undirilgan jarima, penya va ustamalar",
+         "type" : ""
+      },
+      {
+         "code" : "9340",
+         "name" : "Oʻtgan yillar foydalari",
+         "type" : ""
+      },
+      {
+         "code" : "9350",
+         "name" : "Operativ ijaradan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9360",
+         "name" : "Kreditor va deponent qarzlarni hisobdan chiqarishdan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9370",
+         "name" : "Xizmat koʻrsatuvchi xoʻjaliklar daromadlari",
+         "type" : ""
+      },
+      {
+         "code" : "9380",
+         "name" : "Qaytarilmaydigan moliyaviy yordam",
+         "type" : ""
+      },
+      {
+         "code" : "9390",
+         "name" : "Boshqa operatsion daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9400",
+         "name" : "Davr xarajatlari",
+         "type" : ""
+      },
+      {
+         "code" : "9410",
+         "name" : "Sotish xarajatlari",
+         "type" : ""
+      },
+      {
+         "code" : "9420",
+         "name" : "Maʼmuriy xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9430",
+         "name" : "Boshqa operatsion xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9500",
+         "name" : "Moliyaviy faoliyat boʻyicha daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9510",
+         "name" : "Royalti koʻrinishidagi daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9520",
+         "name" : "Dividendlar koʻrinishidagi daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9530",
+         "name" : "Foizlar koʻrinishidagi daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9540",
+         "name" : "Valyutalar kurslari farqidan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9550",
+         "name" : "Moliyaviy ijaradan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9560",
+         "name" : "Qimmatli qogʻozlarni qayta baholashdan daromadlar",
+         "type" : ""
+      },
+      {
+         "code" : "9590",
+         "name" : "Moliyaviy faoliyatning boshqa daromadlari",
+         "type" : ""
+      },
+      {
+         "code" : "9600",
+         "name" : "Moliyaviy faoliyat boʻyicha xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9610",
+         "name" : "Foizlar koʻrinishidagi xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9620",
+         "name" : "Valyutalar kurslari farqidan zararlar",
+         "type" : ""
+      },
+      {
+         "code" : "9630",
+         "name" : "Qimmatli qogʻozlarni chiqarish va tarqatish boʻyicha xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9690",
+         "name" : "Moliyaviy faoliyat boʻyicha boshqa xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9700",
+         "name" : "Favqulodda vaziyatlardan olingan foyda (zarar)",
+         "type" : ""
+      },
+      {
+         "code" : "9710",
+         "name" : "Favqulodda vaziyatlardan olingan foydalar",
+         "type" : ""
+      },
+      {
+         "code" : "9720",
+         "name" : "Favqulodda vaziyatlardan koʻrilgan zararlar",
+         "type" : ""
+      },
+      {
+         "code" : "9800",
+         "name" : "Soliq majburiyatlarini toʻlash uchun foydaning ishlatilishi",
+         "type" : ""
+      },
+      {
+         "code" : "9810",
+         "name" : "Foyda soligʻi boʻyicha xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9820",
+         "name" : "Foydadan hisoblangan boshqa soliq majburiyatlari boʻyicha xarajatlar",
+         "type" : ""
+      },
+      {
+         "code" : "9900",
+         "name" : "Yakuniy moliyaviy natija",
+         "type" : ""
+      },
+      {
+         "code" : "9910",
+         "name" : "Yakuniy moliyaviy natija (foyda yoki zarar)",
+         "type" : ""
+      },
+      {
+         "code" : "001",
+         "name" : "Operativ ijaraga olingan asosiy vositalar",
+         "type" : "BT"
+      },
+      {
+         "code" : "002",
+         "name" : "Masʼul saqlashga qabul qilingan tovar-moddiy zaxiralar",
+         "type" : "BT"
+      },
+      {
+         "code" : "003",
+         "name" : "Qayta ishlovga qabul qilingan materiallar",
+         "type" : "BT"
+      },
+      {
+         "code" : "004",
+         "name" : "Vositachilik shartnomasi boʻyicha qabul qilingan tovarlar",
+         "type" : "BT"
+      },
+      {
+         "code" : "005",
+         "name" : "Oʻrnatish uchun qabul qilingan uskunalar",
+         "type" : "BT"
+      },
+      {
+         "code" : "006",
+         "name" : "Qatʼiy hisobdagi blankalar",
+         "type" : "BT"
+      },
+      {
+         "code" : "007",
+         "name" : "Toʻlovga qobiliyatsiz debitorlarning zararga oʻtkazilib hisobdan chiqarilgan qarzi",
+         "type" : "BT"
+      },
+      {
+         "code" : "008",
+         "name" : "Majburiyatlar va toʻlovlarni taʼminlash — olingan",
+         "type" : "BT"
+      },
+      {
+         "code" : "009",
+         "name" : "Majburiyatlar va toʻlovlarni taʼminlash — berilgan",
+         "type" : "BT"
+      },
+      {
+         "code" : "010",
+         "name" : "Moliyaviy ijara shartnomasi boʻyicha berilgan asosiy vositalar",
+         "type" : "BT"
+      },
+      {
+         "code" : "011",
+         "name" : "Ssuda shartnomasi boʻyicha olingan mulk",
+         "type" : "BT"
+      },
+      {
+         "code" : "012",
+         "name" : "Kelgusi davrlarda soliq solinadigan bazadan chegiriladigan xarajatlar",
+         "type" : "BT"
+      },
+      {
+         "code" : "013",
+         "name" : "Vaqtinchalik soliq va bojxona imtiyozlari (turlari boʻyicha)",
+         "type" : "BT"
+      },
+      {
+         "code" : "014",
+         "name" : "Foydalanishdagi inventar va xoʻjalik jihozlari",
+         "type" : "BT"
+      },
+      {
+         "code" : "015",
+         "name" : "Oddiy shirkat shartnomasi (birgalikdagi faoliyat) boʻyicha olingan mulk",
+         "type" : "BT"
+      },
+      {
+         "code" : "016",
+         "name" : "Foydalanish huquqi boʻyicha olingan nomoddiy aktivlar",
+         "type" : "BT"
+      }
+   ],
+   "band_order" : [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "73-1",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78",
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100",
+      "101",
+      "102",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107",
+      "108",
+      "109",
+      "110",
+      "111",
+      "112",
+      "113",
+      "114",
+      "115",
+      "116",
+      "117",
+      "118",
+      "119",
+      "120",
+      "121",
+      "122",
+      "123",
+      "124",
+      "125",
+      "126",
+      "127",
+      "128",
+      "129",
+      "130",
+      "131",
+      "132",
+      "133",
+      "134",
+      "135",
+      "136",
+      "137",
+      "138",
+      "139",
+      "140",
+      "141",
+      "142",
+      "143",
+      "144",
+      "145",
+      "146",
+      "147",
+      "148",
+      "149",
+      "150",
+      "151",
+      "152",
+      "153",
+      "154",
+      "155",
+      "156",
+      "157",
+      "158",
+      "159",
+      "160",
+      "161",
+      "162",
+      "163",
+      "164",
+      "165",
+      "166",
+      "170",
+      "171",
+      "172",
+      "173",
+      "174",
+      "175",
+      "176",
+      "177",
+      "178",
+      "179",
+      "180",
+      "181",
+      "182",
+      "183",
+      "184",
+      "185",
+      "186",
+      "187",
+      "188",
+      "189",
+      "190",
+      "191",
+      "192",
+      "193",
+      "194",
+      "195",
+      "196",
+      "197",
+      "198",
+      "199",
+      "200",
+      "201",
+      "202",
+      "203",
+      "205",
+      "206",
+      "207",
+      "208",
+      "209",
+      "210",
+      "211",
+      "212",
+      "213",
+      "214",
+      "215",
+      "216",
+      "217",
+      "218",
+      "219",
+      "220",
+      "221",
+      "222",
+      "223",
+      "224",
+      "225",
+      "226",
+      "227",
+      "228",
+      "229",
+      "230",
+      "231",
+      "232",
+      "233",
+      "234",
+      "235",
+      "236",
+      "237",
+      "238",
+      "239",
+      "240",
+      "241",
+      "242",
+      "243",
+      "244",
+      "245",
+      "246",
+      "247",
+      "248",
+      "249",
+      "250",
+      "251",
+      "252",
+      "253",
+      "254",
+      "255",
+      "256",
+      "257",
+      "258",
+      "259",
+      "260",
+      "261",
+      "262",
+      "263",
+      "264",
+      "265",
+      "266",
+      "267",
+      "268",
+      "269",
+      "270",
+      "271",
+      "272",
+      "273",
+      "274",
+      "275",
+      "276",
+      "277",
+      "278",
+      "279",
+      "280",
+      "281",
+      "282",
+      "283",
+      "284",
+      "285",
+      "286",
+      "287",
+      "288",
+      "289",
+      "290",
+      "291",
+      "292",
+      "293",
+      "294",
+      "295",
+      "296",
+      "297",
+      "298",
+      "299",
+      "300",
+      "301",
+      "302",
+      "303",
+      "304",
+      "305",
+      "306",
+      "307",
+      "308",
+      "309",
+      "310",
+      "311",
+      "312",
+      "313",
+      "314",
+      "315",
+      "316",
+      "317",
+      "318",
+      "319",
+      "320",
+      "321",
+      "322",
+      "323",
+      "324",
+      "325",
+      "326",
+      "327",
+      "328",
+      "329",
+      "330",
+      "331",
+      "332",
+      "333",
+      "334",
+      "335",
+      "336",
+      "337",
+      "338",
+      "339",
+      "340",
+      "341",
+      "342",
+      "343",
+      "344",
+      "345",
+      "346",
+      "347",
+      "348",
+      "349",
+      "350",
+      "351",
+      "352",
+      "353",
+      "354",
+      "355",
+      "356",
+      "357",
+      "358",
+      "359",
+      "360",
+      "361",
+      "362",
+      "363",
+      "364",
+      "365",
+      "366",
+      "367",
+      "368",
+      "369",
+      "370",
+      "371",
+      "372",
+      "373",
+      "374",
+      "375",
+      "376",
+      "377",
+      "378",
+      "379",
+      "380",
+      "381",
+      "382",
+      "383",
+      "384",
+      "385",
+      "386",
+      "387",
+      "388",
+      "389",
+      "390",
+      "391",
+      "392",
+      "393",
+      "394",
+      "395",
+      "396",
+      "397",
+      "398",
+      "399",
+      "400",
+      "401",
+      "402",
+      "403",
+      "404",
+      "405",
+      "406",
+      "407",
+      "408",
+      "409",
+      "410",
+      "411",
+      "412",
+      "413",
+      "414",
+      "415",
+      "416",
+      "417",
+      "418",
+      "419",
+      "420",
+      "421",
+      "422",
+      "423",
+      "424",
+      "425",
+      "426",
+      "427",
+      "428",
+      "429",
+      "430",
+      "431",
+      "432",
+      "433",
+      "434",
+      "435",
+      "436",
+      "437",
+      "438",
+      "439",
+      "440",
+      "441",
+      "442",
+      "443",
+      "444",
+      "445",
+      "446",
+      "447",
+      "448",
+      "449",
+      "450",
+      "451",
+      "452",
+      "453"
+   ],
+   "bands" : {
+      "1" : {
+         "hash" : "3f60f9f6a8592b7569c2ac4aa544aefc"
+      },
+      "10" : {
+         "hash" : "e32fcca5bb00a0ebfc9d4418e1e61af9"
+      },
+      "100" : {
+         "hash" : "155d7d61804af4060bf6aa265ca8292a"
+      },
+      "101" : {
+         "hash" : "c40f30fba88a123fc40477bc28b5898a"
+      },
+      "102" : {
+         "hash" : "07b8d1935a17b68a0d433651212356b7"
+      },
+      "103" : {
+         "hash" : "6a70f0bdf4f4e1e0175ef80e3c522220"
+      },
+      "104" : {
+         "hash" : "fe4981c638190016e048a32c0b49c406"
+      },
+      "105" : {
+         "hash" : "cafef62ce9ef81adc4612e2a5de0e80b"
+      },
+      "106" : {
+         "hash" : "19e84a2614575597ec5d089c41ff3638"
+      },
+      "107" : {
+         "hash" : "902e60a625d5e21f4983b4a9eb809714"
+      },
+      "108" : {
+         "hash" : "e3b6d4f4fe7fa4e0aeedb05814f01ce3"
+      },
+      "109" : {
+         "hash" : "9cae45aea722104bb4a686952750fb77"
+      },
+      "11" : {
+         "hash" : "52b8c71a04c1a47ae123d1dc8115b657"
+      },
+      "110" : {
+         "hash" : "e952ccb84e19688d8f238f297eec07a7"
+      },
+      "111" : {
+         "hash" : "12d2b317e02cc015f0bb445729b171ac"
+      },
+      "112" : {
+         "hash" : "8b043143e278acc482ddc289193ce332"
+      },
+      "113" : {
+         "hash" : "3247471fbea7e492ab78b7e351494f1a"
+      },
+      "114" : {
+         "hash" : "fb2b7fbb5c3428371ebc078ce766c79d"
+      },
+      "115" : {
+         "hash" : "658e5798da8f2843b5e6151971f79ed9"
+      },
+      "116" : {
+         "hash" : "8f139ba209dbf49812b967e3304063f4"
+      },
+      "117" : {
+         "hash" : "1ce49608eff929803eb02edbcddaa886"
+      },
+      "118" : {
+         "hash" : "cfb9bc4e1df7ab149d455775b7015bf3"
+      },
+      "119" : {
+         "hash" : "e69b7dbe52a66cb7fe6f667f0a665029"
+      },
+      "12" : {
+         "hash" : "9635844e8e2d6028dbf1a4fcb25c3042"
+      },
+      "120" : {
+         "hash" : "a15dd6b313163c648afbe362176c515a"
+      },
+      "121" : {
+         "hash" : "ba2e41ec4b3c326453a262a9e4bb75f1"
+      },
+      "122" : {
+         "hash" : "b68f852b4b8d5ec34126138c9e8f70ba"
+      },
+      "123" : {
+         "hash" : "39c9b61945d346b283fb163a2eaf5f78"
+      },
+      "124" : {
+         "hash" : "99e6dff6293d0644a31600cb0585dbff"
+      },
+      "125" : {
+         "hash" : "cb085edb190d57043593598f31afd77b"
+      },
+      "126" : {
+         "hash" : "2db95c5591c7c29504708db7d75bc81b"
+      },
+      "127" : {
+         "hash" : "c9ff8368ddb46eb293b96b49ac8ea081"
+      },
+      "128" : {
+         "hash" : "c7b0270d8af82829eb4f339cbc3d03b3"
+      },
+      "129" : {
+         "hash" : "e317cd453ac2157d6b53d25f2b64884d"
+      },
+      "13" : {
+         "hash" : "f1504362f645551e5c6516ab127e42e3"
+      },
+      "130" : {
+         "hash" : "3024a549c0e0f235b4e5fc6380a05ef3"
+      },
+      "131" : {
+         "hash" : "4a33381d78ceb35d677abeb536e97a15"
+      },
+      "132" : {
+         "hash" : "8b9d9a32ec2d0271d16180925d832e71"
+      },
+      "133" : {
+         "hash" : "56917f8cce3ba3827a872fd238b14a4a"
+      },
+      "134" : {
+         "hash" : "6703e8fbafb5c905b5683fdec8acc272"
+      },
+      "135" : {
+         "hash" : "713e6cbb1e5daf540ef74c27f69c2dbe"
+      },
+      "136" : {
+         "hash" : "353b60c03c0294dba4efb18c767cad99"
+      },
+      "137" : {
+         "hash" : "19c0335ccdd967a2cc2ed41c31c70897"
+      },
+      "138" : {
+         "hash" : "4c99beb34aa932d4e51b8844741c948a"
+      },
+      "139" : {
+         "hash" : "7486f519710f6f27b71a33174d05eb60"
+      },
+      "14" : {
+         "hash" : "839407349f6e95257d436e360fa880f3"
+      },
+      "140" : {
+         "hash" : "95a1fcaf7389d72444b846581e231ad4"
+      },
+      "141" : {
+         "hash" : "27954432dd87f165bef9bc1632eb8e08"
+      },
+      "142" : {
+         "hash" : "08c1b80382f39029db4fdca3434c5423"
+      },
+      "143" : {
+         "hash" : "07c100c50991b166fc849632828f59b9"
+      },
+      "144" : {
+         "hash" : "8c6854a33bec02906455e59eab7ac51d"
+      },
+      "145" : {
+         "hash" : "2ba8a12c8cd1eb99bd72b7ef010950f2"
+      },
+      "146" : {
+         "hash" : "4bb1aa3e4f7006b18f3ac7c3e4f6b13b"
+      },
+      "147" : {
+         "hash" : "14f1760edf6e01c32e270ab778d70a7d"
+      },
+      "148" : {
+         "hash" : "7f97d7dae883983419c2790d6af08942"
+      },
+      "149" : {
+         "hash" : "2e658892a4a79f6446f7e86f54a7fdfb"
+      },
+      "15" : {
+         "hash" : "e63f2e6b5df8e135900d210f33c7a7a9"
+      },
+      "150" : {
+         "hash" : "c47575472a27d23367ab484ababfc342"
+      },
+      "151" : {
+         "hash" : "25de25b93502e4ba4ec597cd96a58ea2"
+      },
+      "152" : {
+         "hash" : "d5ff40c020488aaff7ab1bd2d4770307"
+      },
+      "153" : {
+         "hash" : "5889d3bdcb89903b766b05f0832f2a39"
+      },
+      "154" : {
+         "hash" : "4478ad6bad96010989fa8a8fa43ec726"
+      },
+      "155" : {
+         "hash" : "6debfec26edcd442a067d7cae7877d2c"
+      },
+      "156" : {
+         "hash" : "285fe73b830852314b8719b0bfd6cbbd"
+      },
+      "157" : {
+         "hash" : "a831a8b3d726cd89353fe88459637c3e"
+      },
+      "158" : {
+         "hash" : "7d57b23ee1a34c398f4ebf5eb2335369"
+      },
+      "159" : {
+         "hash" : "fb63f1713951efab8771232a3209a9b5"
+      },
+      "16" : {
+         "hash" : "9d6b3690a58a86458f277f07b8eb91d8"
+      },
+      "160" : {
+         "hash" : "5f5107a32b7b17c6258e3c266f974558"
+      },
+      "161" : {
+         "hash" : "a6398650640dd400fd6eb81e5b70a632"
+      },
+      "162" : {
+         "hash" : "2d0d57f7fa66d0e7b500070c46b28140"
+      },
+      "163" : {
+         "hash" : "8a8c5bdc24e25043487e398b915cfef2"
+      },
+      "164" : {
+         "hash" : "0913f73fafd62a234de9168d64f7d9e1"
+      },
+      "165" : {
+         "hash" : "e965a9352f11d01a91616e29bd14942d"
+      },
+      "166" : {
+         "hash" : "037b97ecd8d5cdac42462c6104b393ad"
+      },
+      "17" : {
+         "hash" : "c2fe4ba528191a20ff034fe8cd6d6afc"
+      },
+      "170" : {
+         "hash" : "15136f90d9accb8063ef8fae03c328bc"
+      },
+      "171" : {
+         "hash" : "7b0ebc14326e3b32aa30e1d5c5a4a30a"
+      },
+      "172" : {
+         "hash" : "3b21436ef1c32983204cd4b8de79f7c9"
+      },
+      "173" : {
+         "hash" : "c4b443feafd8aeec96c2a6b4ab7e6d68"
+      },
+      "174" : {
+         "hash" : "d1ede2ceeed5e3e4dc81fd79dfeb913e"
+      },
+      "175" : {
+         "hash" : "d1c27c89e1e13b5f6c12865526394b57"
+      },
+      "176" : {
+         "hash" : "96db1426620094903155709e135c3b08"
+      },
+      "177" : {
+         "hash" : "955766dc64b1d6590ea7d74822a271a9"
+      },
+      "178" : {
+         "hash" : "716a18970efef0b8065f0b3de6231294"
+      },
+      "179" : {
+         "hash" : "f1ec77dcaaab7006a66fab33f8d1734b"
+      },
+      "18" : {
+         "hash" : "8150b4f9f5f065945691ba32c68a2c23"
+      },
+      "180" : {
+         "hash" : "b8497ad91df1626332ac79d033d52222"
+      },
+      "181" : {
+         "hash" : "fa8add3c421a3eb7e7a0858d948e3d3d"
+      },
+      "182" : {
+         "hash" : "fa8e79cf518b4247bbcbd75a86aa7480"
+      },
+      "183" : {
+         "hash" : "247deae5ceff308c8e73264291d90704"
+      },
+      "184" : {
+         "hash" : "3bcdedae0d1d4c52247ef42b8c3028f1"
+      },
+      "185" : {
+         "hash" : "3bf61ad47463989355e00ed16c669ced"
+      },
+      "186" : {
+         "hash" : "fd90c64eb9afe1486e43610cf44ee100"
+      },
+      "187" : {
+         "hash" : "6fca5d6f85039ed470a78f4f73cc3d57"
+      },
+      "188" : {
+         "hash" : "edbbde769417bf6f39562eb6135ac254"
+      },
+      "189" : {
+         "hash" : "e93b46eec96ff1b9e0cb77648e92eeb8"
+      },
+      "19" : {
+         "hash" : "dece60d8bd4fba69d37ab92507e00686"
+      },
+      "190" : {
+         "hash" : "f93f00b9cf372e90bbcce0d7d4708964"
+      },
+      "191" : {
+         "hash" : "8f711be46816ce019a8637f6deb262a7"
+      },
+      "192" : {
+         "hash" : "9c8cac9f57969ed6e27367e0f2a83dff"
+      },
+      "193" : {
+         "hash" : "bc3ce423737c9695a0ba7b4f7ec05f7e"
+      },
+      "194" : {
+         "hash" : "7f36c32444301bccd331a42d55c89585"
+      },
+      "195" : {
+         "hash" : "4719e8d11af758e3bf062f2ce80d8137"
+      },
+      "196" : {
+         "hash" : "923dab4567ce026e4edcdfcfae608ad8"
+      },
+      "197" : {
+         "hash" : "655512588715d26af62485e8d5b20ddd"
+      },
+      "198" : {
+         "hash" : "00f1097b8fd703b0822bf9eb5bb11bda"
+      },
+      "199" : {
+         "hash" : "a4646fe70351b63638ab85e375dd9e85"
+      },
+      "2" : {
+         "hash" : "d184b349fd647be1e308c99fd615e512"
+      },
+      "20" : {
+         "hash" : "29e573693816279fdd4773f6ab0c8ed2"
+      },
+      "200" : {
+         "hash" : "967f0787d8640580bf6b6f4ac0b9421c"
+      },
+      "201" : {
+         "hash" : "21b859a371307c2388aa9f7edd2e20a6"
+      },
+      "202" : {
+         "hash" : "4a29db774bf3bf64be12d3c55f7a1130"
+      },
+      "203" : {
+         "hash" : "5467e49fbb7c586a4fdbb34d0f6730c4"
+      },
+      "205" : {
+         "hash" : "1270d9fcfc1aeb4bf791eed51c9ae6ee"
+      },
+      "206" : {
+         "hash" : "ce18af6ae308899a453a60af11ea3e6d"
+      },
+      "207" : {
+         "hash" : "8c364418ecf7406cd04b4249ba0d077e"
+      },
+      "208" : {
+         "hash" : "6b25348da103432363629ef1d129a2ca"
+      },
+      "209" : {
+         "hash" : "b3144abd508276d08c05d5c710a79324"
+      },
+      "21" : {
+         "hash" : "d2ae28782050e682f04b6ffe4a269220"
+      },
+      "210" : {
+         "hash" : "73f99450955e8085d1141d0ef678719e"
+      },
+      "211" : {
+         "hash" : "93f3f3f5eb5daed45aaed26addf7c9c4"
+      },
+      "212" : {
+         "hash" : "c3b3db3897a25751a57b1f422fef12a4"
+      },
+      "213" : {
+         "hash" : "4f203abd3d3f1c0330fa93537eae44e5"
+      },
+      "214" : {
+         "hash" : "c2a0d46369f24419d9bd0f66e0968476"
+      },
+      "215" : {
+         "hash" : "4cdf5478701eb16aaf4222d9b38da8eb"
+      },
+      "216" : {
+         "hash" : "8f8da3abfa63b1100f423b6ca20f8030"
+      },
+      "217" : {
+         "hash" : "92aefedf2cbc5aface1ccc66c6e9195f"
+      },
+      "218" : {
+         "hash" : "2caeb681b1f45b39099214a1ba4bae30"
+      },
+      "219" : {
+         "hash" : "ee3022a06e5e496336f53861c221144b"
+      },
+      "22" : {
+         "hash" : "0a73dd2f2f294879c941b90b729ee9cc"
+      },
+      "220" : {
+         "hash" : "e1d17e24fc004a36910168606166f712"
+      },
+      "221" : {
+         "hash" : "c1aa79047d212183943bdcf81afd3a07"
+      },
+      "222" : {
+         "hash" : "1d5c8f51f1549448df8d634e6a0341b5"
+      },
+      "223" : {
+         "hash" : "3c1bf6ba0b54bb607487baabba068e0d"
+      },
+      "224" : {
+         "hash" : "3079373440a72e278823b4d7c8ff2835"
+      },
+      "225" : {
+         "hash" : "e85a77ae44e659bf9476339237c55dfc"
+      },
+      "226" : {
+         "hash" : "2aaf14ad7bb93ca4c49955724ba23773"
+      },
+      "227" : {
+         "hash" : "ab957130e4036dc36fae2cf4a640cf26"
+      },
+      "228" : {
+         "hash" : "0d959eae3475c9b532bc460de2e8b571"
+      },
+      "229" : {
+         "hash" : "de1d152f06a64b596239d5b689973e78"
+      },
+      "23" : {
+         "hash" : "d4ab96b80422aed374012b5cede7a74d"
+      },
+      "230" : {
+         "hash" : "541e22742ec8d78bdca8235a2c90d593"
+      },
+      "231" : {
+         "hash" : "ad8e019400be125629bbeb1b16e04d43"
+      },
+      "232" : {
+         "hash" : "58a5b0cc3dddd4a13cf350493fc3ea04"
+      },
+      "233" : {
+         "hash" : "e444c504ebfb213b74b32d83f9b844b7"
+      },
+      "234" : {
+         "hash" : "d0e1c98c763b13399566565e76b20ee7"
+      },
+      "235" : {
+         "hash" : "3f560b6464abc3b62b1d9641105289db"
+      },
+      "236" : {
+         "hash" : "affd87a88ed446fe5c24999b58754c2a"
+      },
+      "237" : {
+         "hash" : "ffe0ca204fab4257bcc3066834c262bb"
+      },
+      "238" : {
+         "hash" : "ba032e99f325208389e226268dcdcc5c"
+      },
+      "239" : {
+         "hash" : "5cb956446f44bacd50fbdae0dcbe00fe"
+      },
+      "24" : {
+         "hash" : "1bd5f4867c634735ecf3b51bf88dee69"
+      },
+      "240" : {
+         "hash" : "0fea0ae692d7a975a5af2dfa13242645"
+      },
+      "241" : {
+         "hash" : "1640391c056f921cf6170c6edb3c75cb"
+      },
+      "242" : {
+         "hash" : "992da0eadc7a92da01d206dec56b5283"
+      },
+      "243" : {
+         "hash" : "2d1c7103695cf4a885661d119588e9ef"
+      },
+      "244" : {
+         "hash" : "94c1dc0d21541c633b36a5d6fb8dad7b"
+      },
+      "245" : {
+         "hash" : "2dbfb5d5fd076d1a0a4d7ab169c2b255"
+      },
+      "246" : {
+         "hash" : "99c629dbd289f43538926c1adfc6887f"
+      },
+      "247" : {
+         "hash" : "651c735cbb3e8b1f607d593a20e05f9d"
+      },
+      "248" : {
+         "hash" : "f40a71ee07095592dc3ce2e1d3ee013c"
+      },
+      "249" : {
+         "hash" : "2fdd190b4580112fa6ebc5544454dff3"
+      },
+      "25" : {
+         "hash" : "0c391f2f90e934ed7b59293cda1bfcb0"
+      },
+      "250" : {
+         "hash" : "6f10289f47b51802b53ebf77d507914d"
+      },
+      "251" : {
+         "hash" : "761811e3432d215ddc5a11f4a524f26f"
+      },
+      "252" : {
+         "hash" : "c118f1dee60299130dc10ef16f1fc248"
+      },
+      "253" : {
+         "hash" : "e45af7f5e80301762b10e5a79fe32ad2"
+      },
+      "254" : {
+         "hash" : "addae4a579c79ff4e092980f00b1973d"
+      },
+      "255" : {
+         "hash" : "01a4dcc306501b0a86a28b1d03e9f8f0"
+      },
+      "256" : {
+         "hash" : "f11503eb1aad9ec808bb42255a857fa3"
+      },
+      "257" : {
+         "hash" : "e4958ced1bcabfa7c2e45f347c3949fd"
+      },
+      "258" : {
+         "hash" : "9704b37364f45e5bf12a63b8c06cf489"
+      },
+      "259" : {
+         "hash" : "f580c9adc885399215f8aca58566d0d2"
+      },
+      "26" : {
+         "hash" : "fb21d2ac5a7052128eada20d420295d8"
+      },
+      "260" : {
+         "hash" : "d784bf232272a9c93d59f0269e892393"
+      },
+      "261" : {
+         "hash" : "ccfe718f2def32b02dd7dd9678a92191"
+      },
+      "262" : {
+         "hash" : "5355577d884226a2509620306c957418"
+      },
+      "263" : {
+         "hash" : "9d728d7734cde52ff28f8dbeb8b0bfc1"
+      },
+      "264" : {
+         "hash" : "fdac557c46736af2216fb2b005bb1e32"
+      },
+      "265" : {
+         "hash" : "cd4b4b15fd39314085207ac753507b7b"
+      },
+      "266" : {
+         "hash" : "b1649f279cfac19ef5359cf2afabb389"
+      },
+      "267" : {
+         "hash" : "b37cab5edbacccf5c84f4eb2547ac167"
+      },
+      "268" : {
+         "hash" : "4233a86115e4ede537d05e60e0896f45"
+      },
+      "269" : {
+         "hash" : "898eb215918cde8cb2a7ec7b67cb86b3"
+      },
+      "27" : {
+         "hash" : "db3290c73e05d3757ef75de460377ced"
+      },
+      "270" : {
+         "hash" : "f76dee4f3245773eae20a476e82da6d9"
+      },
+      "271" : {
+         "hash" : "ab2afbb4be2f0220309624a040db1488"
+      },
+      "272" : {
+         "hash" : "8f718082f273a1e81605898520e4ff70"
+      },
+      "273" : {
+         "hash" : "9134f0d30135ff77c775b0dfee193b6e"
+      },
+      "274" : {
+         "hash" : "ce0f7db8e83d47b2b67de741ca273dc8"
+      },
+      "275" : {
+         "hash" : "126fbd4df43b4f14144d87a7301a1dda"
+      },
+      "276" : {
+         "hash" : "1bb3438ba0ca0b1ae3077a53b067dcc2"
+      },
+      "277" : {
+         "hash" : "d07a61f8bc0e0cf46317993e1fff5cf2"
+      },
+      "278" : {
+         "hash" : "0f5c914fb48947f990d936b04f096aaf"
+      },
+      "279" : {
+         "hash" : "27b81d9176c6cf1b7b2a1bd10d74d23e"
+      },
+      "28" : {
+         "hash" : "11a7fca6f59695844cd088e948060e79"
+      },
+      "280" : {
+         "hash" : "44c48cff7c5b921f75164634cf557171"
+      },
+      "281" : {
+         "hash" : "58201e4b3fbee8b5cbc6aaed3caf8df3"
+      },
+      "282" : {
+         "hash" : "d0ed9ea99482e8eae512416faf402299"
+      },
+      "283" : {
+         "hash" : "e8084b7260c8826fdec04a0c791cdeba"
+      },
+      "284" : {
+         "hash" : "a6595da081a19c17528c6f5deb9133f0"
+      },
+      "285" : {
+         "hash" : "96bb85f8271b0f13b279f42ceeea58b6"
+      },
+      "286" : {
+         "hash" : "956d5b38d7495327e709477cf6c3d2f0"
+      },
+      "287" : {
+         "hash" : "ba48efd4acfe7a2665dc248ee8285d31"
+      },
+      "288" : {
+         "hash" : "f532a36c9e298bdfef5837baac95bfdc"
+      },
+      "289" : {
+         "hash" : "48143cd0ad67846fbe358a9e9aa36bac"
+      },
+      "29" : {
+         "hash" : "dca75ef62fd9218a294e7988a1731592"
+      },
+      "290" : {
+         "hash" : "75d9fcf80066760fb30e357925a200d5"
+      },
+      "291" : {
+         "hash" : "3bf4e006f64ab94eff8b370831967bcf"
+      },
+      "292" : {
+         "hash" : "f6bf834ec4d187794b9f353d3b1eba30"
+      },
+      "293" : {
+         "hash" : "3bd3dfdd89e1474fec2b64cf071b6bb3"
+      },
+      "294" : {
+         "hash" : "4963864917595bb05cae5c853f10a69c"
+      },
+      "295" : {
+         "hash" : "415210293c46ef709bb4e04625d604aa"
+      },
+      "296" : {
+         "hash" : "24f221e08d5e97ade304a7812a984099"
+      },
+      "297" : {
+         "hash" : "37cd03d2353b8eacd7e719ab95071606"
+      },
+      "298" : {
+         "hash" : "9804b76252d7e784223a2fd953894c4f"
+      },
+      "299" : {
+         "hash" : "d03f4da5fb145a8a100d0fa7a7e7a9ba"
+      },
+      "3" : {
+         "hash" : "969990afbff056b6ff2cd8c24540331a"
+      },
+      "30" : {
+         "hash" : "26f40577cc9fd44846e0582ab438014d"
+      },
+      "300" : {
+         "hash" : "5bdec114db1d924f25965f2be2d3e13f"
+      },
+      "301" : {
+         "hash" : "41851577c669ee98c941aaeaf918c721"
+      },
+      "302" : {
+         "hash" : "5e0f453b4174161790adece1c2ad12f2"
+      },
+      "303" : {
+         "hash" : "c6b66936555be10a94f413a6a94340ba"
+      },
+      "304" : {
+         "hash" : "c08a198cdb5b87faffb94c60be7dd6e9"
+      },
+      "305" : {
+         "hash" : "9a221113f01b2a3d5f966a8e8f0dff5e"
+      },
+      "306" : {
+         "hash" : "11af9ed316d5bb0f8291069b27244bf4"
+      },
+      "307" : {
+         "hash" : "74360e2ba6032171da36f6569dd32353"
+      },
+      "308" : {
+         "hash" : "5f3ce108702e957687cc09b9b9e08541"
+      },
+      "309" : {
+         "hash" : "276a322b6082efa96e7adbcbcddf6b0f"
+      },
+      "31" : {
+         "hash" : "a3b999dbba34cf0006b7ce550ef85310"
+      },
+      "310" : {
+         "hash" : "567049ee0beac2f078562dbdfa14242b"
+      },
+      "311" : {
+         "hash" : "9ae97f57811754ba6b91ec59a6358286"
+      },
+      "312" : {
+         "hash" : "eb07989b85ac2598a6c4d8521a035c37"
+      },
+      "313" : {
+         "hash" : "26358c0b5823db0a72ef1cd95841d6c0"
+      },
+      "314" : {
+         "hash" : "b15178b252807f631fe054f45dfe7733"
+      },
+      "315" : {
+         "hash" : "a89185c379c8af9c81b4eb923f432608"
+      },
+      "316" : {
+         "hash" : "e008382592c7a2845d20656397d9f90f"
+      },
+      "317" : {
+         "hash" : "8511a4ec71a5aaf6cf5c03bb5ded4bf2"
+      },
+      "318" : {
+         "hash" : "5fed240deebae5519095feef47440271"
+      },
+      "319" : {
+         "hash" : "f60e2ac39cd799294cc444e6b970d82f"
+      },
+      "32" : {
+         "hash" : "47e5e7e23d357086a2af8dd9c9a6660d"
+      },
+      "320" : {
+         "hash" : "f66d0fed6cc031977fb302b7eeb2a6c4"
+      },
+      "321" : {
+         "hash" : "58a856bada275387a5f4a17936d7d5c5"
+      },
+      "322" : {
+         "hash" : "3078c6c382bbb6f01a169eb49ae52d3d"
+      },
+      "323" : {
+         "hash" : "ef3fc15a57795fb8ccbadffa605ba397"
+      },
+      "324" : {
+         "hash" : "5cc6a843693b260f7f973091e4c5c8d7"
+      },
+      "325" : {
+         "hash" : "914ab197011407bfb385e83b03ecb378"
+      },
+      "326" : {
+         "hash" : "8f453c0ba8022a7d270ecdf8a5fcb0ae"
+      },
+      "327" : {
+         "hash" : "bb481fc60b8da60be6b94f0aaedf75eb"
+      },
+      "328" : {
+         "hash" : "7cebc06eeadfccfad6aebb87c5baa253"
+      },
+      "329" : {
+         "hash" : "7b77c8fc91aeccfe8636eb9332f3aa2e"
+      },
+      "33" : {
+         "hash" : "67313732b817ae2f4cf91eacb078ac7e"
+      },
+      "330" : {
+         "hash" : "150ffa21329d9c21227bf8d3ad637e31"
+      },
+      "331" : {
+         "hash" : "3191d44f277196ca0c414410b1eedcb5"
+      },
+      "332" : {
+         "hash" : "ba67f710af02faa072b4db8e6f93d1b0"
+      },
+      "333" : {
+         "hash" : "7f564cafa4bfdaa8a43de6dd44530f22"
+      },
+      "334" : {
+         "hash" : "3983c5232955f625194036bfb14b1401"
+      },
+      "335" : {
+         "hash" : "e223afcfbba9918c1fab32d1e784d685"
+      },
+      "336" : {
+         "hash" : "fe20e9fb5e7e659585216eae190bb346"
+      },
+      "337" : {
+         "hash" : "dc29a7d2431bc488d3b26c4b1cdad736"
+      },
+      "338" : {
+         "hash" : "5b3c7e8ad3087c80a1feabba609df6be"
+      },
+      "339" : {
+         "hash" : "4f33e5cb14a87de546b6ff22ab75afc6"
+      },
+      "34" : {
+         "hash" : "5939ef060c6a30d31685f6b024d7a3f6"
+      },
+      "340" : {
+         "hash" : "eaeb76f5429cc9c9a33bbeee6cf4d32b"
+      },
+      "341" : {
+         "hash" : "eb18dae4d983d7d5c886987caa602901"
+      },
+      "342" : {
+         "hash" : "d64dc31f5ca443b35db8a23d8c7e432d"
+      },
+      "343" : {
+         "hash" : "627eb24c4973244029448689133c0fce"
+      },
+      "344" : {
+         "hash" : "c20cdea9b60fe439531100ade2500349"
+      },
+      "345" : {
+         "hash" : "92f946172d01958e17b56426ae7e9a4a"
+      },
+      "346" : {
+         "hash" : "a7db16591032bc37a2e3890d72ef84db"
+      },
+      "347" : {
+         "hash" : "6ca67e4a970cdb4168d3cef0bda2b84d"
+      },
+      "348" : {
+         "hash" : "08129936f805d8b29366b1f55f02ca52"
+      },
+      "349" : {
+         "hash" : "d9a61fe46356ab22c245292f3d804dda"
+      },
+      "35" : {
+         "hash" : "8c15ff5a0a9ae0d85d758d039dbf17b9"
+      },
+      "350" : {
+         "hash" : "6a6efae5a056b3da08026fbfd926273c"
+      },
+      "351" : {
+         "hash" : "286e11158d1f3e607ef4b16c34a4de42"
+      },
+      "352" : {
+         "hash" : "59e50a4edac926feed7d1b1d1fdbb722"
+      },
+      "353" : {
+         "hash" : "167c3f618cddb893b311efdebc5bff67"
+      },
+      "354" : {
+         "hash" : "d8b4bfcf26cb0934a750f2829e798677"
+      },
+      "355" : {
+         "hash" : "970dea662fb927c5256d9529ebb063f9"
+      },
+      "356" : {
+         "hash" : "6484cf036e23154f8b78c3d56839221f"
+      },
+      "357" : {
+         "hash" : "a5f60594fa65b3cc56f1bc6808d427f7"
+      },
+      "358" : {
+         "hash" : "4daf7a881610f38fc43da1065c043bee"
+      },
+      "359" : {
+         "hash" : "7a2c04dfbaeabb1b95281b21c4b5f0c7"
+      },
+      "36" : {
+         "hash" : "51e58e3cfd1e58cc97a9a86f22f40e08"
+      },
+      "360" : {
+         "hash" : "a1d49be6f1b5cca2085c1af2e4555ed9"
+      },
+      "361" : {
+         "hash" : "db08176aa092b6514c46c62aaa72d7ca"
+      },
+      "362" : {
+         "hash" : "95c45613f6594346bc01049c247be209"
+      },
+      "363" : {
+         "hash" : "6db1455692095e60a8d12e849952d300"
+      },
+      "364" : {
+         "hash" : "97d4c714bfecce5a7962eba78124ba68"
+      },
+      "365" : {
+         "hash" : "a2a9f831a6e42776c565caa931b3c7d3"
+      },
+      "366" : {
+         "hash" : "661aee2580fed2520cb284ebe3032948"
+      },
+      "367" : {
+         "hash" : "66d06576d23982e69452d5168220fa7e"
+      },
+      "368" : {
+         "hash" : "d8dd311f1333feb28d2e5c265d44e0d8"
+      },
+      "369" : {
+         "hash" : "8f0b60861d29526bf7d4c857c2fee346"
+      },
+      "37" : {
+         "hash" : "da5bd0e48635d9b1b96d9b8b5d67a3ca"
+      },
+      "370" : {
+         "hash" : "107aba1ed765a1e905998b63720ecd51"
+      },
+      "371" : {
+         "hash" : "3b2c21efaa00e7e8441ae197de7c0c49"
+      },
+      "372" : {
+         "hash" : "fcf8b00c0ac3c569840fe706792405a4"
+      },
+      "373" : {
+         "hash" : "5d7513563fbe1e0c9207110756dd06cb"
+      },
+      "374" : {
+         "hash" : "ec7f2917a9738c2c0b3977c5575fa08a"
+      },
+      "375" : {
+         "hash" : "6c40d800631c0a58669a2ae800823c02"
+      },
+      "376" : {
+         "hash" : "7911efb261e90be72bc3f2af02e5d890"
+      },
+      "377" : {
+         "hash" : "e5eb81aae5657c2f7e3ce0b037eba5e9"
+      },
+      "378" : {
+         "hash" : "f76726f8b8b9a4218423bef214be521a"
+      },
+      "379" : {
+         "hash" : "ffd2c26244d74e57480b2c1d1a6d8a0a"
+      },
+      "38" : {
+         "hash" : "d8dd030ecbd5092c02f7214ba9650136"
+      },
+      "380" : {
+         "hash" : "f281582d7ee33d590d60b01c977e44b1"
+      },
+      "381" : {
+         "hash" : "b78f604f51c101d2e9686f6e4d605f76"
+      },
+      "382" : {
+         "hash" : "41de70c2c6ad81099863c35e4d332750"
+      },
+      "383" : {
+         "hash" : "6bcfa45ad32038f93a30f50e9a3e7f86"
+      },
+      "384" : {
+         "hash" : "75b93da8749899f231f269c736653a55"
+      },
+      "385" : {
+         "hash" : "fb097ba7bd9a9511735fe5cb3394ea64"
+      },
+      "386" : {
+         "hash" : "ff6e2cada0853ef1aef215a2d5e0193c"
+      },
+      "387" : {
+         "hash" : "41b94107bc2ab480a647858a288c4dfb"
+      },
+      "388" : {
+         "hash" : "4fce7fca8c1386e8b8a1bb10b8f3ee28"
+      },
+      "389" : {
+         "hash" : "9856e2b652b00febc3aa8541efb5a3fd"
+      },
+      "39" : {
+         "hash" : "701e676e3c19566d0bf06e32d37d6770"
+      },
+      "390" : {
+         "hash" : "6b9de78eddc3d668af6fc41accc2ab5e"
+      },
+      "391" : {
+         "hash" : "5361f5f5768e894f4344bfa6d513d9b4"
+      },
+      "392" : {
+         "hash" : "5419c7c1c3aaa57b6f0c5364b5e7b807"
+      },
+      "393" : {
+         "hash" : "e911381f3f038c2981f99ac2bec63e1c"
+      },
+      "394" : {
+         "hash" : "3f36db8ee0011a6a10aa828228b5ed38"
+      },
+      "395" : {
+         "hash" : "5369bbc9a24a021c67f8f4d0a4eac3fc"
+      },
+      "396" : {
+         "hash" : "fdd1635dcd51d9d11cba74f323d0f045"
+      },
+      "397" : {
+         "hash" : "8663389153b081a9df887e7effc7ea10"
+      },
+      "398" : {
+         "hash" : "8eb16a9d571e91dba3910299acbfa85b"
+      },
+      "399" : {
+         "hash" : "b9d3293e440e21acc4314588d1031c52"
+      },
+      "4" : {
+         "hash" : "d8f6c7091113faa9394b19e154079694"
+      },
+      "40" : {
+         "hash" : "f5266a5613a41b775fe9e53de6c109f9"
+      },
+      "400" : {
+         "hash" : "62076314a88c38a2f0028b7b4d612f12"
+      },
+      "401" : {
+         "hash" : "aba033fc4d7c6037baf633c289ac8d7e"
+      },
+      "402" : {
+         "hash" : "c86a03d5656674bab966abf3b76cf56b"
+      },
+      "403" : {
+         "hash" : "38f3ae1a370e5faf1a9d9a7393eb95ca"
+      },
+      "404" : {
+         "hash" : "a3016dc5de41914f8f7f64478d7792a3"
+      },
+      "405" : {
+         "hash" : "a81c76e1ee9f9d2611e93c2290eba559"
+      },
+      "406" : {
+         "hash" : "7e372d80242e071de67991225685a80b"
+      },
+      "407" : {
+         "hash" : "e077c07675179d6e3dd01bdb3c291015"
+      },
+      "408" : {
+         "hash" : "7dc9a87371c103675f63f0857ba7f0d8"
+      },
+      "409" : {
+         "hash" : "13d352e46ec42d56215c792469a17ea8"
+      },
+      "41" : {
+         "hash" : "55358ca0fab1922124f72dbcc274020a"
+      },
+      "410" : {
+         "hash" : "1c436cc98d291278a097722e61ccfcf7"
+      },
+      "411" : {
+         "hash" : "88df4f8b028073028d20986b5f8ffaf0"
+      },
+      "412" : {
+         "hash" : "033bfb6a6460c1075bd29b8ba3e67653"
+      },
+      "413" : {
+         "hash" : "d011ee19d80b2824f51c9d259c2a6c1f"
+      },
+      "414" : {
+         "hash" : "c152e920f2a3959d4adb349f748bec0e"
+      },
+      "415" : {
+         "hash" : "38eeaaab701906e1584804c128d52446"
+      },
+      "416" : {
+         "hash" : "75247ac0c5650250eb710d14a4ab57dd"
+      },
+      "417" : {
+         "hash" : "7b8d0ef5b796820c46b0a8b3904a4f57"
+      },
+      "418" : {
+         "hash" : "06750a917aa4a5f8dc704c4f722c34ef"
+      },
+      "419" : {
+         "hash" : "cb05f5825a29227d726f7c9cb783023e"
+      },
+      "42" : {
+         "hash" : "daebcbf594b3e497062fe1af6b7d0cc4"
+      },
+      "420" : {
+         "hash" : "7b6ae30ef02fa9dff8670581e9b8c071"
+      },
+      "421" : {
+         "hash" : "e2691843acab8c8e176c32d17a48724b"
+      },
+      "422" : {
+         "hash" : "acce681e9c64471779b4b8000f0c2343"
+      },
+      "423" : {
+         "hash" : "48e6df24bd32827174431e23c0b1cbd1"
+      },
+      "424" : {
+         "hash" : "6c2c764ae717cc58d7a03c439ee3f817"
+      },
+      "425" : {
+         "hash" : "e97b5d506f9ac178e40546dc35b1b7c6"
+      },
+      "426" : {
+         "hash" : "72e3e036a9c00cac124728b973425fbe"
+      },
+      "427" : {
+         "hash" : "3590e418bf674d83d77bded460c116e7"
+      },
+      "428" : {
+         "hash" : "d7315f171c1224e5c9ad3a3c744bda31"
+      },
+      "429" : {
+         "hash" : "dc24696c5f895a667c6e919cbf4a2afb"
+      },
+      "43" : {
+         "hash" : "d981a71578564690d630268ed9a51e4e"
+      },
+      "430" : {
+         "hash" : "55f85e317aa524904d3ee4abefe0764e"
+      },
+      "431" : {
+         "hash" : "b53042a79e3324fb02fc825aa0d89c54"
+      },
+      "432" : {
+         "hash" : "677590ffac3bde8b4f62af4c3353680e"
+      },
+      "433" : {
+         "hash" : "22a63d4c95f07ab5783e2d8e661f8ff5"
+      },
+      "434" : {
+         "hash" : "fc921d0955ff13eb7627ca5b2aaa3456"
+      },
+      "435" : {
+         "hash" : "0dd0afb647dc71b9e7c623a3c4d30f7d"
+      },
+      "436" : {
+         "hash" : "992e20bfeb1cf4cb2f92270b6882ce88"
+      },
+      "437" : {
+         "hash" : "0bf851b378faf8b3e11dfd17a7003f13"
+      },
+      "438" : {
+         "hash" : "f44f97c90fabe38167581ef59dc8acb5"
+      },
+      "439" : {
+         "hash" : "984aa61605b5660e928b89e98169453d"
+      },
+      "44" : {
+         "hash" : "f8f50d977e8bc8d4c4e86a8db66e352e"
+      },
+      "440" : {
+         "hash" : "6a9ed136c4fbccd88b3ece46d18e2627"
+      },
+      "441" : {
+         "hash" : "dd074a63e9c394038676943f09343f22"
+      },
+      "442" : {
+         "hash" : "73d313a6773dc5fe1ca460b8dcebb9e5"
+      },
+      "443" : {
+         "hash" : "1cfc6ad9b778851b1d175c74d856a3fd"
+      },
+      "444" : {
+         "hash" : "2a024ad34c80374be77179be70d9c671"
+      },
+      "445" : {
+         "hash" : "5db1a17e56c08949a5d7509aded7ea42"
+      },
+      "446" : {
+         "hash" : "fbaa1f4bed0b2051dba9fd90574adb32"
+      },
+      "447" : {
+         "hash" : "3180ed1afd5599b766de8a10b953d22d"
+      },
+      "448" : {
+         "hash" : "b4b89c8a17f1bcafb4f504b869c57d72"
+      },
+      "449" : {
+         "hash" : "80ba735401d1af240a7bc740ebf2eba8"
+      },
+      "45" : {
+         "hash" : "7293a0090e68115d4c5119728b65f837"
+      },
+      "450" : {
+         "hash" : "6e07fc95de609c0ae770a721691e29fd"
+      },
+      "451" : {
+         "hash" : "faaceff01b8686598af8bd4ba1c95ff6"
+      },
+      "452" : {
+         "hash" : "ee9a4c678e7b9b82539195753cfd3247"
+      },
+      "453" : {
+         "hash" : "f540d14e0987f7eb54735bb69dd0205e"
+      },
+      "46" : {
+         "hash" : "850f60b17e2a208a1cf6619921cb7b2c"
+      },
+      "47" : {
+         "hash" : "5196f6218811ae67f298f9544516065d"
+      },
+      "48" : {
+         "hash" : "7b8f016247c2d68d3ecae68a0e5269bf"
+      },
+      "49" : {
+         "hash" : "1276f3f663e37312c6ec3927a9b0a7da"
+      },
+      "5" : {
+         "hash" : "3b849d48f6ad597bfd98a5ef5b6a94fc"
+      },
+      "50" : {
+         "hash" : "44de45a59f552b6bf45e7aa4edb77232"
+      },
+      "51" : {
+         "hash" : "89b0d0a6ed8e03f36697f21d67bba373"
+      },
+      "52" : {
+         "hash" : "3fe776d79a63acade9567cc31ac530b2"
+      },
+      "53" : {
+         "hash" : "a7932e7cd037ea97b3c2a289699a56f0"
+      },
+      "54" : {
+         "hash" : "fd8a70d6c47de433627be0dede9fc7ab"
+      },
+      "55" : {
+         "hash" : "6c81bd198ff51164357768c82fdb63d8"
+      },
+      "56" : {
+         "hash" : "284973e1021d35eccbece0a305348b2f"
+      },
+      "57" : {
+         "hash" : "9c42e8315a41b07eb8d5cc538d32d89e"
+      },
+      "58" : {
+         "hash" : "9c01b69d8b150200cc232afa380d6b51"
+      },
+      "59" : {
+         "hash" : "15c1d30305fd10f524200ce30b35fdec"
+      },
+      "6" : {
+         "hash" : "6f8889c2f2973f6e2d367b1268e0cf50"
+      },
+      "60" : {
+         "hash" : "328ecaf3f281314fb391bf88eb130af9"
+      },
+      "61" : {
+         "hash" : "4dc629a6706b8b3106b61c4c9c041994"
+      },
+      "62" : {
+         "hash" : "9f0e90f2c0573af6e4bae74e24e26238"
+      },
+      "63" : {
+         "hash" : "a26f5dca434104835b8b64c71b9b8027"
+      },
+      "64" : {
+         "hash" : "7b571fad6a0e2131aeca2268733e5d1b"
+      },
+      "65" : {
+         "hash" : "64daa5e153e756cb8cd80089b1c9374c"
+      },
+      "66" : {
+         "hash" : "c80d61f220d63a279004b90da609e43c"
+      },
+      "67" : {
+         "hash" : "20de7b069f116d7c33fa8f09fab972be"
+      },
+      "68" : {
+         "hash" : "ddcdcdced5c9525ae713c148d7ad5eb8"
+      },
+      "69" : {
+         "hash" : "ad3545983dee7272bd2c49dce76304b5"
+      },
+      "7" : {
+         "hash" : "f51b5ae287151ce02a5380314f58baf9"
+      },
+      "70" : {
+         "hash" : "db18c383c310dd307c7954a3cd4ed372"
+      },
+      "71" : {
+         "hash" : "221a183ecbfc5b30b68760f1e5bbcb5d"
+      },
+      "72" : {
+         "hash" : "e7ba7749e75333ff5a653b74291073bb"
+      },
+      "73" : {
+         "hash" : "7ef6c47317849473c41c1621da53c3d6"
+      },
+      "73-1" : {
+         "hash" : "3ce8a8d285b20773192acd5d2e984f00"
+      },
+      "74" : {
+         "hash" : "f4c50edeb44b4952f7ae77fd876b5984"
+      },
+      "75" : {
+         "hash" : "4ee1c1dcf3b07762105178270c7d9443"
+      },
+      "76" : {
+         "hash" : "1e4145fd465c3e7aedc93a19df3ecad2"
+      },
+      "77" : {
+         "hash" : "134eafd9886612fc09faa2c0dcbcad1f"
+      },
+      "78" : {
+         "hash" : "01085e02be2ba6a5e27ad3f62eec8fb7"
+      },
+      "79" : {
+         "hash" : "15efa471a7da2b54fd3977239572c405"
+      },
+      "8" : {
+         "hash" : "f6ead88ac93a8d8076e704644ab9faa0"
+      },
+      "80" : {
+         "hash" : "77adc683faa022b07cac0fd5b2ee43d5"
+      },
+      "81" : {
+         "hash" : "b4e5935a5f6ba65af2a6cca4efedceb0"
+      },
+      "82" : {
+         "hash" : "e216083d69645d88b39c3ca916b2c141"
+      },
+      "83" : {
+         "hash" : "4466a027799d1b54ebb90f11abf0aaff"
+      },
+      "84" : {
+         "hash" : "1f4f795c8c5306842f7b142c7f41df45"
+      },
+      "85" : {
+         "hash" : "c871aa6e37265a14d3d79b4b93af4d4b"
+      },
+      "86" : {
+         "hash" : "8cf7640139da1816e070b91e55669984"
+      },
+      "87" : {
+         "hash" : "1a65697ae954e1054f83f2cbe31b24cd"
+      },
+      "88" : {
+         "hash" : "7952e88246ab636399dc5eb1ca33a890"
+      },
+      "89" : {
+         "hash" : "bff073a03b946af5da81efdb53d1d0af"
+      },
+      "9" : {
+         "hash" : "f2494029d2f892879c5ba8adfa36e672"
+      },
+      "90" : {
+         "hash" : "3579eacdaa7b1363635f3a2c6bfbd822"
+      },
+      "91" : {
+         "hash" : "8dbcfddb28a04790e33c9478c673bbe1"
+      },
+      "92" : {
+         "hash" : "03a84b0e5bb90504acbcf9550b315315"
+      },
+      "93" : {
+         "hash" : "4ed710ff4e6fb46408a677b8b974d3c5"
+      },
+      "94" : {
+         "hash" : "e0cdf8e722f0c100c5ebefeb9d91700c"
+      },
+      "95" : {
+         "hash" : "558239a9d3bce911f6caceabd1d1c8dd"
+      },
+      "96" : {
+         "hash" : "86f88d3d89e05ecb0ada1d5dbfc64354"
+      },
+      "97" : {
+         "hash" : "5cd911c7d21ab9b276b208b3e779909c"
+      },
+      "98" : {
+         "hash" : "3755438454d1e39b559e1f2e917f4ad1"
+      },
+      "99" : {
+         "hash" : "1704f2a41495bc19fa9bec47bfc07348"
+      }
+   },
+   "editions" : [
+      "01.01.2025",
+      "24.09.2025",
+      "16.03.2026"
+   ],
+   "source" : "https://lex.uz/uz/docs/-7282737"
+}
