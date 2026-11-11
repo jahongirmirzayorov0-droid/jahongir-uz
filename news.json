@@ -1,52 +1,60 @@
 {
-  "updated": "11.11.2026 10:04",
+  "updated": "11.11.2026 18:43",
   "items": [
+    {
+      "cat": "soliq",
+      "date": "11.11.2026",
+      "title": "O‘zbekiston JSTga kirgach, mobil qurilmalar uchun boj nolga tushiriladi — Bojxona qo‘mitasi",
+      "excerpt": "Shu hisobiga telefonlar aholi uchun 5% gacha arzonlashadi, biroq qo‘shilgan qiymat solig‘i saqlanib qoladi. Budjet esa 300−400 mlrd so‘m tushumdan mahrum bo‘ladi.",
+      "url": "https://www.spot.uz/oz/2026/11/11/no-duty/",
+      "source": "Spot.uz"
+    },
     {
       "cat": "iqtisod",
       "date": "11.11.2026",
-      "title": "Endi kreditlar va mikroqarzlar reklamasida moliyaviy xavf-xatarlar haqida ogohlantirish bo‘lishi kerak",
-      "excerpt": "O‘zbekistonda “Reklama to‘g‘risida”gi qonunga kiritilgan o‘zgartirishlarga ko‘ra, kreditlar va mikroqarzlar reklamasida moliyaviy xavf-xatarlar haqida ogohlantirish…",
-      "url": "https://www.gazeta.uz/oz/2026/11/11/reklama-kredit/",
-      "source": "Gazeta.uz"
+      "title": "Özbekiston va Koreya Respublikasi: raqamli iqtisodiyot va ilğor texnologiyalar böyiça hamkorlik kengayişida parlamentlar hissa qöşadi",
+      "excerpt": "Özbekiston parlament delegatsiyasining Seulga taşrifi doirasida Oliy Majlis Senati Raisi Tanzila Norboyeva Koreya Respublikasi Milliy Assambleyasi Spikeri Ço Çon Şik…",
+      "url": "https://uza.uz/oz/posts/ozbekiston-va-koreya-respublikasi-raqamli-iqtisodiyot-va-ilgor-texnologiyalar-boyicha-hamkorlik-kengayishida-parlamentlar-hissa-qoshadi_935918",
+      "source": "UzA"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "11.11.2026",
+      "title": "O‘zbekistonda dollar kursi yana tushdi",
+      "excerpt": "Markaziy bank xorijiy valyutalarning o‘zbek so‘miga nisbatan 12-noyabrda amalda bo‘ladigan qiymatini e’lon qildi.",
+      "url": "https://daryo.uz/2026/11/11/ozbekistonda-dollar-kursi-yana-tushdi-3/",
+      "source": "Daryo.uz"
     },
     {
       "cat": "soliq",
       "date": "11.11.2026",
-      "title": "Toshkent aeroportida yangi telefonlarni bojxona rasmiylashtiruvidan o‘tkazish vaqtincha to‘xtatildi",
-      "excerpt": "Toshkent aeroportida yangi, shuningdek, ilgari O‘zbekiston operatorlari tarmoqlarida ishlatilmagan telefon va qurilmalarni bojxona rasmiylashtiruvidan o‘tkazish…",
-      "url": "https://www.gazeta.uz/oz/2026/11/11/uzimei/",
-      "source": "Gazeta.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "10.11.2026",
-      "title": "Markaziy bankda kvotalar joriy etilishi ortidan shakar bilan bog‘liq katta inflyatsiya xavflari ko‘rilmayapti",
-      "excerpt": "MB raisining o‘rinbosari Nodirbek Achilov shakar bilan bog‘liq katta inflyatsiya xavflarini ko‘rmayotganini, 2027-yilda oziq-ovqat narxlari o‘sishi sekinlashishini…",
-      "url": "https://www.gazeta.uz/oz/2026/11/10/sugar/",
-      "source": "Gazeta.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "10.11.2026",
-      "title": "Millionlab to‘lovlar va yangi odat: Uzum Bank Apple Pay bilan o‘tkazilgan aksiya natijalarini sarhisob qildi",
-      "excerpt": "Apple Pay aksiyasi doirasida Uzum Bank mijozlariga deyarli 9 mlrd so‘m keshbek taqdim etildi. Aksiya natijalari yangi to‘lov texnologiyalari O‘zbekiston aholisi kundalik…",
-      "url": "https://daryo.uz/2026/11/10/millionlab-tolovlar-va-yangi-odat-uzum-bank-apple-pay-bilan-otkazilgan-aksiya-natijalarini-sarhisob-qildi/",
+      "title": "Toshkent aeroportida telefonlarni bojxonada rasmiylashtirish qayta tiklandi",
+      "excerpt": "11-noyabrdan yo‘lovchilar xorijdan olib kelgan telefonlarini aeroportda yana rasmiylashtirishi mumkin. Shuningdek, vaqtincha olib qo‘yilgan bir necha yuzta telefonni…",
+      "url": "https://daryo.uz/2026/11/11/toshkent-aeroportida-telefonlarni-bojxonada-rasmiylashtirish-qayta-tiklandi/",
       "source": "Daryo.uz"
     },
     {
       "cat": "iqtisod",
-      "date": "10.11.2026",
-      "title": "Jahon matbuoti sharhi",
-      "excerpt": "Reuters, Le Monde va The Economist materiallari asosida Xitoyning tashqi savdo profitsiti 1 trln dollardan oshishi, Turkiyaning jahon energiya iste’molida elektr…",
-      "url": "https://review.uz/uz/post/jahon-matbuoti-sharhi-10-11-2026",
-      "source": "Review.uz"
+      "date": "11.11.2026",
+      "title": "Shavkat Mirziyoyev Jahon banki rahbari va Finlyandiya prezidenti bilan uchrashdi",
+      "excerpt": "Muzokaralarda investitsiyaviy hamkorlikni kengaytirish, qo‘shma loyihalarni amalga oshirish, suv xavfsizligi va ekologik masalalar muhokama qilindi.",
+      "url": "https://daryo.uz/2026/11/11/shavkat-mirziyoyev-jahon-banki-rahbari-va-finlyandiya-prezidenti-bilan-uchrashdi/",
+      "source": "Daryo.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "11.11.2026",
+      "title": "Kapitalbank Hindistonda Ibn Sino merosini o‘rganishga qaratilgan ilk ilmiy ekspeditsiyani qo‘llab-quvvatladi",
+      "excerpt": "2026-yilning 9–15-noyabr kunlari O‘zbekiston delegatsiyasining butun dunyoga Avitsenna nomi bilan tanilgan buyuk olim va mutafakkir Abu Ali ibn Sinoning qo‘lyozma…",
+      "url": "https://daryo.uz/2026/11/11/kapitalbank-hindistonda-ibn-sino-merosini-organishga-qaratilgan-ilk-ilmiy-ekspeditsiyani-qollab-quvvatladi/",
+      "source": "Daryo.uz"
     },
     {
       "cat": "soliq",
-      "date": "10.11.2026",
-      "title": "Bill Geyts milliarderlar uchun soliqlarni oshirishga chaqirdi",
-      "excerpt": "Microsoft asoschisining fikricha, aks holda sun’iy intellekt boylarni yanada boyitib, qolganlarni ko‘maksiz qoldiradi.",
-      "url": "https://www.spot.uz/oz/2026/11/10/gates-rich-tax/",
+      "date": "11.11.2026",
+      "title": "Rossiyada mehnat migrantlari ishlamaydigan oila a’zolari uchun soliq to‘laydi",
+      "excerpt": "Tartib 2027-yildan kuchga kirishi rejalashtirilgan bo‘lib, ularning ishlamaydigan oila a’zolari Rossiyada bo‘lish muddatini cheklashga qaratilgan.",
+      "url": "https://www.spot.uz/oz/2026/11/11/russia-migrants/",
       "source": "Spot.uz"
     }
   ]
