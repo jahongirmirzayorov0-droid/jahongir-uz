@@ -1,37 +1,45 @@
 {
-  "updated": "13.11.2026 19:04",
+  "updated": "14.11.2026 02:13",
   "items": [
     {
       "cat": "iqtisod",
-      "date": "13.11.2026",
-      "title": "Jahon matbuoti sharhi",
-      "excerpt": "IHTT, Hindiston Savdo va sanoat vazirligi, AMRO va Moliyaviy barqarorlik kengashi ma’lumotlari asosida Yaponiya va Avstraliyada xorijiy ishchilarni jalb qilish…",
-      "url": "https://review.uz/uz/post/jahon-matbuoti-sharhi-14-11-2026",
-      "source": "Review.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "13.11.2026",
-      "title": "ILMA O‘zbekistonda savdo qilish mumkin bo‘lgan xorijiy qimmatli qog‘ozlar ro‘yxatini tuzadi",
-      "excerpt": "Muomaladagi aktivlar hajmi agentlik tomonidan Markaziy bank bilan kelishilgan holda tasdiqlanadi.",
-      "url": "https://www.spot.uz/oz/2026/11/13/securities-registry/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "13.11.2026",
-      "title": "BRIKS va Ğarb: Jahon iqtisodiyotida yangi kuç markazlari şakllanyaptimi?",
-      "excerpt": "Jahon iqtisodiyotida kuçlar nisbati özgarmoqda. Ğarb davlatlari önlab yil davomida xalqaro moliya, savdo va iqtisodiy institutlardagi yetakçi mavqeini saqlab kelgan…",
-      "url": "https://uza.uz/oz/posts/briks-va-garb-jahon-iqtisodiyotida-yangi-kuch-markazlari-shakllanyaptimi_937171",
+      "date": "14.11.2026",
+      "title": "2027-yilgi Davlat byudjeti ham ijtimoiy yönaltirilgan böladi",
+      "excerpt": "Prezident Şavkat Mirziyoyev 2027-yil uçun Davlat byudjetining maqsadli körsatkiçlari, asosiy makroiqtisodiy prognozlar hamda byudjet-soliq siyosatining ustuvor…",
+      "url": "https://uza.uz/oz/posts/2027-yilgi-davlat-byudjeti-ham-ijtimoiy-yonaltirilgan-boladi_937404",
       "source": "UzA"
     },
     {
       "cat": "iqtisod",
-      "date": "13.11.2026",
-      "title": "Dollar kursi yana ko‘tarildi",
-      "excerpt": "Amerika valyutasining so‘mga nisbatan kursi 40,93 so‘mga oshib, 12 014,37 so‘mni tashkil etdi.",
-      "url": "https://www.spot.uz/oz/2026/11/13/dollar-yana-oshdi/",
+      "date": "14.11.2026",
+      "title": "O‘zbekiston 2027-yilda $65 mlrd xorijiy investitsiya jalb qilishni rejalashtirmoqda",
+      "excerpt": "Yangi sanoat siyosati doirasida kimyo, mashinasozlik, elektrotexnika va boshqa istiqbolli tarmoqlarga yirik investorlar jalb qilinadi.",
+      "url": "https://www.spot.uz/oz/2026/11/14/investment-plans/",
       "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "13.11.2026",
+      "title": "O‘zbekiston 720 mln dollarli xalqaro iqlim investitsiyalari dasturiga qo‘shildi",
+      "excerpt": "O‘zbekiston umumiy qiymati 720 mln dollar bo‘lgan Transformation Pathways Initiative xalqaro iqlim investitsiyalari dasturi ishtirokchisiga aylandi. Dastur sanoatni…",
+      "url": "https://www.gazeta.uz/oz/2026/11/13/climatic-investments/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "13.11.2026",
+      "title": "O‘zbekistonda 2027-yilda iqtisodiyot 7 foizga o‘sishi va inflyatsiya 6 foizgacha pasayishi kutilmoqda",
+      "excerpt": "O‘zbekistonning 2027-yilgi davlat budjeti loyihasida daromadlar 416 trln so‘m, xarajatlar 464 trln so‘m bo‘lishi ko‘zlanmoqda. Qariyb 176 trln so‘m ta’lim va sog‘liqni…",
+      "url": "https://www.gazeta.uz/oz/2026/11/13/budget/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "13.11.2026",
+      "title": "O‘zbekistonda 2027-yilda ham asosiy soliq stavkalarini o‘zgarishsiz saqlash rejalashtirilmoqda",
+      "excerpt": "Kelgusi yil davlat byudjeti daromadlarini 416 trln so‘m, xarajatlarini esa 464 trln so‘m miqdorida belgilash ko‘zda tutilgan. Inflyatsiyani 6 foizdan oshirmaslik maqsad…",
+      "url": "https://daryo.uz/2026/11/13/ozbekistonda-2027-yilda-ham-asosiy-soliq-stavkalarini-ozgarishsiz-saqlash-rejalashtirilmoqda/",
+      "source": "Daryo.uz"
     },
     {
       "cat": "soliq",
@@ -40,14 +48,6 @@
       "excerpt": "Telefonlar uchun boj stavkasi 5%, QQS esa 12% ni tashkil qiladi. Dunyoda bu ko‘rsatkichlar o‘rtacha 10−15% va 18−20% ekani aytildi.",
       "url": "https://www.spot.uz/oz/2026/11/13/cheapest-duty/",
       "source": "Spot.uz"
-    },
-    {
-      "cat": "soliq",
-      "date": "13.11.2026",
-      "title": "Bojxona qo‘mitasi telefonlar narxiga oid tanqidlarga qanday javob berdi?",
-      "excerpt": "Bojxona qo‘mitasi telefonlarga import bojini budjetni to‘ldirish va rasmiy importchilarni noqonuniy bozordan himoya qilish bilan izohladi. Idora narxlar yuqoriligi…",
-      "url": "https://www.gazeta.uz/oz/2026/11/13/boj/",
-      "source": "Gazeta.uz"
     }
   ]
 }
