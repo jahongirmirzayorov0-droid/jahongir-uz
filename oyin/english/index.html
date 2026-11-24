@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
+        img-src 'self' data:;
+        media-src 'self' blob:;
+        connect-src 'self' https://script.google.com https://script.googleusercontent.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Ingliz tili — shaxsiy kurs | mmoliya.uz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap" crossorigin="anonymous"/>
+    <style>
+        :root {
+            --navy: #0b1d30; --navy-2: #15314f; --gold: #f1c40f; --gold-dark: #b8860b;
+            --ink: #0f172a; --muted: #64748b; --line: #e2e8f0; --bg: #f4f7fa; --card: #ffffff;
+            --ok: #16a34a; --ok-bg: #ecfdf3; --bad: #dc2626; --bad-bg: #fef2f2; --blue: #2563eb; --blue-bg: #eff6ff;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Poppins', 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+        button, input, textarea { font-family: inherit; }
+        a { color: inherit; }
+        [hidden] { display: none !important; }
+
+        .topbar { position: sticky; top: 0; z-index: 50; background: var(--navy); color: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+        .topbar-inner { max-width: 980px; margin: 0 auto; padding: 11px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; text-decoration: none; color: #fff; white-space: nowrap; }
+        .brand span { color: var(--gold); }
+        .top-actions { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+        .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 50px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 12.5px; font-weight: 600; color: #fff; text-decoration: none; cursor: pointer; }
+        .chip:hover { background: rgba(255,255,255,0.16); }
+        .chip i { color: var(--gold); }
+        .chip.sync { cursor: default; font-weight: 500; }
+        .chip.sync.ok i { color: #4ade80; } .chip.sync.err i { color: #fca5a5; }
+
+        .wrap { max-width: 980px; margin: 0 auto; padding: 22px 18px 70px; }
+        .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; border-radius: 20px; padding: 26px 26px 22px; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; right: -60px; top: -60px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(241,196,15,0.22), rgba(241,196,15,0) 70%); }
+        .hero-tag { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 32px; line-height: 1.15; margin: 8px 0 6px; }
+        .hero p { color: #cbd5e1; margin: 0 0 16px; max-width: 620px; font-size: 14.5px; }
+        .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; position: relative; z-index: 1; }
+        .stat { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 13px; padding: 10px 12px; }
+        .stat b { display: block; font-size: 19px; color: #fff; font-variant-numeric: tabular-nums; }
+        .stat span { font-size: 11.5px; color: #94a3b8; }
+        .bar { height: 7px; border-radius: 7px; background: rgba(255,255,255,0.14); overflow: hidden; margin-top: 7px; }
+        .bar > div { height: 100%; background: linear-gradient(90deg, var(--gold), #ffe27a); border-radius: 7px; transition: width 0.4s ease; }
+
+        h2.sec { font-family: 'Playfair Display', serif; font-size: 22px; margin: 26px 0 4px; color: var(--navy); }
+        p.sub { margin: 0 0 12px; color: var(--muted); font-size: 13.5px; }
+        .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
+        .panel.gold { border: 2px solid var(--gold); background: #fffdf3; }
+        .panel h3 { margin: 0 0 4px; font-size: 16.5px; color: var(--navy); display: flex; align-items: center; gap: 9px; }
+        .panel h3 i { color: var(--gold-dark); }
+        .panel p { margin: 0 0 10px; font-size: 14px; color: #334155; }
+
+        .days { display: flex; gap: 7px; flex-wrap: wrap; margin: 0 0 14px; }
+        .dayb { border: 1.5px solid var(--line); background: #fff; border-radius: 11px; padding: 7px 12px; font-size: 13px; font-weight: 600; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        .dayb.cur { border-color: var(--navy); background: var(--navy); color: #fff; }
+        .dayb.done i { color: var(--ok); } .dayb.cur.done i { color: #4ade80; }
+        .session { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 12px; background: #fff; }
+        .session-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 15px; background: #f8fafc; border-bottom: 1px solid var(--line); font-weight: 700; color: var(--navy); font-size: 14.5px; }
+        .session-head small { font-weight: 500; color: var(--muted); }
+        .task { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 15px; border: none; border-bottom: 1px solid #f1f5f9; background: #fff; cursor: pointer; text-align: left; font-size: 14.5px; color: var(--ink); }
+        .task:last-child { border-bottom: none; }
+        .task:hover { background: #f8fafc; }
+        .task .ic { width: 36px; height: 36px; border-radius: 10px; background: rgba(241,196,15,0.16); color: var(--gold-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .task .nm { flex: 1; min-width: 0; }
+        .task .nm b { display: block; font-weight: 600; }
+        .task .nm span { font-size: 12.5px; color: var(--muted); }
+        .task .st { font-size: 12.5px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+        .task.done .ic { background: var(--ok-bg); color: var(--ok); }
+        .task.done .st { color: var(--ok); }
+        .task.weak .st { color: #d97706; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 20px; border-radius: 50px; border: none; font-size: 14.5px; font-weight: 700; cursor: pointer; text-decoration: none; }
+        .btn:focus-visible, .opt:focus-visible, .task:focus-visible, .dayb:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-navy { background: var(--navy); color: #fff; }
+        .btn-ghost { background: #fff; color: var(--navy); border: 1px solid var(--line); }
+        .btn-sm { padding: 7px 13px; font-size: 13px; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .row { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+
+        /* Vazifa ekrani */
+        .thead { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .thead button.back { background: none; border: none; font-size: 16px; color: var(--muted); cursor: pointer; padding: 6px 8px; border-radius: 8px; }
+        .thead button.back:hover { background: #e9eef4; color: var(--navy); }
+        .thead h2 { margin: 0; font-size: 17px; color: var(--navy); flex: 1; }
+        .thead .cnt { font-size: 13px; font-weight: 700; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 50px; padding: 5px 12px; }
+        .prog { height: 6px; background: #e2e8f0; border-radius: 6px; overflow: hidden; margin-bottom: 14px; }
+        .prog > div { height: 100%; background: var(--navy); transition: width 0.3s ease; }
+        .qcard { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: 0 8px 24px rgba(11,29,48,0.05); }
+        .tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 50px; background: #eef2ff; color: #4338ca; margin-bottom: 10px; }
+        .qtext { font-size: 18px; font-weight: 500; margin: 0 0 16px; line-height: 1.55; }
+        .qtext .uz { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+        .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .opt { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 13px; border: 2px solid var(--line); background: #fff; cursor: pointer; text-align: left; font-size: 15px; color: var(--ink); min-height: 54px; }
+        .opt:hover:not(:disabled) { border-color: var(--navy); }
+        .opt .k { width: 24px; height: 24px; border-radius: 7px; background: #f1f5f9; color: var(--muted); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .opt.correct { border-color: var(--ok); background: var(--ok-bg); } .opt.wrong { border-color: var(--bad); background: var(--bad-bg); } .opt.dim { opacity: 0.55; } .opt.sel { border-color: var(--navy); background: #f1f5f9; }
+        .inp { width: 100%; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); font-size: 16px; background: #fff; color: var(--ink); }
+        .inp:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(241,196,15,0.2); }
+        .inp.ok { border-color: var(--ok); background: var(--ok-bg); } .inp.no { border-color: var(--bad); background: var(--bad-bg); }
+        textarea.inp { min-height: 190px; resize: vertical; line-height: 1.6; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 46px; padding: 8px; border: 2px dashed var(--line); border-radius: 12px; margin-bottom: 10px; }
+        .chips.pool { border-style: solid; background: #f8fafc; }
+        .wchip { padding: 7px 13px; border-radius: 10px; border: 1.5px solid var(--line); background: #fff; font-size: 15px; cursor: pointer; }
+        .wchip:hover { border-color: var(--navy); }
+        .fb { margin-top: 14px; border-radius: 13px; padding: 13px 16px; font-size: 14.5px; }
+        .fb.ok { background: var(--ok-bg); border: 1px solid #bbf7d0; } .fb.bad { background: var(--bad-bg); border: 1px solid #fecaca; }
+        .fb b.t { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+        .fb.ok b.t { color: var(--ok); } .fb.bad b.t { color: var(--bad); }
+        .fb .ans { font-weight: 700; color: var(--navy); }
+        .acts { margin-top: 14px; display: flex; justify-content: flex-end; gap: 9px; flex-wrap: wrap; }
+        .hint { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+        /* Dars matnlari */
+        .gp { border-left: 4px solid var(--gold); background: #fffdf3; border-radius: 0 12px 12px 0; padding: 12px 15px; margin-bottom: 11px; }
+        .gp h4 { margin: 0 0 4px; font-size: 15px; color: var(--navy); }
+        .gp p { margin: 0 0 7px; font-size: 14px; color: #334155; }
+        .exl { margin: 0; padding: 0; list-style: none; }
+        .exl li { display: flex; gap: 9px; align-items: baseline; padding: 4px 0; font-size: 14.5px; }
+        .exl li b { color: var(--navy); font-weight: 600; } .exl li span { color: var(--muted); font-size: 13.5px; }
+        .say { border: none; background: rgba(241,196,15,0.18); color: var(--gold-dark); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; flex-shrink: 0; font-size: 12.5px; }
+        .say:hover { background: var(--gold); color: var(--navy); }
+        .mist { display: grid; gap: 4px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 11px; margin-bottom: 8px; font-size: 14px; }
+        .mist .b { color: var(--bad); text-decoration: line-through; } .mist .g { color: var(--ok); font-weight: 600; } .mist .w { color: var(--muted); font-size: 13px; }
+        .vcard { text-align: center; padding: 10px 0 4px; }
+        .vcard .en { font-size: 28px; font-weight: 700; color: var(--navy); }
+        .vcard .uzb { font-size: 17px; color: #334155; margin: 4px 0 14px; }
+        .vcard .ex { font-size: 16px; background: #f8fafc; border-radius: 12px; padding: 12px 14px; display: inline-block; text-align: left; }
+        .vcard .ex small { display: block; color: var(--muted); font-size: 13.5px; margin-top: 3px; }
+        .grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
+        .grades button { border: 2px solid var(--line); background: #fff; border-radius: 12px; padding: 9px 4px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
+        .grades button small { display: block; font-weight: 500; color: var(--muted); font-size: 11px; }
+        .grades .g0 { border-color: #fecaca; color: var(--bad); } .grades .g1 { border-color: #fed7aa; color: #c2410c; } .grades .g2 { border-color: #bbf7d0; color: var(--ok); } .grades .g3 { border-color: #bfdbfe; color: var(--blue); }
+        .line { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 15px; align-items: baseline; }
+        .line .sp { font-weight: 700; color: var(--gold-dark); width: 18px; flex-shrink: 0; }
+        .rtext { font-size: 16px; line-height: 1.75; white-space: pre-line; }
+        .gloss { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+        .gloss span { font-size: 12.5px; background: #f1f5f9; border-radius: 8px; padding: 4px 9px; }
+        .gloss b { color: var(--navy); }
+        .diffw { display: inline-block; margin: 0 3px 3px 0; padding: 1px 5px; border-radius: 5px; }
+        .diffw.ok { background: var(--ok-bg); color: var(--ok); } .diffw.no { background: var(--bad-bg); color: var(--bad); text-decoration: underline; }
+        .timer { font-size: 38px; font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; text-align: center; margin: 8px 0; }
+        .note { font-size: 13px; color: var(--muted); background: #f8fafc; border-radius: 10px; padding: 9px 12px; margin: 10px 0; }
+        .note.warn { background: #fff7ed; color: #9a3412; }
+        .res { text-align: center; padding: 8px 0; }
+        .res .big { font-size: 46px; font-weight: 700; color: var(--navy); }
+        .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 9px; margin: 14px 0; }
+        .res-grid div { background: var(--bg); border-radius: 12px; padding: 10px; text-align: center; }
+        .res-grid b { display: block; font-size: 19px; color: var(--navy); } .res-grid span { font-size: 12px; color: var(--muted); }
+        .wk { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+        .wk:last-child { border-bottom: none; }
+        .wk > div { min-width: 0; }
+        .wk .n { width: 34px; height: 34px; border-radius: 10px; background: #f1f5f9; color: var(--muted); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13.5px; flex-shrink: 0; }
+        .wk.open .n { background: var(--gold); color: var(--navy); } .wk.passed .n { background: var(--ok); color: #fff; }
+        .wk b { display: block; font-size: 14.5px; color: var(--navy); } .wk span { font-size: 13px; color: var(--muted); }
+        .phase { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-dark); margin: 16px 0 4px; }
+        .lock { max-width: 400px; margin: 70px auto; background: #fff; border-radius: 18px; border-top: 4px solid var(--gold); padding: 28px 24px; box-shadow: 0 20px 50px rgba(4,12,22,0.12); text-align: center; }
+        .lock h2 { margin: 6px 0; color: var(--navy); } .lock p { color: var(--muted); font-size: 14px; }
+        .err { color: var(--bad); font-size: 13.5px; min-height: 20px; margin: 8px 0; }
+        .loading { text-align: center; padding: 80px 0; color: var(--muted); }
+        @media (max-width: 640px) {
+            .hero { padding: 20px 18px; border-radius: 16px; } .hero h1 { font-size: 25px; }
+            .stats { grid-template-columns: repeat(2, 1fr); } .opts { grid-template-columns: 1fr; }
+            .qcard { padding: 17px 14px; } .qtext { font-size: 16.5px; } .top-actions .chip span { display: none; }
+            .grades { grid-template-columns: repeat(2, 1fr); } .vcard .en { font-size: 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="/">M<span>moliya.uz</span></a>
+            <div class="top-actions">
+                <span class="chip sync" id="syncChip" hidden><i class="fas fa-cloud"></i><span id="syncText"></span></span>
+                <button class="chip" type="button" data-act="home"><i class="fas fa-house"></i><span>Bosh sahifa</span></button>
+                <a class="chip" href="/oyin/"><i class="fas fa-gamepad"></i><span>Schotlar oʻyini</span></a>
+            </div>
+        </div>
+    </header>
+    <main class="wrap" id="app"><div class="loading"><i class="fas fa-spinner fa-spin"></i> Yuklanmoqda…</div></main>
+
+    <script>
+    /* ===== INGLIZ TILI — SHAXSIY KURS =====
+       Kontent: data/course.json (yo'l xaritasi), data/diag.json (diagnostik test), data/wNN.json (haftalik darslar).
+       Natijalar: shu brauzerda (localStorage) + egasining Google Apps Script'ida (qurilmalar o'rtasida bir xil bo'lishi uchun).
+       Kirish: o'yindagi "Maxsus bo'lim" kaliti bilan (kalit saqlanmaydi — server bergan token saqlanadi). */
+    const API = 'https://script.google.com/macros/s/AKfycbxj72zvvOMf6Lm-65ur_yWQAcwHmY3piWTnfMCHow_z-LFTwUnNBjPLyINXPnXE0wFCiQ/exec';
+    const LS_STATE = 'mmoliya_en_v1', LS_TOKEN = 'mmoliya_en_token';
+    const DAILY_GOAL = 120; // daqiqa
+    const CORE = ['grammar', 'vocab', 'listening', 'speaking', 'reading', 'writing'];
+    const TASKS = {
+        rev1: { name: 'Kartochkalarni takrorlash', ic: 'fa-layer-group', min: 10 },
+        grammar: { name: 'Grammatika', ic: 'fa-spell-check', min: 20 },
+        vocab: { name: 'Yangi soʻz va iboralar', ic: 'fa-language', min: 15 },
+        listening: { name: 'Tinglash', ic: 'fa-headphones', min: 15 },
+        rev2: { name: 'Kartochkalarni takrorlash', ic: 'fa-layer-group', min: 10 },
+        speaking: { name: 'Gapirish', ic: 'fa-microphone', min: 20 },
+        reading: { name: 'Oʻqish', ic: 'fa-book-open', min: 15 },
+        writing: { name: 'Yozish', ic: 'fa-pen', min: 15 }
+    };
+    const $ = s => document.querySelector(s);
+    const app = () => document.getElementById('app');
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+    const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const pad = n => String(n).padStart(2, '0');
+    const dstr = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+    const today = () => dstr(new Date());
+    const dayNum = s => { const p = s.split('-'); return Math.floor(Date.UTC(+p[0], +p[1] - 1, +p[2]) / 864e5); };
+    const wid = w => 'w' + pad(w);
+
+    /* ---------- Holat (state) ---------- */
+    const blank = () => ({ v: 1, start: null, t: 0, cards: {}, done: {}, write: {}, speak: {}, log: {}, diag: null });
+    let S = blank(), token = null, COURSE = null;
+    const WEEK = {};
+    let ui = { week: 1, day: 1 };
+    function loadLocal() { try { const s = JSON.parse(localStorage.getItem(LS_STATE)); if (s && s.v === 1) S = Object.assign(blank(), s); } catch (e) {} try { token = localStorage.getItem(LS_TOKEN); } catch (e) {} }
+    function saveLocal() { try { localStorage.setItem(LS_STATE, JSON.stringify(S)); } catch (e) {} }
+    let saveTimer = null;
+    function save() { S.t = Date.now(); saveLocal(); clearTimeout(saveTimer); saveTimer = setTimeout(push, 4000); setSync('wait'); }
+    /* Ikki qurilmadagi natijalarni birlashtirish: har bir yozuvdan vaqti (t) yangirog'i olinadi */
+    function merge(a, b) {
+        const m = JSON.parse(JSON.stringify(a));
+        m.start = [a.start, b.start].filter(Boolean).sort()[0] || null;
+        ['cards', 'done', 'write', 'speak'].forEach(k => { m[k] = m[k] || {}; const src = b[k] || {}; for (const id in src) { const x = m[k][id], y = src[id]; if (!x || (y.t || 0) > (x.t || 0)) m[k][id] = y; } });
+        m.log = m.log || {}; for (const d in (b.log || {})) m.log[d] = Math.max(m.log[d] || 0, b.log[d]);
+        m.diag = (b.diag && (!a.diag || (b.diag.t || 0) > (a.diag.t || 0))) ? b.diag : (a.diag || null);
+        m.t = Math.max(a.t || 0, b.t || 0);
+        return m;
+    }
+    async function api(action, body) {
+        const res = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ action: action }, body || {})) });
+        return res.json();
+    }
+    function setSync(st) {
+        const c = $('#syncChip'); if (!c) return; c.hidden = !token;
+        c.className = 'chip sync ' + (st === 'ok' ? 'ok' : st === 'err' ? 'err' : '');
+        $('#syncText').textContent = st === 'ok' ? 'Saqlangan' : st === 'err' ? 'Oflayn — keyin saqlanadi' : 'Saqlanmoqda…';
+    }
+    let pushing = false;
+    async function push() {
+        if (!token || pushing) return; pushing = true;
+        try {
+            const r = await api('en_save', { token: token, state: JSON.stringify(S) });
+            if (r && r.ok) { if (r.state) { S = merge(S, JSON.parse(r.state)); saveLocal(); } setSync('ok'); }
+            else if (r && r.error === 'auth') { logout(); }
+            else setSync('err');
+        } catch (e) { setSync('err'); }
+        pushing = false;
+    }
+    async function pull() {
+        if (!token) return;
+        try {
+            const r = await api('en_load', { token: token });
+            if (r && r.ok) { if (r.state) { S = merge(S, JSON.parse(r.state)); saveLocal(); } setSync('ok'); return true; }
+            if (r && r.error === 'auth') { logout(); return false; }
+        } catch (e) {}
+        setSync('err'); return true;
+    }
+    function logout() { token = null; try { localStorage.removeItem(LS_TOKEN); } catch (e) {} showLock(); }
+    document.addEventListener('visibilitychange', () => { if (document.hidden && saveTimer) { clearTimeout(saveTimer); saveTimer = null; push(); } });
+
+    /* ---------- Vaqt hisobi: faqat faol o'tkazilgan daqiqalar ---------- */
+    let lastAct = Date.now(), secBuf = 0;
+    ['pointerdown', 'keydown', 'touchstart'].forEach(ev => document.addEventListener(ev, () => { lastAct = Date.now(); }, { passive: true }));
+    setInterval(() => {
+        if (document.hidden || !token || Date.now() - lastAct > 150000) return;
+        secBuf += 15;
+        if (secBuf >= 60) { const d = today(); S.log[d] = (S.log[d] || 0) + 1; secBuf -= 60; saveLocal(); if (S.log[d] % 5 === 0) save(); const el = $('#todayMin'); if (el) el.textContent = S.log[d]; }
+    }, 15000);
+    function streak() { let n = 0; const d = new Date(); if ((S.log[dstr(d)] || 0) < 20) d.setDate(d.getDate() - 1); while ((S.log[dstr(d)] || 0) >= 20) { n++; d.setDate(d.getDate() - 1); } return n; }
+
+    /* ---------- Ovoz: brauzerning amerikacha (en-US) ovozi ---------- */
+    const TTS = {
+        a: null, b: null, rate: 1, ok: 'speechSynthesis' in window,
+        pick() {
+            if (!this.ok) return;
+            const all = speechSynthesis.getVoices();
+            const us = all.filter(v => /^en[-_]US/i.test(v.lang));
+            const pool = us.length ? us : all.filter(v => /^en/i.test(v.lang));
+            const pref = re => pool.find(v => re.test(v.name));
+            this.a = pref(/Google US English|Samantha|Aria|Jenny|Ava|Zira/i) || pool[0] || null;
+            this.b = pool.find(v => v !== this.a && /Guy|David|Alex|Andrew|Christopher|Mark|Male|Tom|Fred|Aaron/i.test(v.name)) || pool.find(v => v !== this.a) || this.a;
+        },
+        say(text, sp, onend, rate) {
+            if (!this.ok) { if (onend) onend(); return; }
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'en-US'; const v = sp === 'B' ? this.b : this.a; if (v) u.voice = v;
+            if (sp === 'B' && this.b === this.a) u.pitch = 0.75;
+            u.rate = rate || this.rate;
+            let fired = false; const end = () => { if (!fired) { fired = true; if (onend) onend(); } };
+            u.onend = end; u.onerror = end;
+            speechSynthesis.speak(u);
+        },
+        stop() { if (this.ok) speechSynthesis.cancel(); this.playing = null; },
+        /* Dialogni ketma-ket o'qiydi; onLine(i) — qaysi qator o'qilayotgani */
+        seq(lines, onLine, onDone) {
+            this.stop(); const id = this.playing = {};
+            const next = i => { if (this.playing !== id) return; if (i >= lines.length) { this.playing = null; if (onDone) onDone(); return; } if (onLine) onLine(i); this.say(lines[i].t, lines[i].s, () => setTimeout(() => next(i + 1), 280)); };
+            next(0);
+        }
+    };
+    if (TTS.ok) { TTS.pick(); speechSynthesis.onvoiceschanged = () => TTS.pick(); }
+    const sayBtn = (text, sp) => '<button type="button" class="say" data-say="' + esc(text) + '"' + (sp ? ' data-sp="' + sp + '"' : '') + ' aria-label="Tinglash"><i class="fas fa-volume-high"></i></button>';
+
+    /* ---------- Javoblarni solishtirish ---------- */
+    const CONTR = [[/\bcan't\b/g, 'can not'], [/\bcannot\b/g, 'can not'], [/\bwon't\b/g, 'will not'], [/\bn't\b/g, ' not'], [/\bi'm\b/g, 'i am'], [/'re\b/g, ' are'], [/'ll\b/g, ' will'], [/'ve\b/g, ' have'], [/\blet's\b/g, 'let us'], [/\b(it|he|she|that|what|there|here|who|where|how)'s\b/g, '$1 is']];
+    const norm = s => String(s).toLowerCase().replace(/[’‘ʼʻ`´]/g, "'").replace(/[.,!?;:"“”()…]/g, ' ').replace(/\s+-\s+/g, ' ').replace(/\s+/g, ' ').trim();
+    const canon = s => { let x = norm(s); CONTR.forEach(([re, to]) => { x = x.replace(re, to); }); return x.replace(/\s+/g, ' ').trim(); };
+    const same = (input, list) => { const c = canon(input); return (Array.isArray(list) ? list : [list]).some(a => canon(a) === c); };
+    /* So'zma-so'z solishtirish (diktant, talaffuz): mos kelgan so'zlar soni (LCS) */
+    function wordDiff(target, got) {
+        const A = norm(target).split(' ').filter(Boolean), B = norm(got).split(' ').filter(Boolean);
+        const L = Array.from({ length: A.length + 1 }, () => new Array(B.length + 1).fill(0));
+        for (let i = A.length - 1; i >= 0; i--) for (let j = B.length - 1; j >= 0; j--) L[i][j] = A[i] === B[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+        const marks = []; let i = 0, j = 0;
+        while (i < A.length) { if (j < B.length && A[i] === B[j]) { marks.push(true); i++; j++; } else if (j < B.length && L[i][j + 1] >= L[i + 1][j]) j++; else { marks.push(false); i++; } }
+        const words = target.split(/\s+/).filter(Boolean);
+        return { pct: A.length ? Math.round(marks.filter(Boolean).length / A.length * 100) : 0, html: words.map((w, k) => '<span class="diffw ' + (marks[k] ? 'ok' : 'no') + '">' + esc(w) + '</span>').join('') };
+    }
+
+    /* ---------- Kontentni yuklash ---------- */
+    async function getJSON(path) { const r = await fetch(path + '?v=' + (COURSE ? COURSE.rev : Date.now()), { cache: 'no-cache' }); if (!r.ok) throw new Error(path); return r.json(); }
+    async function loadWeek(w) { if (!WEEK[w]) WEEK[w] = await getJSON('data/' + wid(w) + '.json'); return WEEK[w]; }
+    const openWeeks = () => COURSE.weeks.filter(w => w.open).map(w => w.n);
+    const dayId = (w, d) => wid(w) + 'd' + d;
+    const isDone = key => !!S.done[key];
+    const dayDone = (w, d) => d === 7 ? isDone(wid(w) + '.test') : CORE.every(t => isDone(dayId(w, d) + '.' + t));
+    function markDone(key, score, extra) { S.done[key] = Object.assign({ s: score == null ? 100 : score, t: Date.now() }, extra || {}); if (!S.start) S.start = today(); save(); }
+    /* Navbatdagi dars: ochiq haftalardagi birinchi tugallanmagan kun */
+    function currentDay() { for (const w of openWeeks()) for (let d = 1; d <= 7; d++) if (!dayDone(w, d)) return { week: w, day: d }; const ws = openWeeks(); return { week: ws[ws.length - 1] || 1, day: 7 }; }
+
+    /* ---------- Kartochkalar (oraliqli takrorlash, SM-2 soddalashtirilgan) ---------- */
+    const dueCards = () => { const t = dayNum(today()); return Object.keys(S.cards).filter(id => S.cards[id].d <= t); };
+    function gradeCard(id, g) {
+        const c = S.cards[id] || { d: 0, i: 0, e: 250, r: 0, l: 0 }; const t = dayNum(today());
+        if (g === 0) { c.l++; c.r = 0; c.i = 0; c.e = Math.max(130, c.e - 20); c.d = t; }
+        else {
+            if (c.r === 0) c.i = g === 3 ? 3 : 1; else if (c.r === 1) c.i = g === 1 ? 2 : g === 3 ? 5 : 3;
+            else c.i = Math.max(c.i + 1, Math.round(c.i * (g === 1 ? 1.2 : g === 3 ? c.e / 100 * 1.3 : c.e / 100)));
+            c.e = Math.max(130, c.e + (g === 1 ? -15 : g === 3 ? 15 : 0)); c.r++; c.d = t + c.i;
+        }
+        c.t = Date.now(); S.cards[id] = c;
+    }
+    async function vocabIndex() { const ix = {}; const weeks = [...new Set(Object.keys(S.cards).map(id => parseInt(id.slice(1, 3), 10)))].filter(w => openWeeks().includes(w)); for (const w of weeks) { const wk = await loadWeek(w); wk.days.forEach(d => d.vocab.forEach(v => { ix[v.id] = v; })); } return ix; }
+
+    /* ---------- Umumiy ko'rinish yordamchilari ---------- */
+    function view(html) { TTS.stop(); stopTimers(); app().innerHTML = html; window.scrollTo(0, 0); }
+    let timers = [];
+    function stopTimers() { timers.forEach(clearInterval); timers = []; if (recog) { try { recog.abort(); } catch (e) {} recog = null; } if (recorder && recorder.state !== 'inactive') { try { recorder.stop(); } catch (e) {} } }
+    const thead = (title, cnt, back) => '<div class="thead"><button class="back" type="button" data-act="' + (back || 'home') + '" aria-label="Orqaga"><i class="fas fa-arrow-left"></i></button><h2>' + esc(title) + '</h2>' + (cnt ? '<span class="cnt" id="tcnt">' + cnt + '</span>' : '') + '</div>';
+    const scoreLabel = s => s >= 85 ? 'Aʼlo' : s >= 70 ? 'Yaxshi' : s >= 55 ? 'Oʻrtacha' : 'Qayta ishlash kerak';
+
+    /* ---------- Mashqlar yurgizgichi ----------
+       items: mashqlar ro'yxati (mcq | gap | order | fix | tr). opts.silent — test rejimi (javobdan keyin izoh ko'rsatilmaydi).
+       Oddiy rejimda xato qilingan mashqlar oxirida yana bir marta beriladi (eslab qolish uchun). Ball faqat birinchi urinishdan. */
+    function runExercises(items, opts, onDone) {
+        opts = opts || {};
+        const first = items.map((x, i) => ({ x, i, retry: false }));
+        let queue = first.slice(), pos = 0, correct = 0; const wrong = [], answers = [];
+        const host = opts.host || app();
+        function render() {
+            const it = queue[pos], x = it.x;
+            let body = '';
+            const tagText = it.retry ? 'Xato ustida ishlash' : { mcq: 'Toʻgʻri variantni tanlang', gap: 'Boʻsh joyni toʻldiring', order: 'Soʻzlardan gap tuzing', fix: 'Xatoni toʻgʻrilang', tr: 'Inglizchaga tarjima qiling' }[x.t];
+            if (x.t === 'mcq') body = '<p class="qtext">' + esc(x.q) + '</p><div class="opts">' + x.o.map((o, k) => '<button type="button" class="opt" data-k="' + k + '"><span class="k">' + (k + 1) + '</span><span>' + esc(o) + '</span></button>').join('') + '</div>';
+            else if (x.t === 'gap') body = '<p class="qtext">' + esc(x.q) + '</p><input class="inp" id="exIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Boʻsh joyga mos soʻz(lar)">';
+            else if (x.t === 'fix') body = '<p class="qtext">' + esc(x.q) + '<span class="uz">Gapda bitta xato bor — toʻgʻri shaklini yozing.</span></p><input class="inp" id="exIn" autocomplete="off" autocapitalize="off" spellcheck="false" value="' + esc(x.q) + '">';
+            else if (x.t === 'tr') body = '<p class="qtext">' + esc(x.uz) + '</p><input class="inp" id="exIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Inglizcha gapni yozing">';
+            else { const words = x.a.replace(/[.?!]$/, '').split(' '); let sh = shuffle(words); if (sh.join(' ') === words.join(' ')) sh = sh.reverse(); body = '<p class="qtext">' + esc(x.uz) + '</p><div class="chips" id="built"></div><div class="chips pool" id="pool">' + sh.map((w, k) => '<button type="button" class="wchip" data-w="' + esc(w) + '">' + esc(w) + '</button>').join('') + '</div>'; }
+            host.innerHTML = (opts.title ? thead(opts.title, (pos + 1) + ' / ' + queue.length, opts.back) : '') +
+                '<div class="prog"><div style="width:' + (pos / queue.length * 100) + '%"></div></div>' +
+                '<div class="qcard"><span class="tag">' + tagText + '</span>' + body + '<div id="exFb"></div>' +
+                '<div class="acts"><button class="btn btn-navy" type="button" id="exGo">' + (x.t === 'mcq' ? '' : 'Tekshirish') + '</button></div></div>' +
+                '<p class="hint">Enter — tekshirish / keyingisi' + (x.t === 'mcq' ? ' · 1–4 — variant' : '') + '</p>';
+            const go = host.querySelector('#exGo'); let answered = false, picked = null;
+            if (x.t === 'mcq') go.hidden = true;
+            const inp = host.querySelector('#exIn'); if (inp) { inp.focus(); if (x.t === 'fix') inp.setSelectionRange(inp.value.length, inp.value.length); }
+            const finish = (ok, given) => {
+                answered = true; answers[it.i] = given;
+                if (!it.retry) { if (ok) correct++; else { wrong.push(it.i); if (!opts.silent) queue.push({ x, i: it.i, retry: true }); } }
+                if (opts.silent) return next();
+                const right = x.t === 'mcq' ? x.o[x.a] : Array.isArray(x.a) ? x.a[0] : x.a;
+                host.querySelector('#exFb').innerHTML = '<div class="fb ' + (ok ? 'ok' : 'bad') + '"><b class="t"><i class="fas ' + (ok ? 'fa-circle-check' : 'fa-circle-xmark') + '"></i>' + (ok ? 'Toʻgʻri!' : 'Notoʻgʻri') + '</b>' +
+                    (ok && x.t === 'mcq' ? '' : '<div>Toʻgʻri javob: <span class="ans">' + esc(right) + '</span> ' + sayBtn(x.t === 'gap' ? x.q.replace('___', right).replace(/\s*\([^)]*\)/, '') : right) + '</div>') +
+                    '<div style="margin-top:4px">' + esc(x.why || '') + '</div></div>';
+                go.hidden = false; go.innerHTML = pos + 1 >= queue.length ? 'Yakunlash <i class="fas fa-flag-checkered"></i>' : 'Keyingisi <i class="fas fa-arrow-right"></i>'; go.focus();
+                if (inp) { inp.readOnly = true; inp.classList.add(ok ? 'ok' : 'no'); }
+            };
+            const check = () => {
+                if (answered) return next();
+                if (x.t === 'mcq') { if (picked == null) return; return; }
+                if (x.t === 'order') { const built = [...host.querySelectorAll('#built .wchip')].map(b => b.dataset.w).join(' '); if (!built) return; return finish(same(built, [x.a].concat(x.alt || [])), built); }
+                const v = inp.value.trim(); if (!v) return inp.focus();
+                finish(same(v, x.a), v);
+            };
+            const next = () => { pos++; if (pos >= queue.length) return onDone({ pct: Math.round(correct / items.length * 100), correct, total: items.length, wrong, answers }); render(); };
+            go.onclick = check;
+            host.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+                if (answered) return; picked = +b.dataset.k; const ok = picked === x.a;
+                if (!opts.silent) host.querySelectorAll('.opt').forEach(o => { o.disabled = true; const k = +o.dataset.k; o.classList.add(k === x.a ? 'correct' : k === picked ? 'wrong' : 'dim'); });
+                finish(ok, picked);
+            });
+            host.querySelectorAll('.wchip').forEach(b => b.onclick = () => { if (answered) return; (b.parentElement.id === 'pool' ? host.querySelector('#built') : host.querySelector('#pool')).appendChild(b); });
+            host.onkeydown = e => {
+                if (e.key === 'Enter') { e.preventDefault(); check(); }
+                else if (x.t === 'mcq' && !answered && /^[1-4]$/.test(e.key)) { const b = host.querySelectorAll('.opt')[+e.key - 1]; if (b) b.click(); }
+            };
+        }
+        render();
+    }
+    function resultCard(title, pct, lines, nextAct, nextLabel) {
+        return '<div class="qcard res"><span class="tag">' + esc(title) + '</span><div class="big">' + pct + '%</div><p style="margin:0;color:var(--muted)">' + scoreLabel(pct) + '</p>' +
+            (lines ? '<div class="res-grid">' + lines.map(l => '<div><b>' + esc(l[0]) + '</b><span>' + esc(l[1]) + '</span></div>').join('') + '</div>' : '') +
+            '<div class="acts" style="justify-content:center"><button class="btn btn-gold" type="button" data-act="' + nextAct + '">' + nextLabel + '</button></div></div>';
+    }
+
+    /* ---------- Kirish (qulf) ---------- */
+    function showLock(msg) {
+        $('#syncChip').hidden = true;
+        view('<form class="lock" id="lockForm"><i class="fas fa-lock" style="font-size:26px;color:var(--gold-dark)"></i><h2>Shaxsiy boʻlim</h2><p>Ingliz tili kursi faqat sayt egasi uchun. Davom etish uchun maxsus boʻlim kalitini kiriting.</p>' +
+            '<input class="inp" type="password" id="lockKey" autocomplete="current-password" placeholder="Kalit" aria-label="Kalit"><div class="err" id="lockErr">' + esc(msg || '') + '</div>' +
+            '<button class="btn btn-navy" type="submit" id="lockBtn" style="width:100%"><i class="fas fa-unlock"></i> Kirish</button></form>');
+        $('#lockForm').onsubmit = async e => {
+            e.preventDefault(); const key = $('#lockKey').value.trim(); if (!key) return;
+            $('#lockBtn').disabled = true; $('#lockErr').textContent = '';
+            try {
+                const r = await api('en_login', { key: key });
+                if (r.ok && r.token) { token = r.token; try { localStorage.setItem(LS_TOKEN, token); } catch (err) {} await start(); return; }
+                $('#lockErr').textContent = { wrong_key: 'Kalit notoʻgʻri.', locked: 'Juda koʻp notoʻgʻri urinish. 10 daqiqadan soʻng qayta urinib koʻring.', not_configured: 'Kalit hali sozlanmagan.' }[r.error] || 'Xatolik yuz berdi.';
+            } catch (err) { $('#lockErr').textContent = 'Server bilan bogʻlanib boʻlmadi. Internetni tekshiring.'; }
+            $('#lockBtn').disabled = false;
+        };
+    }
+
+    /* ---------- Bosh sahifa ---------- */
+    function home() {
+        const cur = currentDay();
+        if (!ui.picked) { ui.week = cur.week; ui.day = cur.day; }
+        const w = ui.week, d = ui.day, wk = WEEK[w];
+        const totalDays = COURSE.weeks.length * 7, doneDays = COURSE.weeks.reduce((n, x) => n + (x.open ? [1, 2, 3, 4, 5, 6, 7].filter(k => dayDone(x.n, k)).length : 0), 0);
+        const min = S.log[today()] || 0, due = dueCards().length, nCards = Object.keys(S.cards).length;
+        let lag = '';
+        if (S.start) { const plan = dayNum(today()) - dayNum(S.start) + 1, diff = doneDays + 1 - plan; lag = diff >= 0 ? 'Reja boʻyicha ketyapsiz' : Math.abs(diff) + ' kun orqadasiz'; }
+        let h = '<div class="hero"><span class="hero-tag"><i class="fas fa-graduation-cap"></i> Shaxsiy kurs · maqsad: IELTS Academic 6.0</span><h1>Ingliz tili</h1>' +
+            '<p>Har kuni 2 soat: ertalab yangi mavzu, kechqurun takrorlash va gapirish. ' + esc(lag) + '</p><div class="stats">' +
+            '<div class="stat"><b><span id="todayMin">' + min + '</span> / ' + DAILY_GOAL + '</b><span>bugungi daqiqa</span><div class="bar"><div style="width:' + Math.min(100, min / DAILY_GOAL * 100) + '%"></div></div></div>' +
+            '<div class="stat"><b>' + streak() + ' kun</b><span>uzluksiz mashgʻulot</span></div>' +
+            '<div class="stat"><b>' + doneDays + ' / ' + totalDays + '</b><span>oʻtilgan kun</span><div class="bar"><div style="width:' + (doneDays / totalDays * 100) + '%"></div></div></div>' +
+            '<div class="stat"><b>' + nCards + '</b><span>oʻrganilgan soʻz va ibora</span></div></div></div>';
+        if (!S.diag) h += '<div class="panel gold" style="margin-top:16px"><h3><i class="fas fa-stethoscope"></i> 1-qadam: diagnostik test</h3><p>Hozirgi darajangizni aniqlaymiz: grammatika, soʻz boyligi, tinglash, oʻqish, yozish va gapirish. Taxminan 45–50 daqiqa. Natijaga qarab keyingi haftalar darslari sizga moslab tuziladi.</p><button class="btn btn-gold" type="button" data-act="diag"><i class="fas fa-play"></i> Testni boshlash</button></div>';
+        h += '<h2 class="sec">' + w + '-hafta' + (wk ? ': ' + esc(wk.title) : '') + '</h2><p class="sub">' + (wk ? esc(wk.focus) : '') + '</p><div class="days">' +
+            [1, 2, 3, 4, 5, 6, 7].map(k => '<button type="button" class="dayb' + (k === d ? ' cur' : '') + (dayDone(w, k) ? ' done' : '') + '" data-act="day" data-d="' + k + '">' + (dayDone(w, k) ? '<i class="fas fa-check"></i>' : '') + (k === 7 ? 'Test' : k + '-kun') + '</button>').join('') +
+            (openWeeks().length > 1 ? '<button type="button" class="dayb" data-act="roadmap"><i class="fas fa-list"></i> Boshqa hafta</button>' : '') + '</div>';
+        if (d === 7) {
+            const t = S.done[wid(w) + '.test'];
+            h += '<div class="panel"><h3><i class="fas fa-clipboard-check"></i> Haftalik nazorat testi</h3><p>Hafta davomida oʻtilgan grammatika, soʻzlar, tinglash va oʻqish boʻyicha test (≈40 daqiqa). 80% va undan yuqori — keyingi haftaga oʻtasiz; pastroq boʻlsa, qaysi kunlarni takrorlash kerakligi koʻrsatiladi.</p>' +
+                (t ? '<p><b>Oxirgi natija: ' + t.s + '%</b> — ' + scoreLabel(t.s) + '</p>' : '') +
+                '<div class="row"><button class="btn btn-gold" type="button" data-act="test"><i class="fas fa-play"></i> ' + (t ? 'Qayta topshirish' : 'Testni boshlash') + '</button>' +
+                '<button class="btn btn-ghost" type="button" data-act="cards"><i class="fas fa-layer-group"></i> Kartochkalar (' + due + ')</button></div></div>' +
+                '<div class="panel"><h3><i class="fas fa-mug-hot"></i> Yengil kun</h3><p>Testdan keyin: hafta davomidagi xatolaringizni koʻrib chiqing, soʻng 40–60 daqiqa oʻzingizga yoqqan inglizcha narsani tinglang yoki tomosha qiling (pastdagi «Qoʻshimcha manbalar»). Hisobotni ustozga yuboring.</p></div>';
+        } else if (wk) {
+            const day = wk.days[d - 1], id = dayId(w, d);
+            const row = t => { const key = id + '.' + t, dn = S.done[key], isRev = t === 'rev1' || t === 'rev2'; const weak = dn && !isRev && dn.s < 60;
+                const sub = t === 'grammar' ? day.grammar.title : t === 'vocab' ? '12 ta yangi ibora' : t === 'listening' ? day.listening.title : t === 'speaking' ? day.topic : t === 'reading' ? day.reading.title : t === 'writing' ? 'Kamida ' + day.writing.min + ' soʻz' : due + ' ta kartochka kutmoqda';
+                return '<button type="button" class="task' + (dn ? ' done' : '') + (weak ? ' weak' : '') + '" data-act="task" data-t="' + t + '"><span class="ic"><i class="fas ' + (dn ? 'fa-check' : TASKS[t].ic) + '"></i></span><span class="nm"><b>' + TASKS[t].name + '</b><span>' + esc(sub) + '</span></span><span class="st">' + (dn ? (isRev || t === 'speaking' || t === 'writing' ? 'Bajarildi' : dn.s + '%') : TASKS[t].min + ' daq') + '</span></button>'; };
+            h += '<div class="panel" style="padding:14px 16px"><h3><i class="fas fa-bullseye"></i> ' + d + '-kun: ' + esc(day.title) + '</h3><p style="margin:0">' + day.goals.map(esc).join(' · ') + '</p></div>' +
+                '<div class="session"><div class="session-head"><span><i class="fas fa-sun" style="color:var(--gold-dark)"></i> Ertalabki mashgʻulot</span><small>60 daqiqa · yangi material</small></div>' + ['rev1', 'grammar', 'vocab', 'listening'].map(row).join('') + '</div>' +
+                '<div class="session"><div class="session-head"><span><i class="fas fa-moon" style="color:var(--navy-2)"></i> Kechki mashgʻulot</span><small>60 daqiqa · mustahkamlash</small></div>' + ['rev2', 'speaking', 'reading', 'writing'].map(row).join('') + '</div>';
+        }
+        h += '<div class="row" style="margin-top:6px"><button class="btn btn-ghost" type="button" data-act="roadmap"><i class="fas fa-route"></i> 6 oylik yoʻl xaritasi</button>' +
+            '<button class="btn btn-ghost" type="button" data-act="method"><i class="fas fa-lightbulb"></i> Metodika va kun tartibi</button>' +
+            '<button class="btn btn-ghost" type="button" data-act="report"><i class="fas fa-paper-plane"></i> Ustozga hisobot</button>' +
+            (S.diag ? '<button class="btn btn-ghost" type="button" data-act="diagres"><i class="fas fa-stethoscope"></i> Diagnostika natijasi</button>' : '') +
+            '<button class="btn btn-ghost" type="button" data-act="logout"><i class="fas fa-lock"></i> Qulflash</button></div>';
+        if (COURSE.extras && COURSE.extras.length) h += '<h2 class="sec">Qoʻshimcha manbalar</h2><p class="sub">Rejadan tashqari, boʻsh vaqtda. Havolalar yangi oynada ochiladi.</p><div class="panel">' + COURSE.extras.map(x => '<div class="wk"><span class="n"><i class="fas ' + esc(x.ic || 'fa-link') + '"></i></span><div><b><a href="' + esc(x.url) + '" target="_blank" rel="noopener noreferrer">' + esc(x.name) + '</a></b><span>' + esc(x.uz) + '</span></div></div>').join('') + '</div>';
+        view(h);
+    }
+
+    /* ---------- Grammatika ---------- */
+    function taskGrammar(day, key) {
+        const g = day.grammar;
+        view(thead('Grammatika: ' + g.title) + '<div class="panel"><p>' + esc(g.intro) + '</p>' +
+            g.points.map(p => '<div class="gp"><h4>' + esc(p.h) + '</h4><p>' + esc(p.text) + '</p><ul class="exl">' + p.ex.map(e => '<li>' + sayBtn(e.en) + '<div><b>' + esc(e.en) + '</b><br><span>' + esc(e.uz) + '</span></div></li>').join('') + '</ul></div>').join('') +
+            '<h3 style="margin-top:16px"><i class="fas fa-triangle-exclamation"></i> Koʻp uchraydigan xatolar</h3>' +
+            g.mistakes.map(m => '<div class="mist"><span class="b">' + esc(m.bad) + '</span><span class="g">' + esc(m.good) + '</span><span class="w">' + esc(m.why) + '</span></div>').join('') +
+            '<div class="note">Misollarni ovoz chiqarib oʻqing: avval <i class="fas fa-volume-high"></i> ni bosib eshiting, keyin oʻzingiz takrorlang. Soʻng 14 ta mashqni bajaring — xato qilinganlari oxirida qayta beriladi.</div>' +
+            '<div class="acts"><button class="btn btn-gold" type="button" id="gStart">Mashqlarni boshlash <i class="fas fa-arrow-right"></i></button></div></div>');
+        $('#gStart').onclick = () => runExercises(g.ex, { title: 'Grammatika: ' + g.title }, r => {
+            markDone(key, r.pct, { w: r.wrong });
+            view(thead('Grammatika: ' + g.title) + resultCard('Grammatika', r.pct, [[r.correct + ' / ' + r.total, 'birinchi urinishda toʻgʻri'], [String(r.wrong.length), 'xato (qayta ishlandi)']], 'home', 'Davom etish') +
+                (r.pct < 60 ? '<div class="note warn">Natija 60% dan past. Qoidani yana bir marta oʻqib, mashqlarni ertaga qayta bajaring — bu mavzu keyingi darslarning poydevori.</div>' : ''));
+        });
+    }
+
+    /* ---------- Yangi so'zlar ---------- */
+    function taskVocab(day, key) {
+        const V = day.vocab; let i = 0;
+        const show = () => {
+            const v = V[i];
+            view(thead('Yangi soʻz va iboralar', (i + 1) + ' / ' + V.length) + '<div class="prog"><div style="width:' + (i / V.length * 100) + '%"></div></div><div class="qcard"><div class="vcard"><div class="en">' + esc(v.en) + ' ' + sayBtn(v.en) + '</div><div class="uzb">' + esc(v.uz) + '</div>' +
+                '<div class="ex">' + sayBtn(v.ex) + ' ' + esc(v.ex) + '<small>' + esc(v.exUz) + '</small></div></div>' +
+                '<div class="note">Iborani va misolni 3 marta ovoz chiqarib ayting. Keyin shu ibora bilan oʻzingiz haqingizda bitta gap tuzib ayting.</div>' +
+                '<div class="acts">' + (i ? '<button class="btn btn-ghost" type="button" id="vPrev"><i class="fas fa-arrow-left"></i> Oldingisi</button>' : '') + '<button class="btn btn-navy" type="button" id="vNext">' + (i + 1 < V.length ? 'Keyingisi <i class="fas fa-arrow-right"></i>' : 'Tekshiruvga oʻtish <i class="fas fa-arrow-right"></i>') + '</button></div></div>');
+            TTS.say(v.en, 'A', () => TTS.say(v.ex, 'A'));
+            if (i) $('#vPrev').onclick = () => { i--; show(); };
+            $('#vNext').onclick = () => { i++; if (i < V.length) show(); else quiz(); };
+        };
+        const quiz = () => {
+            const mk = v => ({ t: 'mcq', q: v.uz, o: shuffle([v].concat(shuffle(V.filter(x => x !== v)).slice(0, 3))).map(x => x.en), why: v.ex + ' — ' + v.exUz, _v: v });
+            const rec = shuffle(V).map(mk); rec.forEach(x => { x.a = x.o.indexOf(x._v.en); });
+            const typed = shuffle(V).slice(0, 8).map(v => ({ t: 'tr', uz: v.uz + ' — ' + v.exUz, a: [v.en, 'to ' + v.en], why: v.ex }));
+            typed.forEach(x => { x.uz = x.uz.split(' — ')[0]; });
+            runExercises(rec.concat(typed), { title: 'Soʻzlarni tekshirish' }, r => {
+                const t = dayNum(today()); V.forEach(v => { if (!S.cards[v.id]) S.cards[v.id] = { d: t, i: 0, e: 250, r: 0, l: 0, t: Date.now() }; });
+                markDone(key, r.pct);
+                view(thead('Yangi soʻz va iboralar') + resultCard('Soʻzlar', r.pct, [[String(V.length), 'ibora kartochkalarga qoʻshildi']], 'home', 'Davom etish') + '<div class="note">Bu iboralar bugun kechqurun, ertaga, 3 kundan keyin va undan keyin tobora uzayib boruvchi oraliqlarda qayta soʻraladi — unutishga ulgurmaysiz.</div>');
+            });
+        };
+        show();
+    }
+
+    /* ---------- Kartochkalarni takrorlash ---------- */
+    async function taskCards(key) {
+        const due = shuffle(dueCards());
+        if (!due.length) { if (key) markDone(key); return view(thead('Kartochkalar') + '<div class="qcard res"><i class="fas fa-circle-check" style="font-size:40px;color:var(--ok)"></i><p>Hozir takrorlanadigan kartochka yoʻq. Yangi soʻzlar darsidan keyin shu yerda paydo boʻladi.</p><div class="acts" style="justify-content:center"><button class="btn btn-gold" type="button" data-act="home">Davom etish</button></div></div>'); }
+        const ix = await vocabIndex(); let queue = due.filter(id => ix[id]), pos = 0, again = 0; const total = queue.length;
+        const show = () => {
+            if (pos >= queue.length) { if (key) markDone(key); else save(); return view(thead('Kartochkalar') + '<div class="qcard res"><div class="big">' + total + '</div><p style="color:var(--muted)">kartochka takrorlandi' + (again ? ' · ' + again + ' tasi qayta soʻraldi' : '') + '</p><div class="acts" style="justify-content:center"><button class="btn btn-gold" type="button" data-act="home">Davom etish</button></div></div>'); }
+            const id = queue[pos], v = ix[id];
+            view(thead('Kartochkalar', (pos + 1) + ' / ' + queue.length) + '<div class="prog"><div style="width:' + (pos / queue.length * 100) + '%"></div></div><div class="qcard"><span class="tag">Inglizchasini ovoz chiqarib ayting</span><div class="vcard"><div class="uzb" style="font-size:22px;font-weight:600;color:var(--navy)">' + esc(v.uz) + '</div><div class="ex" style="text-align:center">' + esc(v.exUz) + '</div>' +
+                '<div id="cBack" hidden><div class="en" style="margin-top:16px">' + esc(v.en) + ' ' + sayBtn(v.en) + '</div><div class="ex" style="margin-top:8px">' + sayBtn(v.ex) + ' ' + esc(v.ex) + '</div></div></div>' +
+                '<div class="acts" id="cShowRow" style="justify-content:center"><button class="btn btn-navy" type="button" id="cShow">Javobni koʻrsatish</button></div>' +
+                '<div class="grades" id="cGrades" hidden><button class="g0" data-g="0">Bilmadim<small>hozir qayta</small></button><button class="g1" data-g="1">Qiyin<small>tezroq qaytadi</small></button><button class="g2" data-g="2">Bildim<small>odatdagidek</small></button><button class="g3" data-g="3">Oson<small>kechroq qaytadi</small></button></div></div><p class="hint">Boʻsh joy (Space) — javob · 1–4 — baho</p>');
+            const reveal = () => { $('#cBack').hidden = false; $('#cShowRow').hidden = true; $('#cGrades').hidden = false; TTS.say(v.en, 'A', () => TTS.say(v.ex, 'A')); };
+            $('#cShow').onclick = reveal;
+            const grade = g => { gradeCard(id, g); if (g === 0) { queue.push(id); again++; } saveLocal(); pos++; show(); };
+            document.querySelectorAll('#cGrades button').forEach(b => b.onclick = () => grade(+b.dataset.g));
+            app().onkeydown = null;
+            document.onkeydown = e => { if (!$('#cGrades')) { document.onkeydown = null; return; } if (e.key === ' ' && $('#cGrades').hidden) { e.preventDefault(); reveal(); } else if (!$('#cGrades').hidden && /^[1-4]$/.test(e.key)) grade(+e.key - 1); };
+        };
+        show();
+    }
+
+    /* ---------- Tinglash ---------- */
+    function playerHtml(id) { return '<div class="row" style="margin:6px 0 12px"><button class="btn btn-navy" type="button" id="' + id + 'Play"><i class="fas fa-play"></i> Tinglash</button><button class="btn btn-ghost btn-sm" type="button" id="' + id + 'Rate">Tezlik: oddiy</button><span id="' + id + 'Info" style="font-size:13px;color:var(--muted)"></span></div>' + (TTS.ok ? '' : '<div class="note warn">Bu brauzerda ovozli oʻqish ishlamaydi. Chrome, Edge yoki Safari’dan foydalaning.</div>'); }
+    function bindPlayer(id, lines, onCount) {
+        let plays = 0; const btn = $('#' + id + 'Play'), rate = $('#' + id + 'Rate');
+        btn.onclick = () => {
+            if (TTS.playing) { TTS.stop(); btn.innerHTML = '<i class="fas fa-play"></i> Tinglash'; return; }
+            btn.innerHTML = '<i class="fas fa-stop"></i> Toʻxtatish';
+            TTS.seq(lines, i => { const el = $('#' + id + 'Info'); if (el) el.textContent = (i + 1) + ' / ' + lines.length; document.querySelectorAll('[data-line]').forEach(x => { x.style.background = +x.dataset.line === i ? '#fffbea' : ''; }); }, () => { plays++; if ($('#' + id + 'Play')) { btn.innerHTML = '<i class="fas fa-rotate-right"></i> Yana tinglash'; if (onCount) onCount(plays); } });
+        };
+        rate.onclick = () => { TTS.rate = TTS.rate === 1 ? 0.82 : 1; rate.textContent = 'Tezlik: ' + (TTS.rate === 1 ? 'oddiy' : 'sekin'); };
+    }
+    function taskListening(day, key) {
+        const L = day.listening;
+        view(thead('Tinglash: ' + L.title) + '<div class="qcard"><span class="tag">1-bosqich · matnsiz tinglang</span><p class="qtext" style="font-size:16px">' + esc(L.intro) + '</p>' + playerHtml('ls') +
+            '<div class="note">Kamida 2 marta tinglang. Har bir soʻzni tushunish shart emas — asosiy fikrni ushlang. Keyin savollarga javob berasiz.</div><div class="acts"><button class="btn btn-gold" type="button" id="lsQ" disabled>Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>');
+        bindPlayer('ls', L.lines, n => { if (n >= 1) $('#lsQ').disabled = false; });
+        if (!TTS.ok) $('#lsQ').disabled = false;
+        $('#lsQ').onclick = () => { TTS.stop(); runExercises(L.q, { title: 'Tinglash: savollar' }, r => dictation(r.pct)); };
+        const dictation = qPct => {
+            let i = 0, sum = 0;
+            const step = () => {
+                const s = L.dict[i];
+                view(thead('Tinglash: diktant', (i + 1) + ' / ' + L.dict.length) + '<div class="qcard"><span class="tag">2-bosqich · eshitganingizni yozing</span><div class="row" style="margin-bottom:12px"><button class="btn btn-navy" type="button" id="dPlay"><i class="fas fa-play"></i> Gapni tinglash</button><button class="btn btn-ghost btn-sm" type="button" id="dSlow">Sekin</button></div>' +
+                    '<input class="inp" id="dIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Eshitgan gapingizni yozing"><div id="dFb"></div><div class="acts"><button class="btn btn-navy" type="button" id="dGo">Tekshirish</button></div></div>');
+                const play = r => { TTS.stop(); TTS.say(s, 'A', null, r); };
+                $('#dPlay').onclick = () => play(0.95); $('#dSlow').onclick = () => play(0.7); play(0.95);
+                let checked = false;
+                const go = () => {
+                    if (checked) { i++; return i < L.dict.length ? step() : transcript(qPct, Math.round(sum / L.dict.length)); }
+                    const v = $('#dIn').value.trim(); if (!v) return $('#dIn').focus();
+                    const df = wordDiff(s, v); sum += df.pct; checked = true;
+                    $('#dFb').innerHTML = '<div class="fb ' + (df.pct >= 85 ? 'ok' : 'bad') + '"><b class="t">' + df.pct + '% toʻgʻri</b><div>' + df.html + ' ' + sayBtn(s) + '</div></div>';
+                    $('#dGo').innerHTML = 'Keyingisi <i class="fas fa-arrow-right"></i>'; $('#dIn').readOnly = true;
+                };
+                $('#dGo').onclick = go; $('#dIn').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } }; $('#dIn').focus();
+            };
+            step();
+        };
+        const transcript = (qPct, dPct) => {
+            const score = Math.round(qPct * 0.6 + dPct * 0.4); markDone(key, score, { q: qPct, dct: dPct });
+            view(thead('Tinglash: ' + L.title) + '<div class="qcard"><span class="tag">3-bosqich · matn bilan tinglang va takrorlang</span><div class="res-grid"><div><b>' + qPct + '%</b><span>savollar</span></div><div><b>' + dPct + '%</b><span>diktant</span></div></div>' + playerHtml('lt') +
+                L.lines.map((l, k) => '<div class="line" data-line="' + k + '">' + (L.lines.some(x => x.s === 'B') ? '<span class="sp">' + l.s + '</span>' : '') + '<span style="flex:1">' + esc(l.t) + '</span>' + sayBtn(l.t, l.s) + '</div>').join('') +
+                '<div class="note">Endi matnga qarab tinglang. Tushunmagan joyingizni toping, soʻng har bir qatorni <i class="fas fa-volume-high"></i> bilan eshitib, ketidan ovoz chiqarib takrorlang (shadowing).</div><div class="acts"><button class="btn btn-gold" type="button" data-act="home">Yakunlash</button></div></div>');
+            bindPlayer('lt', L.lines);
+        };
+    }
+
+    /* ---------- Gapirish ---------- */
+    let recog = null, recorder = null;
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    function listen(onText, onEnd) {
+        if (!SR) return false;
+        try { recog = new SR(); recog.lang = 'en-US'; recog.interimResults = false; recog.maxAlternatives = 1;
+            recog.onresult = e => onText(e.results[0][0].transcript); recog.onerror = () => onEnd && onEnd(true); recog.onend = () => onEnd && onEnd(false); recog.start(); return true;
+        } catch (e) { return false; }
+    }
+    function taskSpeaking(day, key) {
+        const P = day.speaking, id = day.id;
+        const stepShadow = () => {
+            view(thead('Gapirish: ' + day.topic) + '<div class="qcard"><span class="tag">1-bosqich · shadowing (ketidan takrorlash)</span><p style="margin:0 0 10px;font-size:14px;color:#334155">Har bir gapni eshiting va xuddi shu ohang, shu tezlikda ovoz chiqarib takrorlang — kamida 3 martadan. ' + (SR ? '<i class="fas fa-microphone"></i> tugmasi talaffuzingizni tekshiradi.' : '') + '</p>' +
+                P.shadow.map((s, k) => '<div class="line"><span style="flex:1">' + esc(s) + '<div id="shR' + k + '" style="font-size:13px;color:var(--muted)"></div></span>' + sayBtn(s) + (SR ? '<button type="button" class="say" data-mic="' + k + '" aria-label="Talaffuzni tekshirish" style="background:#eef2ff;color:#4338ca"><i class="fas fa-microphone"></i></button>' : '') + '</div>').join('') +
+                (SR ? '<div class="note">Mikrofon tugmasini bosganda brauzer ruxsat soʻraydi. Talaffuzni aniqlash uchun ovoz brauzer ishlab chiqaruvchisining (Google/Apple) xizmatiga yuboriladi.</div>' : '<div class="note warn">Bu brauzer talaffuzni tekshira olmaydi (Chrome yoki Edge’da ishlaydi). Mashqni baribir bajaring: eshiting va takrorlang.</div>') +
+                '<div class="acts"><button class="btn btn-gold" type="button" id="spNext">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>');
+            document.querySelectorAll('[data-mic]').forEach(b => b.onclick = () => {
+                const k = +b.dataset.mic, out = $('#shR' + k); TTS.stop(); out.textContent = 'Gapiring…';
+                const ok = listen(text => { const df = wordDiff(P.shadow[k], text); out.innerHTML = '<b style="color:' + (df.pct >= 80 ? 'var(--ok)' : '#d97706') + '">' + df.pct + '%</b> — eshitildi: «' + esc(text) + '»'; }, err => { if (err && out.textContent === 'Gapiring…') out.textContent = 'Eshitilmadi. Mikrofonga ruxsat berilganini tekshirib, qayta urinib koʻring.'; });
+                if (!ok) out.textContent = 'Mikrofonni ishga tushirib boʻlmadi.';
+            });
+            $('#spNext').onclick = () => stepPrompt(0);
+        };
+        const stepPrompt = i => {
+            const p = P.prompts[i];
+            view(thead('Gapirish: savol-javob', (i + 1) + ' / ' + P.prompts.length) + '<div class="qcard"><span class="tag">2-bosqich · savolga ogʻzaki javob bering (30–45 soniya)</span><p class="qtext">' + sayBtn(p.q, 'B') + ' ' + esc(p.q) + '<span class="uz">' + esc(p.uz) + '</span></p>' +
+                '<div class="gloss">' + p.hints.map(x => '<span><b>' + esc(x) + '</b></span>').join('') + '</div>' +
+                '<div class="row" style="margin-top:14px"><button class="btn btn-navy" type="button" id="recBtn"><i class="fas fa-circle"></i> Javobni yozib olish</button><span id="recInfo" style="font-size:13px;color:var(--muted)"></span></div><div id="recOut" style="margin-top:10px"></div>' +
+                '<div id="model" hidden><div class="gp" style="margin-top:14px"><h4>Namunaviy javob ' + sayBtn(p.model) + '</h4><p>' + esc(p.model) + '</p></div><div class="note">Oʻz javobingizni namunaga solishtiring: qaysi iboralarni ishlatmadingiz? Savolga yana bir marta, namunadagi 1–2 iborani qoʻshib javob bering.</div></div>' +
+                '<div class="acts"><button class="btn btn-ghost" type="button" id="showModel">Namunaviy javob</button><button class="btn btn-gold" type="button" id="pNext">' + (i + 1 < P.prompts.length ? 'Keyingi savol' : 'Ravonlik mashqiga oʻtish') + ' <i class="fas fa-arrow-right"></i></button></div></div>');
+            TTS.say(p.q, 'B');
+            $('#showModel').onclick = () => { $('#model').hidden = false; $('#showModel').hidden = true; };
+            $('#pNext').onclick = () => { i + 1 < P.prompts.length ? stepPrompt(i + 1) : stepFluency(0); };
+            const btn = $('#recBtn'); let chunks = [], t0 = 0, tick = null;
+            btn.onclick = async () => {
+                if (recorder && recorder.state === 'recording') { recorder.stop(); return; }
+                if (!navigator.mediaDevices || !window.MediaRecorder) { $('#recInfo').textContent = 'Bu brauzerda ovoz yozib boʻlmaydi — javobni shunchaki ovoz chiqarib ayting.'; return; }
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    recorder = new MediaRecorder(stream); chunks = [];
+                    recorder.ondataavailable = e => chunks.push(e.data);
+                    recorder.onstop = () => { clearInterval(tick); stream.getTracks().forEach(tr => tr.stop()); const out = $('#recOut'); if (!out) return; const url = URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType })); out.innerHTML = '<audio controls src="' + url + '" style="width:100%"></audio>'; btn.innerHTML = '<i class="fas fa-circle"></i> Qayta yozib olish'; $('#recInfo').textContent = 'Oʻzingizni eshiting: toʻxtab qolgan joylar va xatolarni belgilang.'; S.speak[id] = { n: ((S.speak[id] || {}).n || 0) + 1, t: Date.now() }; };
+                    recorder.start(); t0 = Date.now(); btn.innerHTML = '<i class="fas fa-stop"></i> Toʻxtatish';
+                    tick = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); if ($('#recInfo')) $('#recInfo').textContent = 'Yozilmoqda: ' + s + ' s'; if (s >= 90 && recorder.state === 'recording') recorder.stop(); }, 500); timers.push(tick);
+                } catch (e) { $('#recInfo').textContent = 'Mikrofonga ruxsat berilmadi. Javobni ovoz chiqarib ayting.'; }
+            };
+        };
+        const ROUNDS = [120, 90, 60];
+        const stepFluency = r => {
+            const f = P.fluency;
+            view(thead('Gapirish: ravonlik', (r + 1) + ' / 3') + '<div class="qcard"><span class="tag">3-bosqich · 4/3/2 usuli: bitta mavzu, har safar tezroq</span><p class="qtext">' + esc(f.topic) + '<span class="uz">' + esc(f.uz) + '</span></p><ul>' + f.points.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>' +
+                '<div class="timer" id="flT">' + Math.floor(ROUNDS[r] / 60) + ':' + pad(ROUNDS[r] % 60) + '</div><div class="note">Shu mavzuda toʻxtamasdan gapiring. Xato qilsangiz ham davom eting — maqsad ravonlik. Har bosqichda oʻsha fikrlarni qisqaroq vaqtga sigʻdirasiz: ' + ROUNDS.map(x => x + ' s').join(' → ') + '.</div>' +
+                '<div class="acts"><button class="btn btn-navy" type="button" id="flGo"><i class="fas fa-play"></i> Boshlash</button><button class="btn btn-gold" type="button" id="flNext" disabled>' + (r < 2 ? 'Keyingi bosqich' : 'Yakunlash') + ' <i class="fas fa-arrow-right"></i></button></div></div>');
+            $('#flGo').onclick = () => {
+                $('#flGo').disabled = true; let left = ROUNDS[r];
+                const tm = setInterval(() => { left--; const el = $('#flT'); if (!el) return clearInterval(tm); el.textContent = Math.floor(left / 60) + ':' + pad(left % 60); if (left <= 0) { clearInterval(tm); el.textContent = 'Vaqt tugadi'; $('#flNext').disabled = false; } }, 1000); timers.push(tm);
+                setTimeout(() => { if ($('#flNext')) $('#flNext').disabled = false; }, 20000);
+            };
+            $('#flNext').onclick = () => { if (r < 2) return stepFluency(r + 1); markDone(key); view(thead('Gapirish') + '<div class="qcard res"><i class="fas fa-circle-check" style="font-size:40px;color:var(--ok)"></i><p>Gapirish mashgʻuloti bajarildi. Bugungi savollarga ertaga yoʻlda yoki dush qabul qilayotganda yana bir marta ogʻzaki javob bering — takror ravonlikni oshiradi.</p><div class="acts" style="justify-content:center"><button class="btn btn-gold" type="button" data-act="home">Davom etish</button></div></div>'); };
+        };
+        stepShadow();
+    }
+
+    /* ---------- O'qish ---------- */
+    function taskReading(day, key) {
+        const R = day.reading;
+        view(thead('Oʻqish: ' + R.title) + '<div class="qcard"><span class="tag">Matnni diqqat bilan oʻqing</span><div class="rtext">' + esc(R.text) + '</div><div class="gloss">' + R.gloss.map(g => '<span><b>' + esc(g.w) + '</b> — ' + esc(g.uz) + '</span>').join('') + '</div>' +
+            '<div class="note">Avval lugʻatsiz, toʻxtamasdan oʻqing. Keyin ikkinchi marta — pastdagi soʻzlarga qarab. Savollarda matnga qaytish mumkin emas, shuning uchun mazmunni eslab qoling.</div><div class="acts"><button class="btn btn-ghost" type="button" id="rSay"><i class="fas fa-volume-high"></i> Matnni tinglash</button><button class="btn btn-gold" type="button" id="rGo">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>');
+        $('#rSay').onclick = () => { if (TTS.playing) return TTS.stop(); TTS.seq(R.text.split(/(?<=[.!?])\s+/).filter(Boolean).map(t => ({ s: 'A', t }))); };
+        $('#rGo').onclick = () => runExercises(R.q, { title: 'Oʻqish: savollar' }, r => { markDone(key, r.pct); view(thead('Oʻqish: ' + R.title) + resultCard('Oʻqish', r.pct, [[r.correct + ' / ' + r.total, 'toʻgʻri javob']], 'home', 'Davom etish') + '<div class="panel" style="margin-top:14px"><h3><i class="fas fa-book-open"></i> Matn</h3><div class="rtext" style="font-size:15px">' + esc(R.text) + '</div></div>'); });
+    }
+
+    /* ---------- Yozish ---------- */
+    const wc = s => (s.trim().match(/\S+/g) || []).length;
+    function taskWriting(day, key, wkey, backAct) {
+        const W = day.writing, id = wkey || day.id, old = (S.write[id] || {}).x || '';
+        view(thead('Yozish', '', backAct) + '<div class="qcard"><span class="tag">Kamida ' + W.min + ' soʻz</span><p class="qtext">' + esc(W.prompt) + '<span class="uz">' + esc(W.uz) + '</span></p>' +
+            (W.tips ? '<ul style="margin:0 0 12px;padding-left:20px;font-size:14px;color:#334155">' + W.tips.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '') +
+            '<textarea class="inp" id="wIn" spellcheck="true" lang="en" placeholder="Write your answer here...">' + esc(old) + '</textarea><div class="row" style="justify-content:space-between;margin-top:8px"><span id="wCnt" style="font-size:13px;color:var(--muted)"></span><button class="btn btn-gold" type="button" id="wGo">Saqlash</button></div><div id="wAfter"></div></div>');
+        const cnt = () => { const n = wc($('#wIn').value); $('#wCnt').textContent = n + ' soʻz' + (n < W.min ? ' · yana ' + (W.min - n) + ' ta kerak' : ' ✓'); return n; };
+        $('#wIn').oninput = cnt; cnt();
+        $('#wGo').onclick = () => {
+            if (cnt() < W.min) { $('#wCnt').style.color = 'var(--bad)'; return $('#wIn').focus(); }
+            S.write[id] = { x: $('#wIn').value.trim().slice(0, 2500), t: Date.now() }; markDone(key);
+            $('#wAfter').innerHTML = (W.model ? '<div class="gp" style="margin-top:14px"><h4>Namunaviy javob</h4><p>' + esc(W.model) + '</p></div>' : '') + '<div class="note">Matningiz saqlandi. Uni namunaga solishtiring: zamonlar, artikllar (a/the) va gap tartibini tekshiring. Yakshanba kuni «Ustozga hisobot» orqali yuborsangiz, har bir xatoingiz boʻyicha izoh olasiz.</div><div class="acts"><button class="btn btn-gold" type="button" data-act="' + (backAct || 'home') + '">Davom etish</button></div>';
+            $('#wGo').textContent = 'Qayta saqlash';
+        };
+    }
+
+    /* ---------- Haftalik test ---------- */
+    async function weekTest(w) {
+        const wk = await loadWeek(w), T = wk.test, res = {};
+        const allV = wk.days.reduce((a, d) => a.concat(d.vocab), []);
+        const vItems = shuffle(allV).slice(0, 20).map(v => ({ t: 'tr', uz: v.uz, a: [v.en, 'to ' + v.en], why: v.ex + ' — ' + v.exUz }));
+        const title = w + '-hafta nazorat testi';
+        const p1 = () => runExercises(T.grammar, { title: title + ' · grammatika' }, r => { res.g = r; p2(); });
+        const p2 = () => runExercises(vItems, { title: title + ' · soʻzlar' }, r => { res.v = r; p3(); });
+        const p3 = () => { view(thead(title + ' · tinglash') + '<div class="qcard"><p class="qtext" style="font-size:16px">' + esc(T.listening.intro || '') + '</p>' + playerHtml('tl') + '<div class="note">Ikki marta tinglang, soʻng savollarga oʻting.</div><div class="acts"><button class="btn btn-gold" type="button" id="tlQ">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>'); bindPlayer('tl', T.listening.lines); $('#tlQ').onclick = () => { TTS.stop(); runExercises(T.listening.q, { title: title + ' · tinglash' }, r => { res.l = r; p4(); }); }; };
+        const p4 = () => { view(thead(title + ' · oʻqish') + '<div class="qcard"><div class="rtext">' + esc(T.reading.text) + '</div><div class="acts"><button class="btn btn-gold" type="button" id="trQ">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>'); $('#trQ').onclick = () => runExercises(T.reading.q, { title: title + ' · oʻqish' }, r => { res.r = r; fin(); }); };
+        const fin = () => {
+            const total = Math.round(res.g.pct * 0.4 + res.v.pct * 0.3 + res.l.pct * 0.15 + res.r.pct * 0.15);
+            const byDay = {}; T.grammar.forEach((x, i) => { const d = x.d || 0; byDay[d] = byDay[d] || [0, 0]; byDay[d][1]++; if (!res.g.wrong.includes(i)) byDay[d][0]++; });
+            const weakDays = Object.keys(byDay).filter(d => byDay[d][0] / byDay[d][1] < 0.75);
+            markDone(wid(w) + '.test', total, { g: res.g.pct, v: res.v.pct, l: res.l.pct, r: res.r.pct, weak: weakDays.map(Number) });
+            const advice = total >= 80 ? 'Ajoyib! Keyingi haftaga oʻtishga tayyorsiz.' : total >= 60 ? 'Yomon emas, lekin mustahkamlash kerak. Quyidagi kunlar grammatikasini qayta bajarib, testni yana topshiring.' : 'Bu hafta materiali hali oʻzlashmagan. Shoshilmang: zaif kunlarni toʻliq qayta oʻting, soʻng testni qayta topshiring.';
+            view(thead(title) + resultCard(title, total, [[res.g.pct + '%', 'grammatika'], [res.v.pct + '%', 'soʻzlar'], [res.l.pct + '%', 'tinglash'], [res.r.pct + '%', 'oʻqish']], 'home', 'Davom etish') +
+                '<div class="panel" style="margin-top:14px"><h3><i class="fas fa-user-doctor"></i> Xulosa</h3><p>' + advice + '</p>' + (weakDays.length ? '<p><b>Takrorlash kerak boʻlgan kunlar:</b> ' + weakDays.map(d => d + '-kun (' + esc(wk.days[d - 1].grammar.title) + ')').join(', ') + '</p>' : '') + '<p>Endi «Ustozga hisobot» tugmasi orqali haftalik hisobotni yuboring.</p></div>');
+        };
+        p1();
+    }
+
+    /* ---------- Diagnostik test ---------- */
+    async function diag() {
+        const D = await getJSON('data/diag.json'); const R = { lv: { A2: [0, 0], B1: [0, 0], B2: [0, 0] } };
+        const tally = (items, r) => items.forEach((x, i) => { R.lv[x.lvl][1]++; if (!r.wrong.includes(i)) R.lv[x.lvl][0]++; });
+        const intro = () => { view(thead('Diagnostik test') + '<div class="qcard"><span class="tag">≈ 45–50 daqiqa · 6 qism</span><p class="qtext" style="font-size:16px">Bu imtihon emas — maqsad sizga mos darajani topish. Shuning uchun:</p><ul style="font-size:14.5px;color:#334155"><li>lugʻat, tarjimon yoki boshqa yordamdan foydalanmang;</li><li>javobni bilmasangiz, taxmin qilib belgilang va davom eting;</li><li>test davomida toʻgʻri javoblar koʻrsatilmaydi — natija oxirida chiqadi;</li><li>tinch joyda, quloqchin bilan bajaring. Oʻrtada toʻxtasangiz, test boshidan boshlanadi.</li></ul><div class="res-grid"><div><b>36</b><span>grammatika</span></div><div><b>18</b><span>soʻz boyligi</span></div><div><b>8</b><span>tinglash</span></div><div><b>10</b><span>oʻqish</span></div><div><b>1</b><span>yozish</span></div><div><b>3</b><span>gapirish</span></div></div><div class="acts"><button class="btn btn-gold" type="button" id="dgGo">Boshlash <i class="fas fa-arrow-right"></i></button></div></div>'); $('#dgGo').onclick = g; };
+        const g = () => runExercises(D.grammar, { title: 'Diagnostika · grammatika', silent: true }, r => { tally(D.grammar, r); R.g = r.pct; v(); });
+        const v = () => runExercises(D.vocab, { title: 'Diagnostika · soʻz boyligi', silent: true }, r => { tally(D.vocab, r); R.v = r.pct; lis(0, [0, 0]); });
+        const lis = (i, acc) => {
+            if (i >= D.listening.length) { R.L = acc; return rd(0, [0, 0]); }
+            const L = D.listening[i];
+            view(thead('Diagnostika · tinglash', (i + 1) + ' / ' + D.listening.length) + '<div class="qcard"><p class="qtext" style="font-size:16px">' + esc(L.intro || '') + '</p>' + playerHtml('dl') + '<div class="note">Koʻpi bilan 2 marta tinglang, soʻng savollarga oʻting.</div><div class="acts"><button class="btn btn-gold" type="button" id="dlQ">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div>');
+            bindPlayer('dl', L.lines, n => { if (n >= 2) $('#dlPlay').disabled = true; });
+            $('#dlQ').onclick = () => { TTS.stop(); runExercises(L.q, { title: 'Diagnostika · tinglash', silent: true }, r => lis(i + 1, [acc[0] + r.correct, acc[1] + r.total])); };
+        };
+        const rd = (i, acc) => {
+            if (i >= D.reading.length) { R.R = acc; return wr(); }
+            const X = D.reading[i];
+            view(thead('Diagnostika · oʻqish', (i + 1) + ' / ' + D.reading.length) + '<div class="qcard"><div class="rtext">' + esc(X.text) + '</div><div class="acts"><button class="btn btn-gold" type="button" id="drQ">Savollarga oʻtish <i class="fas fa-arrow-right"></i></button></div></div><div id="drHost" style="margin-top:14px"></div>');
+            $('#drQ').onclick = () => { $('#drQ').hidden = true; runExercises(X.q, { silent: true, host: $('#drHost') }, r => rd(i + 1, [acc[0] + r.correct, acc[1] + r.total])); $('#drHost').scrollIntoView({ behavior: 'smooth' }); };
+        };
+        const wr = () => { taskWriting({ id: 'diag', writing: { prompt: D.writing.prompt, uz: D.writing.uz, min: D.writing.min } }, 'diag.writing', 'diag', 'diagspeak'); pending = sp; };
+        const sp = () => {
+            view(thead('Diagnostika · gapirish') + '<div class="qcard"><span class="tag">Har bir savolga 40–60 soniya ogʻzaki javob bering</span>' + D.speaking.map((p, k) => '<div class="gp"><h4>' + (k + 1) + '. ' + esc(p.q) + ' ' + sayBtn(p.q, 'B') + '</h4><p>' + esc(p.uz) + '</p>' + (SR ? '<button class="btn btn-ghost btn-sm" type="button" data-dsp="' + k + '"><i class="fas fa-microphone"></i> Javobni aytish</button><div id="dsp' + k + '" style="font-size:13.5px;color:#334155;margin-top:6px"></div>' : '') + '</div>').join('') +
+                '<p style="font-size:14px;margin:12px 0 6px"><b>Oʻzingizni baholang:</b> bu savollarga javob berish qanday boʻldi?</p><div class="opts" id="dspSelf">' + ['Deyarli gapira olmadim', 'Sekin, koʻp toʻxtab gapirdim', 'Tushunarli, lekin xatolar bilan', 'Bemalol va ravon gapirdim'].map((x, k) => '<button type="button" class="opt" data-k="' + k + '"><span class="k">' + (k + 1) + '</span><span>' + x + '</span></button>').join('') + '</div>' +
+                (SR ? '<div class="note">Mikrofon orqali aytgan javobingiz matnga aylantirilib, ustoz koʻrishi uchun saqlanadi (ovoz saqlanmaydi).</div>' : '') + '<div class="acts"><button class="btn btn-gold" type="button" id="dgFin" disabled>Natijani koʻrish <i class="fas fa-flag-checkered"></i></button></div></div>');
+            const said = [];
+            document.querySelectorAll('[data-dsp]').forEach(b => b.onclick = () => { const k = +b.dataset.dsp, out = $('#dsp' + k); out.textContent = 'Gapiring…'; listen(text => { said[k] = ((said[k] ? said[k] + ' ' : '') + text).slice(0, 700); out.textContent = '«' + said[k] + '»'; }, err => { if (out.textContent === 'Gapiring…') out.textContent = err ? 'Eshitilmadi — qayta urinib koʻring.' : ''; }); });
+            document.querySelectorAll('#dspSelf .opt').forEach(b => b.onclick = () => { document.querySelectorAll('#dspSelf .opt').forEach(o => o.classList.remove('sel')); b.classList.add('sel'); R.self = +b.dataset.k; $('#dgFin').disabled = false; });
+            $('#dgFin').onclick = () => {
+                const pass = L => R.lv[L][0] / R.lv[L][1] >= (L === 'A2' ? 0.7 : 0.6);
+                R.level = pass('A2') ? (pass('B1') ? (pass('B2') ? 'B2' : 'B1') : 'A2') : 'A2 dan past';
+                if (said.some(Boolean)) S.speak.diag = { x: said.map(x => x || '').join(' | ').slice(0, 2000), t: Date.now() };
+                R.t = Date.now(); S.diag = R; markDone('diag', Math.round((R.g + R.v) / 2)); diagResult();
+            };
+        };
+        intro();
+    }
+    let pending = null;
+    function diagResult() {
+        const R = S.diag; if (!R) return home();
+        const p = a => a && a[1] ? Math.round(a[0] / a[1] * 100) : 0;
+        const about = { 'A2 dan past': 'Asosiy grammatika va eng koʻp ishlatiladigan soʻzlardan boshlaymiz — 1–8-haftalar aynan shuning uchun.', 'A2': 'Poydevor bor, lekin B1 mavzulari mustahkam emas. 1–8-haftalar ularni tartibga soladi.', 'B1': 'B1 darajasi saqlangan. Birinchi haftalar tez takrorlash boʻladi, asosiy kuch gapirish va B2 grammatikasiga qaratiladi.', 'B2': 'Daraja kutilganidan yuqori. Asosiy kurs qisqartirilib, IELTS tayyorgarligiga ertaroq oʻtish mumkin.' }[R.level];
+        view(thead('Diagnostika natijasi') + '<div class="qcard res"><span class="tag">Taxminiy daraja (CEFR)</span><div class="big">' + esc(R.level) + '</div><p style="color:#334155;max-width:560px;margin:6px auto 0">' + about + '</p><div class="res-grid">' +
+            ['A2', 'B1', 'B2'].map(L => '<div><b>' + p(R.lv[L]) + '%</b><span>' + L + ' savollari</span></div>').join('') + '<div><b>' + p(R.L) + '%</b><span>tinglash</span></div><div><b>' + p(R.R) + '%</b><span>oʻqish</span></div></div>' +
+            '<div class="note">Yozish va gapirishni dastur baholay olmaydi. «Ustozga hisobot» orqali yuboring — yozgan matningiz va ogʻzaki javoblaringiz boʻyicha baho va keyingi haftalar rejasini olasiz.</div>' +
+            '<div class="acts" style="justify-content:center"><button class="btn btn-navy" type="button" data-act="report"><i class="fas fa-paper-plane"></i> Ustozga hisobot</button><button class="btn btn-gold" type="button" data-act="home">Darslarga oʻtish</button></div></div>');
+    }
+
+    /* ---------- Yo'l xaritasi, metodika, hisobot ---------- */
+    function roadmap() {
+        let h = thead('6 oylik yoʻl xaritasi') + '<div class="panel">', ph = '';
+        COURSE.weeks.forEach(w => {
+            if (w.phase !== ph) { ph = w.phase; h += '<div class="phase">' + esc(ph) + '</div>'; }
+            const t = S.done[wid(w.n) + '.test'];
+            h += '<div class="wk' + (w.open ? ' open' : '') + (t && t.s >= 80 ? ' passed' : '') + '"><span class="n">' + w.n + '</span><div style="flex:1"><b>' + esc(w.title) + '</b><span>' + esc(w.focus) + '</span></div>' + (w.open ? '<button class="btn btn-ghost btn-sm" type="button" data-act="week" data-w="' + w.n + '">' + (t ? t.s + '%' : 'Ochish') + '</button>' : '<span style="font-size:12px;color:var(--muted);white-space:nowrap"><i class="fas fa-hourglass-half"></i> tayyorlanmoqda</span>') + '</div>';
+        });
+        view(h + '</div><div class="note">Keyingi haftalar darslari diagnostika va haftalik test natijalaringizga qarab tuziladi: zaif chiqqan mavzularga koʻproq mashq qoʻshiladi.</div>');
+    }
+    function method() {
+        view(thead('Metodika va kun tartibi') + (COURSE.method || []).map(m => '<div class="panel"><h3><i class="fas ' + esc(m.ic) + '"></i> ' + esc(m.h) + '</h3>' + m.p.map(x => '<p>' + esc(x) + '</p>').join('') + '</div>').join(''));
+    }
+    async function report() {
+        const L = [], p = a => a && a[1] ? Math.round(a[0] / a[1] * 100) : 0;
+        L.push('INGLIZ TILI — HISOBOT (' + today() + ')', 'Kurs boshlangan: ' + (S.start || '—') + ' · uzluksiz: ' + streak() + ' kun');
+        const days = []; for (let i = 6; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); days.push(dstr(d).slice(5) + ': ' + (S.log[dstr(d)] || 0) + ' daq'); }
+        L.push('Oxirgi 7 kun: ' + days.join(', '));
+        if (S.diag) { const R = S.diag; L.push('', 'DIAGNOSTIKA: daraja ' + R.level + ' · A2 ' + p(R.lv.A2) + '% · B1 ' + p(R.lv.B1) + '% · B2 ' + p(R.lv.B2) + '% · tinglash ' + p(R.L) + '% · oʻqish ' + p(R.R) + '% · gapirish (oʻz bahosi) ' + ((R.self || 0) + 1) + '/4'); }
+        for (const w of openWeeks()) {
+            const wk = await loadWeek(w); const rows = [];
+            wk.days.forEach((d, k) => { const id = dayId(w, k + 1); const parts = CORE.filter(t => S.done[id + '.' + t]).map(t => t.slice(0, 3) + ' ' + (t === 'speaking' || t === 'writing' ? '✓' : S.done[id + '.' + t].s + '%')); if (parts.length) { rows.push((k + 1) + '-kun (' + d.grammar.title + '): ' + parts.join(', ')); const g = S.done[id + '.grammar']; if (g && g.w && g.w.length) rows.push('   xato qilingan grammatika mashqlari: ' + g.w.map(i => { const x = d.grammar.ex[i]; return '«' + (x.q || x.uz) + '»'; }).join('; ')); } });
+            const t = S.done[wid(w) + '.test']; if (t) rows.push('HAFTALIK TEST: ' + t.s + '% (grammatika ' + t.g + '%, soʻzlar ' + t.v + '%, tinglash ' + t.l + '%, oʻqish ' + t.r + '%)' + (t.weak && t.weak.length ? ' · zaif kunlar: ' + t.weak.join(', ') : ''));
+            if (rows.length) L.push('', w + '-HAFTA', ...rows);
+        }
+        const ids = Object.keys(S.cards); if (ids.length) { const ix = await vocabIndex(); const hard = ids.filter(id => S.cards[id].l >= 2).sort((a, b) => S.cards[b].l - S.cards[a].l).slice(0, 15).map(id => ix[id] ? ix[id].en + ' (' + S.cards[id].l + ')' : id); L.push('', 'KARTOCHKALAR: jami ' + ids.length + ', mustahkam (oraliq ≥ 7 kun) ' + ids.filter(id => S.cards[id].i >= 7).length + ', hozir kutayotgan ' + dueCards().length); if (hard.length) L.push('Qiyin iboralar (unutilgan soni): ' + hard.join(', ')); }
+        const wr = Object.keys(S.write).sort((a, b) => S.write[b].t - S.write[a].t).slice(0, 7); if (wr.length) { L.push('', 'YOZMA ISHLAR (tekshirish uchun):'); wr.forEach(id => L.push('[' + id + '] ' + S.write[id].x)); }
+        if (S.speak.diag && S.speak.diag.x) L.push('', 'DIAGNOSTIKA — OGʻZAKI JAVOBLAR (brauzer aniqlagan matn): ' + S.speak.diag.x);
+        const text = L.join('\n');
+        view(thead('Ustozga hisobot') + '<div class="panel"><p>Bu matnda natijalaringiz, xatolaringiz va yozma ishlaringiz jamlangan. Uni nusxalab, Claude bilan suhbatga joylang — tahlil, yozma ishlaringizdagi xatolar izohi va keyingi hafta rejasini olasiz. Haftada bir marta (yakshanba) yuborish kifoya.</p><textarea class="inp" id="repText" readonly style="min-height:300px;font-size:13px;font-family:monospace">' + esc(text) + '</textarea><div class="acts"><span id="repMsg" style="font-size:13px;color:var(--ok);align-self:center"></span><button class="btn btn-gold" type="button" id="repCopy"><i class="fas fa-copy"></i> Nusxalash</button></div></div>');
+        $('#repCopy').onclick = async () => { try { await navigator.clipboard.writeText(text); } catch (e) { $('#repText').select(); document.execCommand('copy'); } $('#repMsg').textContent = 'Nusxalandi ✓'; };
+    }
+
+    /* ---------- Boshqaruv ---------- */
+    async function openTask(t) {
+        const w = ui.week, d = ui.day, wk = await loadWeek(w), day = wk.days[d - 1], key = dayId(w, d) + '.' + t;
+        if (t === 'rev1' || t === 'rev2') return taskCards(key);
+        ({ grammar: taskGrammar, vocab: taskVocab, listening: taskListening, speaking: taskSpeaking, reading: taskReading, writing: taskWriting })[t](day, key);
+    }
+    document.addEventListener('click', async e => {
+        const s = e.target.closest('[data-say]'); if (s) { e.preventDefault(); TTS.stop(); TTS.say(s.dataset.say, s.dataset.sp || 'A'); return; }
+        const a = e.target.closest('[data-act]'); if (!a || !token) return;
+        const act = a.dataset.act;
+        if (act === 'home') { ui.picked = false; home(); }
+        else if (act === 'day') { ui.day = +a.dataset.d; ui.picked = true; home(); }
+        else if (act === 'week') { ui.week = +a.dataset.w; ui.day = 1; ui.picked = true; await loadWeek(ui.week); home(); }
+        else if (act === 'task') openTask(a.dataset.t);
+        else if (act === 'cards') taskCards(null);
+        else if (act === 'test') weekTest(ui.week);
+        else if (act === 'diag') diag();
+        else if (act === 'diagspeak') { const f = pending; pending = null; if (f) f(); else home(); }
+        else if (act === 'diagres') diagResult();
+        else if (act === 'roadmap') roadmap();
+        else if (act === 'method') method();
+        else if (act === 'report') report();
+        else if (act === 'logout') { if (confirm('Boʻlim qulflanadi. Natijalar saqlangan — qayta kirganda tiklanadi. Davom etasizmi?')) { await push(); logout(); } }
+    });
+    async function start() {
+        view('<div class="loading"><i class="fas fa-spinner fa-spin"></i> Yuklanmoqda…</div>');
+        try {
+            COURSE = await getJSON('data/course.json');
+            if (!(await pull())) return;
+            const cur = currentDay(); ui.week = cur.week; ui.day = cur.day; await loadWeek(cur.week);
+            home();
+        } catch (e) { view('<div class="loading"><i class="fas fa-triangle-exclamation"></i> Darslarni yuklab boʻlmadi. Internetni tekshirib, sahifani yangilang.</div>'); }
+    }
+    loadLocal();
+    if (token) start(); else showLock();
+    </script>
+</body>
+</html>
