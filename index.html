@@ -159,14 +159,14 @@
 
         .btn { background-color: #f1c40f; color: #0b1d30; padding: 14px 40px; text-decoration: none; font-size: 18px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4); position: relative; overflow: hidden; }
         .btn:hover { background-color: #ffffff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3); }
-        /* Bosh sahifadagi tugmalar: "Aloqa uchun" + "Schotlar o'yini" */
+        /* Bosh sahifadagi tugma: "Aloqa uchun" */
         .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-        .btn-game { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); color: #fff; border: 2px solid #f1c40f; box-shadow: none; }
-        .btn-game i { color: #f1c40f; }
-        .btn-game:hover { background: #f1c40f; color: #0b1d30; box-shadow: 0 8px 20px rgba(241,196,15,0.3); }
-        .btn-game:hover i { color: #0b1d30; }
-        .btn-game-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 50px; background: #f1c40f; color: #0b1d30; }
-        .btn-game:hover .btn-game-badge { background: #0b1d30; color: #f1c40f; }
+        /* Yuqori menyudagi "O'yin" tugmasi (kompyuterda ixcham oval; telefonda menyu qatori) */
+        nav a.nav-game { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border: 1.5px solid #f1c40f; border-radius: 50px; color: #f1c40f; font-weight: 600; }
+        nav a.nav-game:hover { background: #f1c40f; color: #0b1d30; border: 1.5px solid #f1c40f; }
+        /* Tor kompyuter ekranida menyu bir qatorga sig'ishi uchun */
+        @media (min-width: 901px) and (max-width: 1200px) { nav a { margin-left: 12px; font-size: 14.5px; } html[dir="rtl"] nav a { margin-left: 0; margin-right: 12px; } nav a.nav-game { padding: 5px 11px; } }
+        @media (min-width: 901px) and (max-width: 1040px) { nav a { margin-left: 9px; font-size: 13.5px; } html[dir="rtl"] nav a { margin-right: 9px; } nav a.nav-game span { display: none; } nav a.nav-game { padding: 6px 10px; } }
         @media (max-width: 900px) { .hero-actions { justify-content: center; } }
         .btn .ripple { position: absolute; border-radius: 50%; background: rgba(11, 29, 48, 0.3); transform: scale(0); animation: rippleEffect 0.6s linear; pointer-events: none; }
         @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
@@ -450,6 +450,9 @@
         @media (max-width: 600px) { .calc { padding: 60px 18px; } .calc-panel { padding: 26px 20px 30px 20px; } .calc-tab { min-width: 33%; font-size: 12px; } }
 
         /* ===== BURGER TUGMASI (mobil) ===== */
+        /* Telefonda: burger yonidagi kichik "o'yin" belgisi (kompyuterda menyudagi oval tugma ishlatiladi) */
+        .header-game { display: none; margin-left: auto; margin-right: 6px; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid #f1c40f; color: #f1c40f; align-items: center; justify-content: center; font-size: 16px; text-decoration: none; }
+        html[dir="rtl"] .header-game { margin-left: 6px; margin-right: auto; }
         .burger { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; width: 44px; height: 44px; flex-direction: column; justify-content: center; gap: 5px; z-index: 1201; }
         .burger span { display: block; width: 26px; height: 2.5px; background: #fff; border-radius: 3px; transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.25s ease, background 0.3s; }
         .burger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); background: #f1c40f; }
@@ -466,6 +469,7 @@
             .hero-text p { font-size: 16px; }
             header, header.scrolled { padding: 14px 20px; }
             header h1, header.scrolled h1 { font-size: 20px; }
+            .header-game { display: flex; }
             .burger { display: flex; }
             /* Menyu yon paneldan chiqadi (elegant drawer) */
             nav {
@@ -496,6 +500,8 @@
             html[dir="rtl"] nav.open { transform: translateX(0); }
             html[dir="rtl"] nav a { margin-right: 0; border-left: none; border-right: 3px solid transparent; }
             html[dir="rtl"] nav a:hover, html[dir="rtl"] nav a:active { border-right-color: #f1c40f; padding-left: 22px; padding-right: 26px; }
+            nav a.nav-game, nav a.nav-game:hover { display: flex; border-radius: 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.06); border-left: 3px solid #f1c40f; padding: 15px 22px; background: rgba(241,196,15,0.06); color: #f1c40f; }
+            html[dir="rtl"] nav a.nav-game, html[dir="rtl"] nav a.nav-game:hover { border-left: none; border-right: 3px solid #f1c40f; }
             body.nav-locked { overflow: hidden; }
             /* Bo'limlarni mobilga moslash */
             .services, .news { padding: 60px 20px; }
@@ -577,6 +583,7 @@
     <div class="nav-backdrop" id="navBackdrop" onclick="closeMobileMenu()"></div>
     <header id="mainHeader">
         <h1 class="animate__animated animate__fadeInLeft">M<span>moliya.uz</span></h1>
+        <a href="/oyin/" class="header-game" title="Schotlar oʻyini — BHMS 21" aria-label="Schotlar oʻyini"><i class="fas fa-gamepad"></i></a>
         <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Menyu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -591,6 +598,7 @@
             <a href="#kalkulyatorlar" onclick="closeMobileMenu()" data-i18n="nav_calc">Kalkulyatorlar</a>
             <a onclick="showHamkorlikModal(); closeMobileMenu();" data-i18n="nav_partnership">Hamkorlik</a>
             <a href="#aloqa" onclick="closeMobileMenu()" data-i18n="nav_contact">Aloqa</a>
+            <a href="/oyin/" class="nav-game" title="Schotlar oʻyini — BHMS 21"><i class="fas fa-gamepad"></i> <span data-i18n="nav_game">Oʻyin</span></a>
             <div class="lang-dropdown" id="langDropdown">
                 <button class="lang-current" onclick="toggleLangMenu(event)" aria-haspopup="true" aria-expanded="false">
                     <span id="currentLangLabel">UZB</span>
@@ -615,7 +623,6 @@
             <p data-i18n="hero_text">Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.</p>
             <div class="hero-actions">
                 <a onclick="showMyInfo()" class="btn pulse-cta magnetic" data-i18n="hero_btn">Aloqa uchun</a>
-                <a href="/oyin/" class="btn btn-game"><i class="fas fa-gamepad"></i> <span data-i18n="hero_game">Schotlar oʻyini</span><span class="btn-game-badge">BHMS 21</span></a>
             </div>
             <div class="fx-rates" id="fxRates" aria-live="polite">
                 <div class="fx-head"><span class="fx-live"></span><strong data-i18n="fx_title">Valyuta kurslari</strong><span id="fxDate"></span><button type="button" class="fx-calc-btn" onclick="openFxModal('USD')"><i class="fas fa-calculator"></i> <span data-i18n="fx_calc">Kalkulyator</span></button></div>
@@ -1009,7 +1016,7 @@
                 calc_disclaimer: "* Kalkulyatorlar 2026-yildagi amaldagi stavkalar asosida taxminiy natija beradi va rasmiy hujjat o'rnini bosmaydi.",
                 hero_title: "Sizning Ishonchli Moliyaviy Hamkoringiz",
                 hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
-                hero_btn: "Aloqa uchun", hero_game: "Schotlar oʻyini", modal_write: "Xabar qoldirish",
+                hero_btn: "Aloqa uchun", nav_game: "Oʻyin", modal_write: "Xabar qoldirish",
                 fx_title: "Valyuta kurslari", fx_nbu: "Milliy bank (NBU)", fx_buy: "Sotib olish", fx_sell: "Sotish", fx_error: "Kurslarni yuklab bo'lmadi. Birozdan so'ng qayta urinib ko'ramiz.",
                 fx_more: "Batafsil va kalkulyator", fx_calc: "Kalkulyator", fx_calc_title: "Valyuta kalkulyatori", fx_buy_hint: "Bank sizdan sotib oladi", fx_sell_hint: "Bank sizga sotadi", fx_spread: "Sotish va sotib olish farqi", fx_mode_sell: "Valyutani sotaman", fx_mode_buy: "Valyuta sotib olaman", fx_a_sell: "Sotadigan summangiz", fx_b_sell: "Qoʻlingizga tegadi", fx_a_buy: "Sotib olmoqchi boʻlgan summa", fx_b_buy: "Toʻlaysiz", fx_som: "soʻm", fx_enter: "Summani kiriting", fx_note: "Hisob-kitob Milliy bank (NBU) kursida. Bankdagi yakuniy summa komissiya va kurs oʻzgarishiga qarab biroz farq qilishi mumkin.", fx_name_USD: "AQSh dollari", fx_name_EUR: "Yevro", fx_name_RUB: "Rossiya rubli", fx_name_GBP: "Angliya funt sterlingi",
                 services_title: "Bizning Xizmatlar va Keyslar",
@@ -1117,7 +1124,7 @@
                 calc_disclaimer: "* Calculators give an approximate result based on 2026 rates and do not replace an official document.",
                 hero_title: "Your Reliable Financial Partner",
                 hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
-                hero_btn: "Contact me", hero_game: "Accounting game", modal_write: "Leave a message",
+                hero_btn: "Contact me", nav_game: "Game", modal_write: "Leave a message",
                 fx_title: "Exchange rates", fx_nbu: "National Bank (NBU)", fx_buy: "Buy", fx_sell: "Sell", fx_error: "Could not load exchange rates. We'll try again shortly.",
                 fx_more: "Details and calculator", fx_calc: "Calculator", fx_calc_title: "Currency calculator", fx_buy_hint: "The bank buys from you", fx_sell_hint: "The bank sells to you", fx_spread: "Spread between sell and buy", fx_mode_sell: "I sell currency", fx_mode_buy: "I buy currency", fx_a_sell: "Amount you sell", fx_b_sell: "You receive", fx_a_buy: "Amount you want to buy", fx_b_buy: "You pay", fx_som: "UZS", fx_enter: "Enter an amount", fx_note: "Calculated at the National Bank (NBU) rate. The final amount at the bank may differ slightly due to fees and rate changes.", fx_name_USD: "US dollar", fx_name_EUR: "Euro", fx_name_RUB: "Russian ruble", fx_name_GBP: "British pound",
                 services_title: "Our Services and Case Studies",
@@ -1225,7 +1232,7 @@
                 calc_disclaimer: "* Калькуляторы дают приблизительный результат на основе ставок 2026 года и не заменяют официальный документ.",
                 hero_title: "Ваш надёжный финансовый партнёр",
                 hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
-                hero_btn: "Связаться со мной", hero_game: "Игра по счетам", modal_write: "Оставить сообщение",
+                hero_btn: "Связаться со мной", nav_game: "Игра", modal_write: "Оставить сообщение",
                 fx_title: "Курсы валют", fx_nbu: "Нацбанк (NBU)", fx_buy: "Покупка", fx_sell: "Продажа", fx_error: "Не удалось загрузить курсы. Повторим попытку чуть позже.",
                 fx_more: "Подробнее и калькулятор", fx_calc: "Калькулятор", fx_calc_title: "Валютный калькулятор", fx_buy_hint: "Банк покупает у вас", fx_sell_hint: "Банк продаёт вам", fx_spread: "Разница между продажей и покупкой", fx_mode_sell: "Продаю валюту", fx_mode_buy: "Покупаю валюту", fx_a_sell: "Сумма продажи", fx_b_sell: "Вы получите", fx_a_buy: "Сумма покупки", fx_b_buy: "Вы заплатите", fx_som: "сум", fx_enter: "Введите сумму", fx_note: "Расчёт по курсу Нацбанка (NBU). Итоговая сумма в банке может немного отличаться из-за комиссий и изменения курса.", fx_name_USD: "Доллар США", fx_name_EUR: "Евро", fx_name_RUB: "Российский рубль", fx_name_GBP: "Британский фунт",
                 services_title: "Наши услуги и кейсы",
@@ -1333,7 +1340,7 @@
                 calc_disclaimer: "* تقدّم الحاسبات نتيجة تقريبية بناءً على أسعار 2026 ولا تحل محل وثيقة رسمية.",
                 hero_title: "شريكك المالي الموثوق",
                 hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
-                hero_btn: "تواصل معي", hero_game: "لعبة الحسابات", modal_write: "اترك رسالة",
+                hero_btn: "تواصل معي", nav_game: "اللعبة", modal_write: "اترك رسالة",
                 fx_title: "أسعار الصرف", fx_nbu: "البنك الوطني (NBU)", fx_buy: "شراء", fx_sell: "بيع", fx_error: "تعذّر تحميل أسعار الصرف. سنحاول مرة أخرى قريبًا.",
                 fx_more: "التفاصيل والحاسبة", fx_calc: "الحاسبة", fx_calc_title: "حاسبة العملات", fx_buy_hint: "البنك يشتري منك", fx_sell_hint: "البنك يبيع لك", fx_spread: "الفرق بين البيع والشراء", fx_mode_sell: "أبيع العملة", fx_mode_buy: "أشتري العملة", fx_a_sell: "المبلغ الذي تبيعه", fx_b_sell: "ستحصل على", fx_a_buy: "المبلغ الذي تريد شراءه", fx_b_buy: "ستدفع", fx_som: "سوم", fx_enter: "أدخل المبلغ", fx_note: "الحساب وفق سعر البنك الوطني (NBU). قد يختلف المبلغ النهائي في البنك قليلًا بسبب العمولات وتغيّر السعر.", fx_name_USD: "الدولار الأمريكي", fx_name_EUR: "اليورو", fx_name_RUB: "الروبل الروسي", fx_name_GBP: "الجنيه الإسترليني",
                 services_title: "خدماتنا ودراسات الحالة",
