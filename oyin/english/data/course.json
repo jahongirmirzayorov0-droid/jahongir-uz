@@ -1,0 +1,78 @@
+{
+  "rev": 1,
+  "weeks": [
+    { "n": 1, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Hozirgi zamon va kundalik muloqot", "focus": "Present Simple va Continuous, savollar, sanaladigan/sanalmaydigan otlar, xushmuomala iltimoslar", "open": true },
+    { "n": 2, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Oʻtgan zamon: voqeani aytib berish", "focus": "Past Simple, notoʻgʻri feʼllar, Past Continuous, used to", "open": false },
+    { "n": 3, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Kelajak: rejalar va vaʼdalar", "focus": "will, going to, Present Continuous kelajak maʼnosida, vaqt ergash gaplari", "open": false },
+    { "n": 4, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Present Perfect: tajriba va natija", "focus": "Present Perfect va Past Simple farqi, for/since, already/yet/just", "open": false },
+    { "n": 5, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Modal feʼllar: maslahat, majburiyat, ehtimol", "focus": "can/could, should, have to/must, might/may; ishdagi muloqot", "open": false },
+    { "n": 6, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Taqqoslash, miqdor va artikllar", "focus": "Qiyosiy va orttirma daraja, a/an/the, raqamlar va oʻzgarishlarni tasvirlash", "open": false },
+    { "n": 7, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Shart gaplar", "focus": "Zero, First va Second Conditional; if/when/unless", "open": false },
+    { "n": 8, "phase": "1-bosqich · Poydevor (1–8-haftalar, A2+ → mustahkam B1)", "title": "Takrorlash va 1-nazorat (B1)", "focus": "1–7-haftalar aralash takrori, B1 darajasidagi toʻliq nazorat testi", "open": false },
+    { "n": 9, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Hikoya zamonlari", "focus": "Past Perfect, Present Perfect Continuous, zamonlarni aralash qoʻllash", "open": false },
+    { "n": 10, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Majhul nisbat (Passive)", "focus": "Barcha asosiy zamonlarda passive; rasmiy va ishga oid matnlar", "open": false },
+    { "n": 11, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Aniqlovchi ergash gaplar", "focus": "who/which/that/where/whose; gaplarni birlashtirish", "open": false },
+    { "n": 12, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Oʻzlashtirma gap", "focus": "Reported speech, say/tell/ask, yigʻilish va suhbatni yetkazish", "open": false },
+    { "n": 13, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Gerund va infinitiv", "focus": "Feʼldan keyin -ing yoki to; koʻp ishlatiladigan feʼl qoliplari", "open": false },
+    { "n": 14, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Oʻtmishga oid shart va afsus", "focus": "Third va mixed conditionals, wish, should have", "open": false },
+    { "n": 15, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Bogʻlovchilar va murakkab gaplar", "focus": "although/despite/whereas, sabab-natija, akademik uslubga koʻprik", "open": false },
+    { "n": 16, "phase": "2-bosqich · Yuksalish (9–16-haftalar, B1 → B2 boshi)", "title": "Takrorlash, 2-nazorat va birinchi sinov IELTS", "focus": "9–15-haftalar takrori, B2 nazorati, toʻliq sinov IELTS testi", "open": false },
+    { "n": 17, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "IELTS formati; Listening 1–2, Speaking Part 1", "focus": "Test tuzilishi, baholash mezonlari, Reading: skimming va scanning", "open": false },
+    { "n": 18, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Writing Task 1: grafik va diagrammalar", "focus": "Chiziqli va ustunli grafiklar, oʻsish-pasayish tili; Reading: True/False/Not Given", "open": false },
+    { "n": 19, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Writing Task 2: fikr bildirish inshosi", "focus": "Insho tuzilishi, opinion va discussion; Speaking Part 2 (kartochka)", "open": false },
+    { "n": 20, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Listening 3–4 va murakkab Reading", "focus": "Akademik munozara va maʼruza; matching headings, summary completion", "open": false },
+    { "n": 21, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Task 1: jadval, doiraviy diagramma, jarayon", "focus": "Taqqoslash tili, jarayon va xarita tasviri; Speaking Part 3", "open": false },
+    { "n": 22, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Task 2: muammo–yechim, afzallik–kamchilik", "focus": "Dalillash, bogʻlovchilar, vaqtga sigʻdirish", "open": false },
+    { "n": 23, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Toʻliq sinov testlari", "focus": "Rasmiy namunaviy testlar vaqt bilan, xatolar tahlili", "open": false },
+    { "n": 24, "phase": "3-bosqich · IELTS Academic (17–24-haftalar)", "title": "Yakuniy tayyorgarlik va imtihon", "focus": "Zaif joylarni yopish, imtihon strategiyasi, test topshirish", "open": false }
+  ],
+  "method": [
+    { "ic": "fa-clock", "h": "Kun tartibi: 60 + 60 daqiqa", "p": [
+      "ERTALAB (yangi material, miya tetik paytda): kartochkalarni takrorlash 10 daqiqa → grammatika 20 daqiqa → 12 ta yangi ibora 15 daqiqa → tinglash 15 daqiqa.",
+      "KECHQURUN (mustahkamlash): kartochkalar 10 daqiqa → gapirish 20 daqiqa → oʻqish 15 daqiqa → yozish 15 daqiqa.",
+      "Dushanbadan shanbagacha — 6 ta dars. Yakshanba — haftalik test, xatolar tahlili, ustozga hisobot va erkin tinglash (yengil kun).",
+      "Bir kunni oʻtkazib yuborsangiz, dars «yonib ketmaydi»: ertasi kuni oʻsha darsdan davom etasiz. Lekin kartochkalar yigʻilib qoladi — shuning uchun band kunda ham kamida 10 daqiqa kartochka takrorlang."
+    ] },
+    { "ic": "fa-flask", "h": "Nega aynan shunday: ilmiy asos", "p": [
+      "Toʻrt yoʻnalish (Paul Nation, 2007): vaqt taxminan teng toʻrt qismga boʻlinadi — tushunarli kirish (tinglash, oʻqish), mazmunli chiqish (gapirish, yozish), til ustida ishlash (grammatika, soʻz) va ravonlik. Faqat qoida yodlash yoki faqat serial koʻrish natija bermaydi; toʻrtalasi har kuni kerak.",
+      "Eslab topish (Roediger va Karpicke, 2006; 2008): qayta oʻqishdan koʻra oʻzini sinash ancha kuchli. Shuning uchun deyarli har bir mashqda javobni oʻzingiz yozasiz yoki aytasiz, tayyor variantni tanlamaysiz.",
+      "Oraliqli takrorlash (Cepeda va boshq., 2008): soʻz unutilish arafasida qayta soʻralsa, xotirada uzoq qoladi. Kartochkalar 1 kun → 3 kun → 1 hafta → 2 hafta → 1 oy oraligʻida oʻzi qaytadi.",
+      "Shadowing (Foote va McDonough, 2017): haftasiga kamida 4 marta 10 daqiqadan ketidan takrorlash 8 haftada nutqning tushunarliligi va ravonligini oshiradi.",
+      "4/3/2 usuli (Nation, 1989; de Jong va Perfetti, 2011): bitta mavzuni uch marta, har safar qisqaroq vaqtda aytish ravonlikni barqaror oshiradi.",
+      "Aralash mashq (Nakata va Suzuki, 2019): mavzu birinchi marta alohida oʻrganiladi, keyingi kunlarda boshqa mavzular bilan aralashtirib soʻraladi — mashq paytida qiyinroq, lekin natija mustahkamroq."
+    ] },
+    { "ic": "fa-list-check", "h": "Oltita qoida", "p": [
+      "1. Ovoz chiqarib ishlang. Gapirish — sizning eng zaif tomoningiz; har bir misol va javobni ichingizda emas, ovoz bilan ayting.",
+      "2. Avval oʻzingiz urinib koʻring, keyin javobga qarang. Xato qilish — oʻrganishning bir qismi; xato qilingan mashq oxirida qayta beriladi.",
+      "3. Kartochkalarni hech qachon oʻtkazib yubormang. 10 daqiqa — kunning eng foydali 10 daqiqasi.",
+      "4. Tarjimaga emas, tayyor iboralarga tayaning: «run late», «figure out» kabi bloklarni butun holda yodlang — nutq shulardan yigʻiladi.",
+      "5. Grammatika natijasi 60% dan past boʻlsa, ertasi kuni oʻsha mashqlarni qayta bajaring. Poydevorda boʻshliq qoldirmaymiz.",
+      "6. Ikki mashgʻulot orasida telefon ekranini emas, uyquni tanlang: xotira uyquda mustahkamlanadi."
+    ] },
+    { "ic": "fa-user-doctor", "h": "Ustoz bilan ishlash (Claude)", "p": [
+      "Dastur test va mashqlarni oʻzi tekshiradi, lekin yozgan matningiz va ogʻzaki nutqingizni baholay olmaydi. Buning uchun har yakshanba «Ustozga hisobot» tugmasini bosib, matnni Claude bilan suhbatga joylang.",
+      "Javobda siz olasiz: yozma ishlaringizdagi har bir xato izohi, zaif mavzular boʻyicha qoʻshimcha mashqlar va keyingi haftaning sizga moslangan darslari. Keyingi haftalar aynan shu hisobotlar asosida tuziladi.",
+      "Hisobot yuborilmasa, ustoz natijalaringizni koʻrmaydi — bu yagona aloqa kanali."
+    ] },
+    { "ic": "fa-scale-balanced", "h": "Halol hisob-kitob: muddat va natija", "p": [
+      "6 oy × kuniga 2 soat ≈ 360 soat. Cambridge maʼlumotiga koʻra bir CEFR darajasidan keyingisiga oʻtish uchun taxminan 200 soat boshqariladigan mashgʻulot kerak; IELTS 6.0 esa B2 ning oʻrtasiga toʻgʻri keladi.",
+      "Demak, B1 dan 6.0 gacha 360 soat — yetarli, lekin zaxirasiz reja. U faqat kunlar oʻtkazib yuborilmasa va gapirish hamda yozish vazifalari toʻliq bajarilsa ishlaydi.",
+      "Har 8 haftada nazorat testi bor. Natija rejadan orqada qolsa, buni yashirmaymiz: muddat yoki yuklamani birga qayta koʻrib chiqamiz."
+    ] },
+    { "ic": "fa-book", "h": "Qoʻlingizdagi kitoblar", "p": [
+      "Boʻlim oʻzi yetarli — kitobsiz ham toʻliq ishlaydi. Kitob yoningizda boʻlgan kunlari qoʻshimcha sifatida foydalaning.",
+      "Grammatika: darsdagi mavzuni Murphy (koʻk kitob) yoki Round-Up mundarijasidan topib, oʻsha boʻlim mashqlarini yozma bajaring.",
+      "Soʻz boyligi: 4000 Essential English Words kitoblarini 9-haftadan boshlab, kuniga bitta boʻlim (unit) oʻqing. Tactics for Listening — dam olish kunlari qoʻshimcha tinglash uchun.",
+      "Destination B1/B2 va Cambridge IELTS toʻplamlari 2- va 3-bosqichda kerak boʻladi; qaysi boʻlimni qachon ishlash oʻsha haftalar darslarida koʻrsatiladi."
+    ] }
+  ],
+  "extras": [
+    { "ic": "fa-headphones", "name": "VOA Learning English", "url": "https://learningenglish.voanews.com/", "uz": "Amerikacha ingliz tilida sekinlashtirilgan audio, matni va lugʻati bilan (3 daraja). 2025-yil martigacha boʻlgan katta arxiv — tinglash uchun eng yaxshi bepul manba." },
+    { "ic": "fa-comments", "name": "ELLLO", "url": "https://elllo.org/", "uz": "3000 dan ortiq qisqa jonli suhbat, matn va test bilan. Haqiqiy odamlar nutqiga quloqni oʻrgatadi." },
+    { "ic": "fa-ear-listen", "name": "Randall's ESL Cyber Listening Lab", "url": "https://www.esl-lab.com/", "uz": "Kundalik vaziyatlar boʻyicha tinglash testlari: oson, oʻrta va qiyin darajalar." },
+    { "ic": "fa-circle-play", "name": "YouGlish", "url": "https://youglish.com/", "uz": "Istalgan soʻz yoki iborani yozing — amerikaliklar uni haqiqiy videolarda qanday aytishini koʻrsatadi (US filtrini tanlang)." },
+    { "ic": "fa-pen-nib", "name": "Cambridge Write & Improve", "url": "https://writeandimprove.com/", "uz": "Yozgan matningizni bepul tekshirib, CEFR darajasini va xatolarni koʻrsatadi. Haftada 1–2 marta foydalaning." },
+    { "ic": "fa-microphone-lines", "name": "Cambridge Speak & Improve", "url": "https://speakandimprove.com/", "uz": "Savollarga ogʻzaki javob berasiz — nutqingizga CEFR boʻyicha avtomatik baho qoʻyadi. Oyda bir marta oʻzingizni tekshiring." },
+    { "ic": "fa-file-lines", "name": "IELTS rasmiy namunaviy savollari", "url": "https://ielts.org/take-a-test/preparation-resources/sample-test-questions/academic-test", "uz": "Academic testning rasmiy namunalari, javoblari bilan. 17-haftadan boshlab kerak boʻladi." }
+  ]
+}
