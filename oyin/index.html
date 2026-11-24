@@ -110,6 +110,9 @@
         [hidden] { display: none !important; }
 
         /* Provodkalar zanjiri */
+        .level.english { text-decoration: none; background: linear-gradient(135deg, #eff6ff, #ffffff 70%); border: 2px solid #93c5fd; }
+        .level.english .level-icon { background: #2563eb; color: #fff; }
+        .level.english .level-num { color: #1d4ed8; }
         .level.chainc { background: linear-gradient(135deg, #ecfdf3, #ffffff 70%); border: 2px solid #86efac; }
         .level.chainc .level-icon { background: var(--ok); color: #fff; }
         .level.chainc .level-num { color: #15803d; }
@@ -507,7 +510,7 @@
                 '<div class="level-top"><div class="level-icon"><i class="fas ' + EXAM.icon + '"></i></div><div><div class="level-num">Barcha boʻlimlar · ' + EXAM_SIZE + ' ta savol</div><h3>' + EXAM.title + '</h3></div></div>' +
                 '<p class="level-desc">' + EXAM.desc + '</p>' +
                 '<div class="level-meta"><span>' + (state.best.exam ? 'Eng yaxshi natija: ' + state.best.exam + '%' : 'Hali topshirilmagan') + '</span><span class="stars">' + starHtml(state.best.exam ? starsFor(state.best.exam) : 0) + '</span></div>' +
-            '</button>' + renderSpecialCard() + renderChainCard();
+            '</button>' + renderSpecialCard() + renderChainCard() + renderEnglishCard();
         }
         /* Maxsus bo'lim kartasi: qulflangan bo'lsa — kalit so'raydi, ochilgan bo'lsa — raund boshlaydi */
         function renderSpecialCard() {
@@ -585,6 +588,16 @@
                 [s.dt, s.kt].forEach(x => { if (!used.includes(x)) used.push(x); });
             });
             return used.filter(x => bal[x] === 0);
+        }
+        /* Ingliz tili — shaxsiy kurs (alohida sahifa: english/). Karta faqat maxsus bo'lim ochilgan qurilmada ko'rinadi;
+           sahifaning o'zi ham shu kalit bilan himoyalangan. */
+        function renderEnglishCard() {
+            if (!special) return '';
+            return '<a class="level english" href="english/">' +
+                '<div class="level-top"><div class="level-icon"><i class="fas fa-language"></i></div><div><div class="level-num">Shaxsiy kurs · IELTS 6.0</div><h3>Ingliz tili</h3></div></div>' +
+                '<p class="level-desc">Kuniga 2 soat: grammatika, soʻzlar, tinglash, gapirish, oʻqish va yozish. Faqat sayt egasi uchun.</p>' +
+                '<div class="level-meta"><span><i class="fas fa-arrow-right"></i> Darsga oʻtish</span><span></span></div>' +
+            '</a>';
         }
         function renderChainCard() {
             if (!CHAINS.length) return '';
