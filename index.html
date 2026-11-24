@@ -102,6 +102,55 @@
         @keyframes fxFlash { 0% { background: rgba(241,196,15,0.35); } 100% { background: rgba(255,255,255,0.06); } }
         .fx-skeleton .fx-bs b { color: transparent; background: rgba(255,255,255,0.1); border-radius: 4px; }
         .fx-error { font-size: 13px; color: #fca5a5; }
+        /* Kurs kartasi — bosiladigan tugma: valyuta oynasi va kalkulyatorni ochadi */
+        button.fx-card { font: inherit; color: inherit; width: 100%; cursor: pointer; position: relative; -webkit-appearance: none; appearance: none; }
+        button.fx-card:focus-visible { outline: 2px solid #f1c40f; outline-offset: 2px; }
+        .fx-go { margin-left: auto; color: rgba(241,196,15,0.75); font-size: 12px; transition: color 0.2s ease, transform 0.2s ease; }
+        button.fx-card:hover .fx-go { color: #f1c40f; transform: scale(1.12); }
+        html[dir="rtl"] .fx-go { margin-left: 0; margin-right: auto; }
+        .fx-calc-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 50px; border: 1px solid rgba(241,196,15,0.5); background: rgba(241,196,15,0.1); color: #f1c40f; font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: background 0.2s ease; }
+        .fx-calc-btn:hover { background: rgba(241,196,15,0.22); }
+        html[dir="rtl"] .fx-calc-btn { margin-left: 0; margin-right: auto; }
+
+        /* === VALYUTA OYNASI: kurs tafsiloti + kalkulyator === */
+        .info-content.fxm { max-width: 520px; text-align: left; }
+        html[dir="rtl"] .info-content.fxm { text-align: right; }
+        .fxm-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; padding-right: 40px; }
+        html[dir="rtl"] .fxm-head { padding-right: 0; padding-left: 40px; }
+        .fxm-sym { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(241,196,15,0.15); color: #b8860b; font-size: 24px; font-weight: 700; }
+        .fxm-head h2 { margin: 0 0 2px 0; font-size: 22px; }
+        .fxm-src { font-size: 12.5px; color: #64748b; }
+        .fxm-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; background: #f1f5f9; padding: 4px; border-radius: 12px; margin-bottom: 16px; }
+        .fxm-tabs button { border: none; background: transparent; padding: 8px 4px; border-radius: 9px; font: inherit; font-size: 13.5px; font-weight: 700; color: #475569; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+        .fxm-tabs button.active { background: #0b1d30; color: #fff; box-shadow: 0 2px 8px rgba(11,29,48,0.18); }
+        .fxm-rates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .fxm-rate { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 14px; }
+        .fxm-rate span { display: block; font-size: 12.5px; color: #64748b; font-weight: 600; }
+        .fxm-rate b { display: block; font-size: 24px; color: #0b1d30; margin: 2px 0; font-variant-numeric: tabular-nums; }
+        .fxm-rate small { font-size: 11.5px; color: #94a3b8; }
+        .fxm-spread { margin: 10px 0 18px; font-size: 12.5px; color: #64748b; }
+        .fxm-h3 { display: flex; align-items: center; gap: 8px; font-size: 16px; color: #0b1d30; margin: 0 0 10px; }
+        .fxm-h3 i { color: #d4a40c; }
+        .fxm-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+        .fxm-mode button { border: 1.5px solid #e2e8f0; background: #fff; border-radius: 12px; padding: 10px 8px; font: inherit; font-size: 13.5px; font-weight: 600; color: #334155; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; }
+        .fxm-mode button.active { border-color: #f1c40f; background: #fffbea; color: #0b1d30; }
+        .fxm-field { display: block; margin-bottom: 10px; }
+        .fxm-field > span { display: block; font-size: 12.5px; color: #64748b; font-weight: 600; margin-bottom: 5px; }
+        .fxm-input { display: flex; align-items: center; border: 1.5px solid #e2e8f0; border-radius: 12px; background: #fff; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+        .fxm-input:focus-within { border-color: #f1c40f; box-shadow: 0 0 0 3px rgba(241,196,15,0.18); }
+        .fxm-input input { flex: 1; min-width: 0; border: none; background: transparent; padding: 12px 14px; font: inherit; font-size: 20px; font-weight: 700; color: #0b1d30; outline: none; font-variant-numeric: tabular-nums; }
+        .fxm-input em { font-style: normal; font-weight: 700; color: #64748b; padding: 0 14px; font-size: 14px; }
+        .fxm-quick { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 12px; }
+        .fxm-quick button { border: 1px solid #e2e8f0; background: #f8fafc; border-radius: 50px; padding: 5px 12px; font: inherit; font-size: 12.5px; font-weight: 600; color: #334155; cursor: pointer; }
+        .fxm-quick button:hover { border-color: #0b1d30; }
+        .fxm-result { background: #0b1d30; color: #e2e8f0; border-radius: 14px; padding: 12px 16px; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+        .fxm-result b { color: #f1c40f; font-size: 17px; }
+        .fxm-note { font-size: 12px !important; color: #94a3b8; margin: 12px 0 0 !important; }
+        @media (max-width: 600px) {
+            .fxm-rate b { font-size: 20px; }
+            .fxm-input input { font-size: 18px; }
+            .fx-calc-btn span { display: none; }
+        }
         .hero-image-box { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; will-change: transform; transition: transform 0.15s ease-out; }
         .hero-image-box img { max-width: 100%; max-height: 480px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 4px solid #f1c40f; object-fit: contain; position: relative; z-index: 2; animation: floatImage 5s ease-in-out infinite; }
         @keyframes floatImage { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
@@ -567,7 +616,7 @@
                 <a href="/oyin/" class="btn btn-game"><i class="fas fa-gamepad"></i> <span data-i18n="hero_game">Schotlar oʻyini</span><span class="btn-game-badge">BHMS 21</span></a>
             </div>
             <div class="fx-rates" id="fxRates" aria-live="polite">
-                <div class="fx-head"><span class="fx-live"></span><strong data-i18n="fx_title">Valyuta kurslari</strong><span id="fxDate"></span></div>
+                <div class="fx-head"><span class="fx-live"></span><strong data-i18n="fx_title">Valyuta kurslari</strong><span id="fxDate"></span><button type="button" class="fx-calc-btn" onclick="openFxModal('USD')"><i class="fas fa-calculator"></i> <span data-i18n="fx_calc">Kalkulyator</span></button></div>
                 <div class="fx-grid" id="fxGrid"></div>
             </div>
         </div>
@@ -874,6 +923,32 @@
             <button type="button" class="btn modal-action-btn" onclick="goToContact()"><i class="fas fa-pen-to-square"></i> <span data-i18n="modal_write">Xabar qoldirish</span></button>
         </div>
     </div>
+    <!-- Valyuta oynasi: kurs tafsiloti + kalkulyator (Milliy bank kursi bo'yicha) -->
+    <div id="fxOverlay" class="info-overlay" role="dialog" aria-modal="true" aria-labelledby="fxmTitle">
+        <div class="info-content fxm">
+            <button class="close-btn" onclick="closeFxModal()" aria-label="Close"><i class="fas fa-xmark"></i></button>
+            <div class="fxm-head">
+                <span class="fxm-sym" id="fxmSym">$</span>
+                <div><h2 id="fxmTitle"></h2><div class="fxm-src" id="fxmSrc"></div></div>
+            </div>
+            <div class="fxm-tabs" id="fxmTabs"></div>
+            <div class="fxm-rates">
+                <div class="fxm-rate"><span data-i18n="fx_buy">Sotib olish</span><b id="fxmBuy">—</b><small data-i18n="fx_buy_hint">Bank sizdan sotib oladi</small></div>
+                <div class="fxm-rate"><span data-i18n="fx_sell">Sotish</span><b id="fxmSell">—</b><small data-i18n="fx_sell_hint">Bank sizga sotadi</small></div>
+            </div>
+            <div class="fxm-spread" id="fxmSpread"></div>
+            <h3 class="fxm-h3"><i class="fas fa-calculator"></i> <span data-i18n="fx_calc_title">Valyuta kalkulyatori</span></h3>
+            <div class="fxm-mode">
+                <button type="button" data-mode="sell" onclick="fxSetMode('sell')" data-i18n="fx_mode_sell">Valyutani sotaman</button>
+                <button type="button" data-mode="buy" onclick="fxSetMode('buy')" data-i18n="fx_mode_buy">Valyuta sotib olaman</button>
+            </div>
+            <label class="fxm-field"><span id="fxmLabelA"></span><div class="fxm-input"><input id="fxmA" type="text" inputmode="decimal" autocomplete="off"><em id="fxmUnitA">USD</em></div></label>
+            <div class="fxm-quick" id="fxmQuick"></div>
+            <label class="fxm-field"><span id="fxmLabelB"></span><div class="fxm-input"><input id="fxmB" type="text" inputmode="decimal" autocomplete="off"><em id="fxmUnitB"></em></div></label>
+            <div class="fxm-result" id="fxmResult"></div>
+            <p class="fxm-note" data-i18n="fx_note">Hisob-kitob Milliy bank (NBU) kursida.</p>
+        </div>
+    </div>
     <script>
         /* ===== TARJIMALAR (4 til: O'zbek, Ingliz, Rus, Arab) ===== */
         const translations = {
@@ -934,6 +1009,7 @@
                 hero_text: "Biz sizning investitsiyalaringiz va moliyaviy barqarorligingizni qonuniy va xavfsiz doirada ta'minlaymiz. Har qanday murakkab moliyaviy masalalarda professional yordam ko'rsatishga tayyormiz.",
                 hero_btn: "Aloqa uchun", hero_game: "Schotlar oʻyini", modal_write: "Xabar qoldirish",
                 fx_title: "Valyuta kurslari", fx_nbu: "Milliy bank (NBU)", fx_buy: "Sotib olish", fx_sell: "Sotish", fx_error: "Kurslarni yuklab bo'lmadi. Birozdan so'ng qayta urinib ko'ramiz.",
+                fx_more: "Batafsil va kalkulyator", fx_calc: "Kalkulyator", fx_calc_title: "Valyuta kalkulyatori", fx_buy_hint: "Bank sizdan sotib oladi", fx_sell_hint: "Bank sizga sotadi", fx_spread: "Sotish va sotib olish farqi", fx_mode_sell: "Valyutani sotaman", fx_mode_buy: "Valyuta sotib olaman", fx_a_sell: "Sotadigan summangiz", fx_b_sell: "Qoʻlingizga tegadi", fx_a_buy: "Sotib olmoqchi boʻlgan summa", fx_b_buy: "Toʻlaysiz", fx_som: "soʻm", fx_enter: "Summani kiriting", fx_note: "Hisob-kitob Milliy bank (NBU) kursida. Bankdagi yakuniy summa komissiya va kurs oʻzgarishiga qarab biroz farq qilishi mumkin.", fx_name_USD: "AQSh dollari", fx_name_EUR: "Yevro", fx_name_RUB: "Rossiya rubli", fx_name_GBP: "Angliya funt sterlingi",
                 services_title: "Bizning Xizmatlar va Keyslar",
                 card1_title: "Investitsiya bo'yicha maslahat",
                 card1_p1: "Kapitalingizni qayerga va qanday joylashtirishni — depozit, oltin, ko'chmas mulk, qimmatli qog'ozlar — professional tahlil bilan tanlaymiz.",
@@ -1041,6 +1117,7 @@
                 hero_text: "We safeguard your investments and financial stability within a legal and secure framework. We are ready to provide professional assistance with any complex financial matters.",
                 hero_btn: "Contact me", hero_game: "Accounting game", modal_write: "Leave a message",
                 fx_title: "Exchange rates", fx_nbu: "National Bank (NBU)", fx_buy: "Buy", fx_sell: "Sell", fx_error: "Could not load exchange rates. We'll try again shortly.",
+                fx_more: "Details and calculator", fx_calc: "Calculator", fx_calc_title: "Currency calculator", fx_buy_hint: "The bank buys from you", fx_sell_hint: "The bank sells to you", fx_spread: "Spread between sell and buy", fx_mode_sell: "I sell currency", fx_mode_buy: "I buy currency", fx_a_sell: "Amount you sell", fx_b_sell: "You receive", fx_a_buy: "Amount you want to buy", fx_b_buy: "You pay", fx_som: "UZS", fx_enter: "Enter an amount", fx_note: "Calculated at the National Bank (NBU) rate. The final amount at the bank may differ slightly due to fees and rate changes.", fx_name_USD: "US dollar", fx_name_EUR: "Euro", fx_name_RUB: "Russian ruble", fx_name_GBP: "British pound",
                 services_title: "Our Services and Case Studies",
                 card1_title: "Investment Advice",
                 card1_p1: "Where and how to place your capital — deposits, gold, real estate, securities — chosen through professional analysis.",
@@ -1148,6 +1225,7 @@
                 hero_text: "Мы обеспечиваем сохранность ваших инвестиций и финансовую стабильность в законных и безопасных рамках. Готовы оказать профессиональную помощь в любых сложных финансовых вопросах.",
                 hero_btn: "Связаться со мной", hero_game: "Игра по счетам", modal_write: "Оставить сообщение",
                 fx_title: "Курсы валют", fx_nbu: "Нацбанк (NBU)", fx_buy: "Покупка", fx_sell: "Продажа", fx_error: "Не удалось загрузить курсы. Повторим попытку чуть позже.",
+                fx_more: "Подробнее и калькулятор", fx_calc: "Калькулятор", fx_calc_title: "Валютный калькулятор", fx_buy_hint: "Банк покупает у вас", fx_sell_hint: "Банк продаёт вам", fx_spread: "Разница между продажей и покупкой", fx_mode_sell: "Продаю валюту", fx_mode_buy: "Покупаю валюту", fx_a_sell: "Сумма продажи", fx_b_sell: "Вы получите", fx_a_buy: "Сумма покупки", fx_b_buy: "Вы заплатите", fx_som: "сум", fx_enter: "Введите сумму", fx_note: "Расчёт по курсу Нацбанка (NBU). Итоговая сумма в банке может немного отличаться из-за комиссий и изменения курса.", fx_name_USD: "Доллар США", fx_name_EUR: "Евро", fx_name_RUB: "Российский рубль", fx_name_GBP: "Британский фунт",
                 services_title: "Наши услуги и кейсы",
                 card1_title: "Инвестиционные консультации",
                 card1_p1: "Куда и как вложить капитал — депозиты, золото, недвижимость, ценные бумаги — выбираем на основе профессионального анализа.",
@@ -1255,6 +1333,7 @@
                 hero_text: "نحمي استثماراتك واستقرارك المالي ضمن إطار قانوني وآمن. نحن مستعدون لتقديم مساعدة احترافية في أي مسائل مالية معقدة.",
                 hero_btn: "تواصل معي", hero_game: "لعبة الحسابات", modal_write: "اترك رسالة",
                 fx_title: "أسعار الصرف", fx_nbu: "البنك الوطني (NBU)", fx_buy: "شراء", fx_sell: "بيع", fx_error: "تعذّر تحميل أسعار الصرف. سنحاول مرة أخرى قريبًا.",
+                fx_more: "التفاصيل والحاسبة", fx_calc: "الحاسبة", fx_calc_title: "حاسبة العملات", fx_buy_hint: "البنك يشتري منك", fx_sell_hint: "البنك يبيع لك", fx_spread: "الفرق بين البيع والشراء", fx_mode_sell: "أبيع العملة", fx_mode_buy: "أشتري العملة", fx_a_sell: "المبلغ الذي تبيعه", fx_b_sell: "ستحصل على", fx_a_buy: "المبلغ الذي تريد شراءه", fx_b_buy: "ستدفع", fx_som: "سوم", fx_enter: "أدخل المبلغ", fx_note: "الحساب وفق سعر البنك الوطني (NBU). قد يختلف المبلغ النهائي في البنك قليلًا بسبب العمولات وتغيّر السعر.", fx_name_USD: "الدولار الأمريكي", fx_name_EUR: "اليورو", fx_name_RUB: "الروبل الروسي", fx_name_GBP: "الجنيه الإسترليني",
                 services_title: "خدماتنا ودراسات الحالة",
                 card1_title: "استشارات الاستثمار",
                 card1_p1: "أين وكيف تضع رأس مالك — الودائع، الذهب، العقارات، الأوراق المالية — نختار بتحليل احترافي.",
@@ -1670,15 +1749,80 @@
             }
             grid.innerHTML = FX_CODES.map(c => {
                 const r = nbuRates[c];
-                return '<div class="fx-card' + (changed && changed.includes(c) ? ' flash' : '') + '">' +
-                    '<div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[c] + '</span><span class="fx-code">' + c + '</span></div>' +
+                return '<button type="button" class="fx-card' + (changed && changed.includes(c) ? ' flash' : '') + '" onclick="openFxModal(\'' + c + '\')" title="' + escapeHtml(CL('fx_more')) + '" aria-label="' + c + ' — ' + escapeHtml(CL('fx_more')) + '">' +
+                    '<div class="fx-top"><span class="fx-sym">' + FX_SYMBOLS[c] + '</span><span class="fx-code">' + c + '</span><i class="fas fa-calculator fx-go" aria-hidden="true"></i></div>' +
                     '<div class="fx-bs">' +
                         '<div><span>' + escapeHtml(CL('fx_buy')) + '</span><b>' + n(r.buy) + '</b></div>' +
                         '<div><span>' + escapeHtml(CL('fx_sell')) + '</span><b>' + n(r.sell) + '</b></div>' +
                     '</div>' +
-                '</div>';
+                '</button>';
             }).join('');
+            renderFxModal();
         }
+
+        /* ===== VALYUTA OYNASI VA KALKULYATOR =====
+           "Valyutani sotaman" — bank sizdan sotib oladi (NBU sotib olish kursi);
+           "Valyuta sotib olaman" — bank sizga sotadi (NBU sotish kursi).
+           Ikkala maydon bog'langan: valyutani yozsangiz so'm, so'mni yozsangiz valyuta hisoblanadi. */
+        const FX_QUICK = { USD: [100, 500, 1000, 5000], EUR: [100, 500, 1000, 5000], GBP: [100, 500, 1000, 5000], RUB: [1000, 10000, 50000, 100000] };
+        const fxCalc = { code: 'USD', mode: 'sell', amount: 100, lastEdited: 'A' };
+        function fxNum(v, frac) { return Number(v).toLocaleString(FX_LOCALES[currentLang] || 'ru-RU', { maximumFractionDigits: frac == null ? 2 : frac }); }
+        // Kiritish maydonlarida doim "1 000,5" formati: qayta tahrirlaganda vergul/nuqta adashmasin
+        function fxIn(v, frac) { return Number(v).toLocaleString('ru-RU', { maximumFractionDigits: frac }); }
+        function fxParse(s) { const v = parseFloat(String(s).replace(/[\s  ]/g, '').replace(',', '.')); return isFinite(v) && v >= 0 ? v : null; }
+        function fxRate() { const r = nbuRates && nbuRates[fxCalc.code]; return r ? (fxCalc.mode === 'sell' ? r.buy : r.sell) : null; }
+        function openFxModal(code) {
+            if (FX_CODES.includes(code) && code !== fxCalc.code) { fxCalc.code = code; fxCalc.amount = FX_QUICK[code][0]; }
+            fxCalc.lastEdited = 'A';
+            renderFxModal(true);
+            openModal('fxOverlay');
+            setTimeout(() => { const a = document.getElementById('fxmA'); if (a && window.matchMedia('(hover: hover)').matches) a.focus({ preventScroll: true }); }, 60);
+        }
+        function closeFxModal() { closeModal('fxOverlay'); }
+        function fxSetCode(code) { if (code !== fxCalc.code) fxCalc.amount = FX_QUICK[code][0]; fxCalc.code = code; fxCalc.lastEdited = 'A'; renderFxModal(true); }
+        function fxSetMode(mode) { fxCalc.mode = mode; renderFxModal(true); }
+        function fxQuick(v) { fxCalc.amount = v; fxCalc.lastEdited = 'A'; renderFxModal(true); }
+        /* full=true — maydonlarni qayta to'ldiradi; aks holda foydalanuvchi yozayotgan maydonga tegmaydi */
+        function renderFxModal(full) {
+            const overlay = document.getElementById('fxOverlay');
+            if (!overlay || (!full && !overlay.classList.contains('open'))) return;
+            const c = fxCalc.code, r = nbuRates && nbuRates[c], rate = fxRate();
+            const som = CL('fx_som');
+            document.getElementById('fxmSym').textContent = FX_SYMBOLS[c];
+            document.getElementById('fxmTitle').textContent = CL('fx_name_' + c) + ' (' + c + ')';
+            document.getElementById('fxmSrc').textContent = CL('fx_nbu') + (r && r.time ? ' · ' + r.time : '');
+            document.getElementById('fxmTabs').innerHTML = FX_CODES.map(x =>
+                '<button type="button" class="' + (x === c ? 'active' : '') + '" onclick="fxSetCode(\'' + x + '\')">' + FX_SYMBOLS[x] + ' ' + x + '</button>').join('');
+            document.getElementById('fxmBuy').textContent = r ? fxNum(r.buy) : '—';
+            document.getElementById('fxmSell').textContent = r ? fxNum(r.sell) : '—';
+            document.getElementById('fxmSpread').textContent = r ? CL('fx_spread') + ': ' + fxNum(r.sell - r.buy) + ' ' + som + ' (' + fxNum((r.sell - r.buy) / r.sell * 100, 2) + '%)' : '';
+            overlay.querySelectorAll('.fxm-mode button').forEach(b => b.classList.toggle('active', b.getAttribute('data-mode') === fxCalc.mode));
+            document.getElementById('fxmLabelA').textContent = CL(fxCalc.mode === 'sell' ? 'fx_a_sell' : 'fx_a_buy');
+            document.getElementById('fxmLabelB').textContent = CL(fxCalc.mode === 'sell' ? 'fx_b_sell' : 'fx_b_buy');
+            document.getElementById('fxmUnitA').textContent = c;
+            document.getElementById('fxmUnitB').textContent = som;
+            document.getElementById('fxmQuick').innerHTML = FX_QUICK[c].map(v => '<button type="button" onclick="fxQuick(' + v + ')">' + fxNum(v) + ' ' + c + '</button>').join('');
+            const A = document.getElementById('fxmA'), B = document.getElementById('fxmB');
+            // Hisob: valyuta (A) ↔ so'm (B). Oxirgi tahrirlangan maydon asos bo'ladi.
+            let cur = null, uzs = null;
+            if (rate) {
+                if (fxCalc.lastEdited === 'B') { uzs = fxCalc.somAmount; cur = uzs == null ? null : uzs / rate; fxCalc.amount = cur == null ? null : Math.round(cur * 100) / 100; }
+                else { cur = fxCalc.amount; uzs = cur == null ? null : cur * rate; }
+            }
+            if (full || fxCalc.lastEdited !== 'A') A.value = cur == null ? '' : fxIn(cur, 2);
+            if (full || fxCalc.lastEdited !== 'B') B.value = uzs == null ? '' : fxIn(Math.round(uzs), 0);
+            document.getElementById('fxmResult').innerHTML = rate && cur != null && uzs != null
+                ? fxNum(cur, 2) + ' ' + c + ' × ' + fxNum(rate) + ' = <b>' + fxNum(Math.round(uzs), 0) + ' ' + escapeHtml(som) + '</b>'
+                : escapeHtml(CL('fx_enter'));
+        }
+        (function () {
+            const A = document.getElementById('fxmA'), B = document.getElementById('fxmB');
+            if (!A || !B) return;
+            A.addEventListener('input', () => { fxCalc.amount = fxParse(A.value); fxCalc.lastEdited = 'A'; renderFxModal(); });
+            B.addEventListener('input', () => { fxCalc.somAmount = fxParse(B.value); fxCalc.lastEdited = 'B'; renderFxModal(); });
+            // Maydondan chiqqanda yozilgan son chiroyli formatlanadi (12 000)
+            [A, B].forEach(el => el.addEventListener('blur', () => renderFxModal(true)));
+        })();
         function applyFx(rates) {
             if (!fxValid(rates)) return;
             const changed = nbuRates ? FX_CODES.filter(c => rates[c].buy !== nbuRates[c].buy || rates[c].sell !== nbuRates[c].sell) : [];
@@ -2061,7 +2205,7 @@
         });
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeLangMenu(); closeMobileMenu();
+                closeMyInfo(); closeRealEstateModal(); closeKorzinkaModal(); closeHamkorlikModal(); closeFxModal(); closeLangMenu(); closeMobileMenu();
             }
         });
     </script>
