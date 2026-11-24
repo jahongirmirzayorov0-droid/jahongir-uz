@@ -338,7 +338,9 @@
         .contact-status.show { max-height: 120px; padding: 13px 16px; }
         .contact-status.ok { background: rgba(39,174,96,0.12); color: #1e8449; }
         .contact-status.err { background: rgba(231,76,60,0.1); color: #c0392b; }
-        .contact-hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+        /* Botlar uchun yashirin maydon. Ekrandan surib (left: -9999px) yashirilmaydi:
+           arab tilida (RTL) bu sahifani ~10 000px kengaytirib, telefonda yonga siljishga olib kelardi. */
+        .contact-hp { position: absolute !important; top: 0; left: 0; width: 1px !important; height: 1px !important; padding: 0 !important; margin: 0 !important; border: 0 !important; opacity: 0; overflow: hidden; clip-path: inset(50%); pointer-events: none; }
         html[dir="rtl"] .contact-grid, html[dir="rtl"] .contact-info, html[dir="rtl"] .contact-form-wrap { text-align: right; }
         @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 
