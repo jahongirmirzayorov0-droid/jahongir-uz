@@ -1,37 +1,69 @@
 {
-  "updated": "27.11.2026 12:10",
+  "updated": "27.11.2026 23:43",
   "items": [
     {
-      "cat": "iqtisod",
+      "cat": "soliq",
       "date": "27.11.2026",
-      "title": "Moliyaviy savodxonlik yoshlikdan boshlanadi: Ipoteka bank OTP Group 34 ta ma’rifiy tadbir o‘tkazdi",
-      "excerpt": "2026-yil oktabr va noyabr oylarida Ipoteka bank OTP Group O‘zbekiston Respublikasi Markaziy banki tashabbusi bilan World Savings Day 2026 doirasida moliyaviy savodxonlik…",
-      "url": "https://daryo.uz/2026/11/27/moliyaviy-savodxonlik-yoshlikdan-boshlanadi-ipoteka-bank-otp-group-34-ta-marifiy-tadbir-otkazdi/",
+      "title": "Toshkentda yer maydonini rasmiylashtirib berish evaziga 1 mln dollar talab qilgan soliq xodimi ushlandi",
+      "excerpt": "U 3,5 gektar yer maydonini xaridor nomiga o‘tkazish hamda 34 ta davlat idorasidan qurilish uchun ruxsatnoma olib berishni va’da qilganlikda gumonlanmoqda. U 40 ming…",
+      "url": "https://daryo.uz/2026/11/27/toshkentda-yer-maydonini-rasmiylashtirib-berish-evaziga-1-mln-dollar-talab-qilgan-soliq-xodimi-ushlandi/",
       "source": "Daryo.uz"
     },
     {
       "cat": "iqtisod",
       "date": "27.11.2026",
-      "title": "O‘zbekistonda 2030-yilgacha 545 km yangi temir yo‘l quriladi, yuk vagonlari importi esa QQSdan ozod etiladi",
-      "excerpt": "O‘zbekistonda 2030-yilgacha 545 km yangi temir yo‘l qurilib, 8 mlrd dollarlik loyihalar amalga oshiriladi. Yuk vagonlari importi esa QQSdan ozod etiladi. Bundan…",
-      "url": "https://www.gazeta.uz/oz/2026/11/27/railway/",
-      "source": "Gazeta.uz"
+      "title": "Yangi transport strategiyasi: sifatli yöllar, yirik investitsiyalar va xalqaro integratsiya",
+      "excerpt": "Prezident Şavkat Mirziyoyev 27-noyabr kuni Avtomobil yöllari qömitasining ilmiy-amaliyot markaziga taşrif buyurib, muassasa faoliyati va unda yaratilgan şaroitlar bilan…",
+      "url": "https://uza.uz/oz/posts/yangi-transport-strategiyasi-sifatli-yollar-yirik-investitsiyalar-va-xalqaro-integratsiya_946041",
+      "source": "UzA"
     },
     {
       "cat": "iqtisod",
       "date": "27.11.2026",
-      "title": "Farg‘onada 2027-yilda $6,1 mlrd investitsiya jalb qilish rejalashtirilmoqda",
-      "excerpt": "Shuningdek, kelgusi yilda eksportni $2 mlrdga yetkazish va 1,1 mln nafar aholining daromadini ikki barobar oshirish maqsad qilingan.",
-      "url": "https://www.spot.uz/oz/2026/11/27/ferghana/",
+      "title": "Dam olish kunlari qaysi banklar ishlaydi? Ro‘yxat",
+      "excerpt": "Jami 24 ta bank valyuta ayirboshlash va pul o‘tkazmalari shoxobchalarini ishga tushiradi.",
+      "url": "https://www.spot.uz/oz/2026/11/27/banks-weekend/",
       "source": "Spot.uz"
     },
     {
       "cat": "iqtisod",
       "date": "27.11.2026",
-      "title": "“Arzon qurilib, ertaga yana byudjetdan pul talab qiladigan emas, uzoq yil xizmat qiladigan sifatli yo‘l kerak” — Shavkat Mirziyoyev",
-      "excerpt": "Oʻzbekistonda yo‘l qurilishida yangi talab joriy etiladi. Bu talab 2027-yildan xalqaro ahamiyatdagi yo‘llarni qurish va rekonstruksiya qilishda majburiy bo‘ladi…",
-      "url": "https://daryo.uz/2026/11/27/arzon-qurilib-ertaga-yana-byudjetdan-pul-talab-qiladigan-emas-uzoq-yil-xizmat-qiladigan-sifatli-yol-kerak-shavkat-mirziyoyev/",
+      "title": "“Bunday biznes markazlar — ko‘zbo‘yamachilik”: Saida Mirziyoyeva Sirdaryodagi muammolar haqida",
+      "excerpt": "Prezident Administratsiyasi rahbari viloyatga tashrifi davomida yig‘ilib qolgan masalalar ko‘pligini qayd etib, soha mas’ullarini jiddiy ogohlantirdi.",
+      "url": "https://www.spot.uz/oz/2026/11/27/syrdarya-problems/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "27.11.2026",
+      "title": "YIMning o‘sish sur’atlari bo‘yicha 2026-yilgi davlatlar reytingi e’lon qilindi",
+      "excerpt": "Xalqaro valyuta jamg‘armasi 191 ta mamlakat bo‘yicha yangi iqtisodiy prognozlarni taqdim etdi. Unga ko‘ra, O‘zbekiston o‘rtacha o‘sish sur’atidan ikki baravardan…",
+      "url": "https://daryo.uz/2026/11/27/yimning-osish-suratlari-boyicha-2026-yilgi-davlatlar-reytingi-elon-qilindi/",
       "source": "Daryo.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "27.11.2026",
+      "title": "O‘zbekistonda aviayoqilg‘i narxlari jahon narxlariga bog‘lanadi. Aviakompaniyalarga yangi imtiyozlar beriladi",
+      "excerpt": "2027-yildan O‘zbekistonda aviayoqilg‘i narxlari o‘rtacha jahon narxlariga bog‘langan holda shakllanadi. Yoqilg‘i aksiz solig‘i va QQSdan ozod bo‘ladi. Kompaniyalarga…",
+      "url": "https://www.gazeta.uz/oz/2026/11/27/aviation-fuel-uzbekistan/",
+      "source": "Gazeta.uz"
+    },
+    {
+      "cat": "buxgalteriya",
+      "date": "27.11.2026",
+      "title": "Xodimlarga ishdan bo‘shatish haqidagi buyruqni SMS orqali yuborishga ruxsat berilishi mumkin",
+      "excerpt": "Shuningdek, hujjatlarni elektron pochta, “Yagona milliy mehnat tizimi\"dagi shaxsiy kabinet yoki kelishilgan boshqa internet dasturlari orqali yuborish taklif etilmoqda.",
+      "url": "https://www.spot.uz/oz/2026/11/27/work-progress/",
+      "source": "Spot.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "27.11.2026",
+      "title": "O‘zbekistonda aviayonilg‘i aksiz solig‘idan ozod etiladi, ehtiyot qismlarga boj imtiyozi 2040-yilgacha uzaytiriladi",
+      "excerpt": "2027-yildan aviayonilg‘i aksiz solig‘idan ozod etilib, narxi jahondagi o‘rtacha qiymatga bog‘lanadi. Shuningdek, ehtiyot qismlar importi bo‘yicha QQS bir kunda…",
+      "url": "https://www.gazeta.uz/oz/2026/11/27/avia/",
+      "source": "Gazeta.uz"
     }
   ]
 }
