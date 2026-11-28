@@ -1,6 +1,22 @@
 {
-  "updated": "27.11.2026 23:43",
+  "updated": "28.11.2026 08:07",
   "items": [
+    {
+      "cat": "iqtisod",
+      "date": "28.11.2026",
+      "title": "Yangi Toşkent mamlakat iqtisodiyotining yana bir ösiş nuqtasiga aylanadi",
+      "excerpt": "Yangi Toşkent mamlakatimizning istiqboliga qaratilgan ulkan maqsadlar, ezgu niyatlar va bunyodkorlik loyihalardan biridir. Bugun bu yerda amalga oşirilayotgan…",
+      "url": "https://uza.uz/oz/posts/yangi-toshkent-mamlakat-iqtisodiyotining-yana-bir-osish-nuqtasiga-aylanadi_946076",
+      "source": "UzA"
+    },
+    {
+      "cat": "iqtisod",
+      "date": "28.11.2026",
+      "title": "Ozuqa tanqisligi va go‘sht narxlari. O‘zbekiston go‘sht yetishtirishni 400 ming tonnaga qanday oshirmoqchi?",
+      "excerpt": "O‘zbekistonda 2030-yilgacha ozuqa yetishtirishni qariyb 2 baravar oshirish, 200 ming gektar yerni aylanmaga qaytarish va chorva mahsuldorligini ko‘tarish…",
+      "url": "https://www.gazeta.uz/oz/2026/11/28/meat-uzbekistan/",
+      "source": "Gazeta.uz"
+    },
     {
       "cat": "soliq",
       "date": "27.11.2026",
@@ -26,22 +42,6 @@
       "source": "Spot.uz"
     },
     {
-      "cat": "iqtisod",
-      "date": "27.11.2026",
-      "title": "“Bunday biznes markazlar — ko‘zbo‘yamachilik”: Saida Mirziyoyeva Sirdaryodagi muammolar haqida",
-      "excerpt": "Prezident Administratsiyasi rahbari viloyatga tashrifi davomida yig‘ilib qolgan masalalar ko‘pligini qayd etib, soha mas’ullarini jiddiy ogohlantirdi.",
-      "url": "https://www.spot.uz/oz/2026/11/27/syrdarya-problems/",
-      "source": "Spot.uz"
-    },
-    {
-      "cat": "iqtisod",
-      "date": "27.11.2026",
-      "title": "YIMning o‘sish sur’atlari bo‘yicha 2026-yilgi davlatlar reytingi e’lon qilindi",
-      "excerpt": "Xalqaro valyuta jamg‘armasi 191 ta mamlakat bo‘yicha yangi iqtisodiy prognozlarni taqdim etdi. Unga ko‘ra, O‘zbekiston o‘rtacha o‘sish sur’atidan ikki baravardan…",
-      "url": "https://daryo.uz/2026/11/27/yimning-osish-suratlari-boyicha-2026-yilgi-davlatlar-reytingi-elon-qilindi/",
-      "source": "Daryo.uz"
-    },
-    {
       "cat": "soliq",
       "date": "27.11.2026",
       "title": "O‘zbekistonda aviayoqilg‘i narxlari jahon narxlariga bog‘lanadi. Aviakompaniyalarga yangi imtiyozlar beriladi",
@@ -64,6 +64,14 @@
       "excerpt": "2027-yildan aviayonilg‘i aksiz solig‘idan ozod etilib, narxi jahondagi o‘rtacha qiymatga bog‘lanadi. Shuningdek, ehtiyot qismlar importi bo‘yicha QQS bir kunda…",
       "url": "https://www.gazeta.uz/oz/2026/11/27/avia/",
       "source": "Gazeta.uz"
+    },
+    {
+      "cat": "soliq",
+      "date": "27.11.2026",
+      "title": "Yuk vagonlarini import qilish QQS dan ozod etiladi",
+      "excerpt": "Vagonlar parkini har yili 5−6 mingtaga ko‘paytirish uchun temir yo‘ldan foydalanish to‘loviga 20% gacha chegirma beriladi.",
+      "url": "https://www.spot.uz/oz/2026/11/27/no-vat/",
+      "source": "Spot.uz"
     }
   ]
 }
